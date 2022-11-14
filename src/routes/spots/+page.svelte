@@ -66,22 +66,6 @@
 </div>
 
 <style>
-	.button {
-		background-color: var(--accent);
-		border: none;
-		padding: 15px 32px;
-		text-align: center;
-		text-decoration: none;
-		display: inline-block;
-		font-size: 16px;
-		margin: 10px 0;
-		cursor: pointer;
-	}
-	.button a {
-		color: white;
-		font-weight: bold;
-	}
-
 	.wrapper {
 		display: -webkit-box;
 		display: -moz-box;

@@ -10,7 +10,7 @@ export const titlePostfix = '- Parkour / Freerunning Nederland'
 export const siteDescription = 'Overzicht voor freerunners in Nederland'
 export const siteURL = 'freerunning-informatie.nl'
 export const siteLink = 'https://github.com/m-a-x-s-e-e-l-i-g/freerunning-informatie'
-export const siteAuthor = 'Max Seelig - MAXmade'
+export const siteAuthor = 'Max Seelig - <a href="https://maxmade.nl/" target="_blank">MAXmade</a>'
 
 // Controls how many posts are shown per page on the main blog index pages
 export const postsPerPage = 10

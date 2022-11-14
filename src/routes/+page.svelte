@@ -1,8 +1,5 @@
 <script>
 	import { siteTitle, titlePostfix } from '$lib/config';
-	import { navItems } from '$lib/config'
-	import OverviewPageItem from '$lib/components/OverviewPageItem.svelte';
-
 	// export let data;
 </script>
 
@@ -29,10 +26,3 @@
 
 <h1>Freerunning Informatie</h1>
 <p>Freerunning Informatie is gemaakt om overzicht te geven aan freerunners.</p>
-<ul id="pagesOverView">
-	{#each navItems as page}
-	<OverviewPageItem href={page.route}>
-		{page.title}
-	</OverviewPageItem>
-	{/each}
-</ul>
