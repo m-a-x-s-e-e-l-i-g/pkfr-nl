@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/fb4e1e87-4f86-4343-a795-a9fb172b5044/deploy-status)](https://app.netlify.com/sites/freerunning-informatie/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a3745ae0-b429-4e3a-b730-924209f48b84/deploy-status)](https://app.netlify.com/sites/freerunning-informatie/deploys)
 
 ## Quick Start
 Clone or download [this repo](https://github.com/m-a-x-s-e-e-l-i-g/freerunning-informatie), then install the dependencies and run the dev server:
