@@ -17,3 +17,7 @@
 	target="_blank"
 	class="button">Toevoegen aan agenda</a
 >
+
+<p>
+	Mist er een open gym? Of moet er iets gewijzigd worden in deze agenda? Stuur Max ergens een berichtje.
+</p>

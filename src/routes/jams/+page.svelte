@@ -17,3 +17,7 @@
 	target="_blank"
 	class="button">Toevoegen aan agenda</a
 >
+
+<p>
+	Organiseer je een jam? Of mist er een jam in de agenda? Stuur Max ergens een berichtje.
+</p>

@@ -29,5 +29,8 @@ export const navItems = [
 	}, {
 		title: 'Community',
 		route: '/community'
+	}, {
+		title: 'Blog',
+		route: '/blog'
 	}
 ]
