@@ -4,6 +4,7 @@
 	import whatsapp from 'svelte-awesome/icons/whatsapp';
 	import comment from 'svelte-awesome/icons/comment';
 	import instagram from 'svelte-awesome/icons/instagram';
+	import Instagram from "svelte-instagram";
 
 </script>
 
@@ -31,5 +32,14 @@
 	<li><span><Icon data={whatsapp}/></span><a href="https://chat.whatsapp.com/IN54zbsYPwQKAyXedO9xJB" rel="noreferrer" target="_blank">Groepschat om te kletsen</a></li>
 	<li><span><Icon data={comment}/></span><a href="https://discord.com/invite/FeECDvG" rel="noreferrer" target="_blank">Discord om te chillen</a></li>
 	<li><span><Icon data={instagram}/></span><a href="https://www.instagram.com/parkour_culture_NL/" rel="noreferrer" target="_blank">Parkour Culture Instagram</a></li>
-
 </ul>
+
+<Instagram
+		horizontalScroll={true}
+		q={10}
+		showTitle={true}
+		size={200}
+		spacing={2}
+		title="Instagram Community Posts door @parkour_culture_NL"
+		username="parkour_culture_nl"
+	/>

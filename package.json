@@ -27,6 +27,7 @@
   "dependencies": {
     "just-throttle": "^4.0.1",
     "svelte-awesome": "^3.0.0",
+    "svelte-instagram": "^1.0.17",
     "svelte-preprocess": "^4.9.8"
   }
 }
