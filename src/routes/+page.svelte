@@ -25,4 +25,6 @@
 <!-- <svelte:component this={data.ReadMe} /> -->
 
 <h1>Freerunning Informatie</h1>
-<p>Freerunning Informatie is gemaakt om overzicht te geven aan freerunners.</p>
+<p>
+	Freerunning Informatie is een open source project, met als doel alle handige informatie en linkjes in één overzicht te hebben. Zo is het makkelijker om onderdeel te zijn van de Nederlandse Freerun community, en het te blijven!
+</p>
