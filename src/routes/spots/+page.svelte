@@ -57,7 +57,7 @@
 	</article>
 	<footer>
 		<a
-			href="https://www.google.com/maps/d/u/0/viewer?hl=en&ll=52.104212258523816%2C5.623986124992371&z=8&mid=1F8PHbPAtHhj4RaCQzbsw6Ko6FE0"
+			href="https://www.google.com/maps/d/u/0/viewer?mid=1F8PHbPAtHhj4RaCQzbsw6Ko6FE0&hl=en&ll=52.13281486226002%2C5.623986124992371&z=7"
 			rel="noreferrer"
 			target="_blank"
 			class="button">Kaart openen</a
