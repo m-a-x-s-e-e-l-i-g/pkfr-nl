@@ -125,6 +125,12 @@
 		text-align: right;
 	}
 
+	@media all and (max-width: 800px) {
+		.aside-right {
+			text-align: center;
+		}
+	}
+
 	@media all and (min-width: 600px) {
 		.aside {
 			flex: 1 auto;
@@ -145,7 +151,6 @@
 
 		.aside-right {
 			order: 3;
-			text-align: center;
 		}
 		.aside-right img {
 			width: 100%;
