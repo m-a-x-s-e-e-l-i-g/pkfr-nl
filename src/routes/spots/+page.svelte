@@ -10,7 +10,7 @@
 	<header><h2>CityLegends</h2></header>
 	<article class="main">
 		<p>
-			CityLegends is de fijnste app om spots te vinden, ook kun bij de spots clips bekijken of
+			CityLegends is de fijnste app om spots te vinden, ook kun je bij de spots clips bekijken of
 			plaatsen. <a href="https://www.citylegends.io/about-the-app">Lees hier meer over de app.</a>
 		</p>
 	</article>
