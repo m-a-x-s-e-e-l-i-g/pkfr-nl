@@ -1,7 +1,7 @@
 ---
 title: "Er is geen blog"
 date: "2022-11-13"
-updated: "2022-11-13"
+updated: "2022-11-15"
 categories: 
   - "mededelingen"
 coverImage: "/images/blog/er-is-geen-blog.webp"
