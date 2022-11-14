@@ -11,16 +11,19 @@
 	<article class="main">
 		<p>
 			CityLegends is de fijnste app om spots te vinden, ook kun je bij de spots clips bekijken of
-			plaatsen. <a href="https://www.citylegends.io/about-the-app">Lees hier meer over de app.</a>
+			plaatsen. Je kunt met je clips battlen tegen anderen, soms ook prijzen verdienen! <br/>
+			<a href="https://www.citylegends.io/about-the-app">Lees hier meer over de app.</a>
 		</p>
 	</article>
 	<aside class="aside aside-right">
-		<img
-			src="./images/citylegends-map.webp"
-			alt="CityLegends app map"
-			class="cityLegendsImage"
-			style="width:200px"
-		/>
+		<picture>
+			<source srcset="./images/citylegends-app-animated.png" type="image/apng" />
+			<img
+				src="./images/citylegends-app-animated.gif"
+				alt="CityLegends app animated"
+				style="width:250px"
+			/>
+		</picture>
 	</aside>
 	<footer>
 		<a href="https://citylegends.io/download-app" class="button">Download App</a>
@@ -29,8 +32,18 @@
 <div class="wrapper">
 	<header><h2>URBN Jumpers</h2></header>
 	<article class="main">
-		<p>Deze app is erg buggy, maar beschikt over meer spots dan CityLegends.</p>
+		<p>Deze app is erg buggy, maar beschikt over meer spots dan CityLegends. Het toffe aan deze app is dat je jams kan aanmaken en actieve mensen in de buurt kan vinden.</p>
 	</article>
+	<aside class="aside aside-right">
+		<picture>
+			<source srcset="./images/urbn-jumpers-app-animated.png" type="image/apng" />
+			<img
+				src="./images/urbn-jumpers-app-animated.gif"
+				alt="URBN Jumpers app animated"
+				style="width:250px"
+			/>
+		</picture>
+	</aside>
 	<footer>
 		<a href="https://apps.apple.com/ca/app/urbn-jumpers/id1230325474" class="button"
 			>Download voor iOS</a
@@ -42,7 +55,7 @@
 	</footer>
 </div>
 <div class="wrapper">
-	<header><h2>Oude kaart</h2></header>
+	<header><h2>Max zijn Oude kaart</h2></header>
 	<article class="main">
 		<p>
 			Deze kaart word sinds 2018 niet meer onderhouden, er staan dus spots op die niet meer bestaan.
@@ -61,6 +74,22 @@
 			rel="noreferrer"
 			target="_blank"
 			class="button">Kaart openen</a
+		>
+	</footer>
+</div>
+<div class="wrapper">
+	<header><h2>Andere kaarten</h2></header>
+	<article class="main">
+		<p>
+			Ga je een reizen? En zie je weinig spots op de bovenstaande twee apps? Dan kan de volgende search query je helpen. Zet er bijvoorbeeld een land of stad achter, en je krijgt uitgebreide kaarten zoals de bovenstaande.
+		</p>
+	</article>
+	<footer>
+		<a
+			href="https://www.google.com/search?q=site:https://www.google.com/maps/d/viewer%20parkour%20spots"
+			rel="noreferrer"
+			target="_blank"
+			class="button">Zoek kaarten op Google</a
 		>
 	</footer>
 </div>
