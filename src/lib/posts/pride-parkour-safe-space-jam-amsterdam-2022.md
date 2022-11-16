@@ -36,13 +36,14 @@ David heeft gemerkt dat de jam positief effect heeft gehad op de community. Somm
 
 Aan de hand van de jam is er met een groepje een losse Whatsapp groep aangemaakt. Een aantal mensen hebben zich daar voor het eerst openlijk durven uit te spreken over hun voorkeuren, terwijl ze dat op een normale jam toch erg onprettig zouden ervaren. 
 
-> "Het zien van zoveel mensen op de pride jam die allemaal helemaal anders zijn, terwijl je zelf vaak een eenzaam gevoel krijgt, geeft een prachtig gevoel. Al helemaal bij een parkour jam. Met dit soort dingen hoop ik dat mensen datzelfde gevoel krijgen wat ik heb ervaren.". -David Hofman
+> "Het zien van zoveel mensen op de pride jam die allemaal helemaal anders zijn, terwijl je zelf vaak een eenzaam gevoel krijgt, geeft een prachtig gevoel. Al helemaal bij een parkour jam. Met dit soort dingen hoop ik dat mensen datzelfde gevoel krijgen wat ik heb ervaren.".
+> -David Hofman
 
 ## Een nieuwe jam!
 
 Samuël Mellema was een van de organisatoren. Hij heeft zich samen met David opgesteld als aanspreekpunt voor dit onderwerp. Ze hebben gemerkt dat er behoefte is voor een meer safe space. Los van Parkour Culture is daardoor een subcommunity ontstaan, waar dus ook jams en trainingen voor georganiseerd gaan worden.
 
-De eerstvolgende jam die daaruit is ontstaan is "Parqueer Jam", welke in Utrecht plaats zal vinden op 25 november 2022. Check de [Jam agenda](https://www.freerunning-informatie.nl/jams) voor details. 
+De eerstvolgende jam die daaruit is ontstaan, **Parqueer Jam**, gaat plaatsvinden in Utrecht op 25 november 2022. Check de [Jam agenda](https://www.freerunning-informatie.nl/jams) voor details. 
  
 
 ## Impressie van Safe Space Jam
