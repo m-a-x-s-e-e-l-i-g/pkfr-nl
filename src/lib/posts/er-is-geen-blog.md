@@ -3,7 +3,7 @@ title: "Er is geen blog"
 date: "2022-11-13"
 updated: "2022-11-15"
 categories: 
-  - "mededelingen"
+  - "mededeling"
 coverImage: "/images/blog/er-is-geen-blog.webp"
 coverWidth: 16
 coverHeight: 9
