@@ -1,5 +1,6 @@
 ---
 title: "Safe Space / Pride Parkour Jam Amsterdam 2022"
+author: "Max Seelig"
 date: "2022-11-16"
 updated: "2022-11-16"
 categories: 

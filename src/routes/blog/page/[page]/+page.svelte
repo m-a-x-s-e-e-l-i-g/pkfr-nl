@@ -2,7 +2,7 @@
 <script>
 	import PostsList from '$lib/components/PostsList.svelte'
 	import Pagination from '$lib/components/Pagination.svelte'
-  import { postsPerPage, siteDescription } from '$lib/config'
+  	import { postsPerPage, siteDescription, titlePostfix } from '$lib/config'
 
 	export let data
 	const { page, totalPosts, posts } = data
@@ -13,7 +13,7 @@
 
 
 <svelte:head>
-	<title>Blog - page {page}</title>
+	<title>Blog - page {page} {titlePostfix}</title>
 	<meta data-key="description" name="description" content={siteDescription} />
 </svelte:head>
 
@@ -27,9 +27,9 @@
 
 	<Pagination currentPage={page} {totalPosts} />
 {:else}
-	<h1>Oops!</h1>
+	<h1>Oeps!</h1>
 
-	<p>Sorry, no posts to show here.</p>
+	<p>Sorry, geen blogs.</p>
 
-	<a href="/blog">Back to blog</a>
+	<a href="/blog">Terug naar blog</a>
 {/if}

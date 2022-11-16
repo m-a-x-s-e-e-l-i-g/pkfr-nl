@@ -4,7 +4,7 @@ export let data
 
 import { titlePostfix } from "$lib/config";
 
-const { title, excerpt, date, updated, coverImage, coverWidth, coverHeight, categories } = data.meta
+const { title, excerpt, date, updated, author, coverImage, coverWidth, coverHeight, categories } = data.meta
 </script>
 
 
@@ -41,6 +41,8 @@ const { title, excerpt, date, updated, coverImage, coverWidth, coverHeight, cate
 		<b>Geplaatst:</b> {date}
 		<br>
 		<b>Bijgewerkt:</b> {updated}
+		<br>
+		<b>Auteur:</b> {author}
 	</div>
 
 	{@html data.PostContent}
