@@ -2,13 +2,15 @@
 <script>
 export let data
 
+import { titlePostfix } from "$lib/config";
+
 const { title, excerpt, date, updated, coverImage, coverWidth, coverHeight, categories } = data.meta
 </script>
 
 
 <svelte:head>
 	<!-- Be sure to add your image files and un-comment the lines below -->
-	<title>{title}</title>
+	<title>{title} {titlePostfix}</title>
 	<meta data-key="description" name="description" content="{excerpt}">
 	<meta property="og:type" content="article" />
 	<meta property="og:title" content={title} />
@@ -36,16 +38,16 @@ const { title, excerpt, date, updated, coverImage, coverWidth, coverHeight, cate
 	<h1>{ title }</h1>
 	
 	<div class="meta">
-		<b>Published:</b> {date}
+		<b>Geplaatst:</b> {date}
 		<br>
-		<b>Updated:</b> {updated}
+		<b>Bijgewerkt:</b> {updated}
 	</div>
 
 	{@html data.PostContent}
 
 	{#if categories}
 		<aside class="post-footer">
-			<h2>Posted in: </h2>
+			<h2>Geplaatst in: </h2>
 			<ul>
 				{#each categories as category}
 					<li>

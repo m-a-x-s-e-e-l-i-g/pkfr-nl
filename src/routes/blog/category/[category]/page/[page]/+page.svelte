@@ -2,7 +2,7 @@
 <script>
 	import PostsList from '$lib/components/PostsList.svelte'
 	import Pagination from '$lib/components/Pagination.svelte'
-	import { siteDescription, postsPerPage } from '$lib/config'
+	import { siteDescription, postsPerPage, titlePostfix } from '$lib/config'
 
 	export let data
 	const { page, category, totalPosts, posts } = data 
@@ -13,7 +13,7 @@
 
 
 <svelte:head>
-	<title>Blog category {category} - page {page}</title>
+	<title>Blog categorie {category} - pagina {page} {titlePostfix}</title>
 	<meta data-key="description" name={siteDescription}>
 </svelte:head>
 
