@@ -19,9 +19,21 @@
 						{post.title}
 					</h2>
 				</a>
+				<div class="meta">
+					Door <b>{post.author}</b> op <b>{post.date}</b>
+				</div>
 			</article>
 
 			<p>{post.excerpt}</p>
+			<a href="/blog/{post.slug}" class="button">
+					Lees blog
+			</a>
 		</li>
 	{/each}
 </ul>
+
+<style>
+	.meta{
+		font-size: small;
+	}
+</style>

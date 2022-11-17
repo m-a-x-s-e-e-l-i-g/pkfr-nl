@@ -7,6 +7,7 @@
 @use './utilities';
 @use './code';
 @use './prism';
+@use './scrollbar';
 
 main:focus {
 	outline: none;
@@ -20,20 +21,4 @@ body {
 	background: var(--paper);
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
-}
-
-.button {
-	background-color: var(--accent);
-	border: none;
-	padding: 15px 32px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-	margin: 10px 0;
-	cursor: pointer;
-}
-
-a.button {
-	color: white;
 }

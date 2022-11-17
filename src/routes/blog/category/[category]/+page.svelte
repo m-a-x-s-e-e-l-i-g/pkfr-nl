@@ -2,13 +2,14 @@
 <script>
 	import PostsList from '$lib/components/PostsList.svelte'
 	import Pagination from '$lib/components/Pagination.svelte'
+	import { titlePostfix } from '$lib/config';
 
 	export let data
 </script>
 
 
 <svelte:head>
-	<title>Category: {data.category}</title>
+	<title>Categorie: {data.category} {titlePostfix}</title>
 </svelte:head>
 
 
