@@ -9,7 +9,6 @@ const { title, excerpt, date, updated, author, coverImage, coverWidth, coverHeig
 
 
 <svelte:head>
-	<!-- Be sure to add your image files and un-comment the lines below -->
 	<title>{title} {titlePostfix}</title>
 	<meta data-key="description" name="description" content="{excerpt}">
 	<meta property="og:type" content="article" />
@@ -17,10 +16,10 @@ const { title, excerpt, date, updated, author, coverImage, coverWidth, coverHeig
 	<meta name="twitter:title" content={title} />
 	<meta property="og:description" content={excerpt} />
 	<meta name="twitter:description" content={excerpt} />
-	<!-- <meta property="og:image" content="https://yourdomain.com/image_path" /> -->
+	<meta property="og:image" content="{coverImage}" />
 	<meta property="og:image:width" content={coverWidth} />
 	<meta property="og:image:height" content={coverHeight} />
-	<!-- <meta name="twitter:image" content="https://yourdomain.com/image_path" /> -->
+	<meta name="twitter:image" content="{coverImage}" />
 </svelte:head>
 
 

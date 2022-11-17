@@ -9,7 +9,7 @@ categories:
   - "video"
   - "pride"
   - "foto"
-coverImage: "/images/blog/er-is-geen-blog.webp"
+coverImage: "/images/blog/safe-space-jam-parkour-pride-2022-amsterdam.webp"
 coverWidth: 16
 coverHeight: 9
 excerpt: "Een samenwerking tussen Parkour Culture, Pride and Sports en VROG heeft geresulteerd tot een geslaagde en gezellige jam: de Safe Space Jam. Deze bijeenkoming van atleten heeft plaatsgevonden op 30 juli 2022 in het Vondelpark te Amsterdam. Het doel van deze jam was om een veilige ruimte te creëren voor LGBTQIA+ atleten en hun supporters. Een veilige ruimte, waar deelnemers hun optimale zelf kunnen zijn, ongeacht hun seksuele oriëntatie, genderidentiteit, genderexpressie of geslachtskenmerken."
