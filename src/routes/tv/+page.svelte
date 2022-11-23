@@ -17,3 +17,6 @@
 	allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 	allowfullscreen
 />
+<p>
+	Ontbreekt jouw video? Stuur Max een berichtje!
+</p>
