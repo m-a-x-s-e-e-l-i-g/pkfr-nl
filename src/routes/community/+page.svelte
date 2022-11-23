@@ -21,11 +21,11 @@
 </style>
 
 <svelte:head>
-	<title>Community {titlePostfix}</title>
+	<title>Community Links {titlePostfix}</title>
 </svelte:head>
 
 
-<h1>Community</h1>
+<h1>Community Links</h1>
 <ul>
 	<!-- whatsapp icon -->
 	<li><span><Icon data={whatsapp}/></span><a href="https://chat.whatsapp.com/EHWnnlZSOhAHskePl4eCIq" rel="noreferrer" target="_blank">Groepschat voor traingingen</a></li>
