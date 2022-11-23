@@ -25,6 +25,6 @@
 	allowfullscreen
 />
 <p>
-	Ontbreekt jouw video? Stuur Max een berichtje!
+	Ontbreekt jouw nieuwe video? Stuur een berichtje!
 </p>
 <InputCollector pagePath={$page.url.pathname} placeholder="YouTube URL"/>
