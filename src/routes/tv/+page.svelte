@@ -1,5 +1,12 @@
 <script>
 	import { titlePostfix } from '$lib/config';
+	import InputCollector from '$lib/components/InputCollector.svelte';
+	import { page } from '$app/stores';
+
+	let autoplayParam = '';
+	if(import.meta.env.VITE_TELEGRAM_BOT_API_KEY === true){
+		autoplayParam = '&autoplay=1';
+	}
 </script>
 
 <svelte:head>
@@ -11,7 +18,7 @@
 <iframe
 	width="560"
 	height="315"
-	src="https://www.youtube.com/embed/videoseries?list=PL3iwaCsp8s8P0lVvw3DkmMFmGxqBGSXnS&autoplay=1"
+	src="https://www.youtube.com/embed/videoseries?list=PL3iwaCsp8s8P0lVvw3DkmMFmGxqBGSXnS{autoplayParam}"
 	title="YouTube video player"
 	frameborder="0"
 	allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -20,3 +27,4 @@
 <p>
 	Ontbreekt jouw video? Stuur Max een berichtje!
 </p>
+<InputCollector pagePath={$page.url.pathname} placeholder="YouTube URL"/>
