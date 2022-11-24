@@ -4,7 +4,7 @@
 	import { page } from '$app/stores';
 
 	let autoplayParam = '';
-	if(import.meta.env.VITE_YOUTUBE_AUTOPLAY === true){
+	if(import.meta.env.VITE_YOUTUBE_AUTOPLAY == true){
 		autoplayParam = '&autoplay=1';
 	}
 </script>
