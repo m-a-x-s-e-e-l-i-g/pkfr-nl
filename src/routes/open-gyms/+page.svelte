@@ -1,5 +1,7 @@
 <script>
 	import { titlePostfix } from '$lib/config';
+	import InputCollector from '$lib/components/InputCollector.svelte';
+	import { page } from '$app/stores';
 </script>
 
 
@@ -19,5 +21,6 @@
 >
 
 <p>
-	Mist er een open gym? Of moet er iets gewijzigd worden in deze agenda? Stuur Max ergens een berichtje.
+	Mist er een open gym? Of moet er iets gewijzigd worden in deze agenda? Stuur dan een berichtje!
 </p>
+<InputCollector pagePath={$page.url.pathname} placeholder="Jouw suggestie.."/>
