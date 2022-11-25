@@ -30,6 +30,9 @@ export const navItems = [
 		title: 'Community',
 		route: '/community'
 	}, {
+		title: 'Kleding',
+		route: '/kleding'
+	}, {
 		title: 'TV',
 		route: '/tv'
 	}, {
