@@ -5,3 +5,18 @@
     max-age=63072000;
     includeSubDomains;
     preload'''
+
+[[redirects]]
+  from = "/evenementen/"
+  to = "/jams"
+  status = 301
+
+[[redirects]]
+  from = "/kennisbank/wat-zijn-goede-schoenen-voor-freerunning/"
+  to = "/kleding"
+  status = 301
+
+[[redirects]]
+  from = "/kennisbank/"
+  to = "/"
+  status = 301
