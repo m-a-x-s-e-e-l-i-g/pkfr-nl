@@ -23,19 +23,25 @@ main {
 }
 
 .button {
+	font-family: var(--accentFont);
 	background-color: var(--accent);
 	border: none;
 	padding: 15px 32px;
 	text-align: center;
+	color: var(--white);
 	text-decoration: none;
 	display: inline-block;
 	font-size: 16px;
-	margin: 10px 0;
+	margin-top: 10px;
 	cursor: pointer;
-}
+	border-radius: 4px;
+	transition: all 0.1s ease-in-out;
+	border: 2px solid var(--accent);
 
-a.button {
-	color: white;
+	&:hover, &:focus {
+		background-color: transparent;
+		color: var(--accent);
+	}
 }
 
 #main iframe {
