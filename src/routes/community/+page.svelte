@@ -28,10 +28,9 @@
 <h1>Community Links</h1>
 <ul>
 	<!-- whatsapp icon -->
-	<li><span><Icon data={whatsapp}/></span><a href="https://chat.whatsapp.com/EHWnnlZSOhAHskePl4eCIq" rel="noreferrer" target="_blank">Groepschat voor traingingen</a></li>
-	<li><span><Icon data={whatsapp}/></span><a href="https://chat.whatsapp.com/IN54zbsYPwQKAyXedO9xJB" rel="noreferrer" target="_blank">Groepschat om te kletsen</a></li>
+	<li><span><Icon data={whatsapp}/></span><a href="https://chat.whatsapp.com/GamwcVgPYnq3UbKog2H9M8" rel="noreferrer" target="_blank">Whatsapp Community (Parkour Culture)</a></li>
 	<li><span><Icon data={comment}/></span><a href="https://discord.com/invite/FeECDvG" rel="noreferrer" target="_blank">Discord om te chillen</a></li>
-	<li><span><Icon data={instagram}/></span><a href="https://www.instagram.com/parkour_culture_NL/" rel="noreferrer" target="_blank">Parkour Culture Instagram</a></li>
-	<li><span><Icon data={youtube}/></span><a href="https://www.youtube.com/channel/UCqpV0z_uw6aaLVXIW6wh21g" rel="noreferrer" target="_blank">Parkour Culture YouTube</a></li>
+	<li><span><Icon data={instagram}/></span><a href="https://www.instagram.com/parkour_culture_NL/" rel="noreferrer" target="_blank">Instagram (Parkour Culture)</a></li>
+	<li><span><Icon data={youtube}/></span><a href="https://www.youtube.com/channel/UCqpV0z_uw6aaLVXIW6wh21g" rel="noreferrer" target="_blank">YouTube (Parkour Culture)</a></li>
 
 </ul>
