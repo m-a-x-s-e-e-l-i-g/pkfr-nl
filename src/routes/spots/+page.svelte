@@ -11,7 +11,7 @@
 	<article class="main">
 		<p>
 			CityLegends is de fijnste app om spots te vinden, ook kun je bij de spots clips bekijken of
-			plaatsen. Je kunt met je clips battlen tegen anderen, soms ook prijzen verdienen! <br/>
+			plaatsen. Je kunt met je clips battlen tegen anderen, soms ook prijzen verdienen! <br />
 			<a href="https://www.citylegends.io/about-the-app">Lees hier meer over de app.</a>
 		</p>
 	</article>
@@ -32,7 +32,10 @@
 <div class="wrapper">
 	<header><h2>URBN Jumpers</h2></header>
 	<article class="main">
-		<p>Deze app is erg buggy, maar beschikt over meer spots dan CityLegends. Het toffe aan deze app is dat je jams kan aanmaken en actieve mensen in de buurt kan vinden.</p>
+		<p>
+			Deze app is erg buggy, maar beschikt over meer spots dan CityLegends. Het toffe aan deze app
+			is dat je jams kan aanmaken en actieve mensen in de buurt kan vinden.
+		</p>
 	</article>
 	<aside class="aside aside-right">
 		<picture>
@@ -81,7 +84,9 @@
 	<header><h2>Andere kaarten</h2></header>
 	<article class="main">
 		<p>
-			Ga je een reizen? En zie je weinig spots op de bovenstaande twee apps? Dan kan de volgende search query je helpen. Zet er bijvoorbeeld een land of stad achter, en je krijgt uitgebreide kaarten zoals de bovenstaande.
+			Ga je een reizen? En zie je weinig spots op de bovenstaande twee apps? Dan kan de volgende
+			search query je helpen. Zet er bijvoorbeeld een land of stad achter, en je krijgt uitgebreide
+			kaarten zoals de bovenstaande.
 		</p>
 	</article>
 	<footer>
@@ -103,22 +108,37 @@
 		display: flex;
 		-webkit-flex-flow: row wrap;
 		flex-flow: row wrap;
+		margin-bottom: 2em;
 	}
 
 	.wrapper > * {
-		padding: 10px;
 		flex: 1 100%;
 		background: none;
 	}
 
-	footer {
-		display: initial;
+	header {
+		margin-bottom: 40px;
 	}
 
-	header,
-	.main {
+	article p {
+		margin: unset;
+	}
+
+	header {
 		display: initial;
 		text-align: left;
+		padding: 0;
+	}
+
+	.main {
+		text-align: left;
+		padding: 0;
+		align-self: flex-start;
+	}
+
+	.aside {
+		flex: 1 auto;
+		margin-top: 2em;
 	}
 
 	.aside-right {
@@ -129,20 +149,23 @@
 		.aside-right {
 			text-align: center;
 		}
-	}
 
-	@media all and (min-width: 600px) {
-		.aside {
-			flex: 1 auto;
+		.button {
+			width: 100%;
 		}
 	}
+
 	@media all and (min-width: 800px) {
 		.main {
-			flex: 3 0px;
+			flex: 4 370px;
 		}
 
 		.aside-left {
 			order: 1;
+		}
+
+		.aside {
+			margin-top: 0;
 		}
 
 		.main {
@@ -156,8 +179,9 @@
 			width: 100%;
 		}
 
-		footer {
+		footer{
 			order: 4;
+			display: grid;
 		}
 	}
 </style>
