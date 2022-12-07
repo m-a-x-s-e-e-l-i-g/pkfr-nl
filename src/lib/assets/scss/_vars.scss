@@ -23,13 +23,17 @@ $xxxlMin: 122.5rem;
 	--darker: #1D3557;
 	--slate: #2F3948;
 	--border: #8686863b;
-	--rainbow: linear-gradient(45deg, hsla(187, 82%, 65%, .4) 0%, hsla(65, 77%, 63%, .4) 50%, hsla(327, 67%, 74%, .4) 100%);
 	--white: #fff;
 	--black: #152030;
 	--green: #37E69D;
-
+	
 	--ink: var(--slate);
 	--paper: var(--background);
+	
+	//shadows and gradients
+	--rainbow: linear-gradient(45deg, hsla(187, 82%, 65%, .4) 0%, hsla(65, 77%, 63%, .4) 50%, hsla(327, 67%, 74%, .4) 100%);
+	--shadowFill: -1px -5px 22px -5px rgb(0 0 0 / 12%) inset;
+	--shadow: -1px -5px 22px -5px rgb(0 0 0 / 12%);
 	
 
 	// Fonts
