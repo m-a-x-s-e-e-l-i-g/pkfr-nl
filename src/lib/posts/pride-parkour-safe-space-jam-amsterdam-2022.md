@@ -21,7 +21,7 @@ Naast de Vondelbrug werden mooie sprongen gemaakt, en uitdagende challenges uitg
 
 ## Kwetsbaarheid
 
-David Hofman, een van de organisatoren, voelde hij zich uitgenodigd zich te representen waar hij voor staat. Hij had de behoefte zich uit te kunnen spreken in de community waar hij hecht mee is, en een plaats in te nemen voor dingen die hij belangrijk vind, voor de mensen waar hij om geeft. 
+<a href="https://www.instagram.com/david_hofman._/" target="_blank" rel="nofollow">David Hofman</a>, een van de organisatoren, voelde hij zich uitgenodigd zich te representen waar hij voor staat. Hij had de behoefte zich uit te kunnen spreken in de community waar hij hecht mee is, en een plaats in te nemen voor dingen die hij belangrijk vind, voor de mensen waar hij om geeft. 
 Beoefenaars binnen de Nederlandse freerunning community hebben naar zijn gevoel de neiging om moeite te hebben met zichzelf kwetsbaar op te stellen. Jezelf écht durven open te stellen. Terwijl dat juist zo goed bij sport, en vooral deze sport past.
 
 Een freerunner zoekt constant uitdaging op om beter te worden en zichzelf te ontwikkelen. Een freerunner leert constant te dealen met gedachten die opkomen. Gedachten die je tegenhouden de optimale versie van jezelf te zijn. Een freerunner moet soms een sprong in het onbekende maken om verder te komen, wat erg spannend kan zijn. Uitkomen voor je genderidentiteit of seksuele voorkeur is zo'n zelfde spannende sprong. 
@@ -41,7 +41,7 @@ Aan de hand van de jam is er met een groepje een losse Whatsapp groep aangemaakt
 
 ## Een nieuwe jam!
 
-Samuël Mellema was een van de organisatoren. Hij heeft zich samen met David opgesteld als aanspreekpunt voor dit onderwerp. Ze hebben gemerkt dat er behoefte is voor een meer safe space. Los van Parkour Culture is daardoor een subcommunity ontstaan, waar dus ook jams en trainingen voor georganiseerd gaan worden.
+<a href="https://www.instagram.com/smoel_pk/" target="_blank" rel="nofollow">Smoel</a> was een van de organisatoren. Hij heeft zich samen met David opgesteld als aanspreekpunt voor dit onderwerp. Ze hebben gemerkt dat er behoefte is voor een meer safe space. Los van Parkour Culture is daardoor een subcommunity ontstaan, waar dus ook jams en trainingen voor georganiseerd gaan worden.
 
 De eerstvolgende jam die daaruit is ontstaan, **Parqueer Jam**, gaat plaatsvinden in Utrecht op 25 november 2022. Check de [Jam agenda](https://www.freerunning-informatie.nl/jams) voor details. 
  
@@ -50,7 +50,7 @@ De eerstvolgende jam die daaruit is ontstaan, **Parqueer Jam**, gaat plaatsvinde
 Bekijk deze Parkour Culture Vlog voor een impressie van de jam:
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/QgtheE5zv-0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-En bekijk de foto's die Madelief Cornelisse op de jam heeft gemaakt:
+En bekijk de foto's die [Madelief Cornelisse](https://www.instagram.com/madelief_photographs/) op de jam heeft gemaakt:
 
 https://www.instagram.com/p/Cgz1sMIssiz/
 https://www.instagram.com/p/Cgz2imXsTsC/
