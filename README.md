@@ -12,6 +12,8 @@ npm run dev -- --open
 
 That should get a dev server up and running (assuming you have npm and Node installed already). Any saved changes to components and styles should auto-refresh blazingly fast.
 
+You should add some credentials to the `.env` file. To guarantee everything functioning right.
+
 ## Managing Jams
 
 Jams are added, updated or deleted via Google Calendar.
@@ -43,3 +45,15 @@ npm run build
 ```
 
 Use `npm run preview` _after_ a build to preview the built site.
+
+## Deploy
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/m-a-x-s-e-e-l-i-g/freerunning-informatie)
+
+[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/m-a-x-s-e-e-l-i-g/freerunning-informatie)
+
+## Currently available on
+- https://www.freerunning-informatie.nl/
+- https://www.pkfr.nl/
+- https://cloudflare-ipfs.com/ipfs/QmTGXjqS16sjvVaxuxf48wCErZ7Q7T4Q2AxkHuSYVPZGxP
+- https://freerunning-informatie.on.fleek.co/
