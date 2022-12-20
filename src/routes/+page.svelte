@@ -24,7 +24,7 @@
 <!-- This is the README.md file in the root of the repo. It serves double duty as the homepage's content. If you'd rather use your own HTML and/or Svelte, you can delete/modify everything in this file. -->
 <!-- <svelte:component this={data.ReadMe} /> -->
 
-<h1>Freerunning Informatie</h1>
+<h1>{siteTitle}</h1>
 <p>
-	Freerunning Informatie is een open source project, met als doel alle handige informatie en linkjes in één overzicht te hebben. Zo is het makkelijker om onderdeel te zijn van de Nederlandse Freerun community, en het te blijven!
+	{siteTitle} is een open source project, met als doel alle handige informatie in één overzicht te hebben. Zo is het makkelijker om onderdeel te zijn van de Nederlandse Freerun community, en het te blijven!
 </p>

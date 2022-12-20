@@ -5,7 +5,7 @@
  * PLEASE BE SURE TO UPDATE THEM ALL! Thank you!
  **/ 
 
-export const siteTitle = 'PKFR.nl'
+export const siteTitle = 'pkfr.nl'
 export const titlePostfix = '- Parkour / Freerunning Nederland'
 export const siteDescription = 'Overzicht voor freerunners in Nederland'
 export const siteURL = 'pkfr.nl'
