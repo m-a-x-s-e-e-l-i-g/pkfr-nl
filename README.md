@@ -46,11 +46,5 @@ npm run build
 
 Use `npm run preview` _after_ a build to preview the built site.
 
-## Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/m-a-x-s-e-e-l-i-g/pkfr-nl)
-
-[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/m-a-x-s-e-e-l-i-g/pkfr-nl)
-
 ## Visit
-- https://www.pkfr.nl/
+https://www.pkfr.nl/
