@@ -1,11 +1,11 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/dcc3a06f-99aa-4007-a795-5a0df889dced/deploy-status)](https://app.netlify.com/sites/freerunning-informatie/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/dcc3a06f-99aa-4007-a795-5a0df889dced/deploy-status)](https://app.netlify.com/sites/pkfr/deploys)
 
 ## Quick Start
-Clone or download [this repo](https://github.com/m-a-x-s-e-e-l-i-g/freerunning-informatie), then install the dependencies and run the dev server:
+Clone or download [this repo](https://github.com/m-a-x-s-e-e-l-i-g/pkfr-nl), then install the dependencies and run the dev server:
 
 ```
-npx degit https://github.com/m-a-x-s-e-e-l-i-g/freerunning-informatie freerunning-informatie
-cd freerunning-informatie
+npx degit https://github.com/m-a-x-s-e-e-l-i-g/pkfr-nl pkfr-nl
+cd pkfr-nl
 npm install
 npm run dev -- --open
 ```
@@ -48,12 +48,9 @@ Use `npm run preview` _after_ a build to preview the built site.
 
 ## Deploy
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/m-a-x-s-e-e-l-i-g/freerunning-informatie)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/m-a-x-s-e-e-l-i-g/pkfr-nl)
 
-[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/m-a-x-s-e-e-l-i-g/freerunning-informatie)
+[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/m-a-x-s-e-e-l-i-g/pkfr-nl)
 
-## Currently available on
-- https://www.freerunning-informatie.nl/
+## Visit
 - https://www.pkfr.nl/
-- https://cloudflare-ipfs.com/ipfs/QmTGXjqS16sjvVaxuxf48wCErZ7Q7T4Q2AxkHuSYVPZGxP
-- https://freerunning-informatie.on.fleek.co/
