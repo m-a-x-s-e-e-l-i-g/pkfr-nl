@@ -43,7 +43,7 @@ Aan de hand van de jam is er met een groepje een losse Whatsapp groep aangemaakt
 
 <a href="https://www.instagram.com/smoel_pk/" target="_blank" rel="nofollow">Smoel</a> was een van de organisatoren. Hij heeft zich samen met David opgesteld als aanspreekpunt voor dit onderwerp. Ze hebben gemerkt dat er behoefte is voor een meer safe space. Los van Parkour Culture is daardoor een subcommunity ontstaan, waar dus ook jams en trainingen voor georganiseerd gaan worden.
 
-De eerstvolgende jam die daaruit is ontstaan, **Parqueer Jam**, gaat plaatsvinden in Utrecht op 25 november 2022. Check de [Jam agenda](https://www.freerunning-informatie.nl/jams) voor details. 
+De eerstvolgende jam die daaruit is ontstaan, **Parqueer Jam**, gaat plaatsvinden in Utrecht op 25 november 2022. Check de [Jam agenda](https://www.pkfr.nl/jams) voor details. 
  
 
 ## Impressie van Safe Space Jam
