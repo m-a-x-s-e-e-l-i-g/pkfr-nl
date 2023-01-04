@@ -32,6 +32,10 @@ If you want to use other frontmatter properties in the template (or just modify 
 
 Also: while there's no link to it by default, `/blog/category` exists as an archive of all your post categories.
 
+## Shop data
+
+Shop data is stored in Supabase, and is automatically fetched every 24 hours by a n8n workflow. You can find this workflow in the `.n8n` folder. N8n is a free and open source workflow automation tool. You can find more information about it [here](https://n8n.io/). The workflow basically retrieves all configured shops from the database, then sends requests to these shops to retrieve all products. Product data gets processed, formatted and cleaned before saving it back to the database.
+
 ## Static files
 
 Things that should just live in the site root of the finished site (like a `robots.txt` file, favicon, or maybe images) should go in the `static` folder. If you link to them, use the root path (e.g., `/images/my.png`, not `../static/images/my.png`).
