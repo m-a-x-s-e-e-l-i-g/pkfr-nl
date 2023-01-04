@@ -24,7 +24,7 @@
 	display: inline-block;
 	padding:2px 5px;
 	margin: 0 2px;
-	background: var(--red);
+	background: var(--accent);
 	color:var(--white);
 	font-size:12px;
 	font-weight:700;
@@ -98,7 +98,7 @@
 		<span class="sale" title="You'll save {product.shop.currencySymbol}{(product.price_from - product.price).toFixed(2)}">{product.discountPercentage}</span>
 	{/if}
 	<!-- <div class="favourite" title="Save">💗</div> -->
-	<!-- <ProductImageSlider images={product.images}/> -->
+	<ProductImageSlider images={product.images}/>
 	<div class="product-info">
 		<a class="title" href="{product.shop.shopUrl}{product.handle}{getUtm("title")}" target="_blank">{product.title}</a>
 		<span class="price">{product.shop.currencySymbol}{product.price}</span>
@@ -106,7 +106,7 @@
 		<span class="compare_at_price">{product.shop.currencySymbol}{product.price_from}</span>
 		{/if}
 		{#if product.available}
-		<a class="buy" href="{product.shop.shopUrl}{product.handle}{getUtm("button")}" target="_blank">{product.shop.buttonText}</a>
+		<a class="buy" href="{product.shop.shopUrl}{product.handle}{getUtm("button")}" target="_blank">Shop {product.shop.nameShort}</a>
 		{:else}
 		<a class="buy" href="{product.shop.shopUrl}{product.handle}{getUtm("button")}" target="_blank">Sold out</a>
 		{/if}
