@@ -24,6 +24,6 @@
 
 	<p>
 		&copy;{new Date().getFullYear()} {@html siteAuthor} <br/><br/>
-		<a href="{siteLink}" target="_blank" rel="noreferrer"><Icon data={github}/></a>
+		<a href="{siteLink}" target="_blank" rel="noreferrer" aria-label="View this project on GitHub"><Icon data={github}/></a>
 	</p>
 </footer>

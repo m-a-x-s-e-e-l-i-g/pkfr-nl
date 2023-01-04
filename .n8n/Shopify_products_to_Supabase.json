@@ -1,0 +1,327 @@
+{
+  "name": "Shopify products to Supabase",
+  "nodes": [
+    {
+      "parameters": {},
+      "name": "Start",
+      "type": "n8n-nodes-base.start",
+      "typeVersion": 1,
+      "position": [
+        140,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "triggerTimes": {
+          "item": [
+            {
+              "hour": 0
+            }
+          ]
+        }
+      },
+      "name": "Cron",
+      "type": "n8n-nodes-base.cron",
+      "typeVersion": 1,
+      "position": [
+        400,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "keys": {
+          "key": [
+            {
+              "currentKey": "id",
+              "newKey": "reference_id"
+            }
+          ]
+        }
+      },
+      "name": "Rename Keys",
+      "type": "n8n-nodes-base.renameKeys",
+      "typeVersion": 1,
+      "position": [
+        2200,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "tableId": "product",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "id",
+              "condition": "gt",
+              "keyValue": "0"
+            }
+          ]
+        }
+      },
+      "name": "DB Cleanup",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        680,
+        240
+      ],
+      "credentials": {
+        "supabaseApi": {
+          "id": "5",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "shop",
+        "returnAll": true
+      },
+      "name": "DB GET Shops",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        680,
+        400
+      ],
+      "credentials": {
+        "supabaseApi": {
+          "id": "5",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "tableId": "product",
+        "dataToSend": "autoMapInputData"
+      },
+      "name": "DB Create Products",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        2460,
+        400
+      ],
+      "credentials": {
+        "supabaseApi": {
+          "id": "5",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "functionCode": "for (item of items) {\n  item.json.price = getProductPrice(item.json);\n  item.json.price_from = getProductFromPrice(item.json);\n  item.json.available = getProductAvailability(item.json);\n  item.json.discountPercentage = getDiscountPercentage(item.json);\n  delete item.json.body_html\n}\n\nreturn items;\n\n\n// Gets lowest price from product variants\nfunction getProductPrice(product) {\n    product.variants.sort((a, b) => a.price - b.price);\n    return product.variants[0].price;\n}\n\n// Gets the highest comparison price from product variants\nfunction getProductFromPrice(product) {\n  product.variants.sort((a, b) => b.price - a.price);\n  price_from = product.variants[0].compare_at_price;\n  if(price_from <= 0){\n    return null;\n  }\n  return price_from;\n}\n\n// Get availability of product\nfunction getProductAvailability(product) {\n    let productIsAvailable = false;\n    product.variants.forEach((variant) => {\n        if (variant.available) {\n            productIsAvailable = true;\n        }\n    });\n    return productIsAvailable;\n}\n\n// Calculate the discount percentage of a product\nfunction getDiscountPercentage(product) {\n    if (product.price_from) {\n        return (\n            Math.ceil(\n                ((product.price -\n                        product.price_from) /\n                    product.price_from) *\n                100\n            ) + \"%\"\n        );\n    }\n    return null;\n}"
+      },
+      "name": "Parse data",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        1820,
+        400
+      ],
+      "notes": "Clean up and enrich data"
+    },
+    {
+      "parameters": {
+        "url": "=https://{{$json[\"shopApiUrl\"]}}/collections/all/products.json",
+        "responseFormat": "=json",
+        "options": {},
+        "headerParametersUi": {
+          "parameter": []
+        }
+      },
+      "name": "Get Products",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [
+        940,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "mergeByIndex"
+      },
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 1,
+      "position": [
+        1120,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "keys": {
+          "key": [
+            {
+              "currentKey": "id",
+              "newKey": "shop_id"
+            }
+          ]
+        }
+      },
+      "name": "Rename Keys1",
+      "type": "n8n-nodes-base.renameKeys",
+      "typeVersion": 1,
+      "position": [
+        860,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "products",
+        "include": "selectedOtherFields",
+        "fieldsToInclude": {
+          "fields": [
+            {
+              "fieldName": "shop_id"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Item Lists",
+      "type": "n8n-nodes-base.itemLists",
+      "typeVersion": 1,
+      "position": [
+        1320,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "functionCode": "for (item of items) {\n  item.json.products.shop_id = item.json.shop_id;\n  delete item.json.shop_id;\n  item.json = item.json.products;\n}\n\nreturn items;"
+      },
+      "name": "Merge shop_id into products",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        1540,
+        660
+      ]
+    }
+  ],
+  "connections": {
+    "Cron": {
+      "main": [
+        [
+          {
+            "node": "DB Cleanup",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "DB GET Shops",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rename Keys": {
+      "main": [
+        [
+          {
+            "node": "DB Create Products",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DB GET Shops": {
+      "main": [
+        [
+          {
+            "node": "Get Products",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Rename Keys1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse data": {
+      "main": [
+        [
+          {
+            "node": "Rename Keys",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Products": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Item Lists",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rename Keys1": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Item Lists": {
+      "main": [
+        [
+          {
+            "node": "Merge shop_id into products",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge shop_id into products": {
+      "main": [
+        [
+          {
+            "node": "Parse data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {},
+  "id": 4
+}

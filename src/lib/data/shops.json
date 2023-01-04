@@ -1,0 +1,129 @@
+[{
+        "id": 1,
+        "name": "The Motus Projects",
+        "dataFolder": "themotusprojects",
+        "type": "Shopify",
+        "shopUrl": "https://www.themotusprojects.com/",
+        "shopifyUrl": "the-motus-projects.myshopify.com",
+        "logo": "themotusprojects.png",
+        "currencySymbol": "£",
+        "exclusions": {
+            "vendor": ["CarbonClick"],
+            "id": [],
+            "tags": []
+        },
+        "buttonText": "Shop TMP"
+    },
+    {
+        "id": 2,
+        "name": "Storror Limited",
+        "dataFolder": "storrorlimited",
+        "type": "Shopify",
+        "shopUrl": "https://storror.myshopify.com/",
+        "shopifyUrl": "storror.myshopify.com",
+        "logo": "storrorlimited.png",
+        "currencySymbol": "£",
+        "exclusions": {
+            "vendor": [],
+            "id": [],
+            "tags": []
+        },
+        "buttonText": "Shop Storror"
+    },
+    {
+        "id": 3,
+        "name": "Farang Clothing",
+        "dataFolder": "farangclothing",
+        "type": "Shopify",
+        "shopUrl": "https://www.teamfarang.com/",
+        "shopifyUrl": "farang-clothing.myshopify.com",
+        "logo": "farangclothing.png",
+        "currencySymbol": "$",
+        "exclusions": {
+            "vendor": [],
+            "id": [],
+            "tags": []
+        },
+        "buttonText": "Shop Farang"
+    },
+    {
+        "id": 4,
+        "name": "American Parkour Store",
+        "dataFolder": "americanparkourstore",
+        "type": "Shopify",
+        "shopUrl": "https://store.americanparkour.com/",
+        "shopifyUrl": "american-parkour-store.myshopify.com",
+        "logo": "americanparkour.png",
+        "currencySymbol": "$",
+        "exclusions": {
+            "vendor": ["American Parkour Store"],
+            "id": [],
+            "tags": ["OPTIONS_HIDDEN_PRODUCT"]
+        },
+        "buttonText": "Shop APK"
+    },
+    {
+        "id": 5,
+        "name": "Vaults101®︎",
+        "dataFolder": "vaults101store",
+        "type": "Shopify",
+        "shopUrl": "https://www.vaults101store.com/",
+        "shopifyUrl": "vaults101.myshopify.com",
+        "logo": "vaults101.png",
+        "currencySymbol": "¥",
+        "exclusions": {
+            "vendor": [],
+            "id": [],
+            "tags": []
+        },
+        "buttonText": "Shop Vaults101®︎"
+    },
+    {
+        "id": 6,
+        "name": "TEMPEST FREERUNNING Official",
+        "dataFolder": "tempestfreerunning",
+        "type": "Shopify",
+        "shopUrl": "https://tempestfreerunning.com/",
+        "shopifyUrl": "tempestacademy.myshopify.com",
+        "logo": "tempestfreerunning.png",
+        "currencySymbol": "$",
+        "exclusions": {
+            "vendor": [],
+            "id": [],
+            "tags": []
+        },
+        "buttonText": "Shop TEMPEST"
+    },
+    {
+        "id": 7,
+        "name": "3RUN Store",
+        "dataFolder": "3runstore",
+        "type": "Shopify",
+        "shopUrl": "https://3runshop.com/",
+        "shopifyUrl": "3runstore.myshopify.com",
+        "logo": "3run.png",
+        "currencySymbol": "£",
+        "exclusions": {
+            "vendor": [],
+            "id": [],
+            "tags": []
+        },
+        "buttonText": "Shop 3RUN"
+    },
+    {
+        "id": 8,
+        "name": "Breach Apparel",
+        "dataFolder": "breachapparel",
+        "type": "Shopify",
+        "shopUrl": "https://www.breachapparel.com/",
+        "shopifyUrl": "breachapparel.myshopify.com",
+        "logo": "breachapparel.png",
+        "currencySymbol": "€",
+        "exclusions": {
+            "vendor": [],
+            "id": [],
+            "tags": []
+        },
+        "buttonText": "Shop Breach"
+    }
+]
