@@ -100,15 +100,15 @@
 	<!-- <div class="favourite" title="Save">💗</div> -->
 	<ProductImageSlider images={product.images}/>
 	<div class="product-info">
-		<a class="title" href="{product.shop.shopUrl}{product.handle}{getUtm("title")}" target="_blank">{product.title}</a>
+		<a class="title" href="{product.shop.shopUrl}products/{product.handle}{getUtm("title")}" target="_blank">{product.title}</a>
 		<span class="price">{product.shop.currencySymbol}{product.price}</span>
 		{#if product.price_from}
 		<span class="compare_at_price">{product.shop.currencySymbol}{product.price_from}</span>
 		{/if}
 		{#if product.available}
-		<a class="buy" href="{product.shop.shopUrl}{product.handle}{getUtm("button")}" target="_blank">Shop {product.shop.nameShort}</a>
+		<a class="buy" href="{product.shop.shopUrl}products/{product.handle}{getUtm("button")}" target="_blank">Shop {product.shop.nameShort}</a>
 		{:else}
-		<a class="buy" href="{product.shop.shopUrl}{product.handle}{getUtm("button")}" target="_blank">Sold out</a>
+		<a class="buy" href="{product.shop.shopUrl}products/{product.handle}{getUtm("button")}" target="_blank">Sold out</a>
 		{/if}
 		<span>&nbsp;</span>
 	</div>
