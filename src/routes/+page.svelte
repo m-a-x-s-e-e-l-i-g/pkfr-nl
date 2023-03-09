@@ -26,5 +26,25 @@
 
 <h1>{siteTitle}</h1>
 <p>
-	{siteTitle} is een open source project, met als doel alle handige informatie in één overzicht te hebben. Zo is het makkelijker om onderdeel te zijn van de Nederlandse Freerun community, en het te blijven!
+{siteTitle} is dé online hub voor de Nederlandse parkour en freerunning community. Hier vind je alles wat nodig is om deel uit te maken van deze fantastische community en op de hoogte te blijven van wat er gebeurt.
+</p>
+
+<h2>Over {siteTitle}</h2>
+<p>
+	Het doel van {siteTitle} is om alle handige informatie over freerunning en parkour op één plek te hebben. Hier zijn overzichten van de <a href="/spots">beste spots</a>, <a href="/open-gyms">open gyms</a>, <a href="/community">community linkjes</a> en een <a href="/tv">playlist met Nederlandse freerun videos</a>. Daarnaast is er een <a href="/blog">blog</a> waar nieuwtjes binnen de Nederlandse parkour en freerunning community worden gedeeld.
+</p>
+
+<h2>Missie</h2>
+<p>
+	{siteTitle} gelooft dat parkour en freerunning voor iedereen toegankelijk moet zijn. Of je nu een beginnende of ervaren freerunner bent, {siteTitle} helpt om deel uit te maken van de Nederlandse parkour en freerunning community. De website is een handige tool voor iedereen die op de hoogte wil blijven van wat er gebeurt binnen de Nederlandse parkour en freerunning community.
+</p>
+
+<h2>Ontdek {siteTitle}</h2>
+<p>
+	Op de website vind je overzichten van de beste spots en open gyms, zodat je altijd een plek hebt om te trainen. Er is ook een lijst met community linkjes waar je andere freerunners kunt ontmoeten en nieuwe vrienden kunt maken. De playlist met Nederlandse freerun videos is een geweldige bron van inspiratie en motivatie om nieuwe technieken en stijlen te ontdekken.
+</p>
+
+<h2>Blijf op de hoogte</h2>
+<p>
+	Op de blog worden nieuwtjes binnen de Nederlandse parkour en freerunning community gedeeld. Hier vind je updates die je niet wilt missen.
 </p>
