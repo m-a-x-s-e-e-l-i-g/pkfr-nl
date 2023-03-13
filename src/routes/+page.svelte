@@ -39,11 +39,6 @@
 	{siteTitle} gelooft dat parkour en freerunning voor iedereen toegankelijk moet zijn. Of je nu een beginnende of ervaren freerunner bent, {siteTitle} helpt om deel uit te maken van de Nederlandse parkour en freerunning community. De website is een handige tool voor iedereen die op de hoogte wil blijven van wat er gebeurt binnen de Nederlandse parkour en freerunning community.
 </p>
 
-<h2>Ontdek {siteTitle}</h2>
-<p>
-	Op de website vind je overzichten van de beste spots en open gyms, zodat je altijd een plek hebt om te trainen. Er is ook een lijst met community linkjes waar je andere freerunners kunt ontmoeten en nieuwe vrienden kunt maken. De playlist met Nederlandse freerun videos is een geweldige bron van inspiratie en motivatie om nieuwe technieken en stijlen te ontdekken.
-</p>
-
 <h2>Blijf op de hoogte</h2>
 <p>
 	Op de blog worden nieuwtjes binnen de Nederlandse parkour en freerunning community gedeeld. Hier vind je updates die je niet wilt missen.
