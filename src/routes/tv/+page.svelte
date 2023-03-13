@@ -19,12 +19,12 @@
 	width="560"
 	height="315"
 	src="https://www.youtube.com/embed/videoseries?list=PL3iwaCsp8s8P0lVvw3DkmMFmGxqBGSXnS{autoplayParam}"
-	title="YouTube video player"
+	title="Parkour TV"
 	frameborder="0"
 	allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 	allowfullscreen
 />
 <p>
-	Ontbreekt jouw nieuwe video? Stuur een berichtje!
+	Ontbreekt jouw nieuwe video? Stuur het in!
 </p>
 <InputCollector pagePath={$page.url.pathname} placeholder="YouTube URL"/>
