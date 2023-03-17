@@ -1,6 +1,5 @@
 <script>
 	import { siteTitle, titlePostfix } from '$lib/config';
-	// export let data;
 </script>
 
 <svelte:head>
@@ -21,8 +20,6 @@
 	</style>
 </svelte:head>
 
-<!-- This is the README.md file in the root of the repo. It serves double duty as the homepage's content. If you'd rather use your own HTML and/or Svelte, you can delete/modify everything in this file. -->
-<!-- <svelte:component this={data.ReadMe} /> -->
 
 <h1>{siteTitle}</h1>
 <p>
@@ -37,9 +34,4 @@
 <h2>Missie</h2>
 <p>
 	{siteTitle} gelooft dat parkour en freerunning voor iedereen toegankelijk moet zijn. Of je nu een beginnende of ervaren freerunner bent, {siteTitle} helpt om deel uit te maken van de Nederlandse parkour en freerunning community. De website is een handige tool voor iedereen die op de hoogte wil blijven van wat er gebeurt binnen de Nederlandse parkour en freerunning community.
-</p>
-
-<h2>Blijf op de hoogte</h2>
-<p>
-	Op de blog worden nieuwtjes binnen de Nederlandse parkour en freerunning community gedeeld. Hier vind je updates die je niet wilt missen.
 </p>

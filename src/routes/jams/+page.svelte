@@ -2,6 +2,7 @@
 	import { titlePostfix } from '$lib/config';
 	import InputCollector from '$lib/components/InputCollector.svelte';
 	import { page } from '$app/stores';
+	import JamsCalendarList from '$lib/components/calendar/JamsCalendarList.svelte';
 </script>
 
 
@@ -14,13 +15,14 @@
 <p>
 	In deze agenda vind je de heerlijkste jams, gemaakt van verse en natuurlijke ingrediënten. De jams worden met veel liefde en zorg bereid, en dat proef je terug bij je aanwezigheid! Of je nu houdt van klassieke city jam of juist van vernieuwende smaken als shopping jam, hier vind je voor ieder wat wils. Smeer de jams automatisch in je eigen agenda door op die rode knop te drukken.
 </p>
-<iframe src="https://calendar.google.com/calendar/embed?src=2f49b8d34696e27aa508a4c669e4533c74c11ae4e5ffc9dc48cd5c06d0a03cb3%40group.calendar.google.com&ctz=Europe%2FAmsterdam" title="Jams NL"  style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+<h2>Aankomende jams:</h2>
+<JamsCalendarList/>
 
 <a
 	href="https://calendar.google.com/calendar/ical/2f49b8d34696e27aa508a4c669e4533c74c11ae4e5ffc9dc48cd5c06d0a03cb3%40group.calendar.google.com/public/basic.ics"
 	rel="noreferrer"
 	target="_blank"
-	class="button">Zet in mijn agenda</a
+	class="button">Plaats in mijn agenda</a
 >
 
 <p>
