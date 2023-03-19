@@ -10,6 +10,10 @@ const config = {
 		include: ['@fullcalendar/common'],
 	},
 	server: {
+		watch: {
+			usePolling: true,
+			interval: 50,
+		},
 		fs: {
 			allow: ['.']
 		}
