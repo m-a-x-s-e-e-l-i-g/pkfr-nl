@@ -16,6 +16,7 @@
 	In deze agenda vind je de heerlijkste jams, gemaakt van verse en natuurlijke ingrediënten. De jams worden met veel liefde en zorg bereid, en dat proef je terug bij je aanwezigheid! Of je nu houdt van klassieke city jam of juist van vernieuwende smaken als shopping jam, hier vind je voor ieder wat wils. Smeer de jams automatisch in je eigen agenda door op die rode knop te drukken.
 </p>
 <h2>Aankomende jams:</h2>
+<p>Nederlandse Community Jams</p>
 <JamsCalendarList/>
 
 <a
@@ -29,3 +30,14 @@
 	Organiseer je een jam? Of mist er een jam in de agenda? Stuur dan een berichtje!
 </p>
 <InputCollector pagePath={$page.url.pathname} placeholder="Jouw suggestie.."/>
+
+<h2>Jams in Europa</h2>
+<p>
+	Wat fijn dat je betrokken wil zijn bij de internationale community! Bekijk deze kalender die beheerd wordt door MATTTMA, met jams in heel Europa.
+</p>
+<a
+	href="https://www.matttma.de/en/parkourjamcalendar"
+	rel="noreferrer"
+	target="_blank"
+	class="button">Freerun jams in Europa</a
+>
