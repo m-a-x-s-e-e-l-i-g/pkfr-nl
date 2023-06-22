@@ -2,7 +2,7 @@
 	import { titlePostfix } from '$lib/config';
 	import InputCollector from '$lib/components/InputCollector.svelte';
 	import { page } from '$app/stores';
-	import JamsCalendarList from '$lib/components/calendar/JamsCalendarList.svelte';
+	import JamsList from '$lib/components/calendar/JamsList.svelte';
 </script>
 
 
@@ -17,7 +17,7 @@
 </p>
 <h2>Aankomende jams:</h2>
 <p>Nederlandse Community Jams</p>
-<JamsCalendarList/>
+<JamsList/>
 
 <a
 	href="https://calendar.google.com/calendar/ical/2f49b8d34696e27aa508a4c669e4533c74c11ae4e5ffc9dc48cd5c06d0a03cb3%40group.calendar.google.com/public/basic.ics"

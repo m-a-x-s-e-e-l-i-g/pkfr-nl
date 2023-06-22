@@ -11,7 +11,17 @@
 		views: {
 			list: {
 				duration: { days: 365 },
-				listDayAltFormat: 'dddd'
+			}
+		},
+		eventMouseEnter: (info) => {
+			if (info.event.extendedProps.description) {
+				info.el.setAttribute('title', info.event.extendedProps.description.replace(/(<([^>]+)>)/gi, ''));
+			}
+		},
+		eventClick: (info) => {
+			if (info.event.url) {
+				info.jsEvent.preventDefault();
+				window.open(info.event.url, '_blank');
 			}
 		},
 		plugins: [ListPlugin, googleCalendarPlugin],
