@@ -61,16 +61,18 @@
 	<header><h2>Max zijn Oude kaart</h2></header>
 	<article class="main">
 		<p>
-			Deze kaart word sinds 2018 niet meer onderhouden, er staan dus spots op die niet meer bestaan.
+			Super uitgebreide kaart, met vele spots. Helaas is deze kaart niet meer up-to-date, maar wellicht kun je er nog wat aan hebben.
 		</p>
-		<iframe
-			src="https://www.google.com/maps/d/embed?mid=1F8PHbPAtHhj4RaCQzbsw6Ko6FE0&hl=en&ehbc=2E312F"
-			title="Parkour Spots NL"
-			rel="noreferrer"
-			width="640"
-			height="480"
-		/>
 	</article>
+	<aside class="aside aside-right">
+		<picture>
+			<img
+				src="./images/google-maps-parkour-spots-phone.webp"
+				alt="Google Maps Parkour Freerun Spots Netherlands"
+				style="width:250px;padding:0 25px"
+			/>
+		</picture>
+	</aside>
 	<footer>
 		<a
 			href="https://www.google.com/maps/d/u/0/viewer?mid=1F8PHbPAtHhj4RaCQzbsw6Ko6FE0&hl=en&ll=52.13281486226002%2C5.623986124992371&z=7"
