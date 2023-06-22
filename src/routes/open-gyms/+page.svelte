@@ -2,6 +2,7 @@
 	import { titlePostfix } from '$lib/config';
 	import InputCollector from '$lib/components/InputCollector.svelte';
 	import { page } from '$app/stores';
+	import OpenGymsList from '$lib/components/calendar/OpenGymsList.svelte';
 </script>
 
 
@@ -12,7 +13,7 @@
 
 <h1>Open Gyms</h1>
 <p>Bij een open gym kun je zonder lidmaatschap in jouw favoriete indoor freerun gym trainen. Er zijn locaties door heel het land, maar let op: je moet je soms wel even aanmelden.</p>
-<iframe src="https://calendar.google.com/calendar/embed?src=e8c97b051b5df998bf17a52d4d87ce82490ee2a033a40ff867ffe426214b32a9%40group.calendar.google.com&ctz=Europe%2FAmsterdam" title="Open Gyms NL" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+<OpenGymsList/>
 
 <a
 	href="https://calendar.google.com/calendar/ical/e8c97b051b5df998bf17a52d4d87ce82490ee2a033a40ff867ffe426214b32a9%40group.calendar.google.com/public/basic.ics"
