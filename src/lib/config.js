@@ -25,8 +25,8 @@ export const navItems = [
 		title: 'Open Gyms',
 		route: '/open-gyms'
 	}, {
-		title: 'Community',
-		route: '/community'
+		title: 'Links',
+		route: '/links'
 	}, {
 		title: 'TV',
 		route: '/tv'
