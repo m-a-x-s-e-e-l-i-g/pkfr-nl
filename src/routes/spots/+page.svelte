@@ -81,7 +81,18 @@
 	</footer>
 </div>
 <div class="wrapper">
-	<header><h2>Andere kaarten</h2></header>
+	<header><h2>Google Maps Placelists van freerunners</h2></header>
+	<article class="main">
+		<p>
+			Google Maps heeft een functie waarbij je lijsten kunt maken. Echter zijn deze lijsten niet vindbaar via Google. Je kunt ze gebruiken via de volgende links:
+		</p>
+		<ul>
+			<li><a href="https://goo.gl/maps/9iFURfmBfMFrMLBD7" target="_blank" rel="noreferrer">FRRN Spots Arnhem - by Grip Freerunning</a></li>
+		</ul>
+	</article>
+</div>
+<div class="wrapper">
+	<header><h2>Kaarten vinden op Google</h2></header>
 	<article class="main">
 		<p>
 			Ga je een reizen? En zie je weinig spots op de bovenstaande twee apps? Dan kan de volgende
