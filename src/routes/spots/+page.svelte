@@ -102,8 +102,7 @@
 	<article class="main">
 		<p>
 			Ga je een reizen? En zie je weinig spots op de bovenstaande twee apps? Dan kan de volgende
-			search query je helpen. Zet er bijvoorbeeld een land of stad achter, en je krijgt uitgebreide
-			kaarten zoals de bovenstaande.
+			search query je helpen. Zet er bijvoorbeeld een land of stad achter.
 		</p>
 	</article>
 	<footer>
