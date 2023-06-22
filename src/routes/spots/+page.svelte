@@ -90,6 +90,10 @@
 		</p>
 		<ul>
 			<li><a href="https://goo.gl/maps/9iFURfmBfMFrMLBD7" target="_blank" rel="noreferrer">FRRN Spots Arnhem - by Grip Freerunning</a></li>
+			<li><a href="https://goo.gl/maps/CGsQZCD8nGYh3cRV6" target="_blank" rel="noreferrer">Parkour Spots Deventer - by Grip Freerunning</a></li>
+			<li><a href="https://goo.gl/maps/TwaUDmqmbbH9FEnk8" target="_blank" rel="noreferrer">Parkour Spots Utrecht - by Grip Freerunning</a></li>
+			<li><a href="https://goo.gl/maps/dRLEhwWfAVRhPvhe6" target="_blank" rel="noreferrer">Parkour Spots Nijmegen - by Grip Freerunning</a></li>
+			<li><a href="https://goo.gl/maps/oTGv3nYKfbD8XPbYA" target="_blank" rel="noreferrer">Parkour spots Zutphen - by Grip Freerunning</a></li>
 		</ul>
 	</article>
 </div>
