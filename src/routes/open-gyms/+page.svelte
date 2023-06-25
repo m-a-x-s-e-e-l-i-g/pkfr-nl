@@ -13,6 +13,7 @@
 
 <h1>Open Gyms</h1>
 <p>Bij een open gym kun je zonder lidmaatschap in jouw favoriete indoor freerun gym trainen. Er zijn locaties door heel het land, maar let op: je moet je soms wel even aanmelden.</p>
+<br/>
 <OpenGymsList/>
 
 <a

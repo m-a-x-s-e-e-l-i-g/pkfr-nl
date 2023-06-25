@@ -6,6 +6,7 @@
 	<title>Spots {titlePostfix}</title>
 </svelte:head>
 <h1>Spots</h1>
+<p>Parkour spots vinden kan tijd kosten, behalve als je al weet waar ze zijn! Je vind hier apps, kaarten en lijsten die goed zijn voor spots in Nederland.</p>
 <div class="wrapper">
 	<header><h2>CityLegends</h2></header>
 	<article class="main">

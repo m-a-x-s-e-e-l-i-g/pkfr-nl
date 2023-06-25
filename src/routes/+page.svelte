@@ -22,9 +22,14 @@
 </svelte:head>
 
 
-<h1>{siteTitle}</h1>
+<h1>Dé spot voor de<br/>
+Nederlandse parkour /<br/>
+freerunning scene
+</h1>
 <p>
-{siteTitle} is dé online hub voor de Nederlandse parkour en freerunning community. Hier vind je alles wat nodig is om deel uit te maken van deze fantastische community en op de hoogte te blijven van wat er gebeurt.
+Alles wat je nodig hebt om deel uit te maken,
+en op de hoogte te blijven van deze
+fantastische community.
 </p>
 
 <h2>Aankomenende Open Gyms</h2>
