@@ -23,7 +23,7 @@ main {
 }
 
 .button {
-	font-family: var(--accentFont);
+	font-family: var(--primaryFont);
 	background-color: var(--accent);
 	border: none;
 	padding: 15px 32px;
@@ -31,7 +31,7 @@ main {
 	color: var(--white);
 	text-decoration: none;
 	display: inline-block;
-	font-size: 16px;
+	font-size: 20px;
 	margin-top: 10px;
 	cursor: pointer;
 	border-radius: 4px;
