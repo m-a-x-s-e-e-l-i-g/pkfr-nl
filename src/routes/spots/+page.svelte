@@ -95,6 +95,8 @@
 			<li><a href="https://goo.gl/maps/TwaUDmqmbbH9FEnk8" target="_blank" rel="noreferrer">Parkour Spots Utrecht - by Grip Freerunning</a></li>
 			<li><a href="https://goo.gl/maps/dRLEhwWfAVRhPvhe6" target="_blank" rel="noreferrer">Parkour Spots Nijmegen - by Grip Freerunning</a></li>
 			<li><a href="https://goo.gl/maps/oTGv3nYKfbD8XPbYA" target="_blank" rel="noreferrer">Parkour spots Zutphen - by Grip Freerunning</a></li>
+			<li><a href="https://goo.gl/maps/AbnzZDiUjxiy1YDK7" target="_blank" rel="noreferrer">Favorites (350+ places) - by Johan Vereijken</a></li>
+			<li><a href="https://goo.gl/maps/khFcMNSZaQBrBuLx5" target="_blank" rel="noreferrer">Parkour spots (380+ places) - by Olivier Koster</a></li>
 		</ul>
 	</article>
 </div>
