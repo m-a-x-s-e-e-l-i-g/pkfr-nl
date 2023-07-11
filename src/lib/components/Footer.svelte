@@ -24,6 +24,9 @@
 
 	<p>
 		&copy;{new Date().getFullYear()} {@html siteAuthor} <br/><br/>
+		<a href="https://www.maxmade.nl" target="_blank" rel="noreferrer">
+			<img src="./images/logo-MAXmade.svg" alt="MAXmade logo" style="height:26px;width:initial" />
+		</a> <br/><br/>
 		<a href="{siteLink}" target="_blank" rel="noreferrer"><Icon data={github}/></a>
 	</p>
 </footer>
