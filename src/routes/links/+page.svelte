@@ -30,7 +30,6 @@
 <h1>Community Links</h1>
 <ul>
 	<li><span><Icon data={whatsapp}/></span><a href="https://chat.whatsapp.com/GamwcVgPYnq3UbKog2H9M8" rel="noreferrer" target="_blank">Whatsapp Community (Parkourculture)</a></li>
-	<li><span><Icon data={comment}/></span><a href="https://discord.com/invite/FeECDvG" rel="noreferrer" target="_blank">Discord om te chillen</a></li>
 	<li><span><Icon data={instagram}/></span><a href="https://www.instagram.com/parkour_culture_NL/" rel="noreferrer" target="_blank">Instagram (Parkourculture)</a></li>
 	<li><span><Icon data={youtube}/></span><a href="https://www.youtube.com/channel/UCqpV0z_uw6aaLVXIW6wh21g" rel="noreferrer" target="_blank">YouTube (Parkourculture)</a></li>
 	<li><span><Icon data={spotify}/></span><a href="https://spoti.fi/3OazXTm" rel="noreferrer" target="_blank">Spotify playlist</a></li>
