@@ -12,7 +12,7 @@
 	"devDependencies": {
 		"@fullcalendar/common": "^5.5.0",
 		"@fullcalendar/core": "^5.5.0",
-		"@fullcalendar/google-calendar": "^5.5.0",
+		"@fullcalendar/google-calendar": "^5.11.5",
 		"@fullcalendar/daygrid": "^5.5.0",
 		"@fullcalendar/list": "^5.5.0",
 		"@typescript-eslint/eslint-plugin": "5.55.0",
