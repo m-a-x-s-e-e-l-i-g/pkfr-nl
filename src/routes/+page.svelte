@@ -1,5 +1,6 @@
 <script>
 	import OpenGymsShortList from '$lib/components/calendar/OpenGymsShortList.svelte';
+	import UpcommingJam from '$lib/components/calendar/UpcommingJam.svelte';
 	import { siteTitle, titlePostfix } from '$lib/config';
 </script>
 
@@ -31,6 +32,8 @@ Alles wat je nodig hebt om deel uit te maken,
 en op de hoogte te blijven van deze
 fantastische community.
 </p>
+
+<UpcommingJam />
 
 <h2>Aankomenende Open Gyms</h2>
 <OpenGymsShortList />

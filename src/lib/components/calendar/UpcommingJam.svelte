@@ -8,26 +8,30 @@ const CustomViewConfig = {
 
 	content: function (props) {
 		let segs = sliceEvents(props, true);
-
 		segs.sort((a, b) => {
 			return a.range.start.valueOf() - b.range.start.valueOf();
 		});
 		
 		let html =
-		'<div id="event">' +
-			'<span id="date">' +
-				segs[0]?.range.start.getDate() +
-				' ' +
-				segs[0]?.range.start.toLocaleString('nl', { month: 'short' }) +
-			'</span>' +
-			'<div id="title">' +
-				segs[0]?.def.title +
-				'<span id="location">' +
-					segs[0]?.def.extendedProps.location +
-				'</span>' +
-			'</div>' +
-		'</div>';
-
+		'<h2>📆 ' + segs[0]?.def.title + '</h2>' +
+		'<p>Op ' +
+			segs[0]?.range.start.getDate() +
+			' ' +
+			segs[0]?.range.start.toLocaleString('nl', { month: 'long' }) +
+			' is de eerstvolgende jam: <b>' + segs[0]?.def.title + '</b>.<br/>' +
+			'⌚ Van ' + segs[0]?.instance.range.start.toLocaleTimeString('nl', {
+				timeZone: 'UTC',
+				hour: '2-digit',
+				minute: '2-digit'
+			}) + ' tot ' + segs[0]?.instance.range.end.toLocaleTimeString('nl', {
+				timeZone: 'UTC',
+				hour: '2-digit',
+				minute: '2-digit'
+			}) + '.<br/>' +
+			'📍 <a href="http://maps.google.com/maps?q=' + segs[0]?.def.extendedProps.location + '" target="_blank" rel="noreferrer">' + segs[0]?.def.extendedProps.location + '</a><br/>' +
+			'📝 ' + segs[0]?.def.extendedProps.description + '<br/>' +
+			'<a href="' + segs[0]?.def.url + '" target="_blank" rel="noreferrer" class="button">Plaats in mijn agenda</a>' +
+		'</p>'
 		return { html: html };
 	}
 };
