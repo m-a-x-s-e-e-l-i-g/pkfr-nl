@@ -16,7 +16,7 @@
 		"@fullcalendar/daygrid": "^5.11.5",
 		"@fullcalendar/list": "^5.5.0",
 		"@typescript-eslint/eslint-plugin": "5.55.0",
-		"@typescript-eslint/parser": "5.55.0",
+		"@typescript-eslint/parser": "5.62.0",
 		"@sveltejs/adapter-static": "^1.0.0-next.42",
 		"@sveltejs/kit": "next",
 		"eslint": "^8.49.0",
