@@ -13,8 +13,6 @@
 	const transitionIn = { delay: 150, duration: 150 }
 	const transitionOut = { duration: 100 }
 
-  export const prerender = true
-	
 	/**
 	 * Updates the global store with the current path. (Used for highlighting 
 	 * the current page in the nav, but could be useful for other purposes.)
