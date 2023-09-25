@@ -34,7 +34,7 @@
 		"svelte-use-form": "^2.5.0",
 		"tslib": "2.5.0",
 		"typescript": "^4.5.2",
-		"vite": "^3.2.7"
+		"vite": "^4.4.9"
 	},
 	"type": "module",
 	"dependencies": {
