@@ -1,6 +1,6 @@
 {
-	"name": "sveltekit-blog-starter",
-	"version": "1.4.2",
+	"name": "pkfr-nl",
+	"version": "1.0.0",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
@@ -10,11 +10,11 @@
 		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
 	},
 	"devDependencies": {
-		"@fullcalendar/common": "^5.5.0",
-		"@fullcalendar/core": "^5.5.0",
-		"@fullcalendar/google-calendar": "^5.11.5",
-		"@fullcalendar/daygrid": "^5.11.5",
-		"@fullcalendar/list": "^5.5.0",
+		"@fullcalendar/common": "^6.1.9",
+		"@fullcalendar/core": "^6.1.9",
+		"@fullcalendar/google-calendar": "^6.1.9",
+		"@fullcalendar/daygrid": "^6.1.9",
+		"@fullcalendar/list": "^6.1.9",
 		"@typescript-eslint/eslint-plugin": "5.55.0",
 		"@typescript-eslint/parser": "5.62.0",
 		"@sveltejs/adapter-static": "^2.0.3",
@@ -29,7 +29,7 @@
 		"rehype-slug": "^5.0.0",
 		"sass": "^1.43.4",
 		"svelte": "^3.42.6",
-		"svelte-fullcalendar": "^2.0.0-beta.0",
+		"svelte-fullcalendar": "^3.0.0",
 		"svelte-sitemap": "^2.5.3",
 		"svelte-use-form": "^2.5.0",
 		"tslib": "2.5.0",
