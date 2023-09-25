@@ -10,7 +10,7 @@
 		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
 	},
 	"devDependencies": {
-		"@fullcalendar/common": "^6.1.9",
+		"@fullcalendar/common": "^5.11.5",
 		"@fullcalendar/core": "^6.1.9",
 		"@fullcalendar/google-calendar": "^6.1.9",
 		"@fullcalendar/daygrid": "^6.1.9",
