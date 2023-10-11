@@ -18,8 +18,10 @@ const CustomViewConfig = {
 			segs[0]?.range.start.getDate() +
 			' ' +
 			segs[0]?.range.start.toLocaleString('nl', { month: 'long' }) +
-			' is de eerstvolgende jam: <b>' + segs[0]?.def.title + '</b>.<br/>' +
-			'⌚ Van ' + segs[0]?.instance.range.start.toLocaleTimeString('nl', {
+			' is de eerstvolgende jam: <b>' + segs[0]?.def.title + '</b>.' +
+			'<div class="grid-container">' +
+			'<div class="grid-item">⌚</div>' + 
+			'<div class="grid-item">Van ' + segs[0]?.instance.range.start.toLocaleTimeString('nl', {
 				timeZone: 'UTC',
 				hour: '2-digit',
 				minute: '2-digit'
@@ -27,9 +29,10 @@ const CustomViewConfig = {
 				timeZone: 'UTC',
 				hour: '2-digit',
 				minute: '2-digit'
-			}) + '.<br/>' +
-			'📍 <a href="http://maps.google.com/maps?q=' + segs[0]?.def.extendedProps.location + '" target="_blank" rel="noreferrer">' + segs[0]?.def.extendedProps.location + '</a><br/>' +
-			'📝 ' + segs[0]?.def.extendedProps.description + '<br/>' +
+			}) + '.</div>' +
+			'<div class="grid-item">📍</div><div class="grid-item"><a href="http://maps.google.com/maps?q=' + segs[0]?.def.extendedProps.location + '" target="_blank" rel="noreferrer">' + segs[0]?.def.extendedProps.location + '</a></div>' +
+			'<div class="grid-item">📝</div><div class="grid-item description">' + segs[0]?.def.extendedProps.description + '</div>' +
+			'</div>' +
 			'<a href="' + segs[0]?.def.url + '" target="_blank" rel="noreferrer" class="button">Plaats in mijn agenda</a>' +
 		'</p>'
 		return { html: html };
@@ -62,38 +65,18 @@ const CustomViewConfig = {
 <svelte:head>
 	<style>
 		@use './vars';
-
-		#event {
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-			padding: 0;
-			border-radius: 30px;
-			background-color: var(--accent);
-			color: var(--white);
-			width:9rem;
+		.grid-container{
+			display:grid;
+			grid-template-columns: auto auto;
 		}
-		#date{
-			font-family: var(--accentFont);
-			font-size: 1.3rem;
-			padding: .5rem 0rem;
-			margin: .2rem 1rem 0 1.3rem;
-			
+		.description{
+			font-size: 0.8em;
 		}
-		#title{
-			padding: 1rem 1rem .6rem 1.3rem;
-			font-size: 1.2rem;
-			background: var(--white);
-			color: var(--black);
-			line-height: 1.4rem;
-			border-radius: 0 0 30px 30px;
+		.grid-item:nth-child(odd){
+			padding-right: 0.5em;
 		}
-		#location{
-			margin-top: .7rem;
-			display: block;
-			font-size: .8rem;
-			line-height: .8rem;
-			opacity: .7;
+		.grid-item{
+			margin-top: 0.2em;
 		}
 	</style>
 </svelte:head>
