@@ -38,7 +38,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"just-throttle": "^4.0.1",
+		"just-throttle": "^4.2.0",
 		"svelte-awesome": "^3.2.1",
 		"svelte-preprocess": "^5.0.4"
 	}
