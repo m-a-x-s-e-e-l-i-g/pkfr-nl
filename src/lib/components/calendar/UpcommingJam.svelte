@@ -67,7 +67,7 @@ const CustomViewConfig = {
 		@use './vars';
 		.grid-container{
 			display:grid;
-			grid-template-columns: auto auto;
+			grid-template-columns: 50px auto;
 		}
 		.description{
 			font-size: 0.8em;
