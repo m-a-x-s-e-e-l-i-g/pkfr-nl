@@ -27,7 +27,7 @@
 		"prettier-plugin-svelte": "^3.0.3",
 		"rehype-autolink-headings": "^6.1.0",
 		"rehype-slug": "^6.0.0",
-		"sass": "^1.69.3",
+		"sass": "^1.69.5",
 		"svelte": "^3.42.6",
 		"svelte-fullcalendar": "^3.0.0",
 		"svelte-sitemap": "^2.6.0",
