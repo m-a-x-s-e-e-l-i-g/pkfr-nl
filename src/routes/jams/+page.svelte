@@ -7,16 +7,16 @@
 
 
 <svelte:head>
-	<title>Jams {titlePostfix}</title>
+	<title>Jams & Events {titlePostfix}</title>
 </svelte:head>
 
 
-<h1>Jams</h1>
+<h1>Jams & events</h1>
 <p>
 	In deze agenda vind je de heerlijkste jams, gemaakt van verse en natuurlijke ingrediënten. De jams worden met veel liefde en zorg bereid, en dat proef je terug bij je aanwezigheid! Of je nu houdt van klassieke city jam of juist van vernieuwende smaken als shopping jam, hier vind je voor ieder wat wils. Smeer de jams automatisch in je eigen agenda door op die rode knop te drukken.
 </p>
-<h2>Aankomende jams:</h2>
-<p>Nederlandse Community Jams</p>
+<h2>Aankomende jams & events:</h2>
+<p>Jams & Events binnen vanuit Nederlandse Community</p>
 <JamsList/>
 
 <a
@@ -27,7 +27,7 @@
 >
 
 <p>
-	Organiseer je een jam? Of mist er een jam in de agenda? Stuur dan een berichtje!
+	Organiseer je een jam of event? Of mist er iets in de agenda? Stuur dan een berichtje!
 </p>
 <InputCollector pagePath={$page.url.pathname} placeholder="Jouw suggestie.."/>
 

@@ -19,7 +19,7 @@ export const navItems = [
 		title: 'Spots',
 		route: '/spots'
 	}, {
-		title: 'Jams',
+		title: 'Jams & Events',
 		route: '/jams' 
 	}, {
 		title: 'Open Gyms',
