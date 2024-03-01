@@ -31,8 +31,8 @@
 		<main
 			id="main"
 			tabindex="-1"
-			in:fade={transitionIn}
-			out:fade={transitionOut}
+			in:fade|global={transitionIn}
+			out:fade|global={transitionOut}
 		>
 			<slot />
 		</main>
