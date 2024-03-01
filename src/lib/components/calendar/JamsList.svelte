@@ -11,6 +11,8 @@
 		views: {
 			list: {
 				duration: { days: 365 },
+				listDayFormat: { day: 'numeric', month: 'long', year: 'numeric'},
+				listDaySideFormat: { weekday: 'long' },
 			}
 		},
 		eventMouseEnter: (info) => {

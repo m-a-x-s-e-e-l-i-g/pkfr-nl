@@ -6,7 +6,14 @@
 
   let options: CalendarOptions = {
 		locale: nlLocale,
-		initialView: 'listWeek',
+		initialView: 'list',
+		views: {
+			list: {
+				duration: { days: 7 },
+				listDayFormat: { day: 'numeric', month: 'long' },
+				listDaySideFormat: { weekday: 'long' },
+			}
+		},
 		headerToolbar: {
 			left: 'title',
 			right: 'today prev,next'

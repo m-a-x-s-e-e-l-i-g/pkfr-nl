@@ -11,6 +11,8 @@
 		views: {
 			list: {
 				duration: { hours: 72 },
+				listDayFormat: { day: 'numeric', month: 'long'},
+				listDaySideFormat: { weekday: 'long' },
 			}
 		},
 		plugins: [ListPlugin, googleCalendarPlugin],
