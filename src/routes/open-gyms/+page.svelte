@@ -20,7 +20,7 @@
 	href="https://calendar.google.com/calendar/ical/e8c97b051b5df998bf17a52d4d87ce82490ee2a033a40ff867ffe426214b32a9%40group.calendar.google.com/public/basic.ics"
 	rel="noreferrer"
 	target="_blank"
-	class="button">Plaats in mijn agenda</a
+	class="button">Sync met mijn agenda</a
 >
 
 <p>

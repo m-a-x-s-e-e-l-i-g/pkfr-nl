@@ -4,7 +4,7 @@
  **/ 
 
 export const siteTitle = 'pkfr.nl'
-export const titlePostfix = '- Parkour / Freerunning Nederland'
+export const titlePostfix = '- Parkour & Freerunning Community Nederland'
 export const siteDescription = 'Dé spot voor de Nederlandse parkour & freerunning community.'
 export const siteURL = 'pkfr.nl'
 export const siteLink = 'https://github.com/m-a-x-s-e-e-l-i-g/pkfr-nl'
