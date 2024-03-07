@@ -23,7 +23,8 @@
 	class="button">Sync met mijn agenda</a
 >
 
+<h2>Wijziging insturen</h2>
 <p>
-	Mist er een open gym? Of moet er iets gewijzigd worden in deze agenda? Stuur dan een berichtje!
+	Ontreekt er een open gym? Of klopt iets in deze agenda niet? Laat het weten!
 </p>
-<InputCollector pagePath={$page.url.pathname} placeholder="Jouw suggestie.."/>
+<InputCollector pagePath={$page.url.pathname}/>

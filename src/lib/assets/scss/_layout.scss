@@ -39,7 +39,7 @@ main {
 	border: 2px solid var(--accent);
 
 	&:hover, &:focus {
-		background-color: transparent;
+		background: transparent;
 		color: var(--accent);
 	}
 }

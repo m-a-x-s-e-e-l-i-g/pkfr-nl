@@ -27,4 +27,4 @@
 <p>
 	Ontbreekt jouw nieuwe video? Stuur het in!
 </p>
-<InputCollector pagePath={$page.url.pathname} placeholder="YouTube URL"/>
+<InputCollector pagePath={$page.url.pathname}/>
