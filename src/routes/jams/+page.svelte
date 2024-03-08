@@ -31,7 +31,7 @@
 
 <h2>Jam notificaties</h2>
 <p>
-	Wil je via WhatsApp op de hoogte gehouden worden van freerun jams en events binnen Nederland?
+	Wil je via WhatsApp op de hoogte gehouden worden van freerun jams en events binnen Nederland? <br>
 	<a href="https://chat.whatsapp.com/IhKX7dXV9Vo7duEMmyzTpO"
 	rel="norefferer"
 	target="_blank"
