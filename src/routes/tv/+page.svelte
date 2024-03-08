@@ -24,7 +24,5 @@
 	allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 	allowfullscreen
 />
-<p>
-	Ontbreekt jouw nieuwe video? Stuur het in!
-</p>
-<InputCollector pagePath={$page.url.pathname} placeholder="YouTube URL"/>
+<h2>Stuur jouw video in</h2>
+<InputCollector pagePath={$page.url.pathname}/>

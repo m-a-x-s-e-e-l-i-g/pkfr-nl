@@ -16,10 +16,6 @@ input[type=submit] {
 	display: block;
 	width: max-content;
 	transition: background .2s;
-
-	&:hover:not(:disabled), &:focus{
-		background: var(--accent);
-	}
 }
 
 label,
@@ -33,6 +29,8 @@ fieldset {
 	border: 0;
 }
 
+select,
+textarea,
 input {
 	display: block;
 	font-size: inherit;

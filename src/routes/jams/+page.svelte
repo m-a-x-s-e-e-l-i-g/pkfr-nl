@@ -26,10 +26,8 @@
 	class="button">Sync met mijn agenda</a
 >
 
-<p>
-	Organiseer je een jam of event? Of mist er iets in de agenda? Stuur dan een berichtje!
-</p>
-<InputCollector pagePath={$page.url.pathname} placeholder="Jouw suggestie.."/>
+<h2>Jam insturen</h2>
+<InputCollector pagePath={$page.url.pathname}/>
 
 <h2>Jam notificaties</h2>
 <p>
