@@ -27,9 +27,6 @@
 >
 
 <h2>Jam insturen</h2>
-<p>
-	Organiseer je een jam of event? Of mist er iets in de agenda? Stuur dan het dan in!
-</p>
 <InputCollector pagePath={$page.url.pathname}/>
 
 <h2>Jam notificaties</h2>

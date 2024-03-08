@@ -24,7 +24,4 @@
 >
 
 <h2>Wijziging insturen</h2>
-<p>
-	Ontreekt er een open gym? Of klopt iets in deze agenda niet? Laat het weten!
-</p>
 <InputCollector pagePath={$page.url.pathname}/>

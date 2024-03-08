@@ -6,40 +6,52 @@
     const form = useForm();
     const youtubeRegex = /^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+$/;
 
-	let data = '';
-	let messageInput = '';
+	let data = '',
+		messageInput = '',
+		jamStartDateTime = '',
+		jamEndDateTime = '',
+		jamName = '',
+		jamDescription = '',
+		jamLocation = '',
+		gymDay = '',
+		gymStartTime = '',
+		gymEndTime = '',
+		gymName = '',
+		gymInfo = '',
+		gymMessage = '',
+		message = '';
 
-	// Jams
-	let jamStartDateTime = '';
-	let jamEndDateTime = '';
-	let jamName = '';
-	let jamDescription = '';
-	let jamLocation = '';
-	
-	// Open gyms
-	let gymDay = '';
-	let gymStartTime = '';
-	let gymEndTime = '';
-	let gymName = '';
-	let gymInfo = '';
-	
-	let message = '';
+	function resetForm() {
+		data = '';
+		messageInput = '';
+		jamStartDateTime = '';
+		jamEndDateTime = '';
+		jamName = '';
+		jamDescription = '';
+		jamLocation = '';
+		gymDay = '';
+		gymStartTime = '';
+		gymEndTime = '';
+		gymName = '';
+		gymInfo = '';
+		gymMessage = '';
+		message = '';
+	}
 
 	const sendMessage = async () => {
-		if (pagePath === '/tv') {
-			message = pagePath + ' ' + messageInput;
-		} else if (pagePath === '/jams') {
-			message = `${pagePath}%0A%0A${jamStartDateTime}%0A${jamEndDateTime}%0A%0A**${jamName}**%0A${jamDescription}%0A${jamLocation}`;
+		if (pagePath === '/jams') {
+			message = `${pagePath}%0A%0A${jamStartDateTime}%0A${jamEndDateTime}%0A%0A${jamName}%0A${jamDescription}%0A${jamLocation}`;
 		} else if (pagePath === '/open-gyms') {
-			message = `${pagePath}%0A%0A${gymDay}%0A${gymStartTime}%0A${gymEndTime}%0A%0A**${gymName}**%0A${gymInfo}`;
+			message = `${pagePath}%0A%0A${gymDay}%0A${gymStartTime}%0A${gymEndTime}%0A%0A${gymName}%0A${gymInfo}%0A${gymMessage}`;
 		} else {
 			message = pagePath + ' ' + messageInput;
 		}
-		
+
+		// replace new lines with %0A
+		message = message.replace(/\n/g, '%0A');
+
 		const response = await fetch(
-			`https://api.telegram.org/bot${
-				import.meta.env.VITE_TELEGRAM_BOT_API_KEY
-			}/sendMessage?chat_id=${import.meta.env.VITE_TELEGRAM_CHAT_ID}&text=` + message
+			`https://api.telegram.org/bot${import.meta.env.VITE_TELEGRAM_BOT_API_KEY}/sendMessage?chat_id=${import.meta.env.VITE_TELEGRAM_CHAT_ID}&text=` + message
 		);
 		data = await response.json();
 	};
@@ -49,10 +61,12 @@
 	{#if data.ok}
 		<div class="prompt success">
 			<p>Bedankt! Je input is ontvangen.</p>
+			<button class="button" on:click={resetForm}>Ik heb meer input</button>
 		</div>
 	{:else if data.ok === false}
 		<div class="prompt error">
 			<p>Er is iets misgegaan. Probeer het later nog eens.</p>
+			<code>{data.error_code}: {data.description}</code>
 		</div>
 	{:else}
 		{#if pagePath === '/tv'}
@@ -73,9 +87,9 @@
 					</div>
 				</div>
 				<label for="jamName">Naam</label>
-				<input type="text" id="jamName" name="jamName" bind:value={jamName} use:validators={[minLength(10)]}/>
+				<input type="text" id="jamName" name="jamName" bind:value={jamName} use:validators={[minLength(5)]}/>
 				<label for="jamDescription">Omschrijving</label>
-				<input type="text" id="jamDescription" name="jamDescription" bind:value={jamDescription} use:validators={[minLength(15)]}/>
+				<input type="text" id="jamDescription" name="jamDescription" bind:value={jamDescription} use:validators={[minLength(10)]}/>
 				<label for="jamLocation">Startlocatie</label>
 				<input type="text" id="jamLocation" name="jamLocation" bind:value={jamLocation} use:validators={[minLength(5)]}/>
 				<button class="button" disabled={!$form.valid}>Versturen</button>
@@ -106,6 +120,8 @@
 				</div>
 				<label for="gymInfo">Omschrijving</label>
 				<textarea id="gymInfo" name="gymInfo" bind:value={gymInfo} placeholder="Voor €10 kun je 2 uur beesten op onze bakstenen binnengym. Meer informatie vind je ..."></textarea>
+				<label for="gymMessage">Opmerkingen</label>
+				<textarea id="gymMessage" name="gymMessage" bind:value={gymMessage} placeholder="Open gyms van maandagen gaan niet door."></textarea>
 				<button class="button" disabled={!$form.valid}>Versturen</button>
 			</form>
 		{:else}
@@ -136,14 +152,8 @@
 		padding: 1rem;
 		text-align: center;
 		font-size: larger;
-		color: white;
 	}
-
-	.prompt.success {
-		background: var(--green);
-	}
-
-	.prompt.error {
-		background: var(--accent);
+	code {
+		font-size: smaller;
 	}
 </style>
