@@ -40,12 +40,29 @@ const gymList = [
     }
 ];
 
-export function getGyms(latitude, longitude) {
-    // sort by distance
-    gymList.sort((a, b) => {
-        const aDistance = Math.sqrt(Math.pow(a.latitude - latitude, 2) + Math.pow(a.longitude - longitude, 2));
-        const bDistance = Math.sqrt(Math.pow(b.latitude - latitude, 2) + Math.pow(b.longitude - longitude, 2));
-        return aDistance - bDistance;
+function calculateDistance(lat1, lon1, lat2, lon2) {
+    const R = 6371; // Radius of the Earth in km
+    const dLat = (lat2 - lat1) * (Math.PI / 180);
+    const dLon = (lon2 - lon1) * (Math.PI / 180);
+
+    const a = 
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(lat1 * (Math.PI / 180)) * Math.cos(lat2 * (Math.PI / 180)) *
+        Math.sin(dLon / 2) * Math.sin(dLon / 2);
+
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+}
+
+export function getGyms(latitude, longitude, radius = 100) {
+    // Calculate distance for each gym and filter by radius
+    const filteredGyms = gymList.filter(gym => {
+        gym.distance = calculateDistance(latitude, longitude, gym.latitude, gym.longitude);
+        return gym.distance <= radius;
     });
-    return gymList;
+
+    // Sort gyms by distance
+    filteredGyms.sort((a, b) => a.distance - b.distance);
+
+    return filteredGyms;
 }
