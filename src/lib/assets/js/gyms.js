@@ -202,13 +202,13 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
     return R * c;
 }
 
-export function getGyms(latitude, longitude, radius = 100) {
-    // Calculate distance for each gym and filter by radius
-    const filteredGyms = gymList.filter(gym => {
-        gym.distance = calculateDistance(latitude, longitude, gym.latitude, gym.longitude);
-        return gym.distance <= radius;
-    });
-
+export function getGyms(latitude, longitude) {
+    // loop through the gymList and calculate the distance
+    const filteredGyms = gymList.map(gym => ({
+        ...gym,
+        distance: calculateDistance(latitude, longitude, gym.latitude, gym.longitude)
+    }));
+    
     // Sort gyms by distance
     filteredGyms.sort((a, b) => a.distance - b.distance);
 

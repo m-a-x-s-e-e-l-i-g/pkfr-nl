@@ -4,9 +4,6 @@
 	import { getGyms } from '$lib/assets/js/gyms.js';
 	import Autoplay from "embla-carousel-autoplay";
 	import * as Carousel from "$lib/components/ui/carousel/index.js";
-	import { Slider } from "$lib/components/ui/slider";
-	import { Label } from "$lib/components/ui/label/index.js";
-	import { gymFinderRadius } from "$lib/assets/js/store.js";
 
 	var latitude = 0;
 	var longitude = 0;
@@ -27,12 +24,10 @@
 <h1>Gym Finder</h1>
 <p>Hier vind je gyms! Sta je locatie toe om dichtsbijzijnde gyms te zien.</p>
 <div class="grid w-full max-w-sm items-center gap-1.5 mb-8 mt-8">
-  	<Label for="radius">Radius: {$gymFinderRadius} km</Label>
-	<Slider id="radius" value={[50]} min={5} max={300} step={5} onValueChange={(value) => $gymFinderRadius = value[0]}/>
-	<p>Aantal resultaten: {getGyms(latitude, longitude, $gymFinderRadius).length}</p>
+	<p>Aantal resultaten: {getGyms(latitude, longitude).length}</p>
 </div>
 <div class="flex flex-col space-y-4">
-	{#each getGyms(latitude, longitude, $gymFinderRadius) as gym}
+	{#each getGyms(latitude, longitude) as gym}
 		<div class="p-6 bg-white rounded-xl shadow-md relative">
 			<h2 class="text-2xl font-bold text-black my-0 mb-4">
 				{gym.name}
