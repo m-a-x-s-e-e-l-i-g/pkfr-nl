@@ -34,6 +34,7 @@ const CustomViewConfig = {
 			'<div class="grid-item">📝</div><div class="grid-item description">' + segs[0]?.def.extendedProps.description + '</div>' +
 			'</div>' +
 			'<a href="' + segs[0]?.def.url + '" target="_blank" rel="noreferrer" class="button">Plaats in mijn agenda</a>' +
+			'<a href="/jams" target="_blank" rel="noreferrer" class="button ml-4">Bekijk alle jams</a>' +
 		'</p>'
 		return { html: html };
 	}
