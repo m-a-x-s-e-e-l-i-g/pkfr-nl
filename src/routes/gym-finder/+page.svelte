@@ -46,8 +46,8 @@
 					{gym.distance.toFixed(1)} km
 				</small>			
 			{/if}
-			<p class="text-gray-500">📍 <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(gym.address)}`} target="_blank" rel="noopener noreferrer">{gym.address}</a></p>
-			<p class="text-gray-500">🌐 <a href={gym.website} class="text-blue-500">{gym.website}</a></p>
+			<p>📍 <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(gym.address)}`} target="_blank" rel="noopener noreferrer">{gym.address}</a></p>
+			<p>🌐 <a href={gym.website} class="text-blue-500" target="_blank" rel="noopener noreferrer">{gym.website}</a></p>
 			<Carousel.Root
 				plugins={[
 					Autoplay({
