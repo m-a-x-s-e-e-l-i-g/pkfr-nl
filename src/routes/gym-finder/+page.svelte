@@ -41,7 +41,7 @@
 				 <Carousel.Content>
 					{#each gym.images as image}
 						<Carousel.Item>
-							<img src={image} alt={gym.name} class="w-full h-100 object-cover mt-2 rounded"/>
+							<img src={image} alt={gym.name} class="w-full object-cover mt-2 rounded" style="max-height: 400px;"/>
 						</Carousel.Item>
 					{/each}
 				</Carousel.Content>
