@@ -186,6 +186,17 @@ const gymList = [
             'images/gyms/commit/commit-040-eindhoven-2.jpg',
         ]
     },
+    {
+        name: 'Adaptive Movement',
+        address: 'Industrieweg 12B, 6662 PA Elst',
+        latitude: 51.91101718575066,
+        longitude: 5.856515512957941,
+        website: 'https://www.adaptivemovement.nl/',
+        images: [
+            'images/gyms/adaptive-movement/adaptive-movement-elst-1.jpg',
+            'images/gyms/adaptive-movement/adaptive-movement-elst-2.jpg',
+        ]
+    },
 ];
 
 function calculateDistance(lat1, lon1, lat2, lon2) {
