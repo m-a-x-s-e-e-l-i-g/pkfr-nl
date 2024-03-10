@@ -6,7 +6,7 @@ const gymList = [
         longitude: 4.614806308763699,
         website: 'https://www.munkimotion.nl/freerunhal-haarlem/',
         images: [
-            'images/gyms/munki-motion-haarlem-1.jpg',
+            'images/gyms/munki-motion/munki-motion-haarlem-1.jpg',
         ]
     },
     {
@@ -16,7 +16,7 @@ const gymList = [
         longitude: 4.651948813336322,
         website: 'https://www.munkimotion.nl/freerunhal-velserbroek/',
         images: [
-            'images/gyms/munki-motion-velserbroek-1.jpg',
+            'images/gyms/munki-motion/munki-motion-velserbroek-1.jpg',
         ]
     },
     {
@@ -26,6 +26,16 @@ const gymList = [
         longitude: 4.974729197949388,
         website: 'https://aquilafreerun.nl/',
         images: [
+            'images/gyms/aquila-tilburg-reeshof/aquila-tilburg-reeshof-1.jpg',
+            'images/gyms/aquila-tilburg-reeshof/aquila-tilburg-reeshof-2.jpg',
+            'images/gyms/aquila-tilburg-reeshof/aquila-tilburg-reeshof-3.jpg',
+            'images/gyms/aquila-tilburg-reeshof/aquila-tilburg-reeshof-4.jpg',
+            'images/gyms/aquila-tilburg-reeshof/aquila-tilburg-reeshof-5.jpg',
+            'images/gyms/aquila-tilburg-reeshof/aquila-tilburg-reeshof-6.jpg',
+            'images/gyms/aquila-tilburg-reeshof/aquila-tilburg-reeshof-7.jpg',
+            'images/gyms/aquila-tilburg-reeshof/aquila-tilburg-reeshof-8.jpg',
+            'images/gyms/aquila-tilburg-reeshof/aquila-tilburg-reeshof-9.jpg',
+            'images/gyms/aquila-tilburg-reeshof/aquila-tilburg-reeshof-10.jpg'
         ]
     }
 ];
