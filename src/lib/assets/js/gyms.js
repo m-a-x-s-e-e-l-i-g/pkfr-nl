@@ -37,6 +37,7 @@ const gymList = [
         website: 'https://www.munkimotion.nl/freerunhal-alkmaar/',
         images: [
             'images/gyms/munki-motion/munki-motion-alkmaar-1.jpg',
+            'images/gyms/munki-motion/munki-motion-alkmaar-2.jpg',
         ]
     },
     {

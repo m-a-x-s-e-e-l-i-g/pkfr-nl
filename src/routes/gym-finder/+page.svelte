@@ -7,6 +7,7 @@
 	import * as Alert from "$lib/components/ui/alert/index.js";
 	import Icon from 'svelte-awesome';
 	import locationArrow from 'svelte-awesome/icons/locationArrow';
+	import { Image } from "@unpic/svelte";
 
 	var latitude;
 	var longitude;
@@ -60,7 +61,13 @@
 				 <Carousel.Content>
 					{#each gym.images as image}
 						<Carousel.Item>
-							<img src={image} alt={gym.name} class="w-full object-cover mt-2" style="max-height: 400px;"/>
+							<Image
+								src={image}
+								layout="constrained"
+								width={800}
+								height={400}
+								alt={gym.name}
+							/>
 						</Carousel.Item>
 					{/each}
 				</Carousel.Content>
