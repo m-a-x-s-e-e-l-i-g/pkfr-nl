@@ -22,6 +22,6 @@
   status = 301
 
 [[redirects]]
-  from = "/images/gyms/*/:width/:file"
-  to = "/.netlify/images/?url=/images/:file&width=:width"
+  from = "/images/gyms/*/:file"
+  to = "/.netlify/images/?url=/images/:file&w=800&h=400"
   status = 200
