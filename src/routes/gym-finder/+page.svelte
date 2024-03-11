@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { titlePostfix, CDNPrefix } from '$lib/config';
+	import { titlePostfix } from '$lib/config';
 	import { getGyms } from '$lib/assets/js/gyms.js';
 	import Autoplay from "embla-carousel-autoplay";
 	import * as Carousel from "$lib/components/ui/carousel/index.js";
@@ -62,7 +62,7 @@
 					{#each gym.images as image}
 						<Carousel.Item>
 							<Image
-								src={CDNPrefix + image}
+								src={image}
 								layout="constrained"
 								width={600}
 								height={400}
