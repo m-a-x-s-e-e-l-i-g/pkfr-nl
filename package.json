@@ -43,6 +43,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@unpic/svelte": "^0.0.51",
 		"bits-ui": "^0.19.5",
 		"clsx": "^2.1.0",
 		"embla-carousel-autoplay": "^8.0.0",

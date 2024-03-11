@@ -1,12 +1,13 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { titlePostfix } from '$lib/config';
+	import { titlePostfix, CDNPrefix } from '$lib/config';
 	import { getGyms } from '$lib/assets/js/gyms.js';
 	import Autoplay from "embla-carousel-autoplay";
 	import * as Carousel from "$lib/components/ui/carousel/index.js";
 	import * as Alert from "$lib/components/ui/alert/index.js";
 	import Icon from 'svelte-awesome';
 	import locationArrow from 'svelte-awesome/icons/locationArrow';
+	import { Image } from "@unpic/svelte";
 
 	var latitude;
 	var longitude;
@@ -60,7 +61,13 @@
 				 <Carousel.Content>
 					{#each gym.images as image}
 						<Carousel.Item>
-							<img src={image} alt={gym.name} class="w-full object-cover mt-2" style="max-height: 400px;"/>
+							<Image
+								src={CDNPrefix + image}
+								layout="constrained"
+								width={600}
+								height={400}
+								alt={gym.name}
+							/>
 						</Carousel.Item>
 					{/each}
 				</Carousel.Content>
