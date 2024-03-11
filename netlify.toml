@@ -20,3 +20,8 @@
   from = "/kennisbank/"
   to = "/"
   status = 301
+
+[[redirects]]
+  from = "/images/gyms/*/:width/:file"
+  to = "/.netlify/images/?url=/images/:file&width=:width"
+  status = 200
