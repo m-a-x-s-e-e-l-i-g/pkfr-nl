@@ -263,6 +263,19 @@ const gymList = [
             'images/gyms/fast-forward-sports/fast-forward-sports-woerden-3.jpg',
             'images/gyms/fast-forward-sports/fast-forward-sports-woerden-4.jpg'
         ]
+    },
+    {
+        name: 'Gymworld Freerun Academy',
+        address: 'Amerikaweg 135, 2717 AV Zoetermeer',
+        latitude: 52.064044297880805,
+        longitude: 4.466714355371986,
+        website: 'https://www.parkourdisciplines.com/',
+        images: [
+            'images/gyms/parkour-disciplines/gymworld-freerun-academy-zoetermeer-1.jpg',
+            'images/gyms/parkour-disciplines/gymworld-freerun-academy-zoetermeer-2.jpg',
+            'images/gyms/parkour-disciplines/gymworld-freerun-academy-zoetermeer-3.jpg',
+            'images/gyms/parkour-disciplines/gymworld-freerun-academy-zoetermeer-4.jpg'
+        ]
     }
 ];
 
