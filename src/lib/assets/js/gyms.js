@@ -300,7 +300,17 @@ const gymList = [
         latitude: 53.2275316206207,
         longitude: 6.6076608555751495,
         website: 'https://thespotgroningen.nl/',
-        images: ['images/gyms/achieve-body-control/thespot-groningen-1.jpg']
+        images: [
+            'images/gyms/achieve-body-control/thespot-groningen-1.jpg',
+            'images/gyms/achieve-body-control/thespot-groningen-2.jpg',
+            'images/gyms/achieve-body-control/thespot-groningen-3.jpg',
+            'images/gyms/achieve-body-control/thespot-groningen-4.jpg',
+            'images/gyms/achieve-body-control/thespot-groningen-5.jpg',
+            'images/gyms/achieve-body-control/thespot-groningen-6.jpg',
+            'images/gyms/achieve-body-control/thespot-groningen-7.jpg',
+            'images/gyms/achieve-body-control/thespot-groningen-8.jpg',
+            'images/gyms/achieve-body-control/thespot-groningen-9.jpg'
+        ]
     }
 ];
 
