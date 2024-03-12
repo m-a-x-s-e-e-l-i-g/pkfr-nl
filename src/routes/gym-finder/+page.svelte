@@ -69,6 +69,7 @@
 								width={800}
 								height={400}
 								alt={gym.name}
+								cdn="netlify"
 							/>
 						</Carousel.Item>
 					{/each}
