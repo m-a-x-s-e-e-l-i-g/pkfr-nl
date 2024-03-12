@@ -207,9 +207,7 @@ const gymList = [
         latitude: 53.112112312284246,
         longitude: 6.884084913093284,
         website: 'http://flexbeweging.nl/',
-        images: [
-            'images/gyms/flexbeweging/flexbeweging-veendam-1.jpg'
-        ]
+        images: ['images/gyms/flexbeweging/flexbeweging-veendam-1.jpg']
     },
     {
         name: 'Rush World Rotterdam West',
@@ -245,7 +243,16 @@ const gymList = [
             'images/gyms/rush-world/rush-world-barendrecht-3.jpg'
         ]
     },
-
+    {
+        name: 'Rooftop Kingdom',
+        address: 'Nederhage 10, 3191 XB Hoogvliet Rotterdam',
+        latitude: 51.86139931902219,
+        longitude: 4.354791318821064,
+        website: 'http://www.rooftopkings.nl/',
+        images: [
+            'images/gyms/rooftop-kings/rooftop-kingdom-hoogvliet-rotterdam-1.jpg'
+        ]
+    }
 ];
 
 function calculateDistance(lat1, lon1, lat2, lon2) {
