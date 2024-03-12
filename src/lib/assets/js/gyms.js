@@ -293,6 +293,14 @@ const gymList = [
             'images/gyms/parkour-disciplines/hero-freerun-academy-alphen-aan-den-rijn-1.jpg',
             'images/gyms/parkour-disciplines/hero-freerun-academy-alphen-aan-den-rijn-2.jpg'
         ]
+    },
+    {
+        name: 'TheSpot',
+        address: 'Koningsweg 27 - 2, 9731 AP Groningen',
+        latitude: 53.2275316206207,
+        longitude: 6.6076608555751495,
+        website: 'https://thespotgroningen.nl/',
+        images: ['images/gyms/achieve-body-control/thespot-groningen-1.jpg']
     }
 ];
 
