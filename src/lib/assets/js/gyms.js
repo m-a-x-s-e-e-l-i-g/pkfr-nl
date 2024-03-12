@@ -174,6 +174,8 @@ const gymList = [
         website: 'http://www.urban-inside.nl/',
         images: [
             'images/gyms/urban-inside/urban-inside-waddinxveen-1.jpg',
+            'images/gyms/urban-inside/urban-inside-waddinxveen-2.jpg',
+            'images/gyms/urban-inside/urban-inside-waddinxveen-3.jpg',
         ]
     },
     {
