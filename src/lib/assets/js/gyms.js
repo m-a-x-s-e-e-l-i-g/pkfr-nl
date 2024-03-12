@@ -200,7 +200,52 @@ const gymList = [
             'images/gyms/vrog/vrog-amsterdam-5.jpg',
             'images/gyms/vrog/vrog-amsterdam-6.jpg'
         ]
-    }
+    },
+    {
+        name: 'Flexbeweging',
+        address: 'Doctor Bosstraat 46, 9645 JJ Veendam',
+        latitude: 53.112112312284246,
+        longitude: 6.884084913093284,
+        website: 'http://flexbeweging.nl/',
+        images: [
+            'images/gyms/flexbeweging/flexbeweging-veendam-1.jpg'
+        ]
+    },
+    {
+        name: 'Rush World Rotterdam West',
+        address: 'Schiehaven 15b, 3024 EC Rotterdam',
+        latitude: 51.90249838599861,
+        longitude: 4.4509717553642805,
+        website: 'https://www.rushworld.nl/',
+        images: [
+            'images/gyms/rush-world/rush-world-rotterdam-west-1.jpg',
+            'images/gyms/rush-world/rush-world-rotterdam-west-2.jpg'
+        ]
+    },
+    {
+        name: 'Rush World Rotterdam Zuid',
+        address: 'Koperslagerstraat 10, 3077 MD Rotterdam',
+        latitude: 51.89936227551222,
+        longitude: 4.516746241870258,
+        website: 'https://www.rushworld.nl/',
+        images: [
+            'images/gyms/rush-world/rush-world-rotterdam-zuid-1.jpg',
+            'images/gyms/rush-world/rush-world-rotterdam-zuid-2.jpg'
+        ]
+    },
+    {
+        name: 'Rush World Barendrecht',
+        address: 'Spoorlaan 38, 2991 LD Barendrecht',
+        latitude: 51.85739685304908,
+        longitude: 4.554324531196638,
+        website: 'https://www.rushworld.nl/',
+        images: [
+            'images/gyms/rush-world/rush-world-barendrecht-1.jpg',
+            'images/gyms/rush-world/rush-world-barendrecht-2.jpg',
+            'images/gyms/rush-world/rush-world-barendrecht-3.jpg'
+        ]
+    },
+
 ];
 
 function calculateDistance(lat1, lon1, lat2, lon2) {
