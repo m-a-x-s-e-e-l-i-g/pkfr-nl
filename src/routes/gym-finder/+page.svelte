@@ -9,6 +9,8 @@
 	import locationArrow from 'svelte-awesome/icons/locationArrow';
 	import { Image } from "@unpic/svelte";
 
+	$:gyms = getGyms(latitude, longitude);
+
 	var latitude;
 	var longitude;
 
@@ -26,7 +28,7 @@
 	<title>Gym Finder {titlePostfix}</title>
 </svelte:head>
 <h1>Gym Finder</h1>
-<p>Hier vind je <b>{getGyms(latitude, longitude).length}</b> indoor <b>gyms</b>!</p>
+<p>Hier vind je <b>{gyms.length}</b> indoor <b>gyms</b>!</p>
 {#if !latitude && !longitude}
 	<Alert.Root>
 		<Icon data={locationArrow} class="h-4 w-4"/>
@@ -37,7 +39,7 @@
 	</Alert.Root>
 {/if}
 <div>
-	{#each getGyms(latitude, longitude) as gym}
+	{#each gyms as gym}
 		<div class="bg-white shadow-md relative p-0 mt-10">
 			<div class="p-6">
 				<h2 class="text-2xl font-bold text-black my-0 mb-4 mt-2">
