@@ -30,11 +30,14 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		prerender: {
-			handleHttpError: (error, request) => {
-				// If a 404 error occurs on an image that uses Netlify CDN, return a 200 status code instead.
-				if (error.status === 404 && request.path.startsWith('/.netlify/images')) {
-					return { status: 200, body: 'Not Found' };
+			handleHttpError: ({ path, referrer, message }) => {
+				// ignore 404 errors for images using Netlify CDN
+				if ( path.startsWith('/.netlify/images') ) {
+					return;
 				}
+
+				// otherwise fail the build
+				throw new Error(`Failed to prerender ${path} from ${referrer}: ${message}`);
 			}
 		}
 	}
