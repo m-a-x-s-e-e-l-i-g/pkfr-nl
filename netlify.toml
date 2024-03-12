@@ -20,3 +20,7 @@
   from = "/kennisbank/"
   to = "/"
   status = 301
+
+[build]
+	command = "npm run build"
+	publish = "build"
