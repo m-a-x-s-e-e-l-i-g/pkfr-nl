@@ -249,8 +249,19 @@ const gymList = [
         latitude: 51.86139931902219,
         longitude: 4.354791318821064,
         website: 'http://www.rooftopkings.nl/',
+        images: ['images/gyms/rooftop-kings/rooftop-kingdom-hoogvliet-rotterdam-1.jpg']
+    },
+    {
+        name: 'Fast Forward Sports',
+        address: 'Kuipersweg 27, 3449 JA Woerden',
+        latitude: 52.09091415526032,
+        longitude: 4.86223114987535,
+        website: 'http://fastforwardsports.nl/',
         images: [
-            'images/gyms/rooftop-kings/rooftop-kingdom-hoogvliet-rotterdam-1.jpg'
+            'images/gyms/fast-forward-sports/fast-forward-sports-woerden-1.jpg',
+            'images/gyms/fast-forward-sports/fast-forward-sports-woerden-2.jpg',
+            'images/gyms/fast-forward-sports/fast-forward-sports-woerden-3.jpg',
+            'images/gyms/fast-forward-sports/fast-forward-sports-woerden-4.jpg'
         ]
     }
 ];
