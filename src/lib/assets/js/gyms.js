@@ -263,6 +263,36 @@ const gymList = [
             'images/gyms/parkour-disciplines/gymworld-freerun-academy-zoetermeer-3.jpg',
             'images/gyms/parkour-disciplines/gymworld-freerun-academy-zoetermeer-4.jpg'
         ]
+    },
+    {
+        name: 'Roots Underground Academy',
+        address: 'Onderlangs 25, Zoetermeer',
+        latitude: 52.06154672321714,
+        longitude: 4.490180157219515,
+        website: 'https://www.parkourdisciplines.com/',
+        images: ['images/gyms/parkour-disciplines/roots-underground-academy-zoetermeer-1.jpg']
+    },
+    {
+        name: 'Play Freerun Academy',
+        address: 'Lopsenstraat 2, 2321 GL Leiden',
+        latitude: 52.16858617968449,
+        longitude: 4.477435735124727,
+        website: 'https://www.parkourdisciplines.com/',
+        images: [
+            'images/gyms/parkour-disciplines/play-freerun-academy-leiden-1.jpg',
+            'images/gyms/parkour-disciplines/play-freerun-academy-leiden-2.jpg'
+        ]
+    },
+    {
+        name: 'Hero Freerun Academy',
+        address: 'Kalkovenweg 7, 2401 LJ Alphen aan den Rijn',
+        latitude: 52.14895637214106,
+        longitude: 4.6487440553760635,
+        website: 'https://www.parkourdisciplines.com/',
+        images: [
+            'images/gyms/parkour-disciplines/hero-freerun-academy-alphen-aan-den-rijn-1.jpg',
+            'images/gyms/parkour-disciplines/hero-freerun-academy-alphen-aan-den-rijn-2.jpg'
+        ]
     }
 ];
 
