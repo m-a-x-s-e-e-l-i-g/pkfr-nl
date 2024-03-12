@@ -25,10 +25,10 @@
 
 
 <svelte:head>
-	<title>Gym Finder {titlePostfix}</title>
+	<title>Indoor Freerun Gym Finder {titlePostfix}</title>
 </svelte:head>
 <h1>Gym Finder</h1>
-<p>Hier vind je <b>{gyms.length}</b> indoor <b>gyms</b>!</p>
+<p>Hier vind je de <b>{gyms.length}</b> indoor freerun <b>gyms</b> van Nederland!</p>
 {#if !latitude && !longitude}
 	<Alert.Root>
 		<Icon data={locationArrow} class="h-4 w-4"/>
