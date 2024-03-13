@@ -117,6 +117,20 @@
 		>
 	</footer>
 </div>
+<div class="wrapper">
+	<header><h2>Indoor spots</h2></header>
+	<article class="main">
+		<p>
+			Het is niet altijd lekker weer, en covered spots zijn schaars! Binnen trainen is dan wel heel erg fijn. Gebruik de <a href="/gym-finder">Gym Finder</a> om de dichtstbijzijnde indoor spots te vinden.
+		</p>
+	</article>
+	<footer>
+		<a
+			href="/gym-finder"
+			class="button">Zoek een gym</a
+		>
+	</footer>
+</div>
 
 <style>
 	.wrapper {
