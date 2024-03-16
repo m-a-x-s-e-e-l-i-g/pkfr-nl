@@ -8,9 +8,7 @@ const CustomViewConfig = {
 
 	content: function (props) {
 		let segs = sliceEvents(props, true);
-		segs.sort((a, b) => {
-			return a.range.start.valueOf() - b.range.start.valueOf();
-		});
+		segs.sort((a, b) => a.range.start.valueOf() - b.range.start.valueOf());
 
 		const firstSeg = segs[0];
         const title = firstSeg?.def.title ?? '';
