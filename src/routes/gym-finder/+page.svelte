@@ -8,6 +8,7 @@
 	import Icon from 'svelte-awesome';
 	import locationArrow from 'svelte-awesome/icons/locationArrow';
 	import { Image } from "@unpic/svelte";
+	import { slide } from 'svelte/transition';
 
 	$:gyms = getGyms(latitude, longitude);
 
@@ -30,13 +31,15 @@
 <h1>Gym Finder</h1>
 <p>Hier vind je de <b>{gyms.length}</b> indoor freerun <b>gyms</b> van Nederland!</p>
 {#if !latitude && !longitude}
-	<Alert.Root>
-		<Icon data={locationArrow} class="h-4 w-4"/>
-		<Alert.Title>Geef pkfr.nl locatierechten.</Alert.Title>
-		<Alert.Description>
-			Deel je locatie om de lijst te sorteren op afstand.
-		</Alert.Description>
-	</Alert.Root>
+	<div transition:slide>
+		<Alert.Root>
+			<Icon data={locationArrow} class="h-4 w-4"/>
+			<Alert.Title>Geef pkfr.nl locatierechten.</Alert.Title>
+			<Alert.Description>
+				Deel je locatie om de lijst te sorteren op afstand.
+			</Alert.Description>
+		</Alert.Root>
+	</div>
 {/if}
 <div>
 	{#each gyms as gym}
