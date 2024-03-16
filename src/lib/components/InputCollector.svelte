@@ -1,5 +1,6 @@
 <script>
 	import { useForm, validators, url, pattern, minLength, required } from 'svelte-use-form';
+	import { Confetti } from "svelte-confetti"
 
 	export let pagePath;
 
@@ -61,6 +62,9 @@
 	{#if data.ok}
 		<div class="prompt success">
 			<p>Bedankt! Je input is ontvangen.</p>
+			<div class="flex justify-center">
+				<Confetti infinite amount=50 y={[0.25, 0.5]} x={[-2, 2]}/>
+			</div>
 			<button class="button" on:click={resetForm}>Ik heb meer input</button>
 		</div>
 	{:else if data.ok === false}
