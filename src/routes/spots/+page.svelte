@@ -133,6 +133,9 @@
 </div>
 
 <style>
+	picture {
+		display: inline-block;
+	}
 	.wrapper {
 		display: -webkit-box;
 		display: -moz-box;
