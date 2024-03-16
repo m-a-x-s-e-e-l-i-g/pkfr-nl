@@ -11,31 +11,39 @@ const CustomViewConfig = {
 		segs.sort((a, b) => {
 			return a.range.start.valueOf() - b.range.start.valueOf();
 		});
-		
-		let html =
-		'<h2>📆 ' + segs[0]?.def.title + '</h2>' +
-		'<p>Op ' +
-			segs[0]?.range.start.getDate() +
-			' ' +
-			segs[0]?.range.start.toLocaleString('nl', { month: 'long' }) +
-			' is de eerstvolgende jam: <b>' + segs[0]?.def.title + '</b>.' +
-			'<div class="grid-container">' +
-			'<div class="grid-item">⌚</div>' + 
-			'<div class="grid-item">Van ' + segs[0]?.instance.range.start.toLocaleTimeString('nl', {
+
+		const firstSeg = segs[0];
+        const title = firstSeg?.def.title ?? '';
+        const date = firstSeg?.range.start.toLocaleString('nl', { day: 'numeric', month: 'long' });
+		const startTime = firstSeg?.instance.range.start.toLocaleTimeString('nl', {
 				timeZone: 'UTC',
 				hour: '2-digit',
 				minute: '2-digit'
-			}) + ' tot ' + segs[0]?.instance.range.end.toLocaleTimeString('nl', {
+			});
+		const endTime = firstSeg?.instance.range.end.toLocaleTimeString('nl', {
 				timeZone: 'UTC',
 				hour: '2-digit',
 				minute: '2-digit'
-			}) + '.</div>' +
-			'<div class="grid-item">📍</div><div class="grid-item"><a href="http://maps.google.com/maps?q=' + segs[0]?.def.extendedProps.location + '" target="_blank" rel="noreferrer">' + segs[0]?.def.extendedProps.location + '</a></div>' +
-			'<div class="grid-item">📝</div><div class="grid-item description">' + segs[0]?.def.extendedProps.description + '</div>' +
-			'</div>' +
-			'<a href="' + segs[0]?.def.url + '" target="_blank" rel="noreferrer" class="button">Plaats in mijn agenda</a>' +
-			'<a href="/jams" target="_blank" rel="noreferrer" class="button ml-4">Bekijk alle jams</a>' +
-		'</p>'
+			});
+        const location = firstSeg?.def.extendedProps.location ?? '';
+        const description = firstSeg?.def.extendedProps.description ?? '';
+		const url = firstSeg?.def.url ?? '';;
+
+        let html = `
+            <h2>📆 ${title}</h2>
+            <p>Op ${date} is de eerstvolgende jam: <b>${title}</b>.
+				<div class="grid-container">
+					<div class="grid-item">⌚</div>
+					<div class="grid-item">Van ${startTime} tot ${endTime}.</div>
+					<div class="grid-item">📍</div>
+					<div class="grid-item"><a href="http://maps.google.com/maps?q=${location}" target="_blank" rel="noreferrer">${location}</a></div>
+					<div class="grid-item">📝</div>
+					<div class="grid-item description">${description}</div>
+				</div>
+				<a href="${url}" target="_blank" rel="noreferrer" class="button">Plaats in mijn agenda</a>
+				<a href="/jams" target="_blank" rel="noreferrer" class="button ml-4">Bekijk alle jams</a>
+			</p>
+        `;
 		return { html: html };
 	}
 };
