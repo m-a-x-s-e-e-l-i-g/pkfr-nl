@@ -1,6 +1,7 @@
 <script>
 	import { useForm, validators, url, pattern, minLength, required } from 'svelte-use-form';
 	import { Confetti } from "svelte-confetti"
+	import { slide } from 'svelte/transition';
 
 	export let pagePath;
 
@@ -60,7 +61,7 @@
 
 <div class="formWrapper">
 	{#if data.ok}
-		<div class="prompt success">
+		<div class="prompt success" transition:slide>
 			<p>Bedankt! Je input is ontvangen.</p>
 			<div class="flex justify-center">
 				<Confetti infinite amount=50 y={[0.25, 0.5]} x={[-2, 2]}/>
@@ -68,18 +69,18 @@
 			<button class="button" on:click={resetForm}>Ik heb meer input</button>
 		</div>
 	{:else if data.ok === false}
-		<div class="prompt error">
+		<div class="prompt error" transition:slide>
 			<p>Er is iets misgegaan. Probeer het later nog eens.</p>
 			<code>{data.error_code}: {data.description}</code>
 		</div>
 	{:else}
 		{#if pagePath === '/tv'}
-			<form use:form on:submit|preventDefault={sendMessage}>
+			<form use:form on:submit|preventDefault={sendMessage} transition:slide>
 				<input type="text" name="messageInput" bind:value={messageInput} placeholder="YouTube URL" use:validators={[url, pattern(youtubeRegex)]}/>
 				<button class="button" disabled={!$form.valid}>Versturen</button>
 			</form>
 		{:else if pagePath === '/jams'}
-			<form use:form on:submit|preventDefault={sendMessage}>
+			<form use:form on:submit|preventDefault={sendMessage} transition:slide>
 				<div class="flex">
 					<div class="mr-2 w-1/2">
 						<label for="jamStartDateTime">Begin</label>
@@ -99,7 +100,7 @@
 				<button class="button" disabled={!$form.valid}>Versturen</button>
 			</form>
 		{:else if pagePath === '/open-gyms'}
-			<form use:form on:submit|preventDefault={sendMessage}>
+			<form use:form on:submit|preventDefault={sendMessage} transition:slide>
 				<label for="gymName">Gymnaam</label>
 				<input type=text id="gymName" name="gymName" bind:value={gymName} use:validators={[required]}>
 				<label for="gymDay">Dag</label>
@@ -129,7 +130,7 @@
 				<button class="button" disabled={!$form.valid}>Versturen</button>
 			</form>
 		{:else}
-			<form use:form on:submit|preventDefault={sendMessage}>
+			<form use:form on:submit|preventDefault={sendMessage} transition:slide>
 				<input type="text" name="messageInput" bind:value={messageInput} use:validators={[minLength(15)]}/>
 				<button class="button" disabled={!$form.valid}>Versturen</button>
 			</form>
