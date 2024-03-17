@@ -2,7 +2,13 @@
 	import FullCalendar, { type CalendarOptions } from 'svelte-fullcalendar';
 	import googleCalendarPlugin from '@fullcalendar/google-calendar';
 	import { sliceEvents, createPlugin } from '@fullcalendar/core';
+	import { getWeatherData }  from '$lib/assets/js/weather.js';
 	
+	let weatherIconUrl = '';
+	let weatherIconAlt = '';
+	let weatherText = '';
+	let weatherHtml = '';
+
 const CustomViewConfig = {
 	classNames: ['upcomming'],
 
@@ -18,6 +24,9 @@ const CustomViewConfig = {
 				hour: '2-digit',
 				minute: '2-digit'
 			});
+
+		// const startTimestamp = 1710957411;
+		const startTimestamp = (firstSeg?.instance.range.start.getTime() / 1000) ?? 0;
 		const endTime = firstSeg?.instance.range.end.toLocaleTimeString('nl', {
 				timeZone: 'UTC',
 				hour: '2-digit',
@@ -25,17 +34,33 @@ const CustomViewConfig = {
 			});
         const location = firstSeg?.def.extendedProps.location ?? '';
         const description = firstSeg?.def.extendedProps.description ?? '';
-		const url = firstSeg?.def.url ?? '';;
-
+		const url = firstSeg?.def.url ?? '';
+		
+		getWeatherData(location, startTimestamp).then(weatherData => {
+			if (!weatherData || !weatherData.data || weatherData.data.length == 0) {
+				return;
+			}
+			weatherIconUrl = `https://openweathermap.org/img/wn/${weatherData.data[0].weather[0].icon}.png`;
+			weatherIconAlt = weatherData.data[0].weather[0].description;
+			weatherText = weatherData.data[0].weather[0].description + ' met een temperatuur van ' + Math.round(weatherData.data[0].temp) + '°C.';
+			weatherHtml = `
+				<div class="grid-item text-center"><img src="${weatherIconUrl}" alt="${weatherIconAlt}" title="${weatherIconAlt}" /></div>
+				<div class="grid-item">
+					${weatherText}
+				</div>
+			`;
+		});
+		
         let html = `
             <h2>📆 ${title}</h2>
             <p>Op ${date} is de eerstvolgende jam: <b>${title}</b>.
 				<div class="grid-container">
-					<div class="grid-item">⌚</div>
+					<div class="grid-item text-center">⌚</div>
 					<div class="grid-item">Van ${startTime} tot ${endTime}.</div>
-					<div class="grid-item">📍</div>
+					<div class="grid-item text-center">📍</div>
 					<div class="grid-item"><a href="http://maps.google.com/maps?q=${location}" target="_blank" rel="noreferrer">${location}</a></div>
-					<div class="grid-item">📝</div>
+					${weatherHtml}
+					<div class="grid-item text-center">📝</div>
 					<div class="grid-item description">${description}</div>
 				</div>
 				<a href="${url}" target="_blank" rel="noreferrer" class="button">Plaats in mijn agenda</a>
@@ -84,6 +109,9 @@ const CustomViewConfig = {
 		}
 		.grid-item{
 			margin-top: 0.2em;
+		}
+		.grid-item::first-letter {
+			text-transform: capitalize;
 		}
 	</style>
 </svelte:head>
