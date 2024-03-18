@@ -14,7 +14,7 @@ async function getLatLng(address) {
 }
 
 export async function getWeatherData(address, timestamp) {
-    const fourDaysFromNow = Date.now() / 1000 + 4 * 24 * 60 * 60;
+    const fourDaysFromNow = Math.floor(Date.now() / 1000) + 4 * 24 * 60 * 60;
     if (timestamp > fourDaysFromNow || !timestamp) {
         return;
     }
