@@ -25,7 +25,7 @@ const CustomViewConfig = {
 				minute: '2-digit'
 			});
 
-		// const startTimestamp = 1710957411;
+
 		const startTimestamp = (firstSeg?.instance.range.start.getTime() / 1000) ?? 0;
 		const endTime = firstSeg?.instance.range.end.toLocaleTimeString('nl', {
 				timeZone: 'UTC',
