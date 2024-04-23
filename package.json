@@ -48,7 +48,7 @@
 		"bits-ui": "^0.21.3",
 		"clsx": "^2.1.0",
 		"embla-carousel-autoplay": "^8.0.1",
-		"embla-carousel-svelte": "^8.0.1",
+		"embla-carousel-svelte": "^8.0.2",
 		"just-throttle": "^4.2.0",
 		"svelte-awesome": "^3.3.1",
 		"svelte-preprocess": "^5.1.3",
