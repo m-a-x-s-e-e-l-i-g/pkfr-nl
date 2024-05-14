@@ -97,6 +97,7 @@
 			<li><a href="https://goo.gl/maps/oTGv3nYKfbD8XPbYA" target="_blank" rel="noreferrer">Parkour spots Zutphen - by Grip Freerunning</a></li>
 			<li><a href="https://goo.gl/maps/AbnzZDiUjxiy1YDK7" target="_blank" rel="noreferrer">Favorites (350+ places) - by Johan Vereijken</a></li>
 			<li><a href="https://goo.gl/maps/khFcMNSZaQBrBuLx5" target="_blank" rel="noreferrer">Parkour spots (380+ places) - by Olivier Koster</a></li>
+			<li><a href="https://maps.app.goo.gl/UKweDgNVvEpJQakSA" target="_blank" rel="noreferrer">Amsterdam is Dead non-spot tour 2024</a></li>
 		</ul>
 	</article>
 </div>
