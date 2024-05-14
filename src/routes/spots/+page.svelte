@@ -197,10 +197,6 @@
 			flex: 4 370px;
 		}
 
-		.aside-left {
-			order: 1;
-		}
-
 		.aside {
 			margin-top: 0;
 		}
