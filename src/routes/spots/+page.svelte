@@ -102,23 +102,6 @@
 	</article>
 </div>
 <div class="wrapper">
-	<header><h2>Kaarten vinden op Google</h2></header>
-	<article class="main">
-		<p>
-			Ga je een reizen? En zie je weinig spots op de bovenstaande twee apps? Dan kan de volgende
-			search query je helpen. Zet er bijvoorbeeld een land of stad achter.
-		</p>
-	</article>
-	<footer>
-		<a
-			href="https://www.google.com/search?q=site:https://www.google.com/maps/d/viewer%20parkour%20spots"
-			rel="noreferrer"
-			target="_blank"
-			class="button">Zoek kaarten op Google</a
-		>
-	</footer>
-</div>
-<div class="wrapper">
 	<header><h2>Indoor spots</h2></header>
 	<article class="main">
 		<p>
