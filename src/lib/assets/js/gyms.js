@@ -176,6 +176,19 @@ const gymList = [
         ]
     },
     {
+        name: 'Area 51 Skatepark',
+        address: 'Ketelhuisplein 18, 5617 AE Eindhoven',
+        latitude: 51.448132624557076,
+        longitude: 5.455997397743182,
+        website: 'https://www.area51eindhoven.nl/',
+        images: [
+            'images/gyms/commit/area51-eindhoven-1.jpg',
+            'images/gyms/commit/area51-eindhoven-2.jpg',
+            'images/gyms/commit/area51-eindhoven-3.jpg',
+            'images/gyms/commit/area51-eindhoven-4.jpg'
+        ]
+    },
+    {
         name: 'Adaptive Movement',
         address: 'Industrieweg 12B, 6662 PA Elst',
         latitude: 51.91101718575066,
