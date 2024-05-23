@@ -31,34 +31,6 @@
 	</footer>
 </div>
 <div class="wrapper">
-	<header><h2>URBN Jumpers</h2></header>
-	<article class="main">
-		<p>
-			Deze app is erg buggy, maar beschikt over meer spots dan CityLegends. Het toffe aan deze app
-			is dat je jams kan aanmaken en actieve mensen in de buurt kan vinden.
-		</p>
-	</article>
-	<aside class="aside aside-right">
-		<picture>
-			<source srcset="./images/urbn-jumpers-app-animated.png" type="image/apng" />
-			<img
-				src="./images/urbn-jumpers-app-animated.gif"
-				alt="URBN Jumpers app animated"
-				style="width:250px"
-			/>
-		</picture>
-	</aside>
-	<footer>
-		<a href="https://apps.apple.com/ca/app/urbn-jumpers/id1230325474" class="button"
-			>Download voor iOS</a
-		>
-		<a
-			href="https://play.google.com/store/apps/details?id=com.urbandimension.URBNJumpers"
-			class="button">Download voor Android</a
-		>
-	</footer>
-</div>
-<div class="wrapper">
 	<header><h2>Max zijn Oude kaart</h2></header>
 	<article class="main">
 		<p>
