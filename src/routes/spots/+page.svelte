@@ -71,6 +71,7 @@
 			<li><a href="https://goo.gl/maps/khFcMNSZaQBrBuLx5" target="_blank" rel="noreferrer">Parkour spots (380+ places) - by Olivier Koster</a></li>
 			<li><a href="https://maps.app.goo.gl/UKweDgNVvEpJQakSA" target="_blank" rel="noreferrer">Amsterdam is Dead non-spot tour 2024</a></li>
 			<li><a href="https://maps.app.goo.gl/5WcDufx7Nsk9Z4in7" target="_blank" rel="noreferrer">Spots to Hit in Amsterdam (230+) - by Safier Elzinga</a></li>
+<li><a href="https://www.google.com/maps/d/edit?mid=17skoWhjed0NLu3-d92pRL7BbWL-lLG8" target="_blank" rel="noreferrer">Adapt 2024 Twente University challenges - by Lars Damink</a></li>
 		</ul>
 	</article>
 </div>
