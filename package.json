@@ -12,7 +12,7 @@
 	"devDependencies": {
 		"@fullcalendar/common": "^5.11.5",
 		"@fullcalendar/core": "^6.1.15",
-		"@fullcalendar/daygrid": "^6.1.14",
+		"@fullcalendar/daygrid": "^6.1.15",
 		"@fullcalendar/google-calendar": "^6.1.13",
 		"@fullcalendar/list": "^6.1.15",
 		"@sveltejs/adapter-netlify": "^4.3.0",
