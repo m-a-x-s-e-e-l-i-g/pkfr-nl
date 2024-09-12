@@ -124,9 +124,7 @@ const gymList = [
         latitude: 52.02066453892232,
         longitude: 5.169738682420904,
         website: 'https://jumpfreerun.nl/houten/',
-        images: [
-            'images/gyms/jump-freerun/jump-freerun-houten-1.jpg'
-        ]
+        images: ['images/gyms/jump-freerun/jump-freerun-houten-1.jpg']
     },
     {
         name: 'JUMP Freerun Leeuwarden',
@@ -152,7 +150,7 @@ const gymList = [
         ]
     },
     {
-        name: 'Urban-Inside',
+        name: 'Urban-Inside Waddinxveen',
         address: 'Staringlaan 17F, 2741 GC Waddinxveen',
         latitude: 52.056495920936,
         longitude: 4.659323055294357,
@@ -161,6 +159,24 @@ const gymList = [
             'images/gyms/urban-inside/urban-inside-waddinxveen-1.jpg',
             'images/gyms/urban-inside/urban-inside-waddinxveen-2.jpg',
             'images/gyms/urban-inside/urban-inside-waddinxveen-3.jpg'
+        ]
+    },
+    {
+        name: 'Urban-Inside Gouda',
+        address: 'Antwerpseweg 9, 2803 PB Gouda',
+        latitude: 52.020738189192414,
+        longitude: 4.684936034146543,
+        website: 'http://www.urban-inside.nl/',
+        images: [
+            'images/gyms/urban-inside/urban-inside-gouda-1.jpg',
+            'images/gyms/urban-inside/urban-inside-gouda-2.jpg',
+            'images/gyms/urban-inside/urban-inside-gouda-3.jpg',
+            'images/gyms/urban-inside/urban-inside-gouda-4.jpg',
+            'images/gyms/urban-inside/urban-inside-gouda-5.jpg',
+            'images/gyms/urban-inside/urban-inside-gouda-6.jpg',
+            'images/gyms/urban-inside/urban-inside-gouda-7.jpg',
+            'images/gyms/urban-inside/urban-inside-gouda-8.jpg',
+            'images/gyms/urban-inside/urban-inside-gouda-9.jpg'
         ]
     },
     {
