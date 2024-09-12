@@ -125,8 +125,7 @@ const gymList = [
         longitude: 5.169738682420904,
         website: 'https://jumpfreerun.nl/houten/',
         images: [
-            'images/gyms/jump-freerun/jump-freerun-houten-1.jpg',
-            'images/gyms/jump-freerun/jump-freerun-houten-2.jpg'
+            'images/gyms/jump-freerun/jump-freerun-houten-1.jpg'
         ]
     },
     {
