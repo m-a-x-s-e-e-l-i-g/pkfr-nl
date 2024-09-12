@@ -96,7 +96,6 @@ const gymList = [
             'images/gyms/jump-freerun/jump-freerun-den-haag-ninja-academy-7.jpg',
             'images/gyms/jump-freerun/jump-freerun-den-haag-ninja-academy-8.jpg',
             'images/gyms/jump-freerun/jump-freerun-den-haag-ninja-academy-9.jpg'
-
         ]
     },
     {
@@ -349,6 +348,20 @@ const gymList = [
             'images/gyms/achieve-body-control/thespot-groningen-7.jpg',
             'images/gyms/achieve-body-control/thespot-groningen-8.jpg',
             'images/gyms/achieve-body-control/thespot-groningen-9.jpg'
+        ]
+    },
+    {
+        name: 'Progression Academy Purmerend',
+        address: 'Flevostraat 166, 1442 PZ Purmerend',
+        latitude: 52.51831828503364,
+        longitude: 4.982102594853558,
+        website: 'https://progression-academy.nl/',
+        images: [
+            'images/gyms/progression-academy/progression-academy-purmerend-1.jpg',
+            'images/gyms/progression-academy/progression-academy-purmerend-2.jpg',
+            'images/gyms/progression-academy/progression-academy-purmerend-3.jpg',
+            'images/gyms/progression-academy/progression-academy-purmerend-4.jpg',
+            'images/gyms/progression-academy/progression-academy-purmerend-5.jpg'
         ]
     }
 ];
