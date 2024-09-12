@@ -86,7 +86,18 @@ const gymList = [
         latitude: 52.05274244255919,
         longitude: 4.266632468787963,
         website: 'https://jumpfreerun.nl/denhaag/',
-        images: ['images/gyms/jump-freerun/jump-freerun-den-haag-ninja-academy-1.jpg']
+        images: [
+            'images/gyms/jump-freerun/jump-freerun-den-haag-ninja-academy-1.jpg',
+            'images/gyms/jump-freerun/jump-freerun-den-haag-ninja-academy-2.jpg',
+            'images/gyms/jump-freerun/jump-freerun-den-haag-ninja-academy-3.jpg',
+            'images/gyms/jump-freerun/jump-freerun-den-haag-ninja-academy-4.jpg',
+            'images/gyms/jump-freerun/jump-freerun-den-haag-ninja-academy-5.jpg',
+            'images/gyms/jump-freerun/jump-freerun-den-haag-ninja-academy-6.jpg',
+            'images/gyms/jump-freerun/jump-freerun-den-haag-ninja-academy-7.jpg',
+            'images/gyms/jump-freerun/jump-freerun-den-haag-ninja-academy-8.jpg',
+            'images/gyms/jump-freerun/jump-freerun-den-haag-ninja-academy-9.jpg'
+
+        ]
     },
     {
         name: 'JUMP Freerun Haagse Sport Centrale',
