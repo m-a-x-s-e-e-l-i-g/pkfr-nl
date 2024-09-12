@@ -5,6 +5,9 @@
 		"module": "es2020",
 		"lib": ["es2020"],
 		"target": "es2019",
+		"verbatimModuleSyntax": true,
+		"importsNotUsedAsValues": "remove",
+		"preserveValueImports": false,
 		/**
       svelte-preprocess cannot figure out whether you have a value or a type, so tell TypeScript
       to enforce using \`import type\` instead of \`import\` for Types.
