@@ -22,8 +22,5 @@ export const navItems = [
 	}, {
 		title: 'Gym Finder',
 		route: '/gym-finder'
-	}, {
-		title: 'TV',
-		route: '/tv'
 	}
 ]
