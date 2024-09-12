@@ -29,8 +29,8 @@ freerunning scene
 </h1>
 <p>
 Alles wat je nodig hebt om deel uit te maken,
-en op de hoogte te blijven van deze
-fantastische community.
+en op de hoogte te blijven van de Nederlandse
+parkour en freerunning community.
 </p>
 
 <UpcommingJam />

@@ -13,7 +13,7 @@
 
 <h1>Jams & events</h1>
 <p>
-	In deze agenda vind je de heerlijkste jams, gemaakt van verse en natuurlijke ingrediënten. De jams worden met veel liefde en zorg bereid, en dat proef je terug bij je aanwezigheid! Of je nu houdt van klassieke city jam of juist van vernieuwende smaken als shopping jam, hier vind je voor ieder wat wils. Smeer de jams automatisch in je eigen agenda door op die rode knop te drukken.
+	Jams zijn een belangrijk onderdeel van de freerun community. Het is de plek waar je nieuwe mensen ontmoet, samen traint en van elkaar leert. Hieronder vind je een overzicht van aankomende jams en events in Nederland.
 </p>
 <h2>Aankomende jams & events:</h2>
 <p>Jams & Events vanuit de Nederlandse Freerun Community</p>
@@ -26,10 +26,11 @@
 	class="button">Sync met mijn agenda</a
 >
 
-<h2>Jam insturen</h2>
+<h2>Jam of event insturen</h2>
+<p>Oraniseer jij een jam? Of mist er een event in de agenda? Deel deze met de rest van de community!</p>
 <InputCollector pagePath={$page.url.pathname}/>
 
-<h2>Jam notificaties</h2>
+<h2>Notificaties ontvangen</h2>
 <p>
 	Wil je via WhatsApp op de hoogte gehouden worden van freerun jams en events binnen Nederland? <br>
 	<a href="https://chat.whatsapp.com/IhKX7dXV9Vo7duEMmyzTpO"
