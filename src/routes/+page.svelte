@@ -44,5 +44,5 @@ parkour en freerunning community.
 
 <h2>Over {siteTitle}</h2>
 <p>
-	Het doel van {siteTitle} is om alle handige informatie over freerunning en parkour op één plek te hebben. Hier zijn overzichten van de <a href="/spots">beste spots</a>, <a href="/open-gyms">open gyms</a>, <a href="/links">community linkjes</a> en een <a href="/tv">playlist met Nederlandse freerun videos</a>.
+	Het doel van {siteTitle} is om alle handige informatie over freerunning en parkour op één plek te hebben. Hier zijn overzichten van de <a href="/spots">beste spots</a>, <a href="/open-gyms">open gyms</a> en<a href="/links">community linkjes</a>. 
 </p>
