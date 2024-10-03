@@ -59,9 +59,10 @@
 	<header><h2>Google Maps Placelists van freerunners</h2></header>
 	<article class="main">
 		<p>
-			Google Maps heeft een functie waarbij je lijsten kunt maken. Echter zijn deze lijsten niet vindbaar via Google. Je kunt ze gebruiken via de volgende links:
+			De volgende spot maps zijn fantastisch! Heb jij er ook een van jouw omgeving die je wil delen? 
 		</p>
 		<ul>
+                        <li><a href="https://maps.app.goo.gl/RPoC8Hwed7iDC7229" target="_blank" rel="noreferrer">Parkour Spots - by @parkoendama</a></li>
 			<li><a href="https://goo.gl/maps/9iFURfmBfMFrMLBD7" target="_blank" rel="noreferrer">FRRN Spots Arnhem - by Grip Freerunning</a></li>
 			<li><a href="https://goo.gl/maps/CGsQZCD8nGYh3cRV6" target="_blank" rel="noreferrer">Parkour Spots Deventer - by Grip Freerunning</a></li>
 			<li><a href="https://goo.gl/maps/TwaUDmqmbbH9FEnk8" target="_blank" rel="noreferrer">Parkour Spots Utrecht - by Grip Freerunning</a></li>
