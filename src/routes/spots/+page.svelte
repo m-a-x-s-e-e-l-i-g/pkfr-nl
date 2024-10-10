@@ -11,9 +11,9 @@
 	<header><h2>CityLegends</h2></header>
 	<article class="main">
 		<p>
-			CityLegends is de fijnste app om spots te vinden, ook kun je bij de spots clips bekijken of
-			plaatsen. Je kunt met je clips battlen tegen anderen, soms ook prijzen verdienen! <br />
-			<a href="https://www.citylegends.io/about-the-app">Lees hier meer over de app.</a>
+			CityLegends is een OK app om spots te vinden. Bij de spots kun je clips bekijken of
+			plaatsen. Je kunt met je clips battlen tegen anderen, soms ook prijzen verdienen! <br /> 
+			<a href="https://www.citylegends.io/about-the-app" rel="noreferrer" target="_blank">Lees hier meer over de app.</a>
 		</p>
 	</article>
 	<aside class="aside aside-right">
@@ -27,14 +27,20 @@
 		</picture>
 	</aside>
 	<footer>
-		<a href="https://citylegends.io/download-app" class="button">Download App</a>
+		<a 
+			href="https://citylegends.io/download-app" 
+			rel="noreferrer"
+			target="_blank" class="button">
+			Download App
+		</a>
 	</footer>
 </div>
 <div class="wrapper">
-	<header><h2>Max zijn Oude kaart</h2></header>
+	<header><h2>Max zijn spot map</h2></header>
 	<article class="main">
 		<p>
-			Super uitgebreide kaart, met vele spots. Helaas is deze kaart niet meer up-to-date, maar wellicht kun je er nog wat aan hebben.
+			Dit is een super uitgebreide spot map welke je makkelijk in Google Maps kunt openen. Er staan veel spots, non-spots, parkjes ongecategorieerd op. <br />
+			Ik kan hulp gebruiken met het categoriseren van de spots, als je wilt helpen, stuur me een berichtje ergens.
 		</p>
 	</article>
 	<aside class="aside aside-right">
@@ -51,8 +57,9 @@
 			href="https://www.google.com/maps/d/u/0/viewer?mid=1F8PHbPAtHhj4RaCQzbsw6Ko6FE0&hl=en&ll=52.13281486226002%2C5.623986124992371&z=7"
 			rel="noreferrer"
 			target="_blank"
-			class="button">Kaart openen</a
-		>
+			class="button">
+			Kaart openen
+		</a>
 	</footer>
 </div>
 <div class="wrapper">
