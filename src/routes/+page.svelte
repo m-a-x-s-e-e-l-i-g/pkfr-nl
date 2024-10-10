@@ -42,7 +42,12 @@ parkour en freerunning community.
 	class="button">Bekijk alle open gyms</a
 >
 
+<h2>WhatsApp Community</h2>
+<p>
+	De Nederlandse parkour en freerunning community is vooral actief op WhatsApp. <a href="https://chat.whatsapp.com/GamwcVgPYnq3UbKog2H9M8" rel="noreferrer" target="_blank">Join de community</a>, zo kun je makkelijk mensen vinden om mee te seshen.
+</p>
+
 <h2>Over {siteTitle}</h2>
 <p>
-	Het doel van {siteTitle} is om alle handige informatie over freerunning en parkour op één plek te hebben. Hier zijn overzichten van de <a href="/spots">beste spots</a>, <a href="/open-gyms">open gyms</a> en<a href="/links">community linkjes</a>. 
+	Het doel van {siteTitle} is om alle handige informatie over freerunning en parkour op één plek te hebben. Hier zijn overzichten van de <a href="/spots">beste spots</a>, <a href="/open-gyms">open gyms</a> en <a href="/links">community linkjes</a>. 
 </p>
