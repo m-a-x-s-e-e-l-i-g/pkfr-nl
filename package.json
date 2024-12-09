@@ -44,7 +44,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@unpic/svelte": "^0.0.56",
+		"@unpic/svelte": "^0.0.57",
 		"bits-ui": "^0.21.16",
 		"clsx": "^2.1.1",
 		"embla-carousel-autoplay": "^8.5.1",
