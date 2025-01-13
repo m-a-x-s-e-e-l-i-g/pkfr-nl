@@ -47,7 +47,7 @@
 		"@unpic/svelte": "^0.0.58",
 		"bits-ui": "^0.22.0",
 		"clsx": "^2.1.1",
-		"embla-carousel-autoplay": "^8.5.1",
+		"embla-carousel-autoplay": "^8.5.2",
 		"embla-carousel-svelte": "^8.5.2",
 		"eslint": "^9.17.0",
 		"just-throttle": "^4.2.0",
