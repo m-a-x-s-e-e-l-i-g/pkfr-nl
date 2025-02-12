@@ -20,10 +20,24 @@
 <JamsList/>
 
 <a
+	href="https://calendar.google.com/calendar/u/1?cid=MmY0OWI4ZDM0Njk2ZTI3YWE1MDhhNGM2NjllNDUzM2M3NGMxMWFlNGU1ZmZjOWRjNDhjZDVjMDZkMGEwM2NiM0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
+	rel="noreferrer"
+	target="_blank"
+	class="button">Toevoegen aan agenda</a
+>
+
+<a
 	href="https://calendar.google.com/calendar/ical/2f49b8d34696e27aa508a4c669e4533c74c11ae4e5ffc9dc48cd5c06d0a03cb3%40group.calendar.google.com/public/basic.ics"
 	rel="noreferrer"
 	target="_blank"
-	class="button">Sync met mijn agenda</a
+	class="button">iCal downloaden</a
+>
+
+<a
+	href="https://calendar.google.com/calendar/embed?src=2f49b8d34696e27aa508a4c669e4533c74c11ae4e5ffc9dc48cd5c06d0a03cb3%40group.calendar.google.com&ctz=Europe%2FAmsterdam"
+	rel="noreferrer"
+	target="_blank"
+	class="button">Agenda openen</a
 >
 
 <h2>Jam of event insturen</h2>
