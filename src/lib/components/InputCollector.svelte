@@ -74,7 +74,7 @@
 	{#if data.ok}
 		<div class="prompt success" transition:slide>
 			<p>Bedankt! Je input is ontvangen.</p>
-			<div class="flex justify-center">
+			<div style="display: flex; justify-content: center;">
 				<Confetti infinite amount=50 y={[0.25, 0.5]} x={[-2, 2]}/>
 			</div>
 			<button class="button" onclick={resetForm}>Ik heb meer input</button>
