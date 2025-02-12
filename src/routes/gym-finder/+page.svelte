@@ -10,10 +10,9 @@
 	import { Image } from "@unpic/svelte";
 	import { slide } from 'svelte/transition';
 
-	$:gyms = getGyms(latitude, longitude);
 
-	var latitude;
-	var longitude;
+	var latitude = $state();
+	var longitude = $state();
 
 	onMount(() => {
 		// retrieve user location
@@ -22,6 +21,7 @@
 			longitude = position.coords.longitude;
 		});
 	});
+	let gyms = $derived(getGyms(latitude, longitude));
 </script>
 
 
