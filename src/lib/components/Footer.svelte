@@ -14,7 +14,7 @@
 				<a href="/">Home</a>
 			</li>
 			<li>
-				<a href="{siteLink}" target="_blank" rel="noreferrer">Bijdragen</a>
+				<a href="{siteLink}" target="_blank" rel="noreferrer">GitHub</a>
 			</li>
 		</ul>
 	</nav>
