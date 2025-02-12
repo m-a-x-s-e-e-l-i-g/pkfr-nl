@@ -29,7 +29,7 @@ const CustomViewConfig = {
 
         let html = `
             <h2>📆 ${title}</h2>
-            <p>Op ${date} is de eerstvolgende jam: <b>${title}</b>.
+            <p>Op ${date} is het eerstvolgende event: <b>${title}</b>.
 				<div class="grid-container">
 					<div class="grid-item">⌚</div>
 					<div class="grid-item">Van ${startTime} tot ${endTime}.</div>
@@ -39,7 +39,7 @@ const CustomViewConfig = {
 					<div class="grid-item description">${description}</div>
 				</div>
 				<a href="${url}" target="_blank" rel="noreferrer" class="button">Plaats in mijn agenda</a>
-				<a href="/jams" target="_blank" rel="noreferrer" class="button ml-4">Bekijk alle jams</a>
+				<a href="/jams" target="_blank" rel="noreferrer" class="button ml-4">Bekijk alle events</a>
 			</p>
         `;
 		return { html: html };

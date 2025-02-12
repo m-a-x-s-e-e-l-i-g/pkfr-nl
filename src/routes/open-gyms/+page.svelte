@@ -18,10 +18,10 @@
 <OpenGymsList/>
 
 <a
-	href="https://calendar.google.com/calendar/ical/e8c97b051b5df998bf17a52d4d87ce82490ee2a033a40ff867ffe426214b32a9%40group.calendar.google.com/public/basic.ics"
+	href="https://calendar.google.com/calendar/u/1?cid=MmY0OWI4ZDM0Njk2ZTI3YWE1MDhhNGM2NjllNDUzM2M3NGMxMWFlNGU1ZmZjOWRjNDhjZDVjMDZkMGEwM2NiM0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
 	rel="noreferrer"
 	target="_blank"
-	class="button">Sync met mijn agenda</a
+	class="button">Toevoegen aan agenda</a
 >
 
 <h2>Wijziging insturen</h2>
