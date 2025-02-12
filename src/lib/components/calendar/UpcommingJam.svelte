@@ -27,12 +27,19 @@ const CustomViewConfig = {
         const description = firstSeg?.def.extendedProps.description ?? '';
 		const url = firstSeg?.def.url ?? '';;
 
-        let html = `
-            <h2>📆 ${title}</h2>
-            <p>Op ${date} is het eerstvolgende event: <b>${title}</b>.
+		let startEndTimes = '';
+		if (startTime !== '00:00' || endTime !== '00:00') {
+			startEndTimes = `
+				<div class="grid-item">⌚</div>
+				<div class="grid-item">Van ${startTime} tot ${endTime}.</div>
+			`;
+		}
+		
+		let html = `
+			<h2>📆 ${title}</h2>
+			<p>Op ${date} is het eerstvolgende event: <b>${title}</b>.
 				<div class="grid-container">
-					<div class="grid-item">⌚</div>
-					<div class="grid-item">Van ${startTime} tot ${endTime}.</div>
+					${startEndTimes}
 					<div class="grid-item">📍</div>
 					<div class="grid-item"><a href="http://maps.google.com/maps?q=${location}" target="_blank" rel="noreferrer">${location}</a></div>
 					<div class="grid-item">📝</div>
@@ -41,7 +48,7 @@ const CustomViewConfig = {
 				<a href="${url}" target="_blank" rel="noreferrer" class="button">Plaats in mijn agenda</a>
 				<a href="/jams" target="_blank" rel="noreferrer" class="button ml-4">Bekijk alle events</a>
 			</p>
-        `;
+		`;
 		return { html: html };
 	}
 };
