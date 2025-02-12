@@ -1,25 +1,24 @@
-<script>
-	import { useForm, validators, minLength, required } from 'svelte-use-form';
+<script lang="ts">
+	import { preventDefault } from 'svelte/legacy';
+
 	import { Confetti } from "svelte-confetti"
 	import { slide } from 'svelte/transition';
 
-	export let pagePath;
+	let { pagePath } = $props();
 
-    const form = useForm();
-
-	let data = '',
-		messageInput = '',
-		jamStartDateTime = '',
-		jamEndDateTime = '',
-		jamName = '',
-		jamDescription = '',
-		jamLocation = '',
-		gymDay = '',
-		gymStartTime = '',
-		gymEndTime = '',
-		gymName = '',
-		gymInfo = '',
-		gymMessage = '',
+	let data = $state(''),
+		messageInput = $state(''),
+		jamStartDateTime = $state(''),
+		jamEndDateTime = $state(''),
+		jamName = $state(''),
+		jamDescription = $state(''),
+		jamLocation = $state(''),
+		gymDay = $state(''),
+		gymStartTime = $state(''),
+		gymEndTime = $state(''),
+		gymName = $state(''),
+		gymInfo = $state(''),
+		gymMessage = $state(''),
 		message = '';
 
 	function resetForm() {
@@ -56,16 +55,29 @@
 		);
 		data = await response.json();
 	};
+
+
+    function validateForm() {
+        if (pagePath === '/jams') {
+            return jamStartDateTime && jamEndDateTime && jamName.length >= 5 && jamDescription.length >= 10 && jamLocation.length >= 5;
+        } else if (pagePath === '/open-gyms') {
+            return gymName && gymDay;
+        } else {
+            return messageInput.length >= 15;
+        }
+    }
+    // Validation logic
+    let formValid = $derived(validateForm());
 </script>
 
 <div class="formWrapper">
 	{#if data.ok}
 		<div class="prompt success" transition:slide>
 			<p>Bedankt! Je input is ontvangen.</p>
-			<div class="flex justify-center">
+			<div style="display: flex; justify-content: center;">
 				<Confetti infinite amount=50 y={[0.25, 0.5]} x={[-2, 2]}/>
 			</div>
-			<button class="button" on:click={resetForm}>Ik heb meer input</button>
+			<button class="button" onclick={resetForm}>Ik heb meer input</button>
 		</div>
 	{:else if data.ok === false}
 		<div class="prompt error" transition:slide>
@@ -74,31 +86,31 @@
 		</div>
 	{:else}
 		{#if pagePath === '/jams'}
-			<form use:form on:submit|preventDefault={sendMessage} transition:slide>
-				<div class="flex">
-					<div class="mr-2 w-1/2">
-						<label for="jamStartDateTime">Begin</label>
-						<input type="datetime-local" id="jamStartDateTime" name="jamStartDateTime" bind:value={jamStartDateTime} use:validators={[required]} />
+				<form onsubmit={preventDefault(sendMessage)} transition:slide>
+					<div class="flex">
+						<div class="mr-2 w-1/2">
+							<label for="jamStartDateTime">Begin</label>
+							<input type="datetime-local" id="jamStartDateTime" name="jamStartDateTime" bind:value={jamStartDateTime} />
+						</div>
+						<div class="ml-2 w-1/2">
+							<label for="jamEndDateTime">Eind</label>
+							<input type="datetime-local" id="jamEndDateTime" name="jamEndDateTime" bind:value={jamEndDateTime} />
+						</div>
 					</div>
-					<div class="ml-2 w-1/2">
-						<label for="jamEndDateTime">Eind</label>
-						<input type="datetime-local" id="jamEndDateTime" name="jamEndDateTime" bind:value={jamEndDateTime} use:validators={[required]} />
-					</div>
-				</div>
-				<label for="jamName">Naam</label>
-				<input type="text" id="jamName" name="jamName" bind:value={jamName} use:validators={[minLength(5)]}/>
-				<label for="jamDescription">Omschrijving</label>
-				<input type="text" id="jamDescription" name="jamDescription" bind:value={jamDescription} use:validators={[minLength(10)]}/>
-				<label for="jamLocation">Startlocatie</label>
-				<input type="text" id="jamLocation" name="jamLocation" bind:value={jamLocation} use:validators={[minLength(5)]}/>
-				<button class="button" disabled={!$form.valid}>Versturen</button>
-			</form>
+					<label for="jamName">Naam</label>
+					<input type="text" id="jamName" name="jamName" bind:value={jamName} />
+					<label for="jamDescription">Omschrijving</label>
+					<input type="text" id="jamDescription" name="jamDescription" bind:value={jamDescription} />
+					<label for="jamLocation">Startlocatie</label>
+					<input type="text" id="jamLocation" name="jamLocation" bind:value={jamLocation} />
+					<button class="button" disabled={!formValid}>Versturen</button>
+				</form>
 		{:else if pagePath === '/open-gyms'}
-			<form use:form on:submit|preventDefault={sendMessage} transition:slide>
+			<form onsubmit={preventDefault(sendMessage)} transition:slide>
 				<label for="gymName">Gymnaam</label>
-				<input type=text id="gymName" name="gymName" bind:value={gymName} use:validators={[required]}>
+				<input type=text id="gymName" name="gymName" bind:value={gymName}>
 				<label for="gymDay">Dag</label>
-				<select id="gymDay" name="gymDay" bind:value={gymDay} use:validators={[required]}>
+				<select id="gymDay" name="gymDay" bind:value={gymDay}>
 					<option value="maandag">Maandag</option>
 					<option value="dinsdag">Dinsdag</option>
 					<option value="woensdag">Woensdag</option>
@@ -121,12 +133,12 @@
 				<textarea id="gymInfo" name="gymInfo" bind:value={gymInfo} placeholder="Voor €10 kun je 2 uur beesten op onze bakstenen binnengym. Meer informatie vind je ..."></textarea>
 				<label for="gymMessage">Opmerkingen</label>
 				<textarea id="gymMessage" name="gymMessage" bind:value={gymMessage} placeholder="Open gyms van maandagen gaan niet door."></textarea>
-				<button class="button" disabled={!$form.valid}>Versturen</button>
+				<button class="button" disabled={!formValid}>Versturen</button>
 			</form>
 		{:else}
-			<form use:form on:submit|preventDefault={sendMessage} transition:slide>
-				<input type="text" name="messageInput" bind:value={messageInput} use:validators={[minLength(15)]}/>
-				<button class="button" disabled={!$form.valid}>Versturen</button>
+			<form onsubmit={preventDefault(sendMessage)} transition:slide>
+				<input type="text" name="messageInput" bind:value={messageInput} />
+				<button class="button" disabled={!formValid}>Versturen</button>
 			</form>
 		{/if}
 	{/if}
