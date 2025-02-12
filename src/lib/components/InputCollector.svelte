@@ -1,12 +1,11 @@
 <script>
-	import { useForm, validators, url, pattern, minLength, required } from 'svelte-use-form';
+	import { useForm, validators, minLength, required } from 'svelte-use-form';
 	import { Confetti } from "svelte-confetti"
 	import { slide } from 'svelte/transition';
 
 	export let pagePath;
 
     const form = useForm();
-    const youtubeRegex = /^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+$/;
 
 	let data = '',
 		messageInput = '',
@@ -74,12 +73,7 @@
 			<code>{data.error_code}: {data.description}</code>
 		</div>
 	{:else}
-		{#if pagePath === '/tv'}
-			<form use:form on:submit|preventDefault={sendMessage} transition:slide>
-				<input type="text" name="messageInput" bind:value={messageInput} placeholder="YouTube URL" use:validators={[url, pattern(youtubeRegex)]}/>
-				<button class="button" disabled={!$form.valid}>Versturen</button>
-			</form>
-		{:else if pagePath === '/jams'}
+		{#if pagePath === '/jams'}
 			<form use:form on:submit|preventDefault={sendMessage} transition:slide>
 				<div class="flex">
 					<div class="mr-2 w-1/2">
