@@ -49,6 +49,7 @@
     },
     "type": "module",
     "dependencies": {
+        "@tailwindcss/postcss": "^4.0.6",
         "@unpic/svelte": "^1.0.0",
         "embla-carousel-autoplay": "^8.5.2",
         "embla-carousel-svelte": "^8.5.2",
