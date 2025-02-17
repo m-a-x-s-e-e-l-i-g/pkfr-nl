@@ -29,7 +29,7 @@
         "mdsvex": "^0.12.3",
         "postcss": "^8.5.2",
         "postcss-load-config": "^6.0.1",
-        "prettier": "^3.5.0",
+        "prettier": "^3.5.1",
         "prettier-plugin-svelte": "^3.3.3",
         "prettier-plugin-tailwindcss": "^0.6.11",
         "rehype-autolink-headings": "^7.1.0",
