@@ -15,10 +15,12 @@ export const friendShoeSize = writable(initialFriendShoeSize);
 // Subscribe to changes and update localStorage
 if (isBrowser) {
     myShoeSize.subscribe((value) => {
+        if (value == null) return;
         localStorage.setItem('myShoeSize', value.toString());
     });
 
     friendShoeSize.subscribe((value) => {
+        if (value == null) return;
         localStorage.setItem('friendShoeSize', value.toString());
     });
 }
