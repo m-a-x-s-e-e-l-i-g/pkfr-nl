@@ -59,12 +59,12 @@
     <div class="flex flex-col items-center mt-4">
       <div class="mb-4">
         <label class="block mb-2">Schoenmaat
-          <input type="number" bind:value={$myShoeSize} class="w-24 p-2 border rounded" step="0.5" />
+          <input type="number" bind:value={$myShoeSize} class="p-2 border rounded" step="0.5" min="30" max="50" />
         </label>
       </div>
       <div class="mb-4">
         <label class="block mb-2">Aantal voet
-          <input type="number" value={myMeasuredDistance} on:input={(e) => updateMyDistance(e.target.value)} class="w-24 p-2 border rounded" step="0.5" />
+          <input type="number" value={myMeasuredDistance} on:input={(e) => updateMyDistance(e.target.value)} class="p-2 border rounded" step="0.5" min="1" max="99" />
         </label>
       </div>
     </div>
@@ -75,12 +75,12 @@
     <div class="flex flex-col items-center mt-4">
       <div class="mb-4">
         <label class="block mb-2">Schoenmaat
-          <input type="number" bind:value={$friendShoeSize} class="w-24 p-2 border rounded" step="0.5" />
+          <input type="number" bind:value={$friendShoeSize} class="p-2 border rounded" step="0.5" min="30" max="50" />
         </label>
       </div>
       <div class="mb-4">
         <label class="block mb-2">Aantal voet
-          <input type="number" value={friendMeasuredDistance} on:input={(e) => updateFriendDistance(e.target.value)} class="w-24 p-2 border rounded" step="0.5" />
+          <input type="number" value={friendMeasuredDistance} on:input={(e) => updateFriendDistance(e.target.value)} class="p-2 border rounded" step="0.5" min="1" max="99" />
         </label>
       </div>
     </div>
