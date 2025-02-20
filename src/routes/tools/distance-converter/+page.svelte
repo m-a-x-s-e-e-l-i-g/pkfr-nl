@@ -17,6 +17,9 @@
     // Conversion for distance in steps to stoeptegels
     const stepsToStoeptegels = (steps) => steps * shoeSizeToFootLength($myShoeSize) * 0.01 / 0.3;
 
+    // Conversion for distance in steps to footbags
+    const stepsToFootbags = (steps) => steps * shoeSizeToFootLength($myShoeSize) * 0.01 / 0.05715;
+
     // Helper function to round to the nearest half
     const roundToNearestHalf = (value) => Math.round(value * 2) / 2;
 
@@ -24,11 +27,10 @@
     $: myFootLength = shoeSizeToFootLength($myShoeSize);
     $: friendFootLength = shoeSizeToFootLength($friendShoeSize);
 
-    // Scale the distance proportionally based on foot length
     $: if (lastUpdated === 'my' && myMeasuredDistance !== 0) {
-        friendMeasuredDistance = roundToNearestHalf((friendFootLength / myFootLength) * myMeasuredDistance);
+        friendMeasuredDistance = roundToNearestHalf((myFootLength / friendFootLength) * myMeasuredDistance);
     } else if (lastUpdated === 'friend' && friendMeasuredDistance !== 0) {
-        myMeasuredDistance = roundToNearestHalf((myFootLength / friendFootLength) * friendMeasuredDistance);
+        myMeasuredDistance = roundToNearestHalf((friendFootLength / myFootLength) * friendMeasuredDistance);
     }
 
     function updateMyDistance(value) {
@@ -59,12 +61,12 @@
     <div class="flex flex-col items-center mt-4">
       <div class="mb-4">
         <label class="block mb-2">Schoenmaat
-          <input type="number" bind:value={$myShoeSize} class="p-2 border rounded" step="0.5" min="30" max="50" />
+          <input type="number" bind:value={$myShoeSize} class="p-2 border rounded" step="0.5" min="30" max="50" required/>
         </label>
       </div>
       <div class="mb-4">
         <label class="block mb-2">Aantal voet
-          <input type="number" value={myMeasuredDistance} on:input={(e) => updateMyDistance(e.target.value)} class="p-2 border rounded" step="0.5" min="1" max="99" />
+          <input type="number" value={myMeasuredDistance} on:input={(e) => updateMyDistance(e.target.value)} class="p-2 border rounded" step="0.5" min="1" max="99" required/>
         </label>
       </div>
     </div>
@@ -75,12 +77,12 @@
     <div class="flex flex-col items-center mt-4">
       <div class="mb-4">
         <label class="block mb-2">Schoenmaat
-          <input type="number" bind:value={$friendShoeSize} class="p-2 border rounded" step="0.5" min="30" max="50" />
+          <input type="number" bind:value={$friendShoeSize} class="p-2 border rounded" step="0.5" min="30" max="50" required/>
         </label>
       </div>
       <div class="mb-4">
         <label class="block mb-2">Aantal voet
-          <input type="number" value={friendMeasuredDistance} on:input={(e) => updateFriendDistance(e.target.value)} class="p-2 border rounded" step="0.5" min="1" max="99" />
+          <input type="number" value={friendMeasuredDistance} on:input={(e) => updateFriendDistance(e.target.value)} class="p-2 border rounded" step="0.5" min="1" max="99" required/>
         </label>
       </div>
     </div>
@@ -89,3 +91,4 @@
 
 <p class="text-center">Afstand: <strong>{stepsToMeters(myMeasuredDistance).toFixed(2)}</strong> meter.</p>
 <p class="text-center">Dat zijn <strong>{roundToNearestHalf(stepsToStoeptegels(myMeasuredDistance))}</strong> stoeptegels.</p>
+<p class="text-center">Of <strong>{roundToNearestHalf(stepsToFootbags(myMeasuredDistance))}</strong> hacky sacks.</p>
