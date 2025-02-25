@@ -1,9 +1,10 @@
-import { sveltekit } from '@sveltejs/kit/vite'
+import { vite as vidstack } from 'vidstack/plugins';
+import { sveltekit } from '@sveltejs/kit/vite';
 import tailwindcss from '@tailwindcss/vite';
 
 /** @type {import('vite').UserConfig} */
 const config = {
-    plugins: [tailwindcss(), sveltekit()],
+    plugins: [tailwindcss(), sveltekit(), vidstack()],
     resolve: {
         dedupe: ['@fullcalendar/common']
     },
@@ -21,4 +22,4 @@ const config = {
     }
 };
 
-export default config
+export default config;
