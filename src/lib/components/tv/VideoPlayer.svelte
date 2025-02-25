@@ -3,7 +3,6 @@
   import { createEventDispatcher } from 'svelte';
   import 'vidstack/bundle';
   import 'vidstack/player';
-  import 'vidstack/player/layouts/default';
   import 'vidstack/player/ui';
 
   export let videoId: string;
