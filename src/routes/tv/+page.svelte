@@ -59,10 +59,14 @@
   function handleVideoEnd() {
     watchedState = { ...watchedState, [currentVideo]: true };
     
-    // Play next video
-    const currentIndex = videos.findIndex((v) => v.id === currentVideo);
-    if (currentIndex < videos.length - 1) {
-      currentVideo = videos[currentIndex + 1].id;
+    // Play next video, skipping already watched videos
+    let currentIndex = videos.findIndex((v) => v.id === currentVideo);
+    while (currentIndex < videos.length - 1) {
+      currentIndex++;
+      if (!watchedState[videos[currentIndex].id]) {
+        currentVideo = videos[currentIndex].id;
+        break;
+      }
     }
   }
 
