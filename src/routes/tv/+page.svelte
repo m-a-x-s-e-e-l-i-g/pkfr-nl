@@ -42,7 +42,8 @@
       }));
       
       if (videos.length > 0 && !currentVideo) {
-        currentVideo = videos[0].id;
+        const firstUnwatchedVideo = videos.find((video) => !watchedState[video.id]);
+        currentVideo = firstUnwatchedVideo ? firstUnwatchedVideo.id : videos[0].id;
       }
     } catch (err) {
       console.error('Error fetching playlist:', err);
