@@ -20,7 +20,7 @@
 <div class="h-full overflow-y-auto">
   {#each videos as video (video.id)}
     <div
-      class="flex items-start p-4 hover:bg-gray-100 cursor-pointer {currentVideo === video.id ? 'bg-blue-50' : ''}"
+      class="flex items-start p-4 hover:bg-gray-100 cursor-pointer {currentVideo === video.id ? 'bg-blue-50' : ''} {watchedState[video.id] ? 'bg-green-50' : ''}"
       on:click={() => handleVideoSelect(video.id)}
       on:keydown={(e) => e.key === 'Enter' && handleVideoSelect(video.id)}
       aria-pressed={currentVideo === video.id}
@@ -37,7 +37,7 @@
         />
         <PlayCircle
           class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 {
-            currentVideo === video.id ? 'text-blue-500' : 'text-white'
+            currentVideo === video.id ? 'text-red-500' : 'text-white'
           }"
           size={32}
         />
