@@ -20,7 +20,7 @@
 <div class="h-full overflow-y-auto">
   {#each videos as video (video.id)}
     <div
-      class="flex items-start p-4 hover:bg-gray-100 cursor-pointer {currentVideo === video.id ? 'bg-blue-50' : ''} {watchedState[video.id] ? 'bg-green-50' : ''}"
+      class="flex items-start p-4 hover:bg-gray-100 cursor-pointer {currentVideo === video.id ? 'bg-red-50' : ''} {watchedState[video.id] ? 'bg-green-50' : ''}"
       on:click={() => handleVideoSelect(video.id)}
       on:keydown={(e) => e.key === 'Enter' && handleVideoSelect(video.id)}
       aria-pressed={currentVideo === video.id}
@@ -35,12 +35,17 @@
           alt={video.title}
           class="w-full aspect-video object-cover rounded"
         />
-        <PlayCircle
-          class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 {
-            currentVideo === video.id ? 'text-red-500' : 'text-white'
-          }"
-          size={32}
-        />
+        {#if currentVideo === video.id}
+          <PlayCircle
+            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-red-500"
+            size={32}
+          />
+        {:else if watchedState[video.id]}
+          <Check
+            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-green-600 bg-green-100 rounded-full p-1"
+            size={32}
+          />
+        {/if}
       </div>
       <div class="ml-4 flex-grow">
         <p class="font-medium text-gray-900 line-clamp-2">{video.title}</p>
@@ -48,9 +53,7 @@
       </div>
       <button
         on:click={() => handleToggleWatched(video.id)}
-        class="watched ml-4 p-2 rounded-full {
-          watchedState[video.id] ? 'bg-green-100' : 'bg-gray-100'
-        }"
+        class="watched ml-4 p-2 rounded-full {watchedState[video.id] ? 'bg-green-100' : 'bg-gray-100'}"
       >
         <Check
           size={20}
