@@ -5,7 +5,7 @@
   import VideoList from '$lib/components/tv/VideoList.svelte';
 
   const PLAYLIST_ID = 'PL3iwaCsp8s8P0lVvw3DkmMFmGxqBGSXnS';
-  const API_KEY = 'AIzaSyAyClTs-KSxcnr2nbDXVK3QVR5kC5xBWUo';
+  const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
 
   let videos = [];
   let currentVideo = '';

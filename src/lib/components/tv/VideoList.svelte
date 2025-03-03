@@ -2,8 +2,8 @@
   import { createEventDispatcher } from 'svelte';
   import { PlayCircle, Check } from 'lucide-svelte';
 
-  export let videos: VideoItem[] = [];
-  export let watchedState: WatchedState = {};
+  export let videos = [];
+  export let watchedState = {};
   export let currentVideo: string = '';
 
   const dispatch = createEventDispatcher();
@@ -48,7 +48,7 @@
       </div>
       <button
         on:click={() => handleToggleWatched(video.id)}
-        class="ml-4 p-2 rounded-full {
+        class="watched ml-4 p-2 rounded-full {
           watchedState[video.id] ? 'bg-green-100' : 'bg-gray-100'
         }"
       >

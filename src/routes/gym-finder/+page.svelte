@@ -28,6 +28,7 @@
 <svelte:head>
 	<title>Indoor Freerun Gym Finder {titlePostfix}</title>
 </svelte:head>
+
 <h1>Gym Finder</h1>
 <p>Hier vind je de <b>{gyms.length}</b> indoor freerun <b>gyms</b> van Nederland!</p>
 {#if !latitude && !longitude}

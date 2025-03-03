@@ -21,7 +21,7 @@ main {
 	min-height: 100vh;
 }
 
-.button {
+.button:not(.watched) {
 	font-family: var(--primaryFont);
 	background-color: var(--accent);
 	border: none;
@@ -30,7 +30,6 @@ main {
 	color: var(--white);
 	text-decoration: none;
 	display: inline-block;
-	font-size: 20px;
 	margin-top: 10px;
 	cursor: pointer;
 	border-radius: 4px;
@@ -40,6 +39,10 @@ main {
 	&:hover, &:focus {
 		background: transparent;
 		color: var(--accent);
+	}
+
+	@media (min-width: vars.$smMin) {
+		font-size: 20px;
 	}
 }
 

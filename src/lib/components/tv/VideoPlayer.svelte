@@ -2,10 +2,8 @@
   import { onMount } from 'svelte';
   import { createEventDispatcher } from 'svelte';
   import 'vidstack/bundle';
-  import 'vidstack/player';
-  import 'vidstack/player/ui';
 
-  export let videoId: string;
+  let props = $props();
 
   const dispatch = createEventDispatcher();
 
@@ -27,10 +25,11 @@
   logLevel="warn"
   crossOrigin
   playsInline
+  autoPlay
+  src="{`youtube/${props.videoId}`}"
 >
   <media-provider>
     <media-poster class="vds-poster"></media-poster>
-    <source src="{`youtube/${videoId}`}" type="video/youtube" />
   </media-provider>
   <media-video-layout></media-video-layout>
 </media-player>
