@@ -92,13 +92,14 @@
           videoId={currentVideo} 
           on:ended={handleVideoEnd} 
         />
-        <div class="p-4">
-          <p class="text-xl font-semibold">
+        <div class="h-28 overflow-y-auto relative">
+          <p class="m-4 text-xl font-semibold">
             {videos.find((v) => v.id === currentVideo)?.title}
           </p>
-          <p class="mt-2 text-gray-600">
+          <p class="m-4 text-sm text-gray-600">
             {videos.find((v) => v.id === currentVideo)?.description}
           </p>
+          <div class="sticky bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
         </div>
       </div>
     {/if}
