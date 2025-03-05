@@ -19,7 +19,7 @@
 </script>
 
 <div
-  class="video-item {currentVideo === video.id ? 'bg-red-50' : ''} {watchedState[video.id] ? 'bg-green-50' : ''}"
+  class="video-item {currentVideo === video.id ? 'bg-red-50' : ''}"
   on:click={() => handleVideoSelect(video.id)}
   on:keydown={(e) => e.key === 'Enter' && handleVideoSelect(video.id)}
   aria-pressed={currentVideo === video.id}
