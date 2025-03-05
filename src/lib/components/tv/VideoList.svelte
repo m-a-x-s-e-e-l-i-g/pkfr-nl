@@ -13,7 +13,8 @@
     dispatch('selectVideo', videoId);
   }
 
-  function handleToggleWatched(videoId: string) {
+  function handleToggleWatched(event: Event, videoId: string) {
+    event.stopPropagation();
     dispatch('toggleWatched', videoId);
   }
 
@@ -49,7 +50,7 @@
             <p class="video-description">{video.description}</p>
           </div>
           <button
-            on:click={() => handleToggleWatched(video.id)}
+            on:click={(event) => handleToggleWatched(event, video.id)}
             class="watched-button {watchedState[video.id] ? 'bg-green-100' : 'bg-gray-100'}"
           >
             <Check size={20} class={watchedState[video.id] ? 'text-green-600' : 'text-gray-400'} />
@@ -81,7 +82,7 @@
             <p class="video-description">{video.description}</p>
           </div>
           <button
-            on:click={() => handleToggleWatched(video.id)}
+            on:click={(event) => handleToggleWatched(event, video.id)}
             class="watched-button {watchedState[video.id] ? 'bg-green-100' : 'bg-gray-100'}"
           >
             <Check size={20} class={watchedState[video.id] ? 'text-green-600' : 'text-gray-400'} />
