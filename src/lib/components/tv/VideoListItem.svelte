@@ -1,38 +1,49 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
-  import * as Tabs from "$lib/components/ui/tabs/index.js";
-  import VideoListItem from './VideoListItem.svelte';
+  import { Check } from 'lucide-svelte';
 
-  export let videos = [];
-  export let watchedState = {};
+  export let video;
+  export let watchedState;
   export let currentVideo: string = '';
 
   const dispatch = createEventDispatcher();
 
-  $: upNextVideos = videos.filter(video => !watchedState[video.id]);
-  $: historyVideos = videos.filter(video => watchedState[video.id]);
+  function handleVideoSelect(videoId: string) {
+    dispatch('selectVideo', videoId);
+  }
+
+  function handleToggleWatched(event: Event, videoId: string) {
+    event.stopPropagation();
+    dispatch('toggleWatched', videoId);
+  }
 </script>
 
-<Tabs.Root value="upNext" class="w-full">
-  <Tabs.List>
-    <Tabs.Trigger value="upNext">Up next</Tabs.Trigger>
-    <Tabs.Trigger value="history">History</Tabs.Trigger>
-  </Tabs.List>
-  <Tabs.Content value="upNext">
-    <div class="h-full overflow-y-auto">
-      {#each upNextVideos as video (video.id)}
-        <VideoListItem {video} {watchedState} {currentVideo} on:selectVideo={(e) => dispatch('selectVideo', e.detail)} on:toggleWatched={(e) => dispatch('toggleWatched', e.detail)} />
-      {/each}
-    </div>
-  </Tabs.Content>
-  <Tabs.Content value="history">
-    <div class="h-full overflow-y-auto">
-      {#each historyVideos as video (video.id)}
-        <VideoListItem {video} {watchedState} {currentVideo} on:selectVideo={(e) => dispatch('selectVideo', e.detail)} on:toggleWatched={(e) => dispatch('toggleWatched', e.detail)} />
-      {/each}
-    </div>
-  </Tabs.Content>
-</Tabs.Root>
+<div
+  class="video-item {currentVideo === video.id ? 'bg-red-50' : ''} {watchedState[video.id] ? 'bg-green-50' : ''}"
+  on:click={() => handleVideoSelect(video.id)}
+  on:keydown={(e) => e.key === 'Enter' && handleVideoSelect(video.id)}
+  aria-pressed={currentVideo === video.id}
+  role="button"
+  tabindex="0"
+>
+  <div class="thumbnail-container">
+    <img
+      src={video.thumbnail}
+      alt={video.title}
+      class="thumbnail"
+    />
+  </div>
+  <div class="video-info">
+    <p class="video-title">{video.title}</p>
+    <p class="video-description">{video.description}</p>
+  </div>
+  <button
+    on:click={(event) => handleToggleWatched(event, video.id)}
+    class="watched-button {watchedState[video.id] ? 'bg-green-100' : 'bg-gray-100'}"
+  >
+    <Check size={20} class={watchedState[video.id] ? 'text-green-600' : 'text-gray-400'} />
+  </button>
+</div>
 
 <style>
   .video-item {
