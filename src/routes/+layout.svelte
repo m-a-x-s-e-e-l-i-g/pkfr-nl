@@ -31,7 +31,7 @@
 <div class="layout" class:open={$isMenuOpen}>
 	<Header></Header>
 	{#key data.path}
-		<main id="main" tabindex="-1" in:fade|global={transitionIn} out:fade|global={transitionOut}>
+		<main id="main" tabindex="-1" in:fade|global={transitionIn} out:fade|global={transitionOut} class:full-size={data.path === '/tv'}>
 			{@render children?.()}
 		</main>
 	{/key}
