@@ -40,6 +40,7 @@
   <button
     on:click={(event) => handleToggleWatched(event, video.id)}
     class="watched-button {watchedState[video.id] ? 'bg-green-100' : 'bg-gray-100'}"
+    title={watchedState[video.id] ? 'Remove from watched' : 'Mark as watched'}
   >
     <Check size={20} class={watchedState[video.id] ? 'text-green-600' : 'text-gray-400'} />
   </button>
@@ -99,5 +100,9 @@
     margin-left: 1rem; /* ml-4 */
     padding: 0.5rem; /* p-2 */
     border-radius: 9999px; /* rounded-full */
+  }
+  .watched-button:hover {
+    outline: 1px solid #111827;
+    cursor: pointer;
   }
 </style>

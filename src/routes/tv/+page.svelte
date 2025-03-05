@@ -77,7 +77,7 @@
       ...watchedState,
       [videoId]: !watchedState[videoId]
     };
-    toast(watchedState[videoId] ? 'Marked as watched' : 'Marked as unwatched');
+    toast(watchedState[videoId] ? 'Marked as watched' : 'Removed from history');
   }
 </script>
 
