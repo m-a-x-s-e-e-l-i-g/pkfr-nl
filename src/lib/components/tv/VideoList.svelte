@@ -1,6 +1,6 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
-  import { PlayCircle, Check } from 'lucide-svelte';
+  import { Check } from 'lucide-svelte';
   import * as Tabs from "$lib/components/ui/tabs/index.js";
 
   export let videos = [];
