@@ -3,6 +3,7 @@
   import { onMount } from 'svelte';
   import VideoPlayer from '$lib/components/tv/VideoPlayer.svelte';
   import VideoList from '$lib/components/tv/VideoList.svelte';
+  import { toast } from "svelte-sonner";
 
   const PLAYLIST_ID = 'PL3iwaCsp8s8P0lVvw3DkmMFmGxqBGSXnS';
   const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
@@ -76,6 +77,7 @@
       ...watchedState,
       [videoId]: !watchedState[videoId]
     };
+    toast(watchedState[videoId] ? 'Marked as watched' : 'Marked as unwatched');
   }
 </script>
 

@@ -6,6 +6,7 @@
 	import '$lib/assets/scss/global.scss';
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import { Toaster } from "$lib/components/ui/sonner/index.js";
 	import { currentPage, isMenuOpen } from '$lib/assets/js/store';
 	import { navItems } from '$lib/config';
 	import { onMount } from 'svelte';
@@ -36,4 +37,5 @@
 		</main>
 	{/key}
 	<Footer></Footer>
+	<Toaster />
 </div>
