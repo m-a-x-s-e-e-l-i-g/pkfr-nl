@@ -3,7 +3,6 @@
   import { PlayCircle, Check } from 'lucide-svelte';
   import * as Tabs from "$lib/components/ui/tabs/index.js";
 
-
   export let videos = [];
   export let watchedState = {};
   export let currentVideo: string = '';
@@ -31,45 +30,29 @@
     <div class="h-full overflow-y-auto">
       {#each upNextVideos as video (video.id)}
         <div
-          class="flex items-start p-4 hover:bg-gray-100 cursor-pointer {currentVideo === video.id ? 'bg-red-50' : ''} {watchedState[video.id] ? 'bg-green-50' : ''}"
+          class="video-item {currentVideo === video.id ? 'bg-red-50' : ''} {watchedState[video.id] ? 'bg-green-50' : ''}"
           on:click={() => handleVideoSelect(video.id)}
           on:keydown={(e) => e.key === 'Enter' && handleVideoSelect(video.id)}
           aria-pressed={currentVideo === video.id}
           role="button"
           tabindex="0"
         >
-          <div 
-            class="relative w-40 flex-shrink-0" 
-          >
+          <div class="thumbnail-container">
             <img
               src={video.thumbnail}
               alt={video.title}
-              class="w-full aspect-video object-cover rounded"
+              class="thumbnail"
             />
-            {#if currentVideo === video.id}
-              <PlayCircle
-                class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-red-500"
-                size={32}
-              />
-            {:else if watchedState[video.id]}
-              <Check
-                class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-green-600 bg-green-100 rounded-full p-1"
-                size={32}
-              />
-            {/if}
           </div>
-          <div class="ml-4 flex-grow">
-            <p class="font-medium text-gray-900 line-clamp-2">{video.title}</p>
-            <p class="text-sm text-gray-500 mt-1 line-clamp-2">{video.description}</p>
+          <div class="video-info">
+            <p class="video-title">{video.title}</p>
+            <p class="video-description">{video.description}</p>
           </div>
           <button
             on:click={() => handleToggleWatched(video.id)}
-            class="watched ml-4 p-2 rounded-full {watchedState[video.id] ? 'bg-green-100' : 'bg-gray-100'}"
+            class="watched-button {watchedState[video.id] ? 'bg-green-100' : 'bg-gray-100'}"
           >
-            <Check
-              size={20}
-              class={watchedState[video.id] ? 'text-green-600' : 'text-gray-400'}
-            />
+            <Check size={20} class={watchedState[video.id] ? 'text-green-600' : 'text-gray-400'} />
           </button>
         </div>
       {/each}
@@ -79,48 +62,99 @@
     <div class="h-full overflow-y-auto">
       {#each historyVideos as video (video.id)}
         <div
-          class="flex items-start p-4 hover:bg-gray-100 cursor-pointer {currentVideo === video.id ? 'bg-red-50' : ''} {watchedState[video.id] ? 'bg-green-50' : ''}"
+          class="video-item {currentVideo === video.id ? 'bg-red-50' : ''} {watchedState[video.id] ? 'bg-green-50' : ''}"
           on:click={() => handleVideoSelect(video.id)}
           on:keydown={(e) => e.key === 'Enter' && handleVideoSelect(video.id)}
           aria-pressed={currentVideo === video.id}
           role="button"
           tabindex="0"
         >
-          <div 
-            class="relative w-40 flex-shrink-0" 
-          >
+          <div class="thumbnail-container">
             <img
               src={video.thumbnail}
               alt={video.title}
-              class="w-full aspect-video object-cover rounded"
+              class="thumbnail"
             />
-            {#if currentVideo === video.id}
-              <PlayCircle
-                class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-red-500"
-                size={32}
-              />
-            {:else if watchedState[video.id]}
-              <Check
-                class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-green-600 bg-green-100 rounded-full p-1"
-                size={32}
-              />
-            {/if}
           </div>
-          <div class="ml-4 flex-grow">
-            <p class="font-medium text-gray-900 line-clamp-2">{video.title}</p>
-            <p class="text-sm text-gray-500 mt-1 line-clamp-2">{video.description}</p>
+          <div class="video-info">
+            <p class="video-title">{video.title}</p>
+            <p class="video-description">{video.description}</p>
           </div>
           <button
             on:click={() => handleToggleWatched(video.id)}
-            class="watched ml-4 p-2 rounded-full {watchedState[video.id] ? 'bg-green-100' : 'bg-gray-100'}"
+            class="watched-button {watchedState[video.id] ? 'bg-green-100' : 'bg-gray-100'}"
           >
-            <Check
-              size={20}
-              class={watchedState[video.id] ? 'text-green-600' : 'text-gray-400'}
-            />
+            <Check size={20} class={watchedState[video.id] ? 'text-green-600' : 'text-gray-400'} />
           </button>
         </div>
       {/each}
     </div>
   </Tabs.Content>
 </Tabs.Root>
+
+<style>
+  .video-item {
+    display: flex;
+    align-items: start;
+    padding: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .video-item:hover {
+    background-color: #f3f4f6; /* hover:bg-gray-100 */
+  }
+
+  .thumbnail-container {
+    position: relative;
+    width: 10rem; /* w-40 */
+    flex-shrink: 0;
+  }
+
+  .thumbnail {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* aspect-video */
+    object-fit: cover; /* object-cover */
+    border-radius: 0.25rem; /* rounded */
+  }
+  .icon-play {
+    color: #ef4444; /* text-red-500 */
+  }
+
+  .icon-check {
+    color: #16a34a; /* text-green-600 */
+    background-color: #d1fae5; /* bg-green-100 */
+    border-radius: 9999px; /* rounded-full */
+    padding: 0.25rem; /* p-1 */
+  }
+
+  .video-info {
+    margin-left: 1rem; /* ml-4 */
+    flex-grow: 1;
+  }
+
+  .video-title {
+    font-weight: 500; /* font-medium */
+    color: #111827; /* text-gray-900 */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .video-description {
+    font-size: 0.875rem; /* text-sm */
+    color: #6b7280; /* text-gray-500 */
+    margin-top: 0.25rem; /* mt-1 */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .watched-button {
+    margin-left: 1rem; /* ml-4 */
+    padding: 0.5rem; /* p-2 */
+    border-radius: 9999px; /* rounded-full */
+  }
+</style>
