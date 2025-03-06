@@ -101,6 +101,7 @@
     margin-left: 1rem; /* ml-4 */
     padding: 0.5rem; /* p-2 */
     border-radius: 9999px; /* rounded-full */
+    align-self: center;
   }
   .watched-button:hover {
     outline: 1px solid #111827;
