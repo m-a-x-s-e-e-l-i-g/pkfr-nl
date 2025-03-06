@@ -19,14 +19,14 @@
     <Tabs.Trigger value="history">History</Tabs.Trigger>
   </Tabs.List>
   <Tabs.Content value="upNext">
-    <div class="h-full overflow-y-auto">
+    <div class="h-200 overflow-y-auto">
       {#each upNextVideos as video (video.id)}
         <VideoListItem {video} {watchedState} {currentVideo} on:selectVideo={(e) => dispatch('selectVideo', e.detail)} on:toggleWatched={(e) => dispatch('toggleWatched', e.detail)} />
       {/each}
     </div>
   </Tabs.Content>
   <Tabs.Content value="history">
-    <div class="h-full overflow-y-auto">
+    <div class="h-200 overflow-y-auto">
       {#each historyVideos as video (video.id)}
         <VideoListItem {video} {watchedState} {currentVideo} on:selectVideo={(e) => dispatch('selectVideo', e.detail)} on:toggleWatched={(e) => dispatch('toggleWatched', e.detail)} />
       {/each}
