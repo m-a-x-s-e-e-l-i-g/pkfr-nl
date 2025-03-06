@@ -53,10 +53,11 @@
     padding: 1rem;
     cursor: pointer;
     transition: background-color 0.3s;
+    border-top: 1px dotted rgba(0, 0, 0, 0.1); /* border-b */
   }
 
   .video-item:hover {
-    background-color: #f3f4f6; /* hover:bg-gray-100 */
+    background-color: rgba(0, 0, 0, 0.01); /* hover:bg-gray-100 */
   }
 
   .thumbnail-container {
