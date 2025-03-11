@@ -15,7 +15,7 @@
         "@fullcalendar/daygrid": "^6.1.15",
         "@fullcalendar/google-calendar": "^6.1.15",
         "@fullcalendar/list": "^6.1.15",
-        "@sveltejs/adapter-netlify": "^4.4.1",
+        "@sveltejs/adapter-netlify": "^4.4.2",
         "@sveltejs/kit": "next",
         "@sveltejs/vite-plugin-svelte": "^5.0.3",
         "@tailwindcss/vite": "^4.0.6",
