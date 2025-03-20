@@ -19,7 +19,7 @@
 </script>
 
 <div
-  class="video-item {currentVideo === video.id ? 'bg-red-50' : ''}"
+  class="video-item {currentVideo === video.id ? 'watched' : ''}"
   on:click={() => handleVideoSelect(video.id)}
   on:keydown={(e) => e.key === 'Enter' && handleVideoSelect(video.id)}
   aria-pressed={currentVideo === video.id}
@@ -56,7 +56,10 @@
     border-top: 1px dotted rgba(0, 0, 0, 0.1); /* border-b */
   }
 
-  .video-item:hover {
+  .video-item.watched {
+    background-color: rgba(254, 226, 226, 1); 
+  }
+  .video-item:not(.watched):hover {
     background-color: rgba(0, 0, 0, 0.01); /* hover:bg-gray-100 */
   }
 
