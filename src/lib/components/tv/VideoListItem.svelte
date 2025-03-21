@@ -65,8 +65,12 @@
 
   .thumbnail-container {
     position: relative;
-    width: 10rem; /* w-40 */
+    width: 10rem;
     flex-shrink: 0;
+
+    @media (max-width: 48rem) {
+      width: 8rem;
+    }
   }
 
   .thumbnail {
