@@ -30,7 +30,7 @@
         "postcss": "^8.5.3",
         "postcss-load-config": "^6.0.1",
         "prettier": "^3.5.1",
-        "prettier-plugin-svelte": "^3.3.3",
+        "prettier-plugin-svelte": "^3.4.0",
         "prettier-plugin-tailwindcss": "^0.6.11",
         "rehype-autolink-headings": "^7.1.0",
         "rehype-slug": "^6.0.0",
