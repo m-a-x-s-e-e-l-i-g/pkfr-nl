@@ -34,7 +34,7 @@
         "prettier-plugin-tailwindcss": "^0.6.11",
         "rehype-autolink-headings": "^7.1.0",
         "rehype-slug": "^6.0.0",
-        "sass": "^1.89.0",
+        "sass": "^1.89.1",
         "svelte": "^5.20.3",
         "svelte-confetti": "^2.3.1",
         "svelte-fullcalendar": "^3.0.0",
