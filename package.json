@@ -19,7 +19,7 @@
         "@sveltejs/kit": "next",
         "@sveltejs/vite-plugin-svelte": "^5.1.0",
         "@tailwindcss/vite": "^4.1.10",
-        "@typescript-eslint/eslint-plugin": "8.25.0",
+        "@typescript-eslint/eslint-plugin": "8.35.0",
         "@typescript-eslint/parser": "8.35.0",
         "autoprefixer": "^10.4.21",
         "bits-ui": "^2.8.8",
