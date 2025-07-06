@@ -1,32 +1,38 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="/favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="description" content="Freerun Informatie geeft overzicht voor freerunners in Nederland. Je vind hier snel spots, jams, open gyms en chats." />
-		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-4RKCM2C4J6"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" href="/favicon.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+            name="description"
+            content="Freerun Informatie geeft overzicht voor freerunners in Nederland. Je vind hier snel spots, jams, open gyms en chats."
+        />
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4RKCM2C4J6"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
 
-			function gtag() {
-				dataLayer.push(arguments);
-			}
-			gtag('js', new Date());
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
 
-			gtag('config', 'G-4RKCM2C4J6');
-		</script>
-		%sveltekit.head%
-		<!-- You can replace this block to update the Google fonts used in the project -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Hubballi&family=Martel&display=swap" rel="stylesheet">
-		<!-- End Google Fonts block -->
+            gtag('config', 'G-4RKCM2C4J6');
+        </script>
+        %sveltekit.head%
+        <!-- You can replace this block to update the Google fonts used in the project -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Hubballi&family=Martel&display=swap"
+            rel="stylesheet"
+        />
+        <!-- End Google Fonts block -->
 
-		<!-- You can add global <meta> tags here, but anything not global or dynamic should be a `<svelte:head>` tag on the proper page(s) instead. -->
-	</head>
-	<body data-sveltekit-preload-data="hover">
-		<div id="svelte">%sveltekit.body%</div>
-	</body>
+        <!-- You can add global <meta> tags here, but anything not global or dynamic should be a `<svelte:head>` tag on the proper page(s) instead. -->
+    </head>
+    <body data-sveltekit-preload-data="hover">
+        <div id="svelte">%sveltekit.body%</div>
+    </body>
 </html>

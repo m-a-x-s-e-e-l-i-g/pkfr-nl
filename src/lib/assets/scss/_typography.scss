@@ -1,56 +1,56 @@
 @use './vars';
 
 :is(h1, h2, h3, h4, h6) {
-	margin: 6rem 0 2rem;
-	line-height: 1.1;
-	font-family: var(--accentFont);
-	font-weight: bold;
-	color: var(--darker);
+    margin: 6rem 0 2rem;
+    line-height: 1.1;
+    font-family: var(--accentFont);
+    font-weight: bold;
+    color: var(--darker);
 }
 
 h1 {
-	font-size: 1.8rem!important;
-	margin: 0 0 1rem;
-	position: relative;
-	overflow: hidden;
-	padding-bottom: 1rem;
+    font-size: 1.8rem !important;
+    margin: 0 0 1rem;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 1rem;
 }
 
 h2 {
-	font-size: 1.6rem!important;
+    font-size: 1.6rem !important;
 }
 
 h3 {
-	font-size: 1.4rem!important;
+    font-size: 1.4rem !important;
 }
 
 h4 {
-	font-size: 1.2rem!important;
+    font-size: 1.2rem !important;
 }
 
 h5 {
-	font-size: 1.1rem!important;
+    font-size: 1.1rem !important;
 }
 
 h6 {
-	font-size: 1rem!important;
+    font-size: 1rem !important;
 }
 
 a {
-	color: var(--darker);
-	text-decoration-thickness: 1px;
-	text-decoration-color: var(--dark);
+    color: var(--darker);
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--dark);
 }
 
 ul {
-	list-style-type: square;
-	padding-left: 1.5rem;
+    list-style-type: square;
+    padding-left: 1.5rem;
 
-	ul {
-		list-style-type: circle;
-	}
+    ul {
+        list-style-type: circle;
+    }
 
-	::marker {
-		color: var(--accent);
-	}
+    ::marker {
+        color: var(--accent);
+    }
 }
