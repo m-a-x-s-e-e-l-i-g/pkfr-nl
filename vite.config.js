@@ -1,4 +1,4 @@
-import { sveltekit } from '@sveltejs/kit/vite'
+import { sveltekit } from '@sveltejs/kit/vite';
 import tailwindcss from '@tailwindcss/vite';
 
 /** @type {import('vite').UserConfig} */
@@ -21,4 +21,4 @@ const config = {
     }
 };
 
-export default config
+export default config;

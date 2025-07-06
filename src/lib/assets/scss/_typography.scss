@@ -1,56 +1,73 @@
 @use './vars';
 
 :is(h1, h2, h3, h4, h6) {
-	margin: 6rem 0 2rem;
-	line-height: 1.1;
-	font-family: var(--accentFont);
-	font-weight: bold;
-	color: var(--darker);
+    margin: 4rem 0 1.5rem;
+    line-height: 1.2;
+    font-family: var(--accentFont);
+    font-weight: 700;
+    color: var(--darker);
 }
 
 h1 {
-	font-size: 1.8rem!important;
-	margin: 0 0 1rem;
-	position: relative;
-	overflow: hidden;
-	padding-bottom: 1rem;
+    font-size: 2.25rem !important;
+    margin: 0 0 1.5rem;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 1rem;
+    font-weight: 800;
 }
 
 h2 {
-	font-size: 1.6rem!important;
+    font-size: 1.875rem !important;
+    font-weight: 700;
 }
 
 h3 {
-	font-size: 1.4rem!important;
+    font-size: 1.5rem !important;
+    font-weight: 600;
 }
 
 h4 {
-	font-size: 1.2rem!important;
+    font-size: 1.25rem !important;
+    font-weight: 600;
 }
 
 h5 {
-	font-size: 1.1rem!important;
+    font-size: 1.125rem !important;
+    font-weight: 500;
 }
 
 h6 {
-	font-size: 1rem!important;
+    font-size: 1rem !important;
+    font-weight: 500;
 }
 
 a {
-	color: var(--darker);
-	text-decoration-thickness: 1px;
-	text-decoration-color: var(--dark);
+    color: var(--darker);
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--dark);
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: var(--accent);
+    }
+}
+
+p {
+    margin-bottom: 1.25rem;
+    line-height: 1.75;
 }
 
 ul {
-	list-style-type: square;
-	padding-left: 1.5rem;
+    list-style-type: square;
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
 
-	ul {
-		list-style-type: circle;
-	}
+    ul {
+        list-style-type: circle;
+    }
 
-	::marker {
-		color: var(--accent);
-	}
+    ::marker {
+        color: var(--accent);
+    }
 }

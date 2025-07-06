@@ -1,6 +1,7 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/dcc3a06f-99aa-4007-a795-5a0df889dced/deploy-status)](https://app.netlify.com/sites/pkfr/deploys)
 
 ## Quick Start
+
 Clone or download [this repo](https://github.com/m-a-x-s-e-e-l-i-g/pkfr-nl), then install the dependencies and run the dev server:
 
 ```
@@ -39,4 +40,5 @@ npm run build
 Use `npm run preview` _after_ a build to preview the built site.
 
 ## Visit
+
 https://www.pkfr.nl/
