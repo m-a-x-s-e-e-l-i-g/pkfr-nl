@@ -3,20 +3,19 @@
 
 	// Placelists data with metadata for filtering
 	const placelists = [
-		{ name: "Parkour Spots - by @parkoendama", url: "https://maps.app.goo.gl/RPoC8Hwed7iDC7229", country: "Netherlands", author: "@parkoendama" },
-		{ name: "FRRN Spots Arnhem - by Grip Freerunning", url: "https://goo.gl/maps/9iFURfmBfMFrMLBD7", country: "Netherlands", author: "Grip Freerunning" },
-		{ name: "Parkour Spots Deventer - by Grip Freerunning", url: "https://goo.gl/maps/CGsQZCD8nGYh3cRV6", country: "Netherlands", author: "Grip Freerunning" },
-		{ name: "Parkour Spots Utrecht - by Grip Freerunning", url: "https://goo.gl/maps/TwaUDmqmbbH9FEnk8", country: "Netherlands", author: "Grip Freerunning" },
-		{ name: "Parkour Spots Nijmegen - by Grip Freerunning", url: "https://goo.gl/maps/dRLEhwWfAVRhPvhe6", country: "Netherlands", author: "Grip Freerunning" },
-		{ name: "Parkour spots Zutphen - by Grip Freerunning", url: "https://goo.gl/maps/oTGv3nYKfbD8XPbYA", country: "Netherlands", author: "Grip Freerunning" },
-		{ name: "Favorites (350+ places) - by Johan Vereijken", url: "https://goo.gl/maps/AbnzZDiUjxiy1YDK7", country: "Netherlands", author: "Johan Vereijken" },
-		{ name: "Parkour spots (380+ places) - by Olivier Koster", url: "https://goo.gl/maps/khFcMNSZaQBrBuLx5", country: "Netherlands", author: "Olivier Koster" },
-		{ name: "Amsterdam is Dead non-spot tour 2024", url: "https://maps.app.goo.gl/UKweDgNVvEpJQakSA", country: "Netherlands", author: "" },
-		{ name: "Spots to Hit in Amsterdam (230+) - by Safier Elzinga", url: "https://maps.app.goo.gl/5WcDufx7Nsk9Z4in7", country: "Netherlands", author: "Safier Elzinga" },
-		{ name: "Adapt 2024 Twente University challenges - by Lars Damink", url: "https://www.google.com/maps/d/edit?mid=17skoWhjed0NLu3-d92pRL7BbWL-lLG8", country: "Netherlands", author: "Lars Damink" },
-		// New Prague entries
-		{ name: "Prague Parkour Spots", url: "https://maps.app.goo.gl/EvSmPa2pHQXKt66n6?g_st=ac", country: "Czech Republic", author: "" },
-		{ name: "Parkour spots of Prague", url: "https://goo.gl/maps/6X3EarLxnqF9nZnv6?g_st=ac", country: "Czech Republic", author: "" }
+		{ name: "Parkour Spots", url: "https://maps.app.goo.gl/RPoC8Hwed7iDC7229", country: "Netherlands", author: "Koen Bangert" },
+		{ name: "Arnhem", url: "https://goo.gl/maps/9iFURfmBfMFrMLBD7", country: "Netherlands", author: "Grip Freerunning" },
+		{ name: "Deventer", url: "https://goo.gl/maps/CGsQZCD8nGYh3cRV6", country: "Netherlands", author: "Grip Freerunning" },
+		{ name: "Utrecht", url: "https://goo.gl/maps/TwaUDmqmbbH9FEnk8", country: "Netherlands", author: "Grip Freerunning" },
+		{ name: "Nijmegen", url: "https://goo.gl/maps/dRLEhwWfAVRhPvhe6", country: "Netherlands", author: "Grip Freerunning" },
+		{ name: "Zutphen", url: "https://goo.gl/maps/oTGv3nYKfbD8XPbYA", country: "Netherlands", author: "Grip Freerunning" },
+		{ name: "Favorites (350+ places)", url: "https://goo.gl/maps/AbnzZDiUjxiy1YDK7", country: "Netherlands", author: "Johan Vereijken" },
+		{ name: "Parkour spots (380+ places)", url: "https://goo.gl/maps/khFcMNSZaQBrBuLx5", country: "Netherlands", author: "Olivier Koster" },
+		{ name: "Amsterdam is Dead non-spot tour 2024", url: "https://maps.app.goo.gl/UKweDgNVvEpJQakSA", country: "Netherlands", author: "Fé" },
+		{ name: "Spots to Hit in Amsterdam (230+)", url: "https://maps.app.goo.gl/5WcDufx7Nsk9Z4in7", country: "Netherlands", author: "Safier Elzinga" },
+		{ name: "Adapt 2024 Twente University challenges", url: "https://www.google.com/maps/d/edit?mid=17skoWhjed0NLu3-d92pRL7BbWL-lLG8", country: "Netherlands", author: "Lars Damink" },
+		{ name: "Prague", url: "https://maps.app.goo.gl/EvSmPa2pHQXKt66n6?g_st=ac", country: "Czech Republic", author: "Grip Freerunning" },
+		{ name: "Prague + Czech", url: "https://goo.gl/maps/6X3EarLxnqF9nZnv6?g_st=ac", country: "Czech Republic", author: "Mikeš Kořínek" }
 	];
 
 	// Get unique countries for filter dropdown
@@ -108,37 +107,37 @@
 		</p>
 		
 		<!-- Search and filter controls -->
-		<div class="filters">
-			<div class="filter-group">
-				<label for="search">Zoek op naam:</label>
-				<input type="text" id="search" bind:value={searchQuery} placeholder="Zoek placelists..." />
-			</div>
-			<div class="filter-group">
-				<label for="country">Filter op land:</label>
-				<select id="country" bind:value={selectedCountry}>
-					<option value="">Alle landen</option>
-					{#each countries as country}
-						<option value={country}>{country}</option>
-					{/each}
-				</select>
-			</div>
-		</div>
+	   <div class="filters spot-filters">
+		   <div class="filter-group spot-filter-group">
+			   <label for="search">Zoek op naam:</label>
+			   <input type="text" id="search" bind:value={searchQuery} placeholder="Zoek placelists..." class="spot-filter-input" />
+		   </div>
+		   <div class="filter-group spot-filter-group">
+			   <label for="country">Filter op land:</label>
+			   <select id="country" bind:value={selectedCountry} class="spot-filter-select">
+				   <option value="">Alle landen</option>
+				   {#each countries as country}
+					   <option value={country}>{country}</option>
+				   {/each}
+			   </select>
+		   </div>
+	   </div>
 
-		<ul>
-			{#each filteredPlaycelists() as placelist}
-				<li>
-					<a href={placelist.url} target="_blank" rel="noreferrer">
-						{placelist.name}
-						{#if placelist.country !== 'Netherlands'}
-							<span class="country-badge">{placelist.country}</span>
-						{/if}
-					</a>
-				</li>
-			{/each}
-			{#if filteredPlaycelists().length === 0}
-				<li class="no-results">Geen placelists gevonden die voldoen aan je zoekcriteria.</li>
-			{/if}
-		</ul>
+	   <ul class="placelist-list">
+		   {#each filteredPlaycelists() as placelist}
+			   <li class="placelist-item">
+				   <a href={placelist.url} target="_blank" rel="noreferrer" class="placelist-link">
+					   <span class="placelist-name">{placelist.name}</span>
+					   {#if placelist.country !== 'Netherlands'}
+						   <span class="country-badge">{placelist.country}</span>
+					   {/if}
+				   </a>
+			   </li>
+		   {/each}
+		   {#if filteredPlaycelists().length === 0}
+			   <li class="no-results">Geen placelists gevonden die voldoen aan je zoekcriteria.</li>
+		   {/if}
+	   </ul>
 	</article>
 </div>
 <div class="wrapper">
@@ -206,56 +205,131 @@
 	}
 
 	/* New styles for filters and country badges */
-	.filters {
-		margin: 1.5rem 0;
-		display: flex;
-		gap: 1rem;
-		flex-wrap: wrap;
-	}
+   .filters.spot-filters {
+	   margin: 1.5rem 0 2rem 0;
+	   display: flex;
+	   gap: 2rem;
+	   flex-wrap: wrap;
+	   align-items: flex-end;
+	   border-radius: 0.75rem;
+	   padding: 1.25rem 1.5rem;
+	   border: 1px solid #e2e8f0;
+   }
 
-	.filter-group {
-		display: flex;
-		flex-direction: column;
-		gap: 0.25rem;
-	}
+   .spot-filter-group {
+	   display: flex;
+	   flex-direction: column;
+	   gap: 0.5rem;
+	   min-width: 220px;
+   }
 
-	.filter-group label {
-		font-weight: 500;
-		font-size: 0.9rem;
-	}
+   .spot-filter-group label {
+	   font-weight: 600;
+	   font-size: 1rem;
+	   color: #1e293b;
+	   margin-bottom: 0.1rem;
+   }
 
-	.filter-group input,
-	.filter-group select {
-		padding: 0.5rem;
-		border: 1px solid #ccc;
-		border-radius: 0.25rem;
-		font-size: 1rem;
-	}
+   .spot-filter-input,
+   .spot-filter-select {
+	   height: 44px;
+	   padding: 0 0.9rem;
+	   border: 1.5px solid #cbd5e1;
+	   border-radius: 0.5rem;
+	   font-size: 1.05rem;
+	   background: #fff;
+	   color: #1e293b;
+	   transition: border-color 0.2s;
+	   box-shadow: 0 1px 2px 0 rgba(30,41,59,0.03);
+	   box-sizing: border-box;
+   }
 
-	.filter-group input {
-		min-width: 200px;
-	}
+   .spot-filter-input:focus,
+   .spot-filter-select:focus {
+	   outline: none;
+	   border-color: #2563eb;
+	   box-shadow: 0 0 0 2px #2563eb22;
+   }
 
-	.filter-group select {
-		min-width: 150px;
-	}
+   @media all and (max-width: 800px) {
+	   .filters.spot-filters {
+		   flex-direction: column;
+		   gap: 1rem;
+		   align-items: stretch;
+		   padding: 1rem 0.5rem;
+	   }
+	   .spot-filter-group {
+		   min-width: unset;
+		   width: 100%;
+	   }
+	   .spot-filter-input,
+	   .spot-filter-select {
+		   width: 100%;
+	   }
+   }
 
-	.country-badge {
-		display: inline-block;
-		background-color: #e2e8f0;
-		color: #475569;
-		padding: 0.125rem 0.5rem;
-		border-radius: 9999px;
-		font-size: 0.75rem;
-		font-weight: 500;
-		margin-left: 0.5rem;
-	}
 
-	.no-results {
-		font-style: italic;
-		color: #666;
-		padding: 1rem 0;
-	}
+   .placelist-list {
+	   list-style: none;
+	   margin: 0 0 1.5rem 0;
+	   padding: 0;
+	   border-radius: 0.75rem;
+	   background: #f8fafc;
+	   border: 1px solid #e2e8f0;
+	   box-shadow: 0 2px 8px 0 rgba(30,41,59,0.03);
+   }
+
+   .placelist-item + .placelist-item {
+	   border-top: 1px solid #e2e8f0;
+   }
+
+   .placelist-item {
+	   padding: 0;
+	   margin:0;
+   }
+
+   .placelist-link {
+	   display: flex;
+	   align-items: center;
+	   padding: 1rem 1.5rem;
+	   color: #1e293b;
+	   text-decoration: none;
+	   font-size: 1.08rem;
+	   font-weight: 500;
+	   transition: background 0.15s, color 0.15s;
+	   margin: 0;
+   }
+
+   .placelist-link:hover, .placelist-link:focus {
+	   background: #e0e7ef;
+	   color: var(--accent);
+	   text-decoration: none;
+   }
+
+   .placelist-name {
+	   flex: 1 1 auto;
+	   word-break: break-word;
+   }
+
+   .country-badge {
+	   display: inline-block;
+	   background-color: #e2e8f0;
+	   color: #475569;
+	   padding: 0.125rem 0.5rem;
+	   border-radius: 9999px;
+	   font-size: 0.75rem;
+	   font-weight: 500;
+	   margin-left: 0.5rem;
+   }
+
+   .no-results {
+	   font-style: italic;
+	   color: #666;
+	   padding: 1.2rem 1.5rem;
+	   background: #f8fafc;
+	   border-radius: 0.75rem;
+	   text-align: center;
+   }
 
 	@media all and (max-width: 800px) {
 		.aside-right {
