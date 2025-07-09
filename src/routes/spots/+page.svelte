@@ -1,45 +1,7 @@
 <script>
 	import { titlePostfix } from '$lib/config';
 
-	// Placelists data with metadata for filtering
-	const placelists = [
-		{ name: "Parkour Spots", url: "https://maps.app.goo.gl/RPoC8Hwed7iDC7229", country: "Netherlands", author: "Koen Bangert" },
-		{ name: "Arnhem", url: "https://goo.gl/maps/9iFURfmBfMFrMLBD7", country: "Netherlands", author: "Grip Freerunning" },
-		{ name: "Deventer", url: "https://goo.gl/maps/CGsQZCD8nGYh3cRV6", country: "Netherlands", author: "Grip Freerunning" },
-		{ name: "Utrecht", url: "https://goo.gl/maps/TwaUDmqmbbH9FEnk8", country: "Netherlands", author: "Grip Freerunning" },
-		{ name: "Nijmegen", url: "https://goo.gl/maps/dRLEhwWfAVRhPvhe6", country: "Netherlands", author: "Grip Freerunning" },
-		{ name: "Zutphen", url: "https://goo.gl/maps/oTGv3nYKfbD8XPbYA", country: "Netherlands", author: "Grip Freerunning" },
-		{ name: "Favorites (350+ places)", url: "https://goo.gl/maps/AbnzZDiUjxiy1YDK7", country: "Netherlands", author: "Johan Vereijken" },
-		{ name: "Parkour spots (380+ places)", url: "https://goo.gl/maps/khFcMNSZaQBrBuLx5", country: "Netherlands", author: "Olivier Koster" },
-		{ name: "Amsterdam is Dead non-spot tour 2024", url: "https://maps.app.goo.gl/UKweDgNVvEpJQakSA", country: "Netherlands", author: "Fé" },
-		{ name: "Spots to Hit in Amsterdam (230+)", url: "https://maps.app.goo.gl/5WcDufx7Nsk9Z4in7", country: "Netherlands", author: "Safier Elzinga" },
-		{ name: "Adapt 2024 Twente University challenges", url: "https://www.google.com/maps/d/edit?mid=17skoWhjed0NLu3-d92pRL7BbWL-lLG8", country: "Netherlands", author: "Lars Damink" },
-		{ name: "Prague", url: "https://maps.app.goo.gl/EvSmPa2pHQXKt66n6?g_st=ac", country: "Czech Republic", author: "Grip Freerunning" },
-		{ name: "Prague + Czech", url: "https://goo.gl/maps/6X3EarLxnqF9nZnv6?g_st=ac", country: "Czech Republic", author: "Mikeš Kořínek" }
-	];
-
-	// Sort by name for better UX
-	placelists.sort((a, b) => a.name.localeCompare(b.name));
-
-	// Get unique countries for filter dropdown
-	const countries = [...new Set(placelists.map(p => p.country))].sort();
-
-	// Reactive state for filters
-	let searchQuery = $state('');
-	let selectedCountry = $state('');
-
-	// Filtered placelists based on search and country
-	const filteredPlaycelists = $derived(() => {
-		return placelists.filter(placelist => {
-			const matchesSearch = searchQuery === '' || 
-				placelist.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-				placelist.author.toLowerCase().includes(searchQuery.toLowerCase());
-			
-			const matchesCountry = selectedCountry === '' || placelist.country === selectedCountry;
-			
-			return matchesSearch && matchesCountry;
-		});
-	});
+import PlacelistFilter from '../../components/PlacelistFilter.svelte';
 </script>
 
 <svelte:head>
@@ -110,40 +72,7 @@
 		</p>
 		
 		<!-- Search and filter controls -->
-	   <div class="filters spot-filters">
-		   <div class="filter-group spot-filter-group">
-			   <label for="search">Zoek op naam:</label>
-			   <input type="text" id="search" bind:value={searchQuery} placeholder="Zoek placelists..." class="spot-filter-input" />
-		   </div>
-		   <div class="filter-group spot-filter-group">
-			   <label for="country">Filter op land:</label>
-			   <select id="country" bind:value={selectedCountry} class="spot-filter-select">
-				   <option value="">Alle landen</option>
-				   {#each countries as country}
-					   <option value={country}>{country}</option>
-				   {/each}
-			   </select>
-		   </div>
-	   </div>
-
-	   <ul class="placelist-list">
-		   {#each filteredPlaycelists() as placelist}
-			   <li class="placelist-item">
-				   <a href={placelist.url} target="_blank" rel="noreferrer" class="placelist-link">
-				   <span class="placelist-name flex items-baseline gap-2">
-						<span>{placelist.name}</span>
-						<span class="placelist-author text-xs font-normal text-slate-400 ml-2 flex items-center">{placelist.author}</span>
-				   </span>
-					   {#if placelist.country !== 'Netherlands'}
-						   <span class="country-badge">{placelist.country}</span>
-					   {/if}
-				   </a>
-			   </li>
-		   {/each}
-		   {#if filteredPlaycelists().length === 0}
-			   <li class="no-results">Geen placelists gevonden die voldoen aan je zoekcriteria.</li>
-		   {/if}
-	   </ul>
+	   <PlacelistFilter />
 	</article>
 </div>
 <div class="wrapper">
