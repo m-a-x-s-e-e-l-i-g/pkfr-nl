@@ -1,7 +1,6 @@
 <script>
 	import { titlePostfix } from '$lib/config';
-
-import PlacelistFilter from '../../components/PlacelistFilter.svelte';
+	import PlacelistFilter from '$lib/components/PlacelistFilter.svelte';
 </script>
 
 <svelte:head>
