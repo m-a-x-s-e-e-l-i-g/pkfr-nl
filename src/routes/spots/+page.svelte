@@ -18,6 +18,9 @@
 		{ name: "Prague + Czech", url: "https://goo.gl/maps/6X3EarLxnqF9nZnv6?g_st=ac", country: "Czech Republic", author: "Mikeš Kořínek" }
 	];
 
+	// Sort by name for better UX
+	placelists.sort((a, b) => a.name.localeCompare(b.name));
+
 	// Get unique countries for filter dropdown
 	const countries = [...new Set(placelists.map(p => p.country))].sort();
 
@@ -127,7 +130,10 @@
 		   {#each filteredPlaycelists() as placelist}
 			   <li class="placelist-item">
 				   <a href={placelist.url} target="_blank" rel="noreferrer" class="placelist-link">
-					   <span class="placelist-name">{placelist.name}</span>
+				   <span class="placelist-name flex items-baseline gap-2">
+						<span>{placelist.name}</span>
+						<span class="placelist-author text-xs font-normal text-slate-400 ml-2 flex items-center">{placelist.author}</span>
+				   </span>
 					   {#if placelist.country !== 'Netherlands'}
 						   <span class="country-badge">{placelist.country}</span>
 					   {/if}
