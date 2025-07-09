@@ -46,7 +46,7 @@
 <h1>Spots</h1>
 <p>Parkour spots vinden kan tijd kosten, behalve als je al weet waar ze zijn! Je vind hier apps, kaarten en lijsten die goed zijn voor spots in Nederland. Zoek je liever iets binnen, probeer dan de <a href="/gym-finder">Gym Finder</a>.</p>
 <div class="wrapper">
-	<header><h2>CityLegends</h2></header>
+	<h2>CityLegends</h2>
 	<article class="main">
 		<p>
 			CityLegends is een OK app om spots te vinden. Bij de spots kun je clips bekijken of
@@ -74,7 +74,7 @@
 	</footer>
 </div>
 <div class="wrapper">
-	<header><h2>Max zijn spot map</h2></header>
+	<h2>Max zijn spot map</h2>
 	<article class="main">
 		<p>
 			Dit is een super uitgebreide spot map welke je makkelijk in Google Maps kunt openen. Er staan veel spots, non-spots, parkjes ongecategorieerd op. <br />
@@ -101,7 +101,7 @@
 	</footer>
 </div>
 <div class="wrapper">
-	<header><h2>Google Maps Placelists van freerunners</h2></header>
+	<h2>Google Maps Placelists van freerunners</h2>
 	<article class="main">
 		<p>
 			De volgende spot maps zijn fantastisch! Heb jij er ook een van jouw omgeving die je wil delen? 
@@ -142,7 +142,7 @@
 	</article>
 </div>
 <div class="wrapper">
-	<header><h2>Indoor spots</h2></header>
+	<h2>Indoor spots</h2>
 	<article class="main">
 		<p>
 			Het is niet altijd lekker weer, en covered spots zijn schaars! Binnen trainen is dan wel heel erg fijn. Gebruik de <a href="/gym-finder">Gym Finder</a> om de dichtstbijzijnde indoor spots te vinden.
