@@ -65,14 +65,14 @@
 </div>
 <div class="wrapper">
 	<h2>Google Maps Placelists van freerunners</h2>
-	<article class="main">
-		<p>
-			De volgende spot maps zijn fantastisch! Heb jij er ook een van jouw omgeving die je wil delen? 
-		</p>
-		
-		<!-- Search and filter controls -->
-	   <PlacelistFilter />
-	</article>
+<article class="main">
+	<p>
+		De volgende spot maps zijn fantastisch! Heb jij er ook een van jouw omgeving die je wil delen?
+	</p>
+	<!-- Search and filter controls -->
+	<PlacelistFilter />
+	<a href="/tools/placelist-finder" class="button" style="display:inline-block;margin:0 0.5em;">Deel jouw spot lijst hier!</a>
+</article>
 </div>
 <div class="wrapper">
 	<h2>Indoor spots</h2>
