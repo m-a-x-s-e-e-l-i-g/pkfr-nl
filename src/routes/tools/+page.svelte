@@ -12,10 +12,10 @@
             description: 'Maak sprongen eerlijk door schoenmaatverschillen te compenseren.' 
         },
         {
-            name: 'Placelist Finder',
-            link: '/tools/placelist-finder',
+            name: 'Spot Map Finder',
+            link: '/tools/spot-map-finder',
             icon: mapO,
-            description: 'Vind en filter parkour placelists van Nederland en daarbuiten.'
+            description: 'Vind en filter kaarten met freerun spots in Nederland en daarbuiten.'
         }
     ];
 </script>

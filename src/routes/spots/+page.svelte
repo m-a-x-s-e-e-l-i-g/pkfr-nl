@@ -9,6 +9,31 @@
 <h1>Spots</h1>
 <p>Parkour spots vinden kan tijd kosten, behalve als je al weet waar ze zijn! Je vind hier apps, kaarten en lijsten die goed zijn voor spots in Nederland. Zoek je liever iets binnen, probeer dan de <a href="/gym-finder">Gym Finder</a>.</p>
 <div class="wrapper">
+	<h2>Spot kaarten van freerunners</h2>
+<article class="main">
+	<p>
+		Uitstekende parkour spot kaarten van Nederlandse freerunners. Deze kaarten helpen je snel lokale spots te vinden en zijn ideaal voor iedereen die nieuwe trainingsplekken zoekt. Heb jij zelf een spot map van jouw regio? Deel hem gerust via de knop hieronder!
+	</p>
+	<!-- Search and filter controls -->
+	<PlacelistFilter />
+	<a href="/tools/spot-map-finder" class="button" style="display:inline-block;margin:0 0.5em;">Deel jouw spot lijst hier!</a>
+</article>
+</div>
+<div class="wrapper">
+	<h2>Indoor spots (gyms)</h2>
+	<article class="main">
+		<p>
+			Het is niet altijd lekker weer, en covered spots zijn schaars! Binnen trainen is dan wel heel erg fijn. Gebruik de <a href="/gym-finder">Gym Finder</a> om de dichtstbijzijnde freerun gyms te vinden.
+		</p>
+	</article>
+	<footer>
+		<a
+			href="/gym-finder"
+			class="button">Zoek een gym</a
+		>
+	</footer>
+</div>
+<div class="wrapper">
 	<h2>CityLegends</h2>
 	<article class="main">
 		<p>
@@ -34,58 +59,6 @@
 			target="_blank" class="button">
 			Download App
 		</a>
-	</footer>
-</div>
-<div class="wrapper">
-	<h2>Max zijn spot map</h2>
-	<article class="main">
-		<p>
-			Dit is een super uitgebreide spot map welke je makkelijk in Google Maps kunt openen. Er staan veel spots, non-spots, parkjes ongecategorieerd op. <br />
-			Ik kan hulp gebruiken met het categoriseren van de spots, als je wilt helpen, stuur me een berichtje ergens.
-		</p>
-	</article>
-	<aside class="aside aside-right">
-		<picture>
-			<img
-				src="./images/google-maps-parkour-spots-phone.webp"
-				alt="Google Maps Parkour Freerun Spots Netherlands"
-				style="width:250px;padding:0 25px"
-			/>
-		</picture>
-	</aside>
-	<footer>
-		<a
-			href="https://www.google.com/maps/d/u/0/viewer?mid=1F8PHbPAtHhj4RaCQzbsw6Ko6FE0&hl=en&ll=52.13281486226002%2C5.623986124992371&z=7"
-			rel="noreferrer"
-			target="_blank"
-			class="button">
-			Kaart openen
-		</a>
-	</footer>
-</div>
-<div class="wrapper">
-	<h2>Google Maps Placelists van freerunners</h2>
-<article class="main">
-	<p>
-		De volgende spot maps zijn fantastisch! Heb jij er ook een van jouw omgeving die je wil delen?
-	</p>
-	<!-- Search and filter controls -->
-	<PlacelistFilter />
-	<a href="/tools/placelist-finder" class="button" style="display:inline-block;margin:0 0.5em;">Deel jouw spot lijst hier!</a>
-</article>
-</div>
-<div class="wrapper">
-	<h2>Indoor spots</h2>
-	<article class="main">
-		<p>
-			Het is niet altijd lekker weer, en covered spots zijn schaars! Binnen trainen is dan wel heel erg fijn. Gebruik de <a href="/gym-finder">Gym Finder</a> om de dichtstbijzijnde indoor spots te vinden.
-		</p>
-	</article>
-	<footer>
-		<a
-			href="/gym-finder"
-			class="button">Zoek een gym</a
-		>
 	</footer>
 </div>
 
