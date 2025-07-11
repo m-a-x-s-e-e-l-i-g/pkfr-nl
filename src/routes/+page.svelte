@@ -19,6 +19,10 @@
 		#pagesOverView li {
 			margin: 1rem 0;
 		}
+
+		h1, h2 {
+			margin: 4rem 0 1.5rem;
+		}
 	</style>
 </svelte:head>
 
