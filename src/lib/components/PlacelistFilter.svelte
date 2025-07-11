@@ -145,6 +145,7 @@
 	{ name: "ADAPT 2025 MAP", url: "https://goo.gl/maps/5Ft1ryaDztp4T1NL8?g_st=ac", country: "Netherlands", author: "Lars Damink" },
 	{ name: "Parkour-Spots in Berlin", url: "https://goo.gl/maps/Kan5NujQb1EcJL3z9?g_st=ac", country: "Germany", author: "parkourberlin.de" },
 	{ name: "Parkour Locations Malta", url: "https://www.google.com/maps/d/u/0/viewer?mid=179s3NuwEe8lVkM1N-3AhXErusF4WLts2", country: "Malta", author: "Cool guy" },
+	{ name: "Lisbon spots", url: "https://maps.app.goo.gl/Z2NQNCNXQDSCPo8A6?g_st=i", country: "Portugal", author: "Max Condon" },
   ];
 
   // Sort by name for better UX
