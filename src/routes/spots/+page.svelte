@@ -16,7 +16,7 @@
 	</p>
 	<!-- Search and filter controls -->
 	<PlacelistFilter />
-	<a href="/tools/spot-map-finder" class="button" style="display:inline-block;margin:0 0.5em;">Deel jouw spot lijst hier!</a>
+	<a href="/tools/spot-map-finder" class="button">Deel jouw spot lijst hier!</a>
 </article>
 </div>
 <div class="wrapper">
@@ -63,9 +63,6 @@
 </div>
 
 <style>
-	h1, h2 {
-		margin: 4rem 0 1.5rem;
-	}
 	picture {
 		display: inline-block;
 	}

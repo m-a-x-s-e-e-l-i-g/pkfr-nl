@@ -59,6 +59,15 @@ main {
     }
 }
 
+@media (max-width: 768px) {
+    .button {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        margin: 1rem 0 0.5rem;
+        border-radius: 0.5rem;
+    }
+}
+
 #main iframe {
     width: 100%;
 }

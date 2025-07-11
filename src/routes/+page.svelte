@@ -36,6 +36,22 @@
 			margin-bottom: 3rem;
 		}
 
+		@media (max-width: 768px) {
+			.hero-section {
+				margin-bottom: 2.5rem;
+			}
+
+			.hero-section h1 {
+				margin-bottom: 1.5rem;
+				line-height: 1.15;
+			}
+
+			.hero-section p {
+				font-size: 1.125rem;
+				margin-bottom: 2rem;
+			}
+		}
+
 		.content-section {
 			margin-bottom: 3.5rem;
 		}

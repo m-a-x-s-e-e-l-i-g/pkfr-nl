@@ -15,7 +15,7 @@
 <p>
 	Jams zijn een belangrijk onderdeel van de freerun community. Het is de plek waar je nieuwe mensen ontmoet, samen traint en van elkaar leert. Hieronder vind je een overzicht van aankomende jams en events in Nederland.
 </p>
-<h2>Aankomende jams & events:</h2>
+<h2>Aankomende jams & events</h2>
 <p>Jams & Events vanuit de Nederlandse Freerun Community</p>
 <JamsList/>
 
@@ -65,7 +65,4 @@
 >
 
 <style>
-	h1, h2 {
-		margin: 4rem 0 1.5rem;
-	}
 </style>

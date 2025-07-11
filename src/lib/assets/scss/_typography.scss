@@ -9,6 +9,13 @@
     margin-bottom: 1.25rem;
 }
 
+@media (max-width: 768px) {
+    :is(h1, h2, h3, h4, h6) {
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+    }
+}
+
 h1 {
     font-size: 2.5rem !important;
     margin: 0 0 2rem;
@@ -19,12 +26,29 @@ h1 {
     line-height: 1.1;
 }
 
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.875rem !important;
+        margin: 0 0 1.5rem;
+        padding-bottom: 1rem;
+        line-height: 1.15;
+    }
+}
+
 h2 {
     font-size: 2rem !important;
     font-weight: 700;
     margin-top: 3rem;
     margin-bottom: 1.5rem;
     line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+    h2 {
+        font-size: 1.5rem !important;
+        margin-top: 2rem;
+        margin-bottom: 1.25rem;
+    }
 }
 
 h3 {

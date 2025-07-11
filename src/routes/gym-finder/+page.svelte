@@ -24,6 +24,82 @@
 	let gyms = $derived(getGyms(latitude, longitude));
 </script>
 
+<style>
+	.gym-card {
+		background: white;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		border-radius: 0.5rem;
+		margin-top: 2rem;
+		overflow: hidden;
+	}
+
+	.gym-content {
+		padding: 1.5rem;
+	}
+
+	.gym-title {
+		font-size: 1.5rem;
+		font-weight: bold;
+		color: #000;
+		margin: 0 0 1rem;
+		line-height: 1.3;
+	}
+
+	.distance-badge {
+		position: absolute;
+		top: 0.5rem;
+		right: 1rem;
+		font-weight: bold;
+		background: var(--accent);
+		color: white;
+		padding: 0.25rem 0.5rem;
+		border-radius: 0.25rem;
+		font-size: 0.875rem;
+	}
+
+	.gym-info {
+		margin-bottom: 0.75rem;
+		line-height: 1.5;
+	}
+
+	.gym-info a {
+		color: var(--accent);
+		text-decoration: none;
+		word-break: break-all;
+	}
+
+	.gym-info a:hover {
+		text-decoration: underline;
+	}
+
+	@media (max-width: 768px) {
+		.gym-card {
+			margin-top: 1.5rem;
+		}
+
+		.gym-content {
+			padding: 1rem;
+		}
+
+		.gym-title {
+			font-size: 1.25rem;
+			margin-bottom: 0.75rem;
+		}
+
+		.distance-badge {
+			top: 0.25rem;
+			right: 0.75rem;
+			font-size: 0.8rem;
+			padding: 0.1875rem 0.375rem;
+		}
+
+		.gym-info {
+			font-size: 0.95rem;
+			margin-bottom: 0.625rem;
+		}
+	}
+</style>
+
 
 <svelte:head>
 	<title>Indoor Freerun Gym Finder {titlePostfix}</title>
@@ -43,18 +119,18 @@
 {/if}
 <div>
 	{#each gyms as gym}
-		<div class="bg-white shadow-md relative p-0 mt-10">
-			<div class="p-6">
-				<h2 class="text-2xl font-bold text-black my-0 mb-4 mt-2">
+		<div class="gym-card">
+			<div class="gym-content">
+				<h2 class="gym-title">
 					{gym.name}
 				</h2>
 				{#if latitude && longitude}
-					<small class="absolute top-2 right-4 font-bold">
+					<div class="distance-badge">
 						{gym.distance.toFixed(1)} km
-					</small>			
+					</div>			
 				{/if}
-				<p>📍 <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(gym.address)}`} target="_blank" rel="noopener noreferrer">{gym.address}</a></p>
-				<p>🌐 <a href={gym.website} class="text-blue-500" target="_blank" rel="noopener noreferrer">{gym.website}</a></p>
+				<p class="gym-info">📍 <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(gym.address)}`} target="_blank" rel="noopener noreferrer">{gym.address}</a></p>
+				<p class="gym-info">🌐 <a href={gym.website} target="_blank" rel="noopener noreferrer">{gym.website}</a></p>
 			</div>
 			<Carousel.Root
 				plugins={[

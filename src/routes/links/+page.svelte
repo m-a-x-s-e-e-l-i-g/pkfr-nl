@@ -12,12 +12,43 @@
 <style>
 	ul {
 		list-style: none;
+		padding: 0;
 	}
 	li {
-		margin-bottom: 1rem;
+		margin-bottom: 1.25rem;
+		padding: 1rem;
+		background: #f8fafc;
+		border-radius: 0.5rem;
+		border: 1px solid #e2e8f0;
+		transition: background 0.2s ease;
+	}
+	li:hover {
+		background: #f1f5f9;
 	}
 	li span {
-		margin-right: 0.5rem;
+		margin-right: 0.75rem;
+		vertical-align: middle;
+	}
+	a {
+		font-size: 1.125rem;
+		font-weight: 500;
+		color: var(--darker);
+		text-decoration: none;
+		line-height: 1.5;
+	}
+	a:hover {
+		color: var(--accent);
+		text-decoration: underline;
+	}
+
+	@media (max-width: 768px) {
+		li {
+			padding: 0.875rem;
+			margin-bottom: 1rem;
+		}
+		a {
+			font-size: 1rem;
+		}
 	}
 </style>
 
