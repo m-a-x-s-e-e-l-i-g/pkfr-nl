@@ -26,3 +26,9 @@
 
 <h2>Wijziging insturen</h2>
 <InputCollector pagePath={$page.url.pathname}/>
+
+<style>
+	h1, h2 {
+		margin: 4rem 0 1.5rem;
+	}
+</style>

@@ -63,6 +63,9 @@
 </div>
 
 <style>
+	h1, h2 {
+		margin: 4rem 0 1.5rem;
+	}
 	picture {
 		display: inline-block;
 	}

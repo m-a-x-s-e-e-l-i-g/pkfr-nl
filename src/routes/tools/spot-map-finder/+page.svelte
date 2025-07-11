@@ -17,7 +17,7 @@
 <PlacelistFilter />
 
 <section class="mt-10 p-6 bg-gray-100 rounded-lg">
-  <h2 class="text-xl font-semibold mb-2">Jouw placelist toevoegen?</h2>
+  <h2 class="text-xl font-semibold mb-2">Jouw kaart toevoegen?</h2>
   <p class="mb-4">Heb jij een mooie lijst of kaart die je wilt delen met de community? Drop een linkje, en deze wordt zo snel mogelijk toegevoegd!</p>
   <InputCollector pagePath={$page.url.pathname} />
 </section>

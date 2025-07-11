@@ -63,3 +63,9 @@
 	target="_blank"
 	class="button">Freerun jams in Europa</a
 >
+
+<style>
+	h1, h2 {
+		margin: 4rem 0 1.5rem;
+	}
+</style>
