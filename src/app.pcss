@@ -30,6 +30,9 @@
         --sidebar-accent-foreground: 240 5.9% 10%;
         --sidebar-border: 220 13% 91%;
         --sidebar-ring: 217.2 91.2% 59.8%;
+        --font-sans: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+        --font-serif: 'Merriweather', 'Georgia', serif;
+        --font-mono: 'Fira Mono', 'Menlo', 'Monaco', 'Consolas', monospace;
     }
 
     .dark {
@@ -60,5 +63,54 @@
         --sidebar-accent-foreground: 240 4.8% 95.9%;
         --sidebar-border: 240 3.7% 15.9%;
         --sidebar-ring: 217.2 91.2% 59.8%;
+    }
+    html {
+        font-family: var(--font-sans);
+        font-size: 18px;
+        line-height: 1.7;
+        color: hsl(var(--foreground));
+        background: hsl(var(--background));
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        font-family: var(--font-sans);
+        font-size: 1rem;
+        color: hsl(var(--foreground));
+        background: hsl(var(--background));
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+    }
+
+    p {
+        margin-bottom: 1.25rem;
+        margin-top: 0;
+        font-size: 1.125rem;
+        line-height: 1.7;
+    }
+
+    ul, ol {
+        margin-bottom: 1.5rem;
+        margin-top: 0;
+        padding-left: 2rem;
+    }
+
+    section, article {
+        margin-bottom: 2.5rem;
+    }
+
+    .container {
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
     }
 }

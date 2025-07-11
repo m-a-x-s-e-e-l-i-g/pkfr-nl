@@ -9,12 +9,18 @@
 
 main {
     width: 100%;
-    max-width: 52rem;
-    margin: 4rem auto;
+    max-width: 56rem;
+    margin: 5rem auto;
     padding: 0 2rem;
+    line-height: 1.7;
 
     @media (min-width: vars.$smMin) {
         padding: 0 3rem;
+        margin: 6rem auto;
+    }
+
+    @media (min-width: vars.$lgMin) {
+        padding: 0 4rem;
     }
 }
 
@@ -29,19 +35,20 @@ main {
     font-family: var(--primaryFont);
     background-color: var(--accent);
     border: none;
-    padding: 0.75rem 1.5rem;
+    padding: 1rem 2rem;
     text-align: center;
     color: var(--white);
     text-decoration: none;
     display: inline-block;
-    font-size: 1rem;
-    font-weight: 500;
-    margin-top: 0.75rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 1.5rem 0 0.75rem;
     cursor: pointer;
-    border-radius: 0.5rem;
+    border-radius: 0.625rem;
     transition: all 0.2s ease-in-out;
     border: 2px solid var(--accent);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    line-height: 1.5;
 
     &:hover,
     &:focus {

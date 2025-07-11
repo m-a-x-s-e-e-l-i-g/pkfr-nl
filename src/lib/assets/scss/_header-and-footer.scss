@@ -17,13 +17,15 @@ footer {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 0rem 2rem;
+        gap: 0rem 2.5rem;
         padding: 0;
         margin: 0;
 
         a {
-            padding: 0.5rem 0;
+            padding: 0.75rem 0;
             transition: color 0.2s ease;
+            font-weight: 500;
+            font-size: 1.125rem;
 
             &:hover {
                 text-decoration: underline;
@@ -38,35 +40,37 @@ footer {
 }
 
 header {
-    padding: 3rem 2rem;
+    padding: 2rem 2rem 2.5rem;
     color: var(--darker);
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: var(--white);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid var(--border);
 
     @media (min-width: vars.$smMin) {
         justify-content: center;
+        padding: 2.5rem 3rem 3rem;
         flex-wrap: wrap;
         height: auto;
         padding: 3.5rem 3rem;
     }
 
     .site-title {
-        font-family: var(--primaryFont);
-        font-size: 2.1rem;
-        line-height: 1;
+        font-family: var(--accentFont);
+        font-size: 1.5rem;
+        line-height: 1.2;
         color: inherit;
         text-align: center;
         margin: 0;
         display: block;
-        font-size: 1.4rem;
-        font-weight: bold;
+        font-weight: 800;
+        letter-spacing: -0.025em;
 
         @media (min-width: vars.$smMin) {
             width: 100%;
-            font-size: 1.6rem;
+            font-size: 1.75rem;
         }
     }
 

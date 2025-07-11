@@ -2,19 +2,20 @@
 
 .callout {
     background: var(--lightAccent);
-    padding: 2rem 1.5rem;
+    padding: 2.5rem 2rem;
     width: calc(100% + 4rem);
     max-width: unset;
-    margin: 2rem 0 2rem -2rem;
+    margin: 2.5rem 0 2.5rem -2rem;
     font-style: italic;
-    border-radius: 0.75rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    border-left: 4px solid var(--accent);
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid var(--accent);
+    line-height: 1.7;
 
     @media (min-width: vars.$smMin) {
         width: calc(100% + 6rem);
-        margin: 2rem 0 2rem -3rem;
-        padding: 2.5rem;
+        margin: 3rem 0 3rem -3rem;
+        padding: 3rem 2.5rem;
     }
 }
 
@@ -65,3 +66,40 @@
         }
     }
 }
+
+/* Spacing utilities for consistent margins and padding */
+.spacing-xs { margin-bottom: 0.5rem; }
+.spacing-sm { margin-bottom: 1rem; }
+.spacing-md { margin-bottom: 1.5rem; }
+.spacing-lg { margin-bottom: 2rem; }
+.spacing-xl { margin-bottom: 2.5rem; }
+.spacing-2xl { margin-bottom: 3rem; }
+.spacing-3xl { margin-bottom: 4rem; }
+
+.mt-xs { margin-top: 0.5rem; }
+.mt-sm { margin-top: 1rem; }
+.mt-md { margin-top: 1.5rem; }
+.mt-lg { margin-top: 2rem; }
+.mt-xl { margin-top: 2.5rem; }
+.mt-2xl { margin-top: 3rem; }
+.mt-3xl { margin-top: 4rem; }
+
+.mb-xs { margin-bottom: 0.5rem; }
+.mb-sm { margin-bottom: 1rem; }
+.mb-md { margin-bottom: 1.5rem; }
+.mb-lg { margin-bottom: 2rem; }
+.mb-xl { margin-bottom: 2.5rem; }
+.mb-2xl { margin-bottom: 3rem; }
+.mb-3xl { margin-bottom: 4rem; }
+
+.py-xs { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.py-sm { padding-top: 1rem; padding-bottom: 1rem; }
+.py-md { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+.py-lg { padding-top: 2rem; padding-bottom: 2rem; }
+.py-xl { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+
+.px-xs { padding-left: 0.5rem; padding-right: 0.5rem; }
+.px-sm { padding-left: 1rem; padding-right: 1rem; }
+.px-md { padding-left: 1.5rem; padding-right: 1.5rem; }
+.px-lg { padding-left: 2rem; padding-right: 2rem; }
+.px-xl { padding-left: 2.5rem; padding-right: 2.5rem; }

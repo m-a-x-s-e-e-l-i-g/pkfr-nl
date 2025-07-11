@@ -2,19 +2,21 @@
   .filters.spot-filters {
 	margin: 1.5rem 0 2rem 0;
 	display: flex;
-	gap: 2rem;
+	gap: 1.5rem;
 	flex-wrap: wrap;
 	align-items: flex-end;
 	border-radius: 0.75rem;
 	padding: 1.25rem 1.5rem;
 	border: 1px solid #e2e8f0;
+	background: #fafbfc;
   }
 
   .spot-filter-group {
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
-	min-width: 220px;
+	min-width: 200px;
+	flex: 1;
   }
 
   .spot-filter-group label {
@@ -48,17 +50,38 @@
   @media all and (max-width: 800px) {
 	.filters.spot-filters {
 	  flex-direction: column;
-	  gap: 1rem;
+	  gap: 1.25rem;
 	  align-items: stretch;
-	  padding: 1rem 0.5rem;
+	  padding: 1.25rem 1rem;
+	  margin: 1rem 0 1.5rem 0;
 	}
 	.spot-filter-group {
 	  min-width: unset;
 	  width: 100%;
+	  flex: none;
 	}
 	.spot-filter-input,
 	.spot-filter-select {
 	  width: 100%;
+	  font-size: 1rem;
+	  height: 48px;
+	  padding: 0 1rem;
+	}
+  }
+
+  @media all and (max-width: 480px) {
+	.filters.spot-filters {
+	  padding: 1rem 0.75rem;
+	  margin: 0.75rem 0 1.25rem 0;
+	  border-radius: 0.5rem;
+	}
+	.spot-filter-input,
+	.spot-filter-select {
+	  height: 44px;
+	  padding: 0 0.875rem;
+	}
+	.spot-filter-group label {
+	  font-size: 0.95rem;
 	}
   }
 
@@ -70,6 +93,25 @@
 	background: #f8fafc;
 	border: 1px solid #e2e8f0;
 	box-shadow: 0 2px 8px 0 rgba(30,41,59,0.03);
+	max-height: 400px;
+	overflow-y: auto;
+  }
+
+  .results-count {
+	margin: 0 0 1rem 0;
+	font-size: 0.95rem;
+	color: #475569;
+	font-weight: 500;
+  }
+
+  @media all and (max-width: 480px) {
+	.placelist-list {
+	  max-height: 350px;
+	}
+	.results-count {
+	  font-size: 0.9rem;
+	  margin: 0 0 0.75rem 0;
+	}
   }
 
   .placelist-item + .placelist-item {
@@ -84,13 +126,22 @@
   .placelist-link {
 	display: flex;
 	align-items: center;
-	padding: 1rem 1.5rem;
+	padding: 1.25rem 1.5rem;
 	color: #1e293b;
 	text-decoration: none;
 	font-size: 1.08rem;
 	font-weight: 500;
 	transition: background 0.15s, color 0.15s;
 	margin: 0;
+	min-height: 60px;
+  }
+
+  @media all and (max-width: 480px) {
+	.placelist-link {
+	  padding: 1rem;
+	  font-size: 1rem;
+	  min-height: 56px;
+	}
   }
 
   .placelist-link:hover, .placelist-link:focus {
@@ -102,23 +153,57 @@
   .placelist-name {
 	flex: 1 1 auto;
 	word-break: break-word;
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+  }
+
+  .placelist-title {
+	font-weight: 500;
+	line-height: 1.4;
+  }
+
+  .placelist-author {
+	font-size: 0.8rem;
+	font-weight: 400;
+	color: #64748b;
+	margin: 0;
+  }
+
+  @media all and (max-width: 480px) {
+	.placelist-name {
+	  gap: 0.125rem;
+	}
+	.placelist-author {
+	  font-size: 0.75rem;
+	}
   }
 
   .country-badge {
 	display: inline-block;
 	background-color: #e2e8f0;
 	color: #475569;
-	padding: 0.125rem 0.5rem;
+	padding: 0.25rem 0.625rem;
 	border-radius: 9999px;
 	font-size: 0.75rem;
 	font-weight: 500;
-	margin-left: 0.5rem;
+	margin-left: 0.75rem;
+	white-space: nowrap;
+	flex-shrink: 0;
+  }
+
+  @media all and (max-width: 480px) {
+	.country-badge {
+	  padding: 0.1875rem 0.5rem;
+	  font-size: 0.7rem;
+	  margin-left: 0.5rem;
+	}
   }
 
   .no-results {
 	font-style: italic;
 	color: #666;
-	padding: 1.2rem 1.5rem;
+	padding: 2rem 1.5rem;
 	background: #f8fafc;
 	border-radius: 0.75rem;
 	text-align: center;
@@ -171,7 +256,7 @@
 <div class="filters spot-filters">
 	<div class="filter-group spot-filter-group">
 		<label for="search">Zoek op naam:</label>
-		<input type="text" id="search" bind:value={searchQuery} placeholder="Zoek placelists..." class="spot-filter-input" />
+		<input type="text" id="search" bind:value={searchQuery} placeholder="Zoek kaart..." class="spot-filter-input" />
 	</div>
 	<div class="filter-group spot-filter-group">
 		<label for="country">Filter op land:</label>
@@ -184,14 +269,18 @@
 	</div>
 </div>
 
+<div class="results-count">
+	{filteredPlacelists.length} {filteredPlacelists.length === 1 ? 'kaart' : 'kaarten'} gevonden
+</div>
+
 <ul class="placelist-list">
    {#each filteredPlacelists as placelist}
 		<li class="placelist-item">
 			<a href={placelist.url} target="_blank" rel="noreferrer" class="placelist-link">
-			<span class="placelist-name flex items-baseline gap-2">
-				<span>{placelist.name}</span>
-				<span class="placelist-author text-xs font-normal text-slate-400 ml-2 flex items-center">{placelist.author}</span>
-			</span>
+				<div class="placelist-name">
+					<span class="placelist-title">{placelist.name}</span>
+					<span class="placelist-author">{placelist.author}</span>
+				</div>
 				{#if placelist.country !== 'Netherlands'}
 					<span class="country-badge">{placelist.country}</span>
 				{/if}
