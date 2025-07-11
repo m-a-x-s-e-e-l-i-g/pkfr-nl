@@ -72,7 +72,7 @@
 								width={800}
 								height={400}
 								alt={gym.name}
-								cdn="netlify"
+								cdn={import.meta.env.DEV ? undefined : "netlify"}
 							/>
 						</Carousel.Item>
 					{/each}
