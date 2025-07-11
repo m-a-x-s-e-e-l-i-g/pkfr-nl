@@ -143,6 +143,8 @@
 	{ name: "Prague", url: "https://maps.app.goo.gl/EvSmPa2pHQXKt66n6?g_st=ac", country: "Czech Republic", author: "Grip Freerunning" },
 	{ name: "Prague + Czech", url: "https://goo.gl/maps/6X3EarLxnqF9nZnv6?g_st=ac", country: "Czech Republic", author: "Mikeš Kořínek" },
 	{ name: "ADAPT 2025 MAP", url: "https://goo.gl/maps/5Ft1ryaDztp4T1NL8?g_st=ac", country: "Netherlands", author: "Lars Damink" },
+	{ name: "Parkour-Spots in Berlin", url: "https://goo.gl/maps/Kan5NujQb1EcJL3z9?g_st=ac", country: "Germany", author: "parkourberlin.de" },
+	{ name: "Parkour Locations Malta", url: "https://www.google.com/maps/d/u/0/viewer?mid=179s3NuwEe8lVkM1N-3AhXErusF4WLts2", country: "Malta", author: "Cool guy" },
   ];
 
   // Sort by name for better UX
