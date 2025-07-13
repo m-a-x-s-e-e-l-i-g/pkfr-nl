@@ -58,14 +58,33 @@
 	}
 
 	.gym-info {
-		margin-bottom: 0.75rem;
+		margin-bottom: 1rem;
+		display: flex;
+		align-items: flex-start;
+		gap: 0.75rem;
+		padding: 0.5rem;
+		background: #f8f9fa;
+		border-radius: 0.375rem;
 		line-height: 1.5;
+	}
+
+	.gym-info-icon {
+		font-size: 1.1rem;
+		margin-top: 0.1rem;
+		flex-shrink: 0;
+	}
+
+	.gym-info-content {
+		flex: 1;
+		min-width: 0;
 	}
 
 	.gym-info a {
 		color: var(--accent);
 		text-decoration: none;
-		word-break: break-all;
+		word-break: break-word;
+		font-weight: 500;
+		transition: color 0.2s ease;
 	}
 
 	.gym-info a:hover {
@@ -94,8 +113,14 @@
 		}
 
 		.gym-info {
-			font-size: 0.95rem;
-			margin-bottom: 0.625rem;
+			font-size: 0.9rem;
+			margin-bottom: 0.75rem;
+			gap: 0.5rem;
+			padding: 0.375rem;
+		}
+
+		.gym-info-icon {
+			font-size: 1rem;
 		}
 	}
 </style>
@@ -129,8 +154,18 @@
 						{gym.distance.toFixed(1)} km
 					</div>			
 				{/if}
-				<p class="gym-info">📍 <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(gym.address)}`} target="_blank" rel="noopener noreferrer">{gym.address}</a></p>
-				<p class="gym-info">🌐 <a href={gym.website} target="_blank" rel="noopener noreferrer">{gym.websiteText}</a></p>
+				<div class="gym-info">
+					<span class="gym-info-icon">📍</span>
+					<div class="gym-info-content">
+						<a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(gym.address)}`} target="_blank" rel="noopener noreferrer">{gym.address}</a>
+					</div>
+				</div>
+				<div class="gym-info">
+					<span class="gym-info-icon">🌐</span>
+					<div class="gym-info-content">
+						<a href={gym.website} target="_blank" rel="noopener noreferrer">Website bezoeken</a>
+					</div>
+				</div>
 			</div>
 			<Carousel.Root
 				plugins={[

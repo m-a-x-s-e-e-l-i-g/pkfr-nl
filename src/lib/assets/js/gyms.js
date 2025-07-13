@@ -396,11 +396,5 @@ export function getGyms(latitude, longitude) {
     // Sort gyms by distance
     filteredGyms.sort((a, b) => a.distance - b.distance);
 
-    // Add a text version for website urls
-    filteredGyms.forEach((gym) => {
-        gym.websiteText = gym.website.replace(/https?:\/\//, '').replace(/\/$/, '');
-        gym.websiteText = gym.websiteText.replace(/^www\./, '');
-    });
-
     return filteredGyms;
 }
