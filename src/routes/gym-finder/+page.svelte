@@ -130,7 +130,7 @@
 					</div>			
 				{/if}
 				<p class="gym-info">📍 <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(gym.address)}`} target="_blank" rel="noopener noreferrer">{gym.address}</a></p>
-				<p class="gym-info">🌐 <a href={gym.website} target="_blank" rel="noopener noreferrer">{gym.website}</a></p>
+				<p class="gym-info">🌐 <a href={gym.website} target="_blank" rel="noopener noreferrer">{gym.websiteText}</a></p>
 			</div>
 			<Carousel.Root
 				plugins={[
