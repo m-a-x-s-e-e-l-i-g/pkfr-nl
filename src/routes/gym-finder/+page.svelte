@@ -35,6 +35,7 @@
 
 	.gym-content {
 		padding: 1.5rem;
+		position: relative;
 	}
 
 	.gym-title {
@@ -47,8 +48,8 @@
 
 	.distance-badge {
 		position: absolute;
-		top: 0.5rem;
-		right: 1rem;
+		top: 1.5rem;
+		right: 1.5rem;
 		font-weight: bold;
 		background: var(--accent);
 		color: white;
