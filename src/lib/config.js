@@ -24,10 +24,6 @@ export const navItems = [
         route: '/links'
     },
     {
-        title: 'Gym Finder',
-        route: '/gym-finder'
-    },
-    {
         title: 'Tools',
         route: '/tools'
     }

@@ -7,7 +7,7 @@
 	<title>Spots {titlePostfix}</title>
 </svelte:head>
 <h1>Spots</h1>
-<p>Parkour spots vinden kan tijd kosten, behalve als je al weet waar ze zijn! Je vind hier apps, kaarten en lijsten die goed zijn voor spots in Nederland. Zoek je liever iets binnen, probeer dan de <a href="/gym-finder">Gym Finder</a>.</p>
+<p>Parkour spots vinden kan tijd kosten, behalve als je al weet waar ze zijn! Je vind hier apps, kaarten en lijsten die goed zijn voor spots in Nederland. Zoek je liever iets binnen, probeer dan de <a href="/tools/gym-finder">Gym Finder</a>.</p>
 <div class="wrapper">
 	<h2>Spot kaarten van freerunners</h2>
 <article class="main">
@@ -23,12 +23,12 @@
 	<h2>Indoor spots (gyms)</h2>
 	<article class="main">
 		<p>
-			Het is niet altijd lekker weer, en covered spots zijn schaars! Binnen trainen is dan wel heel erg fijn. Gebruik de <a href="/gym-finder">Gym Finder</a> om de dichtstbijzijnde freerun gyms te vinden.
+			Het is niet altijd lekker weer, en covered spots zijn schaars! Binnen trainen is dan wel heel erg fijn. Gebruik de <a href="/tools/gym-finder">Gym Finder</a> om de dichtstbijzijnde freerun gyms te vinden.
 		</p>
 	</article>
 	<footer>
 		<a
-			href="/gym-finder"
+			href="/tools/gym-finder"
 			class="button">Zoek een gym</a
 		>
 	</footer>

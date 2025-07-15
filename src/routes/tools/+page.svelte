@@ -3,6 +3,8 @@
     import Icon from 'svelte-awesome';
     import calculator from 'svelte-awesome/icons/calculator';
     import mapO from 'svelte-awesome/icons/mapO';
+    import mapMarker from 'svelte-awesome/icons/mapMarker';
+
 
     const tools = [
         { 
@@ -16,6 +18,12 @@
             link: '/tools/spot-map-finder',
             icon: mapO,
             description: 'Vind en filter kaarten met freerun spots in Nederland en daarbuiten.'
+        },
+        {
+            name: 'Freerun Gym Finder',
+            link: '/tools/gym-finder',
+            icon: mapMarker,
+            description: 'Vind snel de dichtsbijzijnde indoor freerun gym in jouw buurt.'
         }
     ];
 </script>
