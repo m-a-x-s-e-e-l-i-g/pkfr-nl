@@ -27,7 +27,6 @@
 	}
 	li span {
 		margin-right: 0.75rem;
-		vertical-align: middle;
 	}
 	a {
 		font-size: 1.125rem;
@@ -35,6 +34,7 @@
 		color: var(--darker);
 		text-decoration: none;
 		line-height: 1.5;
+		vertical-align: middle;
 	}
 	a:hover {
 		color: var(--accent);
