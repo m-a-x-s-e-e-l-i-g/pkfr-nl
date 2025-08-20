@@ -29,7 +29,7 @@
 </script>
 
 <style>
-    .icon {
+    :global(.icon) {
         margin-right: 8px;
     }
     a:hover {

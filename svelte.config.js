@@ -28,6 +28,9 @@ const config = {
     ],
 
     kit: {
+        alias: {
+            $lib: 'src/lib'
+        },
         adapter: adapter(),
         prerender: {
             handleHttpError: ({ path, referrer, message }) => {
