@@ -232,7 +232,8 @@
 	{ name: "Malta", url: "https://www.google.com/maps/d/u/0/viewer?mid=179s3NuwEe8lVkM1N-3AhXErusF4WLts2", country: "Malta", author: "Cool guy" },
 	{ name: "Lisbon", url: "https://maps.app.goo.gl/Z2NQNCNXQDSCPo8A6?g_st=i", country: "Portugal", author: "Max Condon" },
 	{ name: "Wuppertal", url: "https://www.google.com/maps/d/u/0/viewer?mid=1exoRlXCqp_tDsnALO579V0wC_EcEKso", country: "Germany", author: "Hans Schmidt" },
-	{ name: "FRBodensee Festival", url: "https://maps.app.goo.gl/1a8aCea1s2rN6Z5H8?g_st=ac", country: "Germany", author: "Jonas Metzger" }
+	{ name: "FRBodensee Festival", url: "https://maps.app.goo.gl/1a8aCea1s2rN6Z5H8?g_st=ac", country: "Germany", author: "Jonas Metzger" },
+{ name: "FreeGrunn Veendam", url: "https://maps.app.goo.gl/hxiQqciZGPzAY5Lb7?g_st=ic", country: "Netherlands", author: "Flexbeweging" } 
 ];
 
   // Sort by name for better UX
