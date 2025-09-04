@@ -46,7 +46,7 @@ const CustomViewConfig = {
 					<div class="grid-item description">${description}</div>
 				</div>
 				<a href="${url}" target="_blank" rel="noreferrer" class="button">Plaats in mijn agenda</a>
-				<a href="/jams" class="button ml-4">Bekijk alle events</a>
+				<a href="/jams" class="button">Bekijk alle events</a>
 			</p>
 		`;
 		return { html: html };

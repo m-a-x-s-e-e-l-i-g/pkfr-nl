@@ -24,6 +24,11 @@ main {
     }
 }
 
+.full-size {
+	max-width: unset;
+	margin: unset;
+}
+
 .layout {
     display: grid;
     grid-template-columns: 100%;

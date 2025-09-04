@@ -1,0 +1,118 @@
+<script lang="ts">
+  import { createEventDispatcher } from 'svelte';
+  import { Check } from 'lucide-svelte';
+
+  export let video;
+  export let watchedState;
+  export let currentVideo: string = '';
+
+  const dispatch = createEventDispatcher();
+
+  function handleVideoSelect(videoId: string) {
+    dispatch('selectVideo', videoId);
+  }
+
+  function handleToggleWatched(event: Event, videoId: string) {
+    event.stopPropagation();
+    dispatch('toggleWatched', videoId);
+  }
+</script>
+
+<div
+  class="video-item {currentVideo === video.id ? 'watched' : ''}"
+  on:click={() => handleVideoSelect(video.id)}
+  on:keydown={(e) => e.key === 'Enter' && handleVideoSelect(video.id)}
+  aria-pressed={currentVideo === video.id}
+  role="button"
+  tabindex="0"
+>
+  <div class="thumbnail-container">
+    <img
+      src={video.thumbnail}
+      alt={video.title}
+      class="thumbnail"
+    />
+  </div>
+  <div class="video-info">
+    <p class="video-title">{video.title}</p>
+    <p class="video-description">{video.description}</p>
+  </div>
+  <button
+    on:click={(event) => handleToggleWatched(event, video.id)}
+    class="watched-button {watchedState[video.id] ? 'bg-green-100' : 'bg-gray-100'}"
+    title={watchedState[video.id] ? 'Remove from watched' : 'Mark as watched'}
+  >
+    <Check size={20} class={watchedState[video.id] ? 'text-green-600' : 'text-gray-400'} />
+  </button>
+</div>
+
+<style>
+  .video-item {
+    display: flex;
+    align-items: start;
+    padding: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-top: 1px dotted rgba(0, 0, 0, 0.1); /* border-b */
+  }
+
+  .video-item.watched {
+    background-color: rgba(254, 226, 226, 1); 
+  }
+  .video-item:not(.watched):hover {
+    background-color: rgba(0, 0, 0, 0.01); /* hover:bg-gray-100 */
+  }
+
+  .thumbnail-container {
+    position: relative;
+    width: 10rem;
+    flex-shrink: 0;
+
+    @media (max-width: 48rem) {
+      width: 8rem;
+    }
+  }
+
+  .thumbnail {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* aspect-video */
+    object-fit: cover; /* object-cover */
+    border-radius: 0.25rem; /* rounded */
+  }
+
+  .video-info {
+    margin-left: 1rem; /* ml-4 */
+    flex-grow: 1;
+  }
+
+  .video-title {
+    font-weight: 500; /* font-medium */
+    color: #111827; /* text-gray-900 */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .video-description {
+    font-size: 0.875rem; /* text-sm */
+    color: #6b7280; /* text-gray-500 */
+    margin-top: 0.25rem; /* mt-1 */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+  }
+
+  .watched-button {
+    margin-left: 1rem; /* ml-4 */
+    padding: 0.5rem; /* p-2 */
+    border-radius: 9999px; /* rounded-full */
+    align-self: center;
+  }
+  .watched-button:hover {
+    outline: 1px solid #111827;
+    cursor: pointer;
+  }
+</style>
