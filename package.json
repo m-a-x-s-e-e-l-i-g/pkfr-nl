@@ -59,6 +59,7 @@
         "lucide-svelte": "^0.476.0",
         "svelte-awesome": "^3.3.5",
         "svelte-preprocess": "^6.0.3",
-        "svelte-radix": "^2.0.2"
+        "svelte-radix": "^2.0.2",
+        "vidstack": "^1.12.13"
     }
 }
