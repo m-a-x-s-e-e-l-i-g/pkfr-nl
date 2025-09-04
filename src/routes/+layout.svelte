@@ -8,6 +8,7 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import { Toaster } from "$lib/components/ui/sonner/index.js";
 	import { currentPage, isMenuOpen } from '$lib/assets/js/store';
+	import { ModeWatcher } from "mode-watcher";
 	import { navItems } from '$lib/config';
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
@@ -29,6 +30,7 @@
 	The below markup is used on every page in the site. The <slot> is where the page's
 	actual contents will show up.
 -->
+<ModeWatcher />
 <div class="layout" class:open={$isMenuOpen}>
 	<Header></Header>
 	{#key data.path}
