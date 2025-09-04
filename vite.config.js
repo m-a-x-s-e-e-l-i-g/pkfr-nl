@@ -1,4 +1,5 @@
 import { sveltekit } from '@sveltejs/kit/vite';
+import { vite as vidstack } from 'vidstack/plugins';
 import tailwindcss from '@tailwindcss/vite';
 
 /** @type {import('vite').UserConfig} */
