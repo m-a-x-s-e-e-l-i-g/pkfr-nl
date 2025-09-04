@@ -1,4 +1,3 @@
-import { vite as vidstack } from 'vidstack/plugins';
 import { sveltekit } from '@sveltejs/kit/vite';
 import tailwindcss from '@tailwindcss/vite';
 

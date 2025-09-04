@@ -85,6 +85,7 @@ const CustomViewConfig = {
 		}
 		.description{
 			font-size: 0.8em;
+			word-break: break-word;
 		}
 		.grid-item:nth-child(odd){
 			padding-right: 0.5em;

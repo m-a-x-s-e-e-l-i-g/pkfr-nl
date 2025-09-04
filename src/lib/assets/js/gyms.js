@@ -248,7 +248,7 @@ const gymList = [
         address: 'Doctor Bosstraat 46, 9645 JJ Veendam',
         latitude: 53.112112312284246,
         longitude: 6.884084913093284,
-        website: 'http://flexbeweging.nl/',
+        website: 'https://www.flexbeweging.nl/',
         images: ['images/gyms/flexbeweging/flexbeweging-veendam-1.jpg']
     },
     {

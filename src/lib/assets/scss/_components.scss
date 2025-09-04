@@ -1,61 +1,105 @@
 @use 'vars';
 
 .callout {
-	background: var(--lightAccent);
-	padding: 2rem 1rem;
-  width: calc(100% + 2rem);
-	max-width: unset;
-  margin: 2rem 0 2rem -1rem;
-	font-style: italic;
-	border-radius: 0.125rem;
-  
-  @media (min-width: vars.$smMin) {
+    background: var(--lightAccent);
+    padding: 2.5rem 2rem;
     width: calc(100% + 4rem);
-    margin: 2rem 0 2rem -2rem;
-    padding: 2rem;
-  }
+    max-width: unset;
+    margin: 2.5rem 0 2.5rem -2rem;
+    font-style: italic;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid var(--accent);
+    line-height: 1.7;
+
+    @media (min-width: vars.$smMin) {
+        width: calc(100% + 6rem);
+        margin: 3rem 0 3rem -3rem;
+        padding: 3rem 2.5rem;
+    }
 }
 
 .pagination {
-	margin: 0 0 1rem;
+    margin: 0 0 1rem;
 
-	ul {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: flex-start;
-		list-style-type: none;
-		gap: 0.5rem;
-		margin: 0;
-		padding: 0;
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        list-style-type: none;
+        gap: 0.5rem;
+        margin: 0;
+        padding: 0;
 
-		li {
-			margin: 0;
-		}
+        li {
+            margin: 0;
+        }
 
-		a {
-			background: var(--lightAccent);
-			text-decoration: none;
-			line-height: 1;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			width: 2em;
-			height: 2em;
-			font-family: var(--primaryFont);
-			font-weight: bold;
-			transition: background .1s;
+        a {
+            background: var(--white);
+            border: 1px solid var(--border);
+            text-decoration: none;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5em;
+            height: 2.5em;
+            font-family: var(--primaryFont);
+            font-weight: 500;
+            border-radius: 0.5rem;
+            transition: all 0.2s ease;
 
-			&:hover {
-				background: var(--accent);
-				color: var(--background);
-			}
+            &:hover {
+                background: var(--accent);
+                color: var(--white);
+                border-color: var(--accent);
+                transform: translateY(-1px);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
 
-			&[aria-current="true"] {
-				background: var(--accent);
-				color: var(--background);
-				border: 1px solid currentColor;
-			}
-		}
-
-	}
+            &[aria-current='true'] {
+                background: var(--accent);
+                color: var(--white);
+                border-color: var(--accent);
+            }
+        }
+    }
 }
+
+/* Spacing utilities for consistent margins and padding */
+.spacing-xs { margin-bottom: 0.5rem; }
+.spacing-sm { margin-bottom: 1rem; }
+.spacing-md { margin-bottom: 1.5rem; }
+.spacing-lg { margin-bottom: 2rem; }
+.spacing-xl { margin-bottom: 2.5rem; }
+.spacing-2xl { margin-bottom: 3rem; }
+.spacing-3xl { margin-bottom: 4rem; }
+
+.mt-xs { margin-top: 0.5rem; }
+.mt-sm { margin-top: 1rem; }
+.mt-md { margin-top: 1.5rem; }
+.mt-lg { margin-top: 2rem; }
+.mt-xl { margin-top: 2.5rem; }
+.mt-2xl { margin-top: 3rem; }
+.mt-3xl { margin-top: 4rem; }
+
+.mb-xs { margin-bottom: 0.5rem; }
+.mb-sm { margin-bottom: 1rem; }
+.mb-md { margin-bottom: 1.5rem; }
+.mb-lg { margin-bottom: 2rem; }
+.mb-xl { margin-bottom: 2.5rem; }
+.mb-2xl { margin-bottom: 3rem; }
+.mb-3xl { margin-bottom: 4rem; }
+
+.py-xs { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.py-sm { padding-top: 1rem; padding-bottom: 1rem; }
+.py-md { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+.py-lg { padding-top: 2rem; padding-bottom: 2rem; }
+.py-xl { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+
+.px-xs { padding-left: 0.5rem; padding-right: 0.5rem; }
+.px-sm { padding-left: 1rem; padding-right: 1rem; }
+.px-md { padding-left: 1.5rem; padding-right: 1.5rem; }
+.px-lg { padding-left: 2rem; padding-right: 2rem; }
+.px-xl { padding-left: 2.5rem; padding-right: 2.5rem; }

@@ -14,46 +14,54 @@ $xxlMax: 122.4375rem;
 $xxxlMin: 122.5rem;
 
 :root {
-	// Colors
-	--accent: #E63946;
-	--background: #FAF9F8;
-	--lightAccent: #A8DAE5;
-	--lighterAccent: #E6E8E4;
-	--dark: #457B9D;
-	--darker: #1D3557;
-	--slate: #2F3948;
-	--border: #8686863b;
-	--white: #fff;
-	--black: #152030;
-	
-	--ink: var(--slate);
-	--paper: var(--background);
-	
-	//shadows and gradients
-	--rainbow: linear-gradient(45deg, hsla(187, 82%, 65%, .4) 0%, hsla(65, 77%, 63%, .4) 50%, hsla(327, 67%, 74%, .4) 100%);
-	--shadowFill: -1px -5px 22px -5px rgb(0 0 0 / 12%) inset;
-	--shadow: -1px -5px 22px -5px rgb(0 0 0 / 12%);
-	
+    // Colors
+    --accent: #e63946;
+    --background: #fafbfc;
+    --lightAccent: #a8dae5;
+    --lighterAccent: #e6e8e4;
+    --dark: #457b9d;
+    --darker: #1d3557;
+    --slate: #2f3948;
+    --border: #e5e7eb;
+    --white: #fff;
+    --black: #152030;
 
-	// Fonts
-	/**
+    --ink: var(--slate);
+    --paper: var(--background);
+
+    //shadows and gradients
+    --rainbow: linear-gradient(
+        45deg,
+        hsla(187, 82%, 65%, 0.4) 0%,
+        hsla(65, 77%, 63%, 0.4) 50%,
+        hsla(327, 67%, 74%, 0.4) 100%
+    );
+    --shadowFill: -1px -5px 22px -5px rgb(0 0 0 / 12%) inset;
+    --shadow: -1px -5px 22px -5px rgb(0 0 0 / 12%);
+
+    // Fonts
+    /**
 	 * These are broken out into two separate variables from a previous iteration. I left
 	 * it in because it's nice to be able to split out the heading and body fonts.
 	 */
-	 --primaryFont: 'Hubballi', sans-serif;
-	--accentFont: 'Martel', sans-serif; 
+    --primaryFont:
+        'Inter', 'Segoe UI', 'Helvetica Neue', -apple-system, BlinkMacSystemFont, Roboto,
+        Arial, 'Noto Sans', sans-serif;
+    --accentFont:
+        'Merriweather', 'Inter', 'Georgia', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+        Arial, serif;
 
-	// Base styles
-	font-size: 1rem;
-	line-height: 1.6;
+    // Base styles
+    font-size: 1.125rem;
+    line-height: 1.7;
 }
 
 body {
-	@media (min-width: $smMin) {
-		font-size: 1.4rem;
-	}
+    @media (min-width: $smMin) {
+        font-size: 1.25rem;
+    }
 
-	@media (min-width: $lgMin) {
-		font-size: 1.5rem;
-	}
+    @media (min-width: $lgMin) {
+        font-size: 1.375rem;
+    }
 }

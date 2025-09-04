@@ -12,12 +12,43 @@
 <style>
 	ul {
 		list-style: none;
+		padding: 0;
 	}
 	li {
-		margin-bottom: 1rem;
+		margin-bottom: 1.25rem;
+		padding: 1rem;
+		background: #f8fafc;
+		border-radius: 0.5rem;
+		border: 1px solid #e2e8f0;
+		transition: background 0.2s ease;
+	}
+	li:hover {
+		background: #f1f5f9;
 	}
 	li span {
-		margin-right: 0.5rem;
+		margin-right: 0.75rem;
+	}
+	a {
+		font-size: 1.125rem;
+		font-weight: 500;
+		color: var(--darker);
+		text-decoration: none;
+		line-height: 1.5;
+		vertical-align: middle;
+	}
+	a:hover {
+		color: var(--accent);
+		text-decoration: underline;
+	}
+
+	@media (max-width: 768px) {
+		li {
+			padding: 0.875rem;
+			margin-bottom: 1rem;
+		}
+		a {
+			font-size: 1rem;
+		}
 	}
 </style>
 
@@ -28,7 +59,8 @@
 
 <h1>Community Links</h1>
 <ul>
-	<li><span><Icon data={whatsapp}/></span><a href="https://chat.whatsapp.com/GamwcVgPYnq3UbKog2H9M8" rel="noreferrer" target="_blank">Whatsapp Community (Parkourculture)</a></li>
+	<li><span><Icon data={whatsapp}/></span><a href="https://chat.whatsapp.com/GamwcVgPYnq3UbKog2H9M8" rel="noreferrer" target="_blank">WhatsApp Community NL</a></li>
+	<li><span><Icon data={whatsapp}/></span><a href="https://chat.whatsapp.com/HVzvFn54TUBJfBzmAAcTba" rel="noreferrer" target="_blank">WhatsApp Traingroep NL</a></li>
 	<li><span><Icon data={instagram}/></span><a href="https://www.instagram.com/parkour_culture_NL/" rel="noreferrer" target="_blank">Instagram (Parkourculture)</a></li>
 	<li><span><Icon data={spotify}/></span><a href="https://spoti.fi/3OazXTm" rel="noreferrer" target="_blank">Spotify playlist</a></li>
 	<li><span><Icon data={externalLink}/></span><a href="https://parkourculture.nl/" rel="noreferrer" target="_blank">Parkourculture website (voor lessen, workshops en kinderfeesten in Utrecht en omstreken)</a></li>

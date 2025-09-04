@@ -2,3 +2,8 @@
   for = "/*"
   [headers.values]
     Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+
+[[plugins]]
+package = "netlify-plugin-submit-sitemap"
+  [plugins.inputs]
+  ignorePeriod = 0 

@@ -34,4 +34,7 @@
 	};
 </script>
 
+<style>
+</style>
+
 <FullCalendar {options} />

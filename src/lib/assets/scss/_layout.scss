@@ -1,17 +1,27 @@
 @use './vars';
 
-*, 
-*:before, 
+*,
+*:before,
 *:after {
-	box-sizing: border-box;
-	font-family: inherit;
+    box-sizing: border-box;
+    font-family: inherit;
 }
 
 main {
-	width: 100%;
-	max-width: 50rem;
-	margin: 6rem auto;
-	padding: 0 1rem;
+    width: 100%;
+    max-width: 56rem;
+    margin: 5rem auto;
+    padding: 0 2rem;
+    line-height: 1.7;
+
+    @media (min-width: vars.$smMin) {
+        padding: 0 3rem;
+        margin: 6rem auto;
+    }
+
+    @media (min-width: vars.$lgMin) {
+        padding: 0 4rem;
+    }
 }
 
 .full-size {
@@ -20,47 +30,59 @@ main {
 }
 
 .layout {
-	display: grid;
-	grid-template-columns: 100%;
-	grid-template-rows: auto 1fr auto;
-	min-height: 100vh;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
 }
 
 .button {
-	font-family: var(--primaryFont);
-	background-color: var(--accent);
-	border: none;
-	padding: 15px 32px;
-	text-align: center;
-	color: var(--white);
-	text-decoration: none;
-	display: inline-block;
-	margin-top: 10px;
-	cursor: pointer;
-	border-radius: 4px;
-	transition: all 0.1s ease-in-out;
-	border: 2px solid var(--accent);
+    font-family: var(--primaryFont);
+    background-color: var(--accent);
+    border: none;
+    padding: 1rem 2rem;
+    text-align: center;
+    color: var(--white);
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 1.5rem 0 0.75rem;
+    cursor: pointer;
+    border-radius: 0.625rem;
+    transition: all 0.2s ease-in-out;
+    border: 2px solid var(--accent);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    line-height: 1.5;
 
-	&:hover, &:focus {
-		background: transparent;
-		color: var(--accent);
-	}
+    &:hover,
+    &:focus {
+        background: var(--darker);
+        border-color: var(--darker);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+}
 
-	@media (min-width: vars.$smMin) {
-		font-size: 20px;
-	}
+@media (max-width: 768px) {
+    .button {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        margin: 1rem 0 0.5rem;
+        border-radius: 0.5rem;
+    }
 }
 
 #main iframe {
-	width: 100%;
+    width: 100%;
 }
 
 img {
-	width: 100%;
-	max-width: 100%;
-	height: auto;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
 }
 
 li {
-	margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
 }

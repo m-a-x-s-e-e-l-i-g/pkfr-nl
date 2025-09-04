@@ -2,18 +2,37 @@
     import { titlePostfix } from '$lib/config';
     import Icon from 'svelte-awesome';
     import calculator from 'svelte-awesome/icons/calculator';
+    import mapO from 'svelte-awesome/icons/mapO';
+    import mapMarker from 'svelte-awesome/icons/mapMarker';
+
 
     const tools = [
-        { name: 'Afstand Analyser 5000™', link: '/tools/distance-converter', icon: calculator, description: 'Maak sprongen eerlijk door schoenmaatverschillen te compenseren.' }
-        // Add more tools here
+        { 
+            name: 'Afstand Analyser 5000™', 
+            link: '/tools/distance-converter', 
+            icon: calculator, 
+            description: 'Maak sprongen eerlijk door schoenmaatverschillen te compenseren.' 
+        },
+        {
+            name: 'Spot Map Finder',
+            link: '/tools/spot-map-finder',
+            icon: mapO,
+            description: 'Vind en filter kaarten met freerun spots in Nederland en daarbuiten.'
+        },
+        {
+            name: 'Freerun Gym Finder',
+            link: '/tools/gym-finder',
+            icon: mapMarker,
+            description: 'Vind snel de dichtsbijzijnde indoor freerun gym in jouw buurt.'
+        }
     ];
 </script>
 
 <style>
-    .icon {
+    :global(.icon) {
         margin-right: 8px;
     }
-	a:hover {
+    a:hover {
         text-decoration: none!important;
     }
 </style>
@@ -31,7 +50,7 @@
                 <Icon class="icon" data={tool.icon} />
                 <span class="ml-2 font-bold">{tool.name}</span>
             </div>
-			<p class="mb-2 text-black text-base">{tool.description}</p>
+            <p class="mb-2 text-black text-base">{tool.description}</p>
         </a>
     {/each}
 </div>
