@@ -173,13 +173,15 @@ header {
 
 .layout > footer {
     padding: 3rem 2rem;
-    background: var(--white);
+    background: var(--paper);
     box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1);
-    color: var(--black);
+    color: var(--ink);
     display: grid;
     align-items: stretch;
     gap: 2rem;
     font-size: 0.7em;
+    transition: all 0.2s ease;
+    --logo-color: #152030;
 
     @media (min-width: vars.$smMin) {
         grid-template-columns: 1fr 1fr 2fr;
@@ -195,6 +197,15 @@ header {
 
     a {
         color: inherit;
+        transition: opacity 0.2s ease;
+    }
+
+    a:hover {
+        opacity: 0.7;
+    }
+
+    a img {
+        transition: all 0.2s ease;
     }
 
     nav {

@@ -34,4 +34,17 @@
 	};
 </script>
 
+<style>
+	/* FullCalendar Dark Mode Overrides - Component Level */
+	:global(.dark .fc-list-event:hover) {
+		background: var(--darker) !important;
+		border-color: var(--accent) !important;
+	}
+	
+	:global(.dark .fc-list-event:hover .fc-list-event-title),
+	:global(.dark .fc-list-event:hover .fc-list-event-time) {
+		color: var(--paper) !important;
+	}
+</style>
+
 <FullCalendar {options} />

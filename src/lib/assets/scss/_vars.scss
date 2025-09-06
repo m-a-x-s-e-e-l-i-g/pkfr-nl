@@ -14,7 +14,7 @@ $xxlMax: 122.4375rem;
 $xxxlMin: 122.5rem;
 
 :root {
-    // Colors
+    // Light mode colors
     --accent: #e63946;
     --background: #fafbfc;
     --lightAccent: #a8dae5;
@@ -28,6 +28,7 @@ $xxxlMin: 122.5rem;
 
     --ink: var(--slate);
     --paper: var(--background);
+    --logo-color: #152030;
 
     //shadows and gradients
     --rainbow: linear-gradient(
@@ -54,6 +55,38 @@ $xxxlMin: 122.5rem;
     // Base styles
     font-size: 1.125rem;
     line-height: 1.7;
+}
+
+// Dark mode color overrides
+.dark {
+    --accent: #ff6b7a;
+    --background: #0f172a;
+    --lightAccent: #1e293b;
+    --lighterAccent: #334155;
+    --dark: #94a3b8;
+    --darker: #e2e8f0;
+    --slate: #cbd5e1;
+    --border: #334155;
+    --white: #0f172a;
+    --black: #f8fafc;
+
+    --ink: var(--slate);
+    --paper: var(--background);
+
+    // Dark mode logo color (light for dark backgrounds)
+    --logo-color: #f8fafc;
+
+    // Dark mode shadows
+    --shadowFill: -1px -5px 22px -5px rgb(0 0 0 / 40%) inset;
+    --shadow: -1px -5px 22px -5px rgb(0 0 0 / 40%);
+
+    // Dark mode rainbow gradient
+    --rainbow: linear-gradient(
+        45deg,
+        hsla(187, 82%, 45%, 0.6) 0%,
+        hsla(65, 77%, 43%, 0.6) 50%,
+        hsla(327, 67%, 54%, 0.6) 100%
+    );
 }
 
 body {

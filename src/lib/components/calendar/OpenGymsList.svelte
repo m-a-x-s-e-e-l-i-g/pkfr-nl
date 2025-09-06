@@ -37,4 +37,43 @@
 	};
 </script>
 
+<style>
+	/* FullCalendar Dark Mode Overrides - Component Level */
+	:global(.dark .fc-list-event:hover) {
+		background: var(--darker) !important;
+		border-color: var(--accent) !important;
+	}
+	
+	:global(.dark .fc-list-event:hover .fc-list-event-title),
+	:global(.dark .fc-list-event:hover .fc-list-event-time) {
+		color: var(--paper) !important;
+	}
+
+	/* Fix header toolbar for dark mode */
+	:global(.dark .fc-toolbar-title) {
+		color: var(--paper) !important;
+		padding-left: 20px;
+	}
+
+	:global(.fc-media-screen, .fc-header-toolbar.fc-toolbar) {
+		border-radius: 15px;
+	}
+
+	:global(.dark .fc-button) {
+		background: var(--darker) !important;
+		border-color: var(--border) !important;
+		color: var(--paper) !important;
+	}
+
+	:global(.dark .fc-button:hover) {
+		background: var(--accent) !important;
+		border-color: var(--accent) !important;
+	}
+
+	/* Make header background dark in dark theme */
+	:global(.dark .fc-toolbar) {
+		background: var(--darker) !important;
+	}
+</style>
+
 <FullCalendar {options} />

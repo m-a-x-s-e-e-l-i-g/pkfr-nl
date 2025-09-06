@@ -12,6 +12,48 @@ const initialFriendShoeSize = storedFriendShoeSize ? parseFloat(storedFriendShoe
 export const myShoeSize = writable(initialMyShoeSize);
 export const friendShoeSize = writable(initialFriendShoeSize);
 
+// Theme management - automatically detects system preference
+function createThemeStore() {
+    const { subscribe, set } = writable('light');
+
+    return {
+        subscribe,
+        init: () => {
+            if (!isBrowser) return;
+
+            // Check system preference
+            const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+            const systemPrefersDark = mediaQuery.matches;
+            
+            // Set initial theme based on system preference
+            const initialTheme = systemPrefersDark ? 'dark' : 'light';
+            set(initialTheme);
+            
+            // Apply theme to document
+            if (initialTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+
+            // Listen for system theme changes
+            mediaQuery.addEventListener('change', (e) => {
+                const newTheme = e.matches ? 'dark' : 'light';
+                set(newTheme);
+                
+                // Apply theme to document
+                if (newTheme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+            });
+        }
+    };
+}
+
+export const theme = createThemeStore();
+
 // Subscribe to changes and update localStorage
 if (isBrowser) {
     myShoeSize.subscribe((value) => {

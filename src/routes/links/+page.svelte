@@ -17,24 +17,30 @@
 	li {
 		margin-bottom: 1.25rem;
 		padding: 1rem;
-		background: #f8fafc;
+		background: var(--paper);
 		border-radius: 0.5rem;
-		border: 1px solid #e2e8f0;
-		transition: background 0.2s ease;
+		border: 1px solid var(--border);
+		transition: all 0.2s ease;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 	}
 	li:hover {
-		background: #f1f5f9;
+		background: var(--background);
+		border-color: var(--accent);
+		transform: translateY(-1px);
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 	}
 	li span {
 		margin-right: 0.75rem;
+		color: var(--accent);
 	}
 	a {
 		font-size: 1.125rem;
 		font-weight: 500;
-		color: var(--darker);
+		color: var(--ink);
 		text-decoration: none;
 		line-height: 1.5;
 		vertical-align: middle;
+		transition: color 0.2s ease;
 	}
 	a:hover {
 		color: var(--accent);
@@ -57,7 +63,7 @@
 </svelte:head>
 
 
-<h1>Community Links</h1>
+<h1 class="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">Community Links</h1>
 <ul>
 	<li><span><Icon data={whatsapp}/></span><a href="https://chat.whatsapp.com/GamwcVgPYnq3UbKog2H9M8" rel="noreferrer" target="_blank">WhatsApp Community NL</a></li>
 	<li><span><Icon data={whatsapp}/></span><a href="https://chat.whatsapp.com/HVzvFn54TUBJfBzmAAcTba" rel="noreferrer" target="_blank">WhatsApp Traingroep NL</a></li>

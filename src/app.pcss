@@ -64,6 +64,18 @@
         --sidebar-border: 240 3.7% 15.9%;
         --sidebar-ring: 217.2 91.2% 59.8%;
     }
+
+    /* Smooth transitions for theme changes */
+    *,
+    *::before,
+    *::after {
+        transition: 
+            background-color 0.3s ease,
+            color 0.3s ease,
+            border-color 0.3s ease,
+            box-shadow 0.3s ease;
+    }
+
     html {
         font-family: var(--font-sans);
         font-size: 18px;
@@ -80,6 +92,97 @@
         font-size: 1rem;
         color: hsl(var(--foreground));
         background: hsl(var(--background));
+    }
+
+    /* FullCalendar Dark Mode Styles */
+    .dark .fc {
+        background: var(--darker);
+        color: var(--paper);
+    }
+
+    .dark .fc-theme-standard .fc-list {
+        border: 1px solid var(--border);
+        background: var(--paper);
+    }
+
+    .dark .fc-theme-standard .fc-list-day-cushion {
+        background: var(--darker) !important;
+        color: var(--paper) !important;
+    }
+
+    .dark .fc-theme-standard .fc-list-day {
+        background: var(--darker) !important;
+        color: var(--paper) !important;
+    }
+
+    .dark .fc-theme-standard .fc-list-day-text,
+    .dark .fc-theme-standard .fc-list-day-side-text {
+        color: var(--paper) !important;
+    }
+
+    .dark .fc-theme-standard .fc-list-day > * {
+        background: var(--darker) !important;
+        color: var(--paper) !important;
+    }
+
+    .dark .fc-theme-standard .fc-list-event {
+        background: var(--paper);
+        border-color: var(--border);
+    }
+
+    .dark .fc-theme-standard .fc-list-event:hover,
+    .dark .fc-list-event:hover,
+    .dark .fc .fc-list-event:hover {
+        background: var(--darker) !important;
+        border-color: var(--accent) !important;
+    }
+
+    .dark .fc-theme-standard .fc-list-event:hover .fc-list-event-title,
+    .dark .fc-theme-standard .fc-list-event:hover .fc-list-event-time,
+    .dark .fc-list-event:hover .fc-list-event-title,
+    .dark .fc-list-event:hover .fc-list-event-time {
+        color: var(--paper) !important;
+    }
+
+    .dark .fc-theme-standard .fc-list-event-title,
+    .dark .fc-theme-standard .fc-list-event-time {
+        color: var(--ink);
+    }
+
+    .dark .fc-theme-standard .fc-list-event .fc-list-event-graphic {
+        border-color: var(--accent);
+    }
+
+    .dark .fc-theme-standard .fc-list-empty {
+        background: var(--paper);
+        color: var(--ink);
+    }
+
+    /* More specific targeting for day headers */
+    .dark .fc-list-day-cushion {
+        background: var(--darker) !important;
+        color: var(--paper) !important;
+    }
+
+    .dark .fc-list-day th {
+        background: var(--darker) !important;
+        color: var(--paper) !important;
+    }
+
+    /* Target all possible day header elements */
+    .dark .fc .fc-list-day * {
+        background: var(--darker) !important;
+        color: var(--paper) !important;
+    }
+
+    .dark .fc .fc-list-day {
+        background: var(--darker) !important;
+        color: var(--paper) !important;
+    }
+
+    .dark .fc .fc-list-day td {
+        background: var(--darker) !important;
+        color: var(--paper) !important;
     }
 
     h1, h2, h3, h4, h5, h6 {

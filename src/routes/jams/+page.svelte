@@ -14,12 +14,12 @@
 </svelte:head>
 
 
-<h1>Jams & events</h1>
-<p>
+<h1 class="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">Jams & events</h1>
+<p class="text-gray-700 dark:text-gray-300">
 	Jams zijn een belangrijk onderdeel van de freerun community. Het is de plek waar je nieuwe mensen ontmoet, samen traint en van elkaar leert. Hieronder vind je een overzicht van aankomende jams en events in Nederland.
 </p>
-<h2>Aankomende jams & events</h2>
-<p>Jams & Events vanuit de Nederlandse Freerun Community</p>
+<h2 class="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">Aankomende jams & events</h2>
+<p class="text-gray-600 dark:text-gray-400 mb-6">Jams & Events vanuit de Nederlandse Freerun Community</p>
 <JamsList/>
 
 <div class="calendar-actions">
@@ -54,12 +54,12 @@
 	</a>
 </div>
 
-<h2>Jam of event insturen</h2>
-<p>Oraniseer jij een jam? Of mist er een event in de agenda? Deel deze met de rest van de community!</p>
+<h2 class="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">Jam of event insturen</h2>
+<p class="text-gray-700 dark:text-gray-300">Oraniseer jij een jam? Of mist er een event in de agenda? Deel deze met de rest van de community!</p>
 <InputCollector pagePath={$page.url.pathname}/>
 
-<h2>Notificaties ontvangen</h2>
-<p>
+<h2 class="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">Notificaties ontvangen</h2>
+<p class="text-gray-700 dark:text-gray-300">
 	Wil je via WhatsApp op de hoogte gehouden worden van freerun jams en events binnen Nederland? <br>
 	<a href="https://chat.whatsapp.com/IhKX7dXV9Vo7duEMmyzTpO"
 	rel="norefferer"
@@ -67,8 +67,8 @@
 	class="button">Volg de Parkour Culture WhatsApp channel</a>
 </p>
 
-<h2>Jams in Europa</h2>
-<p>
+<h2 class="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">Jams in Europa</h2>
+<p class="text-gray-700 dark:text-gray-300">
 	Wat fijn dat je betrokken wil zijn bij de internationale community! Bekijk deze kalender die beheerd wordt door MATTTMA, met jams in heel Europa.
 </p>
 <a

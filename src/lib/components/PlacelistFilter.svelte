@@ -7,8 +7,9 @@
 	align-items: flex-end;
 	border-radius: 0.75rem;
 	padding: 1.25rem 1.5rem;
-	border: 1px solid #e2e8f0;
-	background: #fafbfc;
+	border: 1px solid var(--border);
+	background: var(--paper);
+	transition: all 0.2s ease;
   }
 
   .spot-filter-group {
@@ -22,7 +23,7 @@
   .spot-filter-group label {
 	font-weight: 600;
 	font-size: 1rem;
-	color: #1e293b;
+	color: var(--ink);
 	margin-bottom: 0.1rem;
   }
 
@@ -30,21 +31,21 @@
   .spot-filter-select {
 	height: 44px;
 	padding: 0 0.9rem;
-	border: 1.5px solid #cbd5e1;
+	border: 1.5px solid var(--border);
 	border-radius: 0.5rem;
 	font-size: 1.05rem;
-	background: #fff;
-	color: #1e293b;
-	transition: border-color 0.2s;
-	box-shadow: 0 1px 2px 0 rgba(30,41,59,0.03);
+	background: var(--background);
+	color: var(--ink);
+	transition: border-color 0.2s, box-shadow 0.2s;
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.03);
 	box-sizing: border-box;
   }
 
   .spot-filter-input:focus,
   .spot-filter-select:focus {
 	outline: none;
-	border-color: #2563eb;
-	box-shadow: 0 0 0 2px #2563eb22;
+	border-color: var(--accent);
+	box-shadow: 0 0 0 2px rgba(230, 57, 70, 0.1);
   }
 
   @media all and (max-width: 800px) {
@@ -90,17 +91,18 @@
 	margin: 0 0 1.5rem 0;
 	padding: 0;
 	border-radius: 0.75rem;
-	background: #f8fafc;
-	border: 1px solid #e2e8f0;
-	box-shadow: 0 2px 8px 0 rgba(30,41,59,0.03);
+	background: var(--paper);
+	border: 1px solid var(--border);
+	box-shadow: 0 2px 8px 0 rgba(0,0,0,0.05);
 	max-height: 400px;
 	overflow-y: auto;
+	transition: all 0.2s ease;
   }
 
   .results-count {
 	margin: 0 0 1rem 0;
 	font-size: 0.95rem;
-	color: #475569;
+	color: var(--dark);
 	font-weight: 500;
   }
 
@@ -115,7 +117,7 @@
   }
 
   .placelist-item + .placelist-item {
-	border-top: 1px solid #e2e8f0;
+	border-top: 1px solid var(--border);
   }
 
   .placelist-item {
@@ -127,7 +129,7 @@
 	display: flex;
 	align-items: center;
 	padding: 1.25rem 1.5rem;
-	color: #1e293b;
+	color: var(--ink);
 	text-decoration: none;
 	font-size: 1.08rem;
 	font-weight: 500;
@@ -145,7 +147,7 @@
   }
 
   .placelist-link:hover, .placelist-link:focus {
-	background: #e0e7ef;
+	background: var(--lightAccent);
 	color: var(--accent);
 	text-decoration: none;
   }
@@ -166,7 +168,7 @@
   .placelist-author {
 	font-size: 0.8rem;
 	font-weight: 400;
-	color: #64748b;
+	color: var(--dark);
 	margin: 0;
   }
 
@@ -181,8 +183,8 @@
 
   .country-badge {
 	display: inline-block;
-	background-color: #e2e8f0;
-	color: #475569;
+	background-color: var(--border);
+	color: var(--dark);
 	padding: 0.25rem 0.625rem;
 	border-radius: 9999px;
 	font-size: 0.75rem;
@@ -190,6 +192,7 @@
 	margin-left: 0.75rem;
 	white-space: nowrap;
 	flex-shrink: 0;
+	transition: all 0.2s ease;
   }
 
   @media all and (max-width: 480px) {
@@ -202,11 +205,13 @@
 
   .no-results {
 	font-style: italic;
-	color: #666;
+	color: var(--dark);
 	padding: 2rem 1.5rem;
-	background: #f8fafc;
+	background: var(--paper);
+	border: 1px solid var(--border);
 	border-radius: 0.75rem;
 	text-align: center;
+	transition: all 0.2s ease;
   }
 </style>
 <script>

@@ -26,11 +26,13 @@
 
 <style>
 	.gym-card {
-		background: white;
+		background: var(--paper);
 		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		border: 1px solid var(--border);
 		border-radius: 0.5rem;
 		margin-top: 2rem;
 		overflow: hidden;
+		transition: all 0.2s ease;
 	}
 
 	.gym-content {
@@ -41,7 +43,7 @@
 	.gym-title {
 		font-size: 1.5rem;
 		font-weight: bold;
-		color: #000;
+		color: var(--ink);
 		margin: 0 0 1rem;
 		line-height: 1.3;
 	}
@@ -52,7 +54,7 @@
 		right: 1.5rem;
 		font-weight: bold;
 		background: var(--accent);
-		color: white;
+		color: var(--paper);
 		padding: 0.25rem 0.5rem;
 		border-radius: 0.25rem;
 		font-size: 0.875rem;
@@ -64,7 +66,8 @@
 		align-items: flex-start;
 		gap: 0.75rem;
 		padding: 0.5rem;
-		background: #f8f9fa;
+		background: var(--background);
+		border: 1px solid var(--border);
 		border-radius: 0.375rem;
 		line-height: 1.5;
 	}
@@ -73,11 +76,13 @@
 		font-size: 1.1rem;
 		margin-top: 0.1rem;
 		flex-shrink: 0;
+		color: var(--dark);
 	}
 
 	.gym-info-content {
 		flex: 1;
 		min-width: 0;
+		color: var(--ink);
 	}
 
 	.gym-info a {

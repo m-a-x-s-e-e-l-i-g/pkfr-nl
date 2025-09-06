@@ -7,6 +7,7 @@
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import { currentPage, isMenuOpen } from '$lib/assets/js/store';
+	import { theme } from '$lib/stores/settings.js';
 	import { navItems } from '$lib/config';
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
@@ -21,6 +22,11 @@
 	 **/
 	run(() => {
 		currentPage.set(data.path);
+	});
+
+	// Initialize theme detection on mount
+	onMount(() => {
+		theme.init();
 	});
 </script>
 
