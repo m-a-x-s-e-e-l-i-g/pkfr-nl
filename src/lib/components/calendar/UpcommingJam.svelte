@@ -36,18 +36,20 @@ const CustomViewConfig = {
 		}
 		
 		let html = `
-			<h2>📆 ${title}</h2>
-			<p>Op ${date} is het eerstvolgende event: <b>${title}</b>.
-				<div class="grid-container">
-					${startEndTimes}
-					<div class="grid-item">📍</div>
-					<div class="grid-item"><a href="http://maps.google.com/maps?q=${location}" target="_blank" rel="noreferrer">${location}</a></div>
-					<div class="grid-item">📝</div>
-					<div class="grid-item description">${description}</div>
-				</div>
-				<a href="${url}" target="_blank" rel="noreferrer" class="button">Plaats in mijn agenda</a>
-				<a href="/jams" class="button ml-4">Bekijk alle events</a>
-			</p>
+			<div class="fc-custom">
+				<h2>📆 ${title}</h2>
+				<p>Op ${date} is het eerstvolgende event: <b>${title}</b>.
+					<div class="grid-container">
+						${startEndTimes}
+						<div class="grid-item">📍</div>
+						<div class="grid-item"><a href="http://maps.google.com/maps?q=${location}" target="_blank" rel="noreferrer">${location}</a></div>
+						<div class="grid-item">📝</div>
+						<div class="grid-item description">${description}</div>
+					</div>
+					<a href="${url}" target="_blank" rel="noreferrer" class="button">Plaats in mijn agenda</a>
+					<a href="/jams" class="button ml-4">Bekijk alle events</a>
+				</p>
+			</div>
 		`;
 		return { html: html };
 	}
@@ -78,20 +80,32 @@ const CustomViewConfig = {
 
 <svelte:head>
 	<style>
-		@use './vars';
-		.grid-container{
+		.fc-custom {
+			background-color: var(--paper) !important;
+			padding: 1rem;
+		}
+		.fc-custom .grid-container{
 			display:grid;
 			grid-template-columns: 50px auto;
 		}
-		.description{
+		.fc-custom .description{
 			font-size: 0.8em;
 			word-break: break-word;
 		}
-		.grid-item:nth-child(odd){
+		.fc-custom .grid-item:nth-child(odd){
 			padding-right: 0.5em;
 		}
-		.grid-item{
+		.fc-custom .grid-item{
 			margin-top: 0.2em;
+		}
+		.fc-custom, .fc-custom h2, .fc-custom p, .fc-custom .grid-item, .fc-custom .description {
+			color: var(--ink) !important;
+		}
+		.fc-custom a:not(.button) {
+			color: var(--accent) !important;
+		}
+		.fc-custom a:not(.button):hover {
+			text-decoration: underline;
 		}
 	</style>
 </svelte:head>
