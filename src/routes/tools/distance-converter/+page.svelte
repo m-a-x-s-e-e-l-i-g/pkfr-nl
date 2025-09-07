@@ -52,20 +52,20 @@
     <title>Afstand Analyser 5000™ {titlePostfix}</title>
 </svelte:head>
 
-<h1 class="text-center text-2xl font-bold">Afstand Analyser 5000™</h1>
-<p class="text-center mt-4">Eeuwenlang worstelden traceurs met een fundamenteel probleem..<br> Dankzij deze revolutionaire technologie zet je sprongafstanden moeiteloos om naar <b>de enige juiste eenheid: jouw schoenmaat</b>.<br/> Vul in, en meet EENMALIG!</p>
+<h1 class="text-center text-2xl font-bold">Distance Analyzer 5000™</h1>
+<p class="text-center mt-4">For centuries traceurs have struggled with a fundamental problem...<br> Thanks to this revolutionary technology you can effortlessly convert jump distances to <b>the only correct unit: your shoe size</b>.<br/> Enter your values and measure once and for all!</p>
 
 <div class="flex justify-around">
   <div class="w-1/2 p-4">
-    <h2 class="text-center text-xl font-semibold">Mijn</h2>
+  <h2 class="text-center text-xl font-semibold">Mine</h2>
     <div class="flex flex-col items-center mt-4">
       <div class="mb-4">
-        <label class="block mb-2">Schoenmaat
+        <label class="block mb-2">Shoe size
           <input type="number" bind:value={$myShoeSize} class="p-2 border rounded" step="0.5" min="30" max="50" required/>
         </label>
       </div>
       <div class="mb-4">
-        <label class="block mb-2">Aantal voet
+        <label class="block mb-2">Number of steps
           <input type="number" value={myMeasuredDistance} on:input={(e) => updateMyDistance(e.target.value)} class="p-2 border rounded" step="0.5" min="1" max="99" required/>
         </label>
       </div>
@@ -73,15 +73,15 @@
   </div>
 
   <div class="w-1/2 p-4">
-    <h2 class="text-center text-xl font-semibold">Vriend</h2>
+  <h2 class="text-center text-xl font-semibold">Friend</h2>
     <div class="flex flex-col items-center mt-4">
       <div class="mb-4">
-        <label class="block mb-2">Schoenmaat
+        <label class="block mb-2">Shoe size
           <input type="number" bind:value={$friendShoeSize} class="p-2 border rounded" step="0.5" min="30" max="50" required/>
         </label>
       </div>
       <div class="mb-4">
-        <label class="block mb-2">Aantal voet
+        <label class="block mb-2">Number of steps
           <input type="number" value={friendMeasuredDistance} on:input={(e) => updateFriendDistance(e.target.value)} class="p-2 border rounded" step="0.5" min="1" max="99" required/>
         </label>
       </div>
@@ -89,6 +89,6 @@
   </div>
 </div>
 
-<p class="text-center">Afstand: <strong>{stepsToMeters(myMeasuredDistance).toFixed(2)}</strong> meter.</p>
-<p class="text-center">Dat zijn <strong>{roundToNearestHalf(stepsToStoeptegels(myMeasuredDistance))}</strong> stoeptegels.</p>
-<p class="text-center">Of <strong>{roundToNearestHalf(stepsToFootbags(myMeasuredDistance))}</strong> hacky sacks.</p>
+<p class="text-center">Distance: <strong>{stepsToMeters(myMeasuredDistance).toFixed(2)}</strong> meters.</p>
+<p class="text-center">That's <strong>{roundToNearestHalf(stepsToStoeptegels(myMeasuredDistance))}</strong> sidewalk tiles.</p>
+<p class="text-center">Or <strong>{roundToNearestHalf(stepsToFootbags(myMeasuredDistance))}</strong> hacky sacks.</p>

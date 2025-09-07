@@ -9,6 +9,7 @@
 	import locationArrow from 'svelte-awesome/icons/locationArrow';
 	import { Image } from "@unpic/svelte";
 	import { slide } from 'svelte/transition';
+	import { t } from 'svelte-i18n';
 
 
 	var latitude = $state();
@@ -133,17 +134,17 @@
 
 
 <svelte:head>
-	<title>Indoor Freerun Gym Finder {titlePostfix}</title>
+	<title>{$t('tools.gymFinder.pageTitle')} {titlePostfix}</title>
 </svelte:head>
-<h1>Gym Finder</h1>
-<p>Hier vind je de <b>{gyms.length}</b> indoor freerun <b>gyms</b> van Nederland!</p>
+<h1>{$t('tools.gymFinder.heading')}</h1>
+<p>{@html $t('tools.gymFinder.intro').replace('{count}', gyms.length)}</p>
 {#if !latitude && !longitude}
 	<div transition:slide>
 		<Alert.Root>
 			<Icon data={locationArrow} class="h-4 w-4"/>
-			<Alert.Title>Geef pkfr.nl locatierechten.</Alert.Title>
+			<Alert.Title>{$t('tools.gymFinder.permissionTitle')}</Alert.Title>
 			<Alert.Description>
-				Deel je locatie om de lijst te sorteren op afstand.
+				{$t('tools.gymFinder.permissionDescription')}
 			</Alert.Description>
 		</Alert.Root>
 	</div>
@@ -169,7 +170,7 @@
 				<div class="gym-info">
 					<span class="gym-info-icon">🌐</span>
 					<div class="gym-info-content">
-						<a href={gym.website} target="_blank" rel="noopener noreferrer">Website bezoeken</a>
+						<a href={gym.website} target="_blank" rel="noopener noreferrer">{$t('tools.gymFinder.visitWebsite')}</a>
 					</div>
 				</div>
 			</div>

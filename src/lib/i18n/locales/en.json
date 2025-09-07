@@ -1,0 +1,180 @@
+{
+  "nav": {
+    "spots": "Spots",
+    "jams": "Jams & Events",
+    "openGyms": "Open Gyms",
+    "links": "Links",
+    "tools": "Tools"
+  },
+  "home": {
+    "title": "The spot for the Dutch parkour / freerunning scene",
+    "subtitle": "Everything you need to be part of and stay up to date with the Dutch parkour and freerunning community.",
+    "upcomingOpenGyms": "Upcoming Open Gyms",
+    "viewAllOpenGyms": "View all open gyms",
+    "whatsappCommunity": "WhatsApp Community",
+    "whatsappDescription": "The Dutch parkour and freerunning community is mainly active on WhatsApp. <a href=\"https://chat.whatsapp.com/GamwcVgPYnq3UbKog2H9M8\" rel=\"noreferrer\" target=\"_blank\">Join the community</a>, so you can easily find people to session with.",
+    "aboutTitle": "About pkfr.nl",
+    "aboutDescription": "The goal of pkfr.nl is to have all useful information about freerunning and parkour in one place. Here you'll find overviews of the <a href=\"/spots\">best spots</a>, <a href=\"/open-gyms\">open gyms</a> and <a href=\"/links\">community links</a>."
+  },
+  "events": {
+    "upcomingEvent": "On {date} is the next event: <b>{title}</b>.",
+    "fromTo": "From {startTime} to {endTime}.",
+    "addToCalendar": "Add to my calendar",
+    "viewAllEvents": "View all events"
+  },
+  "spots": {
+    "title": "Spots",
+    "description": "Finding parkour spots can take time, unless you already know where they are! Here you'll find apps, maps and lists that are great for spots in the Netherlands. Looking for something indoors? Try the <a href=\"/tools/gym-finder\">Gym Finder</a>.",
+    "spotMapsTitle": "Spot maps from freerunners",
+    "spotMapsDescription": "Excellent parkour spot maps from Dutch freerunners. These maps help you quickly find local spots and are ideal for anyone looking for new training locations. Do you have a spot map of your region? Feel free to share it using the button below!",
+    "shareSpotList": "Share your spot list here!",
+    "indoorSpotsTitle": "Indoor spots (gyms)",
+    "indoorSpotsDescription": "The weather isn't always nice, and covered spots are scarce! Training indoors is really nice then. Use the <a href=\"/tools/gym-finder\">Gym Finder</a> to find the nearest freerun gyms.",
+    "findGym": "Find a gym",
+    "cityLegendsTitle": "CityLegends",
+    "cityLegendsDescription": "CityLegends is a somewhat decent app for finding spots. At the spots you can watch or upload clips. You can battle others with your clips, sometimes even win prizes! <br /> <a href=\"https://www.citylegends.io/about-the-app\" rel=\"noreferrer\" target=\"_blank\">Read more about the app here.</a>",
+    "downloadApp": "Download App"
+  },
+  "jams": {
+    "pageTitle": "Jams & Events",
+    "heading": "Jams & events",
+    "intro": "Jams are an important part of the freerun community. They are where you meet new people, train together and learn from each other. Below you'll find an overview of upcoming jams and events in the Netherlands.",
+    "upcomingTitle": "Upcoming jams & events",
+    "upcomingSubtitle": "Jams & Events from the Dutch Freerun Community",
+    "addToCalendar": "Add to calendar",
+    "addToCalendarShort": "Add",
+    "downloadICal": "Download iCal",
+    "downloadShort": "Download",
+    "openCalendar": "Open calendar",
+    "openShort": "Open",
+    "submitTitle": "Submit a jam or event",
+    "submitDescription": "Are you organizing a jam? Or is an event missing from the calendar? Share it with the rest of the community!",
+    "notificationsTitle": "Receive notifications",
+    "notificationsDescription": "Do you want to be notified via WhatsApp about freerun jams and events in the Netherlands?",
+    "followWhatsapp": "Follow the WhatsApp channel",
+    "europeTitle": "Jams in Europe",
+    "europeDescription": "Nice that you want to be involved with the international community! Check this calendar maintained by MATTTMA, with jams across Europe.",
+    "europeButton": "Freerun jams in Europe"
+  },
+  "openGyms": {
+    "pageTitle": "Open Gyms",
+    "heading": "Open Gyms",
+    "intro": "At an open gym you can train at your favorite indoor freerun gym without a membership. There are locations across the country, but note: you sometimes need to register.",
+    "finder": "Curious how a gym looks or which ones are near you? Check the <a href=\"/tools/gym-finder\">Gym Finder</a>.",
+    "submitTitle": "Submit a change",
+    "addToCalendar": "Add to calendar",
+    "addToCalendarShort": "Add",
+    "downloadICal": "Download iCal",
+    "downloadShort": "Download",
+    "openCalendar": "Open calendar",
+    "openShort": "Open"
+  },
+  "filter": {
+    "searchByName": "Search by name:",
+    "searchPlaceholder": "Search map...",
+    "filterByCountry": "Filter by country:",
+    "allCountries": "All countries",
+    "mapSingular": "map",
+    "mapPlural": "maps",
+    "found": "found",
+    "noResultsFound": "No maps found that match your search criteria."
+  },
+  "forms": {
+    "success": "Thanks! Your input has been received.",
+    "successButton": "I have more input",
+    "error": "Something went wrong. Please try again later.",
+    "sendButton": "Send it!",
+    "messagePlaceholder": "Type your message here...",
+    "jam": {
+      "start": "Start",
+      "end": "End",
+      "name": "Name",
+      "description": "Description",
+      "location": "Start location"
+    },
+    "gym": {
+      "name": "Gym name",
+      "day": "Day",
+      "start": "Start",
+      "end": "End",
+      "infoPlaceholder": "Short description, prices, facilities and where people can find more info...",
+  "messagePlaceholder": "Any changes, special notes or extra information...",
+  "notes": "Notes"
+    },
+    "days": {
+      "maandag": "Monday",
+      "dinsdag": "Tuesday",
+      "woensdag": "Wednesday",
+      "donderdag": "Thursday",
+      "vrijdag": "Friday",
+      "zaterdag": "Saturday",
+      "zondag": "Sunday"
+    }
+  },
+  "site": {
+    "title": "pkfr.nl",
+    "titlePostfix": "- Parkour & Freerunning Community Netherlands",
+    "description": "The spot for the Dutch parkour & freerunning community."
+  },
+  "language": {
+    "switch": "Change language",
+    "dutch": "Nederlands",
+    "english": "English"
+  }
+ ,
+  "links": {
+    "pageTitle": "Community Links",
+    "heading": "Community Links",
+    "whatsappCommunity": "WhatsApp Community NL",
+    "whatsappTraining": "WhatsApp Training Group NL",
+    "instagram": "Instagram (Parkourculture)",
+    "spotifyPlaylist": "Spotify playlist",
+    "parkourcultureWebsite": "Parkourculture website (for classes, workshops and kids parties in and around Utrecht)",
+    "nlParkourPulse": "NL Parkour Pulse: Fresh videos",
+    "mustWatch": "Must Watch: The Ultimate Playlist"
+  }
+ ,
+  "tools": {
+    "pageTitle": "Tools",
+    "heading": "Tools",
+    "distanceConverter": {
+      "name": "Distance Analyzer 5000™",
+      "description": "Make jumps fair by compensating for shoe size differences."
+    },
+    "spotMapFinder": {
+  "name": "Spot Map Finder",
+  "description": "Find and filter maps with freerun spots in the Netherlands and beyond.",
+  "pageTitle": "Spot Map Finder",
+  "heading": "Spot Map Finder",
+  "intro": "Quickly find lists and maps of parkour spots. These can range from popular locations to hidden non-spot gems.<br/>Search and filter maps for the Netherlands and beyond. You can search by name, author, or filter by country.",
+  "addMapTitle": "Add your map?",
+  "addMapDescription": "Do you have a great list or map you'd like to share with the community? Drop a link and we'll add it as soon as possible!"
+    },
+    "gymFinder": {
+  "name": "Freerun Gym Finder",
+  "description": "Quickly find the nearest indoor freerun gym in your area.",
+  "pageTitle": "Gym Finder",
+  "heading": "Gym Finder",
+  "intro": "Here you'll find <b>{count}</b> indoor freerun <b>gyms</b> in the Netherlands!",
+  "permissionTitle": "Allow pkfr.nl to access your location.",
+  "permissionDescription": "Share your location so the list can be sorted by distance.",
+  "visitWebsite": "Visit website"
+    }
+  }
+ ,
+  "distanceConverter": {
+    "name": "Distance Analyzer 5000™",
+    "intro": "For ages traceurs struggled with a fundamental problem..<br> Thanks to this revolutionary technology you can effortlessly convert jump distances to <b>the only correct unit: your shoe size</b>.<br/> Fill in, and measure ONCE!",
+    "labels": {
+      "my": "Mine",
+      "friend": "Friend",
+      "shoeSize": "Shoe size",
+      "steps": "Steps"
+    },
+    "result": {
+      "distance": "Distance: <strong>{distance}</strong> meters.",
+      "stoeptegels": "That's <strong>{tiles}</strong> sidewalk tiles.",
+      "footbags": "Or <strong>{bags}</strong> hacky sacks."
+    }
+  }
+}

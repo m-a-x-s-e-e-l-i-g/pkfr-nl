@@ -6,6 +6,7 @@
 	import spotify from 'svelte-awesome/icons/spotify';
 	import externalLink from 'svelte-awesome/icons/externalLink';
 	import youtube from 'svelte-awesome/icons/youtube';
+	import { t } from 'svelte-i18n';
 
 </script>
 
@@ -59,17 +60,17 @@
 </style>
 
 <svelte:head>
-	<title>Community Links {titlePostfix}</title>
+	<title>{$t('links.pageTitle')} {titlePostfix}</title>
 </svelte:head>
 
 
-<h1 class="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">Community Links</h1>
+<h1 class="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">{$t('links.heading')}</h1>
 <ul>
-	<li><span><Icon data={whatsapp}/></span><a href="https://chat.whatsapp.com/GamwcVgPYnq3UbKog2H9M8" rel="noreferrer" target="_blank">WhatsApp Community NL</a></li>
-	<li><span><Icon data={whatsapp}/></span><a href="https://chat.whatsapp.com/HVzvFn54TUBJfBzmAAcTba" rel="noreferrer" target="_blank">WhatsApp Traingroep NL</a></li>
-	<li><span><Icon data={instagram}/></span><a href="https://www.instagram.com/parkour_culture_NL/" rel="noreferrer" target="_blank">Instagram (Parkourculture)</a></li>
-	<li><span><Icon data={spotify}/></span><a href="https://spoti.fi/3OazXTm" rel="noreferrer" target="_blank">Spotify playlist</a></li>
-	<li><span><Icon data={externalLink}/></span><a href="https://parkourculture.nl/" rel="noreferrer" target="_blank">Parkourculture website (voor lessen, workshops en kinderfeesten in Utrecht en omstreken)</a></li>
-	<li><span><Icon data={youtube}/></span><a href="https://youtube.com/playlist?list=PL3iwaCsp8s8P0lVvw3DkmMFmGxqBGSXnS&si=Mu8VorSdOCdnwjK6" rel="noreferrer" target="_blank">NL Parkour Pulse: Verse video's</a></li>
-	<li><span><Icon data={youtube}/></span><a href="https://youtube.com/playlist?list=PLIZ9EYUk7YaYgqhOHd1MqROfTmNw79UBy&si=JZ6U0iPv_J0RuUSw" rel="noreferrer" target="_blank">Must Watch: De Ultieme Playlist</a></li>
+	<li><span><Icon data={whatsapp}/></span><a href="https://chat.whatsapp.com/GamwcVgPYnq3UbKog2H9M8" rel="noreferrer" target="_blank">{$t('links.whatsappCommunity')}</a></li>
+	<li><span><Icon data={whatsapp}/></span><a href="https://chat.whatsapp.com/HVzvFn54TUBJfBzmAAcTba" rel="noreferrer" target="_blank">{$t('links.whatsappTraining')}</a></li>
+	<li><span><Icon data={instagram}/></span><a href="https://www.instagram.com/parkour_culture_NL/" rel="noreferrer" target="_blank">{$t('links.instagram')}</a></li>
+	<li><span><Icon data={spotify}/></span><a href="https://spoti.fi/3OazXTm" rel="noreferrer" target="_blank">{$t('links.spotifyPlaylist')}</a></li>
+	<li><span><Icon data={externalLink}/></span><a href="https://parkourculture.nl/" rel="noreferrer" target="_blank">{$t('links.parkourcultureWebsite')}</a></li>
+	<li><span><Icon data={youtube}/></span><a href="https://youtube.com/playlist?list=PL3iwaCsp8s8P0lVvw3DkmMFmGxqBGSXnS&si=Mu8VorSdOCdnwjK6" rel="noreferrer" target="_blank">{$t('links.nlParkourPulse')}</a></li>
+	<li><span><Icon data={youtube}/></span><a href="https://youtube.com/playlist?list=PLIZ9EYUk7YaYgqhOHd1MqROfTmNw79UBy&si=JZ6U0iPv_J0RuUSw" rel="noreferrer" target="_blank">{$t('links.mustWatch')}</a></li>
 </ul>

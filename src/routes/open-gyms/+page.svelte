@@ -6,17 +6,18 @@
 	import CalendarAddSVG from '$lib/components/svg/CalendarAddSVG.svelte';
 	import DownloadSVG from '$lib/components/svg/DownloadSVG.svelte';
 	import ExternalLinkSVG from '$lib/components/svg/ExternalLinkSVG.svelte';
+	import { t } from 'svelte-i18n';
 </script>
 
 
 <svelte:head>
-	<title>Open Gyms {titlePostfix}</title>
+	<title>{$t('openGyms.pageTitle')} {titlePostfix}</title>
 </svelte:head>
 
 
-<h1>Open Gyms</h1>
-<p>Bij een open gym kun je zonder lidmaatschap in jouw favoriete indoor freerun gym trainen. Er zijn locaties door heel het land, maar let op: je moet je soms wel even aanmelden.</p>
-<p>Ben je benieuwd naar hoe een gym eruit ziet of welke er in jouw buurt zijn? Check dan de <a href="/tools/gym-finder">Gym Finder</a>.</p>
+<h1>{$t('openGyms.heading')}</h1>
+<p>{@html $t('openGyms.intro')}</p>
+<p>{@html $t('openGyms.finder')}</p>
 <br/>
 <OpenGymsList/>
 
@@ -27,8 +28,8 @@
 		target="_blank"
 		class="button button-with-icon">
 		<CalendarAddSVG />
-		<span class="button-text">Toevoegen aan agenda</span>
-		<span class="button-text-mobile">Toevoegen</span>
+		<span class="button-text">{$t('openGyms.addToCalendar')}</span>
+		<span class="button-text-mobile">{$t('openGyms.addToCalendarShort')}</span>
 	</a>
 
 	<a
@@ -37,8 +38,8 @@
 		target="_blank"
 		class="button button-with-icon">
 		<DownloadSVG />
-		<span class="button-text">iCal downloaden</span>
-		<span class="button-text-mobile">Download</span>
+		<span class="button-text">{$t('openGyms.downloadICal')}</span>
+		<span class="button-text-mobile">{$t('openGyms.downloadShort')}</span>
 	</a>
 
 	<a
@@ -47,12 +48,12 @@
 		target="_blank"
 		class="button button-with-icon">
 		<ExternalLinkSVG />
-		<span class="button-text">Agenda openen</span>
-		<span class="button-text-mobile">Openen</span>
+		<span class="button-text">{$t('openGyms.openCalendar')}</span>
+		<span class="button-text-mobile">{$t('openGyms.openShort')}</span>
 	</a>
 </div>
 
-<h2>Wijziging insturen</h2>
+<h2>{$t('openGyms.submitTitle')}</h2>
 <InputCollector pagePath={$page.url.pathname}/>
 
 <style>

@@ -1,6 +1,7 @@
 <script>
 	import MainNav from './MainNav.svelte'
 	import HamburgerMenuButton from './HamburgerMenuButton.svelte'
+	import LanguageSwitcher from './LanguageSwitcher.svelte'
 	import { siteTitle } from '$lib/config'
 </script>
 
@@ -11,7 +12,10 @@
 		{siteTitle}
 	</a>
 	
-	<HamburgerMenuButton />
+	<div class="header-controls">
+		<LanguageSwitcher />
+		<HamburgerMenuButton />
+	</div>
 	<MainNav />
 
 </header>

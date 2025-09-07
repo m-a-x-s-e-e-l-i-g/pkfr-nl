@@ -4,26 +4,26 @@
     import calculator from 'svelte-awesome/icons/calculator';
     import mapO from 'svelte-awesome/icons/mapO';
     import mapMarker from 'svelte-awesome/icons/mapMarker';
+    import { t } from 'svelte-i18n';
 
-
-    const tools = [
+    $: tools = [
         { 
-            name: 'Afstand Analyser 5000™', 
+            name: $t('tools.distanceConverter.name'),
             link: '/tools/distance-converter', 
             icon: calculator, 
-            description: 'Maak sprongen eerlijk door schoenmaatverschillen te compenseren.' 
+            description: $t('tools.distanceConverter.description')
         },
         {
-            name: 'Spot Map Finder',
+            name: $t('tools.spotMapFinder.name'),
             link: '/tools/spot-map-finder',
             icon: mapO,
-            description: 'Vind en filter kaarten met freerun spots in Nederland en daarbuiten.'
+            description: $t('tools.spotMapFinder.description')
         },
         {
-            name: 'Freerun Gym Finder',
+            name: $t('tools.gymFinder.name'),
             link: '/tools/gym-finder',
             icon: mapMarker,
-            description: 'Vind snel de dichtsbijzijnde indoor freerun gym in jouw buurt.'
+            description: $t('tools.gymFinder.description')
         }
     ];
 </script>

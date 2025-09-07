@@ -215,6 +215,8 @@
   }
 </style>
 <script>
+  import { t } from 'svelte-i18n';
+  
   // Props
   // Placelists data with metadata for filtering
   export let placelists = [
@@ -266,13 +268,13 @@
 
 <div class="filters spot-filters">
 	<div class="filter-group spot-filter-group">
-		<label for="search">Zoek op naam:</label>
-		<input type="text" id="search" bind:value={searchQuery} placeholder="Zoek kaart..." class="spot-filter-input" />
+		<label for="search">{$t('filter.searchByName')}</label>
+		<input type="text" id="search" bind:value={searchQuery} placeholder={$t('filter.searchPlaceholder')} class="spot-filter-input" />
 	</div>
 	<div class="filter-group spot-filter-group">
-		<label for="country">Filter op land:</label>
+		<label for="country">{$t('filter.filterByCountry')}</label>
 		<select id="country" bind:value={selectedCountry} class="spot-filter-select">
-			<option value="">Alle landen</option>
+			<option value="">{$t('filter.allCountries')}</option>
 			{#each countries as country}
 				<option value={country}>{country}</option>
 			{/each}
@@ -281,7 +283,7 @@
 </div>
 
 <div class="results-count">
-	{filteredPlacelists.length} {filteredPlacelists.length === 1 ? 'kaart' : 'kaarten'} gevonden
+	{filteredPlacelists.length} {filteredPlacelists.length === 1 ? $t('filter.mapSingular') : $t('filter.mapPlural')} {$t('filter.found')}
 </div>
 
 <ul class="placelist-list">
@@ -299,6 +301,6 @@
 		</li>
 	{/each}
    {#if filteredPlacelists.length === 0}
-		<li class="no-results">Geen kaarten gevonden die voldoen aan je zoekcriteria.</li>
+		<li class="no-results">{$t('filter.noResultsFound')}</li>
 	{/if}
 </ul>

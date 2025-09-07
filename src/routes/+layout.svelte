@@ -11,6 +11,8 @@
 	import { navItems } from '$lib/config';
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
+	import '$lib/i18n';
+	import { isLoading } from 'svelte-i18n';
 	let { data, children } = $props();
 
 	const transitionIn = { delay: 150, duration: 150 };
@@ -34,6 +36,7 @@
 	The below markup is used on every page in the site. The <slot> is where the page's
 	actual contents will show up.
 -->
+{#if !$isLoading}
 <div class="layout" class:open={$isMenuOpen}>
 	<Header></Header>
 	{#key data.path}
@@ -43,3 +46,6 @@
 	{/key}
 	<Footer></Footer>
 </div>
+{:else}
+<div class="loading">Loading...</div>
+{/if}

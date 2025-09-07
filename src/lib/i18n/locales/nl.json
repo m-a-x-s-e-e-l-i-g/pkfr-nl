@@ -1,0 +1,180 @@
+{
+  "nav": {
+    "spots": "Spots",
+    "jams": "Jams & Events",
+    "openGyms": "Open Gyms",
+    "links": "Links",
+    "tools": "Tools"
+  },
+  "home": {
+    "title": "Dé spot voor de Nederlandse parkour / freerunning scene",
+    "subtitle": "Alles wat je nodig hebt om deel uit te maken, en op de hoogte te blijven van de Nederlandse parkour en freerunning community.",
+    "upcomingOpenGyms": "Aankomenende Open Gyms",
+    "viewAllOpenGyms": "Bekijk alle open gyms",
+    "whatsappCommunity": "WhatsApp Community",
+    "whatsappDescription": "De Nederlandse parkour en freerunning community is vooral actief op WhatsApp. <a href=\"https://chat.whatsapp.com/GamwcVgPYnq3UbKog2H9M8\" rel=\"noreferrer\" target=\"_blank\">Join de community</a>, zo kun je makkelijk mensen vinden om mee te seshen.",
+    "aboutTitle": "Over pkfr.nl",
+    "aboutDescription": "Het doel van pkfr.nl is om alle handige informatie over freerunning en parkour op één plek te hebben. Hier zijn overzichten van de <a href=\"/spots\">beste spots</a>, <a href=\"/open-gyms\">open gyms</a> en <a href=\"/links\">community linkjes</a>."
+  },
+  "events": {
+    "upcomingEvent": "Op {date} is het eerstvolgende event: <b>{title}</b>.",
+    "fromTo": "Van {startTime} tot {endTime}.",
+    "addToCalendar": "Plaats in mijn agenda",
+    "viewAllEvents": "Bekijk alle events"
+  },
+  "spots": {
+    "title": "Spots",
+    "description": "Parkour spots vinden kan tijd kosten, behalve als je al weet waar ze zijn! Je vind hier apps, kaarten en lijsten die goed zijn voor spots in Nederland. Zoek je liever iets binnen, probeer dan de <a href=\"/tools/gym-finder\">Gym Finder</a>.",
+    "spotMapsTitle": "Spot kaarten van freerunners",
+    "spotMapsDescription": "Uitstekende parkour spot kaarten van Nederlandse freerunners. Deze kaarten helpen je snel lokale spots te vinden en zijn ideaal voor iedereen die nieuwe trainingsplekken zoekt. Heb jij zelf een spot map van jouw regio? Deel hem gerust via de knop hieronder!",
+    "shareSpotList": "Deel jouw spot lijst hier!",
+    "indoorSpotsTitle": "Indoor spots (gyms)",
+    "indoorSpotsDescription": "Het is niet altijd lekker weer, en covered spots zijn schaars! Binnen trainen is dan wel heel erg fijn. Gebruik de <a href=\"/tools/gym-finder\">Gym Finder</a> om de dichtstbijzijnde freerun gyms te vinden.",
+    "findGym": "Zoek een gym",
+    "cityLegendsTitle": "CityLegends",
+    "cityLegendsDescription": "CityLegends is een OK app om spots te vinden. Bij de spots kun je clips bekijken of plaatsen. Je kunt met je clips battlen tegen anderen, soms ook prijzen verdienen! <br /> <a href=\"https://www.citylegends.io/about-the-app\" rel=\"noreferrer\" target=\"_blank\">Lees hier meer over de app.</a>",
+    "downloadApp": "Download App"
+  },
+  "jams": {
+    "pageTitle": "Jams & Events",
+    "heading": "Jams & events",
+    "intro": "Jams zijn een belangrijk onderdeel van de freerun community. Het is de plek waar je nieuwe mensen ontmoet, samen traint en van elkaar leert. Hieronder vind je een overzicht van aankomende jams en events in Nederland.",
+    "upcomingTitle": "Aankomende jams & events",
+    "upcomingSubtitle": "Jams & Events vanuit de Nederlandse Freerun Community",
+    "addToCalendar": "Toevoegen aan agenda",
+    "addToCalendarShort": "Toevoegen",
+    "downloadICal": "iCal downloaden",
+    "downloadShort": "Download",
+    "openCalendar": "Agenda openen",
+    "openShort": "Openen",
+    "submitTitle": "Jam of event insturen",
+    "submitDescription": "Organiseer jij een jam? Of mist er een event in de agenda? Deel deze met de rest van de community!",
+    "notificationsTitle": "Notificaties ontvangen",
+    "notificationsDescription": "Wil je via WhatsApp op de hoogte gehouden worden van freerun jams en events binnen Nederland?",
+    "followWhatsapp": "Volg de WhatsApp channel",
+    "europeTitle": "Jams in Europa",
+    "europeDescription": "Wat fijn dat je betrokken wil zijn bij de internationale community! Bekijk deze kalender die beheerd wordt door MATTTMA, met jams in heel Europa.",
+    "europeButton": "Freerun jams in Europa"
+  },
+  "openGyms": {
+    "pageTitle": "Open Gyms",
+    "heading": "Open Gyms",
+    "intro": "Bij een open gym kun je zonder lidmaatschap in jouw favoriete indoor freerun gym trainen. Er zijn locaties door heel het land, maar let op: je moet je soms wel even aanmelden.",
+    "finder": "Ben je benieuwd naar hoe een gym eruit ziet of welke er in jouw buurt zijn? Check dan de <a href=\"/tools/gym-finder\">Gym Finder</a>.",
+    "submitTitle": "Wijziging insturen",
+    "addToCalendar": "Toevoegen aan agenda",
+    "addToCalendarShort": "Toevoegen",
+    "downloadICal": "iCal downloaden",
+    "downloadShort": "Download",
+    "openCalendar": "Agenda openen",
+    "openShort": "Openen"
+  },
+  "filter": {
+    "searchByName": "Zoek op naam:",
+    "searchPlaceholder": "Zoek kaart...",
+    "filterByCountry": "Filter op land:",
+    "allCountries": "Alle landen",
+    "mapSingular": "kaart",
+    "mapPlural": "kaarten",
+    "found": "gevonden",
+    "noResultsFound": "Geen kaarten gevonden die voldoen aan je zoekcriteria."
+  },
+  "forms": {
+    "success": "Bedankt! Je input is ontvangen.",
+    "successButton": "Ik heb meer input",
+    "error": "Er is iets misgegaan. Probeer het later nog eens.",
+    "sendButton": "Versturen",
+    "messagePlaceholder": "Typ je bericht hier...",
+    "jam": {
+      "start": "Begin",
+      "end": "Eind",
+      "name": "Naam",
+      "description": "Omschrijving",
+      "location": "Startlocatie"
+    },
+    "gym": {
+      "name": "Gymnaam",
+      "day": "Dag",
+      "start": "Begin",
+      "end": "Eind",
+      "infoPlaceholder": "Korte omschrijving, prijzen, faciliteiten en waar mensen meer info kunnen vinden...",
+  "messagePlaceholder": "Eventuele wijzigingen, speciale aandachtspunten of extra informatie...",
+  "notes": "Opmerkingen"
+    },
+    "days": {
+      "maandag": "Maandag",
+      "dinsdag": "Dinsdag",
+      "woensdag": "Woensdag",
+      "donderdag": "Donderdag",
+      "vrijdag": "Vrijdag",
+      "zaterdag": "Zaterdag",
+      "zondag": "Zondag"
+    }
+  },
+  "site": {
+    "title": "pkfr.nl",
+    "titlePostfix": "- Parkour & Freerunning Community Nederland",
+    "description": "Dé spot voor de Nederlandse parkour & freerunning community."
+  },
+  "language": {
+    "switch": "Taal wijzigen",
+    "dutch": "Nederlands",
+    "english": "English"
+  }
+ ,
+  "links": {
+    "pageTitle": "Community Links",
+    "heading": "Community Links",
+    "whatsappCommunity": "WhatsApp Community NL",
+    "whatsappTraining": "WhatsApp Traingroep NL",
+    "instagram": "Instagram (Parkourculture)",
+    "spotifyPlaylist": "Spotify playlist",
+    "parkourcultureWebsite": "Parkourculture website (voor lessen, workshops en kinderfeesten in Utrecht en omstreken)",
+    "nlParkourPulse": "NL Parkour Pulse: Verse video's",
+    "mustWatch": "Must Watch: De Ultieme Playlist"
+  }
+ ,
+  "tools": {
+    "pageTitle": "Tools",
+    "heading": "Tools",
+    "distanceConverter": {
+      "name": "Afstand Analyser 5000™",
+      "description": "Maak sprongen eerlijk door schoenmaatverschillen te compenseren."
+    },
+    "spotMapFinder": {
+  "name": "Spot Map Finder",
+  "description": "Vind en filter kaarten met freerun spots in Nederland en daarbuiten.",
+  "pageTitle": "Spot Map Finder",
+  "heading": "Spot Map Finder",
+  "intro": "Vind snel lijsten en kaarten van parkour spots. Deze kunnen variëren van populaire locaties tot verborgen non-spot pareltjes.<br/>Zoek en filter kaarten in Nederland en daarbuiten. Je kunt zoeken op naam, auteur of filteren op land.",
+  "addMapTitle": "Jouw kaart toevoegen?",
+  "addMapDescription": "Heb jij een mooie lijst of kaart die je wilt delen met de community? Drop een linkje en deze wordt zo snel mogelijk toegevoegd!"
+    },
+    "gymFinder": {
+  "name": "Freerun Gym Finder",
+  "description": "Vind snel de dichtsbijzijnde indoor freerun gym in jouw buurt.",
+  "pageTitle": "Gym Finder",
+  "heading": "Gym Finder",
+  "intro": "Hier vind je de <b>{count}</b> indoor freerun <b>gyms</b> van Nederland!",
+  "permissionTitle": "Geef pkfr.nl locatierechten.",
+  "permissionDescription": "Deel je locatie om de lijst te sorteren op afstand.",
+  "visitWebsite": "Website bezoeken"
+    }
+  }
+ ,
+  "distanceConverter": {
+    "name": "Afstand Analyser 5000™",
+    "intro": "Eeuwenlang worstelden traceurs met een fundamenteel probleem..<br> Dankzij deze revolutionaire technologie zet je sprongafstanden moeiteloos om naar <b>de enige juiste eenheid: jouw schoenmaat</b>.<br/> Vul in, en meet EENMALIG!",
+    "labels": {
+      "my": "Mijn",
+      "friend": "Vriend",
+      "shoeSize": "Schoenmaat",
+      "steps": "Aantal voet"
+    },
+    "result": {
+      "distance": "Afstand: <strong>{distance}</strong> meter.",
+      "stoeptegels": "Dat zijn <strong>{tiles}</strong> stoeptegels.",
+      "footbags": "Of <strong>{bags}</strong> hacky sacks."
+    }
+  }
+}

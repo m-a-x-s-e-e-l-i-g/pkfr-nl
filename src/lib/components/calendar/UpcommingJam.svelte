@@ -2,6 +2,8 @@
 	import FullCalendar, { type CalendarOptions } from 'svelte-fullcalendar';
 	import googleCalendarPlugin from '@fullcalendar/google-calendar';
 	import { sliceEvents, createPlugin } from '@fullcalendar/core';
+	import { t, locale } from 'svelte-i18n';
+	import { get } from 'svelte/store';
 	
 const CustomViewConfig = {
 	classNames: ['upcomming'],
@@ -12,33 +14,34 @@ const CustomViewConfig = {
 
 		const firstSeg = segs[0];
         const title = firstSeg?.def.title ?? '';
-        const date = firstSeg?.range.start.toLocaleString('nl', { day: 'numeric', month: 'long' });
-		const startTime = firstSeg?.instance.range.start.toLocaleTimeString('nl', {
+		const currentLocale = get(locale);
+        const date = firstSeg?.range.start.toLocaleString(currentLocale, { day: 'numeric', month: 'long' });
+		const startTime = firstSeg?.instance.range.start.toLocaleTimeString(currentLocale, {
 				timeZone: 'UTC',
 				hour: '2-digit',
 				minute: '2-digit'
 			});
-		const endTime = firstSeg?.instance.range.end.toLocaleTimeString('nl', {
+		const endTime = firstSeg?.instance.range.end.toLocaleTimeString(currentLocale, {
 				timeZone: 'UTC',
 				hour: '2-digit',
 				minute: '2-digit'
 			});
         const location = firstSeg?.def.extendedProps.location ?? '';
         const description = firstSeg?.def.extendedProps.description ?? '';
-		const url = firstSeg?.def.url ?? '';;
+		const url = firstSeg?.def.url ?? '';
 
 		let startEndTimes = '';
 		if (startTime !== '00:00' || endTime !== '00:00') {
 			startEndTimes = `
 				<div class="grid-item">⌚</div>
-				<div class="grid-item">Van ${startTime} tot ${endTime}.</div>
+				<div class="grid-item">${get(t)('events.fromTo', { values: { startTime, endTime } })}</div>
 			`;
 		}
 		
 		let html = `
 			<div class="fc-custom">
 				<h2>📆 ${title}</h2>
-				<p>Op ${date} is het eerstvolgende event: <b>${title}</b>.
+				<p>${get(t)('events.upcomingEvent', { values: { date, title } })}
 					<div class="grid-container">
 						${startEndTimes}
 						<div class="grid-item">📍</div>
@@ -46,8 +49,8 @@ const CustomViewConfig = {
 						<div class="grid-item">📝</div>
 						<div class="grid-item description">${description}</div>
 					</div>
-					<a href="${url}" target="_blank" rel="noreferrer" class="button">Plaats in mijn agenda</a>
-					<a href="/jams" class="button ml-4">Bekijk alle events</a>
+					<a href="${url}" target="_blank" rel="noreferrer" class="button">${get(t)('events.addToCalendar')}</a>
+					<a href="/jams" class="button ml-4">${get(t)('events.viewAllEvents')}</a>
 				</p>
 			</div>
 		`;

@@ -1,44 +1,43 @@
 <script>
 	import { titlePostfix } from '$lib/config';
 	import PlacelistFilter from '$lib/components/PlacelistFilter.svelte';
+	import { t } from 'svelte-i18n';
 </script>
 
 <svelte:head>
-	<title>Spots {titlePostfix}</title>
+	<title>{$t('spots.title')} {titlePostfix}</title>
 </svelte:head>
-<h1>Spots</h1>
-<p>Parkour spots vinden kan tijd kosten, behalve als je al weet waar ze zijn! Je vind hier apps, kaarten en lijsten die goed zijn voor spots in Nederland. Zoek je liever iets binnen, probeer dan de <a href="/tools/gym-finder">Gym Finder</a>.</p>
+<h1>{$t('spots.title')}</h1>
+<p>{@html $t('spots.description')}</p>
 <div class="wrapper">
-	<h2>Spot kaarten van freerunners</h2>
+	<h2>{$t('spots.spotMapsTitle')}</h2>
 <article class="main">
 	<p>
-		Uitstekende parkour spot kaarten van Nederlandse freerunners. Deze kaarten helpen je snel lokale spots te vinden en zijn ideaal voor iedereen die nieuwe trainingsplekken zoekt. Heb jij zelf een spot map van jouw regio? Deel hem gerust via de knop hieronder!
+		{@html $t('spots.spotMapsDescription')}
 	</p>
 	<PlacelistFilter />
-	<a href="/tools/spot-map-finder" class="button">Deel jouw spot lijst hier!</a>
+	<a href="/tools/spot-map-finder" class="button">{$t('spots.shareSpotList')}</a>
 </article>
 </div>
 <div class="wrapper">
-	<h2>Indoor spots (gyms)</h2>
+	<h2>{$t('spots.indoorSpotsTitle')}</h2>
 	<article class="main">
 		<p>
-			Het is niet altijd lekker weer, en covered spots zijn schaars! Binnen trainen is dan wel heel erg fijn. Gebruik de <a href="/tools/gym-finder">Gym Finder</a> om de dichtstbijzijnde freerun gyms te vinden.
+			{@html $t('spots.indoorSpotsDescription')}
 		</p>
 	</article>
 	<footer>
 		<a
 			href="/tools/gym-finder"
-			class="button">Zoek een gym</a
+			class="button">{$t('spots.findGym')}</a
 		>
 	</footer>
 </div>
 <div class="wrapper">
-	<h2>CityLegends</h2>
+	<h2>{$t('spots.cityLegendsTitle')}</h2>
 	<article class="main">
 		<p>
-			CityLegends is een OK app om spots te vinden. Bij de spots kun je clips bekijken of
-			plaatsen. Je kunt met je clips battlen tegen anderen, soms ook prijzen verdienen! <br /> 
-			<a href="https://www.citylegends.io/about-the-app" rel="noreferrer" target="_blank">Lees hier meer over de app.</a>
+			{@html $t('spots.cityLegendsDescription')}
 		</p>
 	</article>
 	<aside class="aside aside-right">
@@ -56,7 +55,7 @@
 			href="https://citylegends.io/download-app" 
 			rel="noreferrer"
 			target="_blank" class="button">
-			Download App
+			{$t('spots.downloadApp')}
 		</a>
 	</footer>
 </div>

@@ -57,6 +57,18 @@ header {
         padding: 3.5rem 3rem;
     }
 
+    .header-controls {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        @media (min-width: vars.$smMin) {
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
+        }
+    }
+
     .site-title {
         font-family: var(--accentFont);
         font-size: 1.5rem;

@@ -2,6 +2,7 @@
 	import OpenGymsShortList from '$lib/components/calendar/OpenGymsShortList.svelte';
 	import UpcommingJam from '$lib/components/calendar/UpcommingJam.svelte';
 	import { siteTitle, titlePostfix } from '$lib/config';
+	import { t } from 'svelte-i18n';
 </script>
 
 <svelte:head>
@@ -63,15 +64,8 @@
 </svelte:head>
 
 <div class="hero-section">
-	<h1>Dé spot voor de<br/>
-	Nederlandse parkour /<br/>
-	freerunning scene
-	</h1>
-	<p>
-	Alles wat je nodig hebt om deel uit te maken,
-	en op de hoogte te blijven van de Nederlandse
-	parkour en freerunning community.
-	</p>
+	<h1>{$t('home.title')}</h1>
+	<p>{$t('home.subtitle')}</p>
 </div>
 
 <div class="content-section">
@@ -79,22 +73,22 @@
 </div>
 
 <div class="content-section">
-	<h2>Aankomenende Open Gyms</h2>
+	<h2>{$t('home.upcomingOpenGyms')}</h2>
 	<OpenGymsShortList />
 	<a
 		href="/open-gyms"
-		class="button">Bekijk alle open gyms</a
+		class="button">{$t('home.viewAllOpenGyms')}</a
 	>
 </div>
 
 <div class="content-section">
-	<h2>WhatsApp Community</h2>
+	<h2>{$t('home.whatsappCommunity')}</h2>
 <p>
-	De Nederlandse parkour en freerunning community is vooral actief op WhatsApp. <a href="https://chat.whatsapp.com/GamwcVgPYnq3UbKog2H9M8" rel="noreferrer" target="_blank">Join de community</a>, zo kun je makkelijk mensen vinden om mee te seshen.
+	{@html $t('home.whatsappDescription')}
 </p>
 
-<h2>Over {siteTitle}</h2>
+<h2>{$t('home.aboutTitle')}</h2>
 <p>
-	Het doel van {siteTitle} is om alle handige informatie over freerunning en parkour op één plek te hebben. Hier zijn overzichten van de <a href="/spots">beste spots</a>, <a href="/open-gyms">open gyms</a> en <a href="/links">community linkjes</a>. 
+	{@html $t('home.aboutDescription')}
 </p>
 </div>

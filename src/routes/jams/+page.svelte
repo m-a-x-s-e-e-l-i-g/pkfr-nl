@@ -6,20 +6,21 @@
 	import CalendarAddSVG from '$lib/components/svg/CalendarAddSVG.svelte';
 	import DownloadSVG from '$lib/components/svg/DownloadSVG.svelte';
 	import ExternalLinkSVG from '$lib/components/svg/ExternalLinkSVG.svelte';
+	import { t } from 'svelte-i18n';
 </script>
 
 
 <svelte:head>
-	<title>Jams & Events {titlePostfix}</title>
+	<title>{$t('jams.pageTitle')} {titlePostfix}</title>
 </svelte:head>
 
 
-<h1 class="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">Jams & events</h1>
+<h1 class="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">{$t('jams.heading')}</h1>
 <p class="text-gray-700 dark:text-gray-300">
-	Jams zijn een belangrijk onderdeel van de freerun community. Het is de plek waar je nieuwe mensen ontmoet, samen traint en van elkaar leert. Hieronder vind je een overzicht van aankomende jams en events in Nederland.
+	{@html $t('jams.intro')}
 </p>
-<h2 class="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">Aankomende jams & events</h2>
-<p class="text-gray-600 dark:text-gray-400 mb-6">Jams & Events vanuit de Nederlandse Freerun Community</p>
+<h2 class="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">{$t('jams.upcomingTitle')}</h2>
+<p class="text-gray-600 dark:text-gray-400 mb-6">{$t('jams.upcomingSubtitle')}</p>
 <JamsList/>
 
 <div class="calendar-actions">
@@ -29,8 +30,8 @@
 		target="_blank"
 		class="button button-with-icon">
 		<CalendarAddSVG />
-		<span class="button-text">Toevoegen aan agenda</span>
-		<span class="button-text-mobile">Toevoegen</span>
+	<span class="button-text">{$t('jams.addToCalendar')}</span>
+	<span class="button-text-mobile">{$t('jams.addToCalendarShort')}</span>
 	</a>
 
 	<a
@@ -39,8 +40,8 @@
 		target="_blank"
 		class="button button-with-icon">
 		<DownloadSVG />
-		<span class="button-text">iCal downloaden</span>
-		<span class="button-text-mobile">Download</span>
+	<span class="button-text">{$t('jams.downloadICal')}</span>
+	<span class="button-text-mobile">{$t('jams.downloadShort')}</span>
 	</a>
 
 	<a
@@ -49,33 +50,33 @@
 		target="_blank"
 		class="button button-with-icon">
 		<ExternalLinkSVG />
-		<span class="button-text">Agenda openen</span>
-		<span class="button-text-mobile">Openen</span>
+	<span class="button-text">{$t('jams.openCalendar')}</span>
+	<span class="button-text-mobile">{$t('jams.openShort')}</span>
 	</a>
 </div>
 
-<h2 class="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">Jam of event insturen</h2>
-<p class="text-gray-700 dark:text-gray-300">Oraniseer jij een jam? Of mist er een event in de agenda? Deel deze met de rest van de community!</p>
+<h2 class="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">{$t('jams.submitTitle')}</h2>
+<p class="text-gray-700 dark:text-gray-300">{$t('jams.submitDescription')}</p>
 <InputCollector pagePath={$page.url.pathname}/>
 
-<h2 class="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">Notificaties ontvangen</h2>
+<h2 class="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">{$t('jams.notificationsTitle')}</h2>
 <p class="text-gray-700 dark:text-gray-300">
-	Wil je via WhatsApp op de hoogte gehouden worden van freerun jams en events binnen Nederland? <br>
+	{@html $t('jams.notificationsDescription')} <br>
 	<a href="https://chat.whatsapp.com/IhKX7dXV9Vo7duEMmyzTpO"
 	rel="norefferer"
 	target="_blank"
-	class="button">Volg de Parkour Culture WhatsApp channel</a>
+	class="button">{$t('jams.followWhatsapp')}</a>
 </p>
 
-<h2 class="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">Jams in Europa</h2>
+<h2 class="text-xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">{$t('jams.europeTitle')}</h2>
 <p class="text-gray-700 dark:text-gray-300">
-	Wat fijn dat je betrokken wil zijn bij de internationale community! Bekijk deze kalender die beheerd wordt door MATTTMA, met jams in heel Europa.
+	{@html $t('jams.europeDescription')}
 </p>
 <a
 	href="https://www.matttma.de/en/parkourjamcalendar"
 	rel="noreferrer"
 	target="_blank"
-	class="button">Freerun jams in Europa</a
+	class="button">{$t('jams.europeButton')}</a
 >
 
 <style>

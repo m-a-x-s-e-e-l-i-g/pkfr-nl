@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { preventDefault } from 'svelte/legacy';
+	import { t } from 'svelte-i18n';
 
 	import { Confetti } from "svelte-confetti"
 	import { slide } from 'svelte/transition';
@@ -73,15 +74,15 @@
 <div class="formWrapper">
 	{#if data.ok}
 		<div class="prompt success" transition:slide>
-			<p>Bedankt! Je input is ontvangen.</p>
+			<p>{$t('forms.success')}</p>
 			<div style="display: flex; justify-content: center;">
 				<Confetti infinite amount=50 y={[0.25, 0.5]} x={[-2, 2]}/>
 			</div>
-			<button class="button" onclick={resetForm}>Ik heb meer input</button>
+			<button class="button" onclick={resetForm}>{$t('forms.successButton')}</button>
 		</div>
 	{:else if data.ok === false}
 		<div class="prompt error" transition:slide>
-			<p>Er is iets misgegaan. Probeer het later nog eens.</p>
+			<p>{$t('forms.error')}</p>
 			<code>{data.error_code}: {data.description}</code>
 		</div>
 	{:else}
@@ -89,56 +90,56 @@
 				<form onsubmit={preventDefault(sendMessage)} transition:slide>
 					<div class="flex">
 						<div class="mr-2 w-1/2">
-							<label for="jamStartDateTime">Begin</label>
+							<label for="jamStartDateTime">{$t('forms.jam.start')}</label>
 							<input type="datetime-local" id="jamStartDateTime" name="jamStartDateTime" bind:value={jamStartDateTime} />
 						</div>
 						<div class="ml-2 w-1/2">
-							<label for="jamEndDateTime">Eind</label>
+						<label for="jamEndDateTime">{$t('forms.jam.end')}</label>
 							<input type="datetime-local" id="jamEndDateTime" name="jamEndDateTime" bind:value={jamEndDateTime} />
 						</div>
 					</div>
-					<label for="jamName">Naam</label>
+				<label for="jamName">{$t('forms.jam.name')}</label>
 					<input type="text" id="jamName" name="jamName" bind:value={jamName} />
-					<label for="jamDescription">Omschrijving</label>
+				<label for="jamDescription">{$t('forms.jam.description')}</label>
 					<input type="text" id="jamDescription" name="jamDescription" bind:value={jamDescription} />
-					<label for="jamLocation">Startlocatie</label>
+				<label for="jamLocation">{$t('forms.jam.location')}</label>
 					<input type="text" id="jamLocation" name="jamLocation" bind:value={jamLocation} />
-					<button class="button" disabled={!formValid}>Versturen</button>
+				<button class="button" disabled={!formValid}>{$t('forms.sendButton')}</button>
 				</form>
 		{:else if pagePath === '/open-gyms'}
 			<form onsubmit={preventDefault(sendMessage)} transition:slide>
-				<label for="gymName">Gymnaam</label>
+				<label for="gymName">{$t('forms.gym.name')}</label>
 				<input type=text id="gymName" name="gymName" bind:value={gymName}>
-				<label for="gymDay">Dag</label>
+				<label for="gymDay">{$t('forms.gym.day')}</label>
 				<select id="gymDay" name="gymDay" bind:value={gymDay}>
-					<option value="maandag">Maandag</option>
-					<option value="dinsdag">Dinsdag</option>
-					<option value="woensdag">Woensdag</option>
-					<option value="donderdag">Donderdag</option>
-					<option value="vrijdag">Vrijdag</option>
-					<option value="zaterdag">Zaterdag</option>
-					<option value="zondag">Zondag</option>
+					<option value="maandag">{$t('forms.days.maandag')}</option>
+					<option value="dinsdag">{$t('forms.days.dinsdag')}</option>
+					<option value="woensdag">{$t('forms.days.woensdag')}</option>
+					<option value="donderdag">{$t('forms.days.donderdag')}</option>
+					<option value="vrijdag">{$t('forms.days.vrijdag')}</option>
+					<option value="zaterdag">{$t('forms.days.zaterdag')}</option>
+					<option value="zondag">{$t('forms.days.zondag')}</option>
 				</select>
 				<div class="flex">
 					<div class="mr-2 w-1/2">
-						<label for="gymStartTime">Begin</label>
+						<label for="gymStartTime">{$t('forms.gym.start')}</label>
 						<input type="time" id="gymStartTime" name="gymStartTime" bind:value={gymStartTime} />
 					</div>
 					<div class="ml-2 w-1/2">
-						<label for="gymEndTime">Eind</label>
+						<label for="gymEndTime">{$t('forms.gym.end')}</label>
 						<input type="time" id="gymEndTime" name="gymEndTime" bind:value={gymEndTime}/>
 					</div>
 				</div>
-				<label for="gymInfo">Omschrijving</label>
-				<textarea id="gymInfo" name="gymInfo" bind:value={gymInfo} placeholder="Korte omschrijving, prijzen, faciliteiten en waar mensen meer info kunnen vinden..."></textarea>
-				<label for="gymMessage">Opmerkingen</label>
-				<textarea id="gymMessage" name="gymMessage" bind:value={gymMessage} placeholder="Eventuele wijzigingen, speciale aandachtspunten of extra informatie..."></textarea>
-				<button class="button" disabled={!formValid}>Versturen</button>
+				<label for="gymInfo">{$t('forms.jam.description')}</label>
+				<textarea id="gymInfo" name="gymInfo" bind:value={gymInfo} placeholder={$t('forms.gym.infoPlaceholder')}></textarea>
+				<label for="gymMessage">{$t('forms.gym.notes')}</label>
+				<textarea id="gymMessage" name="gymMessage" bind:value={gymMessage} placeholder={$t('forms.gym.messagePlaceholder')}></textarea>
+				<button class="button" disabled={!formValid}>{$t('forms.sendButton')}</button>
 			</form>
 		{:else}
 			<form onsubmit={preventDefault(sendMessage)} transition:slide>
 				<input type="text" name="messageInput" bind:value={messageInput} />
-				<button class="button" disabled={!formValid}>Versturen</button>
+				<button class="button" disabled={!formValid}>{$t('forms.sendButton')}</button>
 			</form>
 		{/if}
 	{/if}
