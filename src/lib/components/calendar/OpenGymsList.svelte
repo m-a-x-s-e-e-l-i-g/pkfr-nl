@@ -3,9 +3,13 @@
 	import ListPlugin from '@fullcalendar/list';
 	import googleCalendarPlugin from '@fullcalendar/google-calendar';
 	import nlLocale from '@fullcalendar/core/locales/nl';
+	import enLocale from '@fullcalendar/core/locales/en-gb';
+	import { locale } from 'svelte-i18n';
 
-  let options: CalendarOptions = {
-		locale: nlLocale,
+  $: calendarLocale = $locale === 'en' ? enLocale : nlLocale;
+
+  $: options = {
+		locale: calendarLocale,
 		initialView: 'list',
 		views: {
 			list: {
@@ -34,7 +38,7 @@
 		events: {
 			googleCalendarId: import.meta.env.VITE_OPEN_GYM_CALENDAR_ID
 		}
-	};
+	} as CalendarOptions;
 </script>
 
 <style>
