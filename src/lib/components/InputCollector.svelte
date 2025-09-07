@@ -130,9 +130,9 @@
 					</div>
 				</div>
 				<label for="gymInfo">Omschrijving</label>
-				<textarea id="gymInfo" name="gymInfo" bind:value={gymInfo} placeholder="Voor €10 kun je 2 uur beesten op onze bakstenen binnengym. Meer informatie vind je ..."></textarea>
+				<textarea id="gymInfo" name="gymInfo" bind:value={gymInfo} placeholder="Korte omschrijving, prijzen, faciliteiten en waar mensen meer info kunnen vinden..."></textarea>
 				<label for="gymMessage">Opmerkingen</label>
-				<textarea id="gymMessage" name="gymMessage" bind:value={gymMessage} placeholder="Open gyms van maandagen gaan niet door."></textarea>
+				<textarea id="gymMessage" name="gymMessage" bind:value={gymMessage} placeholder="Eventuele wijzigingen, speciale aandachtspunten of extra informatie..."></textarea>
 				<button class="button" disabled={!formValid}>Versturen</button>
 			</form>
 		{:else}
