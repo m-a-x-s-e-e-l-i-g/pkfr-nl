@@ -5,7 +5,7 @@ const gymList = [
         latitude: 52.371143939525204,
         longitude: 4.614806308763699,
         website: 'https://www.munkimotion.nl/freerunhal-haarlem/',
-        images: ['../images/gyms/munki-motion/munki-motion-haarlem-1.jpg']
+        images: ['images/gyms/munki-motion/munki-motion-haarlem-1.jpg']
     },
     {
         name: 'Munki Motion Velserbroek',
@@ -13,7 +13,7 @@ const gymList = [
         latitude: 52.43618130223771,
         longitude: 4.651948813336322,
         website: 'https://www.munkimotion.nl/freerunhal-velserbroek/',
-        images: ['../images/gyms/munki-motion/munki-motion-velserbroek-1.jpg']
+        images: ['images/gyms/munki-motion/munki-motion-velserbroek-1.jpg']
     },
     {
         name: 'Munki Motion Zaandam',
@@ -21,7 +21,7 @@ const gymList = [
         latitude: 52.45754085016276,
         longitude: 4.81590035531433,
         website: 'https://www.munkimotion.nl/freerunhal-zaandam/',
-        images: ['../images/gyms/munki-motion/munki-motion-zaandam-1.jpg']
+        images: ['images/gyms/munki-motion/munki-motion-zaandam-1.jpg']
     },
     {
         name: 'Munki Motion Alkmaar',
@@ -30,8 +30,8 @@ const gymList = [
         longitude: 4.766890486005982,
         website: 'https://www.munkimotion.nl/freerunhal-alkmaar/',
         images: [
-            '../images/gyms/munki-motion/munki-motion-alkmaar-1.jpg',
-            '../images/gyms/munki-motion/munki-motion-alkmaar-2.jpg'
+            'images/gyms/munki-motion/munki-motion-alkmaar-1.jpg',
+            'images/gyms/munki-motion/munki-motion-alkmaar-2.jpg'
         ]
     },
     {
@@ -40,7 +40,7 @@ const gymList = [
         latitude: 52.55980880555938,
         longitude: 4.66274531369486,
         website: 'https://www.munkimotion.nl/freerunhal-castricum/',
-        images: ['../images/gyms/munki-motion/munki-motion-castricum-1.jpg']
+        images: ['images/gyms/munki-motion/munki-motion-castricum-1.jpg']
     },
     {
         name: 'Aquila Tilburg Reeshof',
@@ -49,16 +49,16 @@ const gymList = [
         longitude: 4.974729197949388,
         website: 'https://aquilafreerun.nl/',
         images: [
-            '../images/gyms/aquila-freerun/aquila-tilburg-reeshof-1.jpg',
-            '../images/gyms/aquila-freerun/aquila-tilburg-reeshof-2.jpg',
-            '../images/gyms/aquila-freerun/aquila-tilburg-reeshof-3.jpg',
-            '../images/gyms/aquila-freerun/aquila-tilburg-reeshof-4.jpg',
-            '../images/gyms/aquila-freerun/aquila-tilburg-reeshof-5.jpg',
-            '../images/gyms/aquila-freerun/aquila-tilburg-reeshof-6.jpg',
-            '../images/gyms/aquila-freerun/aquila-tilburg-reeshof-7.jpg',
-            '../images/gyms/aquila-freerun/aquila-tilburg-reeshof-8.jpg',
-            '../images/gyms/aquila-freerun/aquila-tilburg-reeshof-9.jpg',
-            '../images/gyms/aquila-freerun/aquila-tilburg-reeshof-10.jpg'
+            'images/gyms/aquila-freerun/aquila-tilburg-reeshof-1.jpg',
+            'images/gyms/aquila-freerun/aquila-tilburg-reeshof-2.jpg',
+            'images/gyms/aquila-freerun/aquila-tilburg-reeshof-3.jpg',
+            'images/gyms/aquila-freerun/aquila-tilburg-reeshof-4.jpg',
+            'images/gyms/aquila-freerun/aquila-tilburg-reeshof-5.jpg',
+            'images/gyms/aquila-freerun/aquila-tilburg-reeshof-6.jpg',
+            'images/gyms/aquila-freerun/aquila-tilburg-reeshof-7.jpg',
+            'images/gyms/aquila-freerun/aquila-tilburg-reeshof-8.jpg',
+            'images/gyms/aquila-freerun/aquila-tilburg-reeshof-9.jpg',
+            'images/gyms/aquila-freerun/aquila-tilburg-reeshof-10.jpg'
         ]
     },
     {
@@ -68,8 +68,8 @@ const gymList = [
         longitude: 4.9366381,
         website: 'https://jumpfreerun.nl/amsterdam/',
         images: [
-            '../images/gyms/jump-freerun/jump-freerun-amsterdam-1.jpg',
-            '../images/gyms/jump-freerun/jump-freerun-amsterdam-2.jpg'
+            'images/gyms/jump-freerun/jump-freerun-amsterdam-1.jpg',
+            'images/gyms/jump-freerun/jump-freerun-amsterdam-2.jpg'
         ]
     },
     {
@@ -78,7 +78,7 @@ const gymList = [
         latitude: 52.051998334553794,
         longitude: 4.269578226458709,
         website: 'https://jumpfreerun.nl/denhaag/',
-        images: ['../images/gyms/jump-freerun/jump-freerun-den-haag-zuid57-1.jpg']
+        images: ['images/gyms/jump-freerun/jump-freerun-den-haag-zuid57-1.jpg']
     },
     {
         name: 'JUMP Freerun Ninja Academy',
@@ -87,15 +87,15 @@ const gymList = [
         longitude: 4.266632468787963,
         website: 'https://jumpfreerun.nl/denhaag/',
         images: [
-            '../images/gyms/jump-freerun/jump-freerun-den-haag-ninja-academy-1.jpg',
-            '../images/gyms/jump-freerun/jump-freerun-den-haag-ninja-academy-2.jpg',
-            '../images/gyms/jump-freerun/jump-freerun-den-haag-ninja-academy-3.jpg',
-            '../images/gyms/jump-freerun/jump-freerun-den-haag-ninja-academy-4.jpg',
-            '../images/gyms/jump-freerun/jump-freerun-den-haag-ninja-academy-5.jpg',
-            '../images/gyms/jump-freerun/jump-freerun-den-haag-ninja-academy-6.jpg',
-            '../images/gyms/jump-freerun/jump-freerun-den-haag-ninja-academy-7.jpg',
-            '../images/gyms/jump-freerun/jump-freerun-den-haag-ninja-academy-8.jpg',
-            '../images/gyms/jump-freerun/jump-freerun-den-haag-ninja-academy-9.jpg'
+            'images/gyms/jump-freerun/jump-freerun-den-haag-ninja-academy-1.jpg',
+            'images/gyms/jump-freerun/jump-freerun-den-haag-ninja-academy-2.jpg',
+            'images/gyms/jump-freerun/jump-freerun-den-haag-ninja-academy-3.jpg',
+            'images/gyms/jump-freerun/jump-freerun-den-haag-ninja-academy-4.jpg',
+            'images/gyms/jump-freerun/jump-freerun-den-haag-ninja-academy-5.jpg',
+            'images/gyms/jump-freerun/jump-freerun-den-haag-ninja-academy-6.jpg',
+            'images/gyms/jump-freerun/jump-freerun-den-haag-ninja-academy-7.jpg',
+            'images/gyms/jump-freerun/jump-freerun-den-haag-ninja-academy-8.jpg',
+            'images/gyms/jump-freerun/jump-freerun-den-haag-ninja-academy-9.jpg'
         ]
     },
     {
@@ -104,7 +104,7 @@ const gymList = [
         latitude: 52.06213998437504,
         longitude: 4.313607111291565,
         website: 'https://jumpfreerun.nl/denhaag/',
-        images: ['../images/gyms/jump-freerun/jump-freerun-den-haag-haagse-sport-centrale-1.jpg']
+        images: ['images/gyms/jump-freerun/jump-freerun-den-haag-haagse-sport-centrale-1.jpg']
     },
     {
         name: 'JUMP Freerun De Bilt',
@@ -113,8 +113,8 @@ const gymList = [
         longitude: 5.18456774602476,
         website: 'https://jumpfreerun.nl/de-bilt/',
         images: [
-            '../images/gyms/jump-freerun/jump-freerun-de-bilt-1.jpg',
-            '../images/gyms/jump-freerun/jump-freerun-de-bilt-2.jpg'
+            'images/gyms/jump-freerun/jump-freerun-de-bilt-1.jpg',
+            'images/gyms/jump-freerun/jump-freerun-de-bilt-2.jpg'
         ]
     },
     {
@@ -124,8 +124,8 @@ const gymList = [
         longitude: 5.899708011646034,
         website: 'https://jumpfreerun.nl/heerenveen/',
         images: [
-            '../images/gyms/jump-freerun/jump-freerun-heerenveen-1.jpg',
-            '../images/gyms/jump-freerun/jump-freerun-heerenveen-2.jpg'
+            'images/gyms/jump-freerun/jump-freerun-heerenveen-1.jpg',
+            'images/gyms/jump-freerun/jump-freerun-heerenveen-2.jpg'
         ]
     },
     {
@@ -135,9 +135,9 @@ const gymList = [
         longitude: 5.169738682420904,
         website: 'https://jumpfreerun.nl/houten/',
         images: [
-            '../images/gyms/jump-freerun/jump-freerun-houten-1.jpg',
-            '../images/gyms/jump-freerun/jump-freerun-houten-2.jpg',
-            '../images/gyms/jump-freerun/jump-freerun-houten-3.jpg'
+            'images/gyms/jump-freerun/jump-freerun-houten-1.jpg',
+            'images/gyms/jump-freerun/jump-freerun-houten-2.jpg',
+            'images/gyms/jump-freerun/jump-freerun-houten-3.jpg'
         ]
     },
     {
@@ -147,9 +147,9 @@ const gymList = [
         longitude: 5.812432313493811,
         website: 'https://jumpfreerun.nl/leeuwarden/',
         images: [
-            '../images/gyms/jump-freerun/jump-freerun-leeuwarden-1.jpg',
-            '../images/gyms/jump-freerun/jump-freerun-leeuwarden-2.jpg',
-            '../images/gyms/jump-freerun/jump-freerun-leeuwarden-3.jpg'
+            'images/gyms/jump-freerun/jump-freerun-leeuwarden-1.jpg',
+            'images/gyms/jump-freerun/jump-freerun-leeuwarden-2.jpg',
+            'images/gyms/jump-freerun/jump-freerun-leeuwarden-3.jpg'
         ]
     },
     {
@@ -159,8 +159,8 @@ const gymList = [
         longitude: 4.840041961366346,
         website: 'https://jumpfreerun.nl/uithoorn/',
         images: [
-            '../images/gyms/jump-freerun/jump-freerun-uithoorn-1.jpg',
-            '../images/gyms/jump-freerun/jump-freerun-uithoorn-2.jpg'
+            'images/gyms/jump-freerun/jump-freerun-uithoorn-1.jpg',
+            'images/gyms/jump-freerun/jump-freerun-uithoorn-2.jpg'
         ]
     },
     {
@@ -170,9 +170,9 @@ const gymList = [
         longitude: 4.659323055294357,
         website: 'http://www.urban-inside.nl/',
         images: [
-            '../images/gyms/urban-inside/urban-inside-waddinxveen-1.jpg',
-            '../images/gyms/urban-inside/urban-inside-waddinxveen-2.jpg',
-            '../images/gyms/urban-inside/urban-inside-waddinxveen-3.jpg'
+            'images/gyms/urban-inside/urban-inside-waddinxveen-1.jpg',
+            'images/gyms/urban-inside/urban-inside-waddinxveen-2.jpg',
+            'images/gyms/urban-inside/urban-inside-waddinxveen-3.jpg'
         ]
     },
     {
@@ -182,15 +182,15 @@ const gymList = [
         longitude: 4.684936034146543,
         website: 'http://www.urban-inside.nl/',
         images: [
-            '../images/gyms/urban-inside/urban-inside-gouda-1.jpg',
-            '../images/gyms/urban-inside/urban-inside-gouda-2.jpg',
-            '../images/gyms/urban-inside/urban-inside-gouda-3.jpg',
-            '../images/gyms/urban-inside/urban-inside-gouda-4.jpg',
-            '../images/gyms/urban-inside/urban-inside-gouda-5.jpg',
-            '../images/gyms/urban-inside/urban-inside-gouda-6.jpg',
-            '../images/gyms/urban-inside/urban-inside-gouda-7.jpg',
-            '../images/gyms/urban-inside/urban-inside-gouda-8.jpg',
-            '../images/gyms/urban-inside/urban-inside-gouda-9.jpg'
+            'images/gyms/urban-inside/urban-inside-gouda-1.jpg',
+            'images/gyms/urban-inside/urban-inside-gouda-2.jpg',
+            'images/gyms/urban-inside/urban-inside-gouda-3.jpg',
+            'images/gyms/urban-inside/urban-inside-gouda-4.jpg',
+            'images/gyms/urban-inside/urban-inside-gouda-5.jpg',
+            'images/gyms/urban-inside/urban-inside-gouda-6.jpg',
+            'images/gyms/urban-inside/urban-inside-gouda-7.jpg',
+            'images/gyms/urban-inside/urban-inside-gouda-8.jpg',
+            'images/gyms/urban-inside/urban-inside-gouda-9.jpg'
         ]
     },
     {
@@ -200,8 +200,8 @@ const gymList = [
         longitude: 5.45835352642871,
         website: 'http://www.commit040.nl/',
         images: [
-            '../images/gyms/commit/commit-040-eindhoven-1.jpg',
-            '../images/gyms/commit/commit-040-eindhoven-2.jpg'
+            'images/gyms/commit/commit-040-eindhoven-1.jpg',
+            'images/gyms/commit/commit-040-eindhoven-2.jpg'
         ]
     },
     {
@@ -211,10 +211,10 @@ const gymList = [
         longitude: 5.455997397743182,
         website: 'https://www.area51eindhoven.nl/',
         images: [
-            '../images/gyms/commit/area51-eindhoven-1.jpg',
-            '../images/gyms/commit/area51-eindhoven-2.jpg',
-            '../images/gyms/commit/area51-eindhoven-3.jpg',
-            '../images/gyms/commit/area51-eindhoven-4.jpg'
+            'images/gyms/commit/area51-eindhoven-1.jpg',
+            'images/gyms/commit/area51-eindhoven-2.jpg',
+            'images/gyms/commit/area51-eindhoven-3.jpg',
+            'images/gyms/commit/area51-eindhoven-4.jpg'
         ]
     },
     {
@@ -224,8 +224,8 @@ const gymList = [
         longitude: 5.856515512957941,
         website: 'https://www.adaptivemovement.nl/',
         images: [
-            '../images/gyms/adaptive-movement/adaptive-movement-elst-1.jpg',
-            '../images/gyms/adaptive-movement/adaptive-movement-elst-2.jpg'
+            'images/gyms/adaptive-movement/adaptive-movement-elst-1.jpg',
+            'images/gyms/adaptive-movement/adaptive-movement-elst-2.jpg'
         ]
     },
     {
@@ -235,12 +235,12 @@ const gymList = [
         longitude: 4.904651540045059,
         website: 'http://www.vrog.nl/',
         images: [
-            '../images/gyms/vrog/vrog-amsterdam-1.jpg',
-            '../images/gyms/vrog/vrog-amsterdam-2.jpg',
-            '../images/gyms/vrog/vrog-amsterdam-3.jpg',
-            '../images/gyms/vrog/vrog-amsterdam-4.jpg',
-            '../images/gyms/vrog/vrog-amsterdam-5.jpg',
-            '../images/gyms/vrog/vrog-amsterdam-6.jpg'
+            'images/gyms/vrog/vrog-amsterdam-1.jpg',
+            'images/gyms/vrog/vrog-amsterdam-2.jpg',
+            'images/gyms/vrog/vrog-amsterdam-3.jpg',
+            'images/gyms/vrog/vrog-amsterdam-4.jpg',
+            'images/gyms/vrog/vrog-amsterdam-5.jpg',
+            'images/gyms/vrog/vrog-amsterdam-6.jpg'
         ]
     },
     {
@@ -249,7 +249,7 @@ const gymList = [
         latitude: 53.112112312284246,
         longitude: 6.884084913093284,
         website: 'https://www.flexbeweging.nl/',
-        images: ['../images/gyms/flexbeweging/flexbeweging-veendam-1.jpg']
+        images: ['images/gyms/flexbeweging/flexbeweging-veendam-1.jpg']
     },
     {
         name: 'Rush World Rotterdam West',
@@ -258,8 +258,8 @@ const gymList = [
         longitude: 4.4509717553642805,
         website: 'https://www.rushworld.nl/',
         images: [
-            '../images/gyms/rush-world/rush-world-rotterdam-west-1.jpg',
-            '../images/gyms/rush-world/rush-world-rotterdam-west-2.jpg'
+            'images/gyms/rush-world/rush-world-rotterdam-west-1.jpg',
+            'images/gyms/rush-world/rush-world-rotterdam-west-2.jpg'
         ]
     },
     {
@@ -269,8 +269,8 @@ const gymList = [
         longitude: 4.516746241870258,
         website: 'https://www.rushworld.nl/',
         images: [
-            '../images/gyms/rush-world/rush-world-rotterdam-zuid-1.jpg',
-            '../images/gyms/rush-world/rush-world-rotterdam-zuid-2.jpg'
+            'images/gyms/rush-world/rush-world-rotterdam-zuid-1.jpg',
+            'images/gyms/rush-world/rush-world-rotterdam-zuid-2.jpg'
         ]
     },
     {
@@ -280,9 +280,9 @@ const gymList = [
         longitude: 4.554324531196638,
         website: 'https://www.rushworld.nl/',
         images: [
-            '../images/gyms/rush-world/rush-world-barendrecht-1.jpg',
-            '../images/gyms/rush-world/rush-world-barendrecht-2.jpg',
-            '../images/gyms/rush-world/rush-world-barendrecht-3.jpg'
+            'images/gyms/rush-world/rush-world-barendrecht-1.jpg',
+            'images/gyms/rush-world/rush-world-barendrecht-2.jpg',
+            'images/gyms/rush-world/rush-world-barendrecht-3.jpg'
         ]
     },
     {
@@ -291,7 +291,7 @@ const gymList = [
         latitude: 51.86139931902219,
         longitude: 4.354791318821064,
         website: 'http://www.rooftopkings.nl/',
-        images: ['../images/gyms/rooftop-kings/rooftop-kingdom-hoogvliet-rotterdam-1.jpg']
+        images: ['images/gyms/rooftop-kings/rooftop-kingdom-hoogvliet-rotterdam-1.jpg']
     },
     {
         name: 'Gymworld Freerun Academy',
@@ -300,10 +300,10 @@ const gymList = [
         longitude: 4.466714355371986,
         website: 'https://www.parkourdisciplines.com/',
         images: [
-            '../images/gyms/parkour-disciplines/gymworld-freerun-academy-zoetermeer-1.jpg',
-            '../images/gyms/parkour-disciplines/gymworld-freerun-academy-zoetermeer-2.jpg',
-            '../images/gyms/parkour-disciplines/gymworld-freerun-academy-zoetermeer-3.jpg',
-            '../images/gyms/parkour-disciplines/gymworld-freerun-academy-zoetermeer-4.jpg'
+            'images/gyms/parkour-disciplines/gymworld-freerun-academy-zoetermeer-1.jpg',
+            'images/gyms/parkour-disciplines/gymworld-freerun-academy-zoetermeer-2.jpg',
+            'images/gyms/parkour-disciplines/gymworld-freerun-academy-zoetermeer-3.jpg',
+            'images/gyms/parkour-disciplines/gymworld-freerun-academy-zoetermeer-4.jpg'
         ]
     },
     {
@@ -312,7 +312,7 @@ const gymList = [
         latitude: 52.06154672321714,
         longitude: 4.490180157219515,
         website: 'https://www.parkourdisciplines.com/',
-        images: ['../images/gyms/parkour-disciplines/roots-underground-academy-zoetermeer-1.jpg']
+        images: ['images/gyms/parkour-disciplines/roots-underground-academy-zoetermeer-1.jpg']
     },
     {
         name: 'Play Freerun Academy',
@@ -321,8 +321,8 @@ const gymList = [
         longitude: 4.477435735124727,
         website: 'https://www.parkourdisciplines.com/',
         images: [
-            '../images/gyms/parkour-disciplines/play-freerun-academy-leiden-1.jpg',
-            '../images/gyms/parkour-disciplines/play-freerun-academy-leiden-2.jpg'
+            'images/gyms/parkour-disciplines/play-freerun-academy-leiden-1.jpg',
+            'images/gyms/parkour-disciplines/play-freerun-academy-leiden-2.jpg'
         ]
     },
     {
@@ -332,8 +332,8 @@ const gymList = [
         longitude: 4.6487440553760635,
         website: 'https://www.parkourdisciplines.com/',
         images: [
-            '../images/gyms/parkour-disciplines/hero-freerun-academy-alphen-aan-den-rijn-1.jpg',
-            '../images/gyms/parkour-disciplines/hero-freerun-academy-alphen-aan-den-rijn-2.jpg'
+            'images/gyms/parkour-disciplines/hero-freerun-academy-alphen-aan-den-rijn-1.jpg',
+            'images/gyms/parkour-disciplines/hero-freerun-academy-alphen-aan-den-rijn-2.jpg'
         ]
     },
     {
@@ -343,15 +343,15 @@ const gymList = [
         longitude: 6.6076608555751495,
         website: 'https://thespotgroningen.nl/',
         images: [
-            '../images/gyms/achieve-body-control/thespot-groningen-1.jpg',
-            '../images/gyms/achieve-body-control/thespot-groningen-2.jpg',
-            '../images/gyms/achieve-body-control/thespot-groningen-3.jpg',
-            '../images/gyms/achieve-body-control/thespot-groningen-4.jpg',
-            '../images/gyms/achieve-body-control/thespot-groningen-5.jpg',
-            '../images/gyms/achieve-body-control/thespot-groningen-6.jpg',
-            '../images/gyms/achieve-body-control/thespot-groningen-7.jpg',
-            '../images/gyms/achieve-body-control/thespot-groningen-8.jpg',
-            '../images/gyms/achieve-body-control/thespot-groningen-9.jpg'
+            'images/gyms/achieve-body-control/thespot-groningen-1.jpg',
+            'images/gyms/achieve-body-control/thespot-groningen-2.jpg',
+            'images/gyms/achieve-body-control/thespot-groningen-3.jpg',
+            'images/gyms/achieve-body-control/thespot-groningen-4.jpg',
+            'images/gyms/achieve-body-control/thespot-groningen-5.jpg',
+            'images/gyms/achieve-body-control/thespot-groningen-6.jpg',
+            'images/gyms/achieve-body-control/thespot-groningen-7.jpg',
+            'images/gyms/achieve-body-control/thespot-groningen-8.jpg',
+            'images/gyms/achieve-body-control/thespot-groningen-9.jpg'
         ]
     },
     {
@@ -361,11 +361,11 @@ const gymList = [
         longitude: 4.982102594853558,
         website: 'https://progression-academy.nl/',
         images: [
-            '../images/gyms/progression-academy/progression-academy-purmerend-1.jpg',
-            '../images/gyms/progression-academy/progression-academy-purmerend-2.jpg',
-            '../images/gyms/progression-academy/progression-academy-purmerend-3.jpg',
-            '../images/gyms/progression-academy/progression-academy-purmerend-4.jpg',
-            '../images/gyms/progression-academy/progression-academy-purmerend-5.jpg'
+            'images/gyms/progression-academy/progression-academy-purmerend-1.jpg',
+            'images/gyms/progression-academy/progression-academy-purmerend-2.jpg',
+            'images/gyms/progression-academy/progression-academy-purmerend-3.jpg',
+            'images/gyms/progression-academy/progression-academy-purmerend-4.jpg',
+            'images/gyms/progression-academy/progression-academy-purmerend-5.jpg'
         ]
     }
 ];
