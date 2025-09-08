@@ -101,7 +101,7 @@ header {
 
     .main-nav {
         position: fixed;
-        z-index: 2;
+        z-index: 9999;
         top: 0;
         left: 0;
         transform: translateX(-100vw);
