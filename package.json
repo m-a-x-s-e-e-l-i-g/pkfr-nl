@@ -22,7 +22,7 @@
         "@typescript-eslint/eslint-plugin": "8.40.0",
         "@typescript-eslint/parser": "8.40.0",
         "autoprefixer": "^10.4.21",
-        "bits-ui": "^2.9.4",
+        "bits-ui": "^2.9.6",
         "clsx": "^2.1.1",
         "eslint-config-prettier": "^10.1.8",
         "eslint-plugin-svelte": "^3.11.0",

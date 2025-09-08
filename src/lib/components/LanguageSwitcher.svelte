@@ -53,14 +53,15 @@
 <style>
 	.language-switcher {
 		display: flex;
-		align-items: center;
-		gap: 0.3rem;
+		align-items: end;
+		gap: 0.25rem;
+		height: 2.5rem; /* Match hamburger button height */
 	}
 
 	.flag-btn {
 		background: none;
 		border: none;
-		padding: 0.3rem;
+		padding: 0.25rem;
 		cursor: pointer;
 		transition: all 0.2s ease;
 		border-radius: 0.25rem;
@@ -70,29 +71,40 @@
 		align-items: center;
 		justify-content: center;
 		border: 1px solid transparent;
+		width: 2.5rem; /* Make buttons match hamburger size */
+		height: 2.5rem; /* Explicit height matching hamburger */
 	}
 
 	.flag-btn:hover {
 		opacity: 0.9;
 		transform: translateY(-1px);
-		background-color: rgba(0, 0, 0, 0.02);
-		border-color: rgba(0, 0, 0, 0.1);
+		background-color: hsl(var(--muted));
+		border-color: hsl(var(--border));
 	}
 
 	.flag-btn.active {
 		opacity: 1;
-		background-color: rgba(0, 122, 204, 0.08);
-		border-color: rgba(0, 122, 204, 0.2);
+		background-color: hsl(var(--accent) / 0.08);
+		border-color: hsl(var(--accent) / 0.2);
 	}
 
 	.flag-btn svg {
 		border-radius: 2px;
 		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+		width: 20px;
+		height: 15px;
 	}
 
 	@media (max-width: 768px) {
+		.language-switcher {
+			gap: 0.25rem;
+			height: 2.5rem;
+		}
+		
 		.flag-btn {
 			padding: 0.25rem;
+			width: 2.5rem;
+			height: 2.5rem;
 		}
 		
 		.flag-btn svg {

@@ -155,10 +155,12 @@
   "description": "Vind snel de dichtsbijzijnde indoor freerun gym in jouw buurt.",
   "pageTitle": "Gym Finder",
   "heading": "Gym Finder",
-  "intro": "Hier vind je de <b>{count}</b> indoor freerun <b>gyms</b> van Nederland!",
+  "intro": "Hier vind je de <b>{count}</b> indoor freerun <b>gyms</b> van Nederland! Je kunt alle gyms op een kaart bekijken of hieronder individueel browsen.",
+  "viewAllOnMap": "Bekijk alle gyms op kaart",
   "permissionTitle": "Geef pkfr.nl locatierechten.",
   "permissionDescription": "Deel je locatie om de lijst te sorteren op afstand.",
-  "visitWebsite": "Website bezoeken"
+  "viewLocation": "Bekijk Locatie",
+  "visitWebsite": "Bezoek Website"
     }
   }
  ,
