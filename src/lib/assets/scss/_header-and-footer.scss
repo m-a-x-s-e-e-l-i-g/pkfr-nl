@@ -60,12 +60,17 @@ header {
     .header-controls {
         display: flex;
         align-items: center;
-        gap: 1rem;
+        justify-content: center;
+        gap: 0.5rem;
+        height: 2.5rem;
 
         @media (min-width: vars.$smMin) {
             position: absolute;
             top: 1rem;
             right: 2rem;
+            gap: 1rem;
+            height: auto;
+            justify-content: flex-end;
         }
     }
 
@@ -90,9 +95,19 @@ header {
         margin: 0;
         background: transparent !important;
         color: inherit;
-        padding: 0;
+        padding: 0.25rem;
         border: 0;
-        width: 2rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.25rem;
+        
+        svg {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
 
         @media (min-width: vars.$smMin) {
             display: none;
@@ -113,8 +128,8 @@ header {
         display: flex;
         justify-content: center;
         align-items: center;
-        background: var(--darker);
-        color: var(--paper);
+        background: var(--paper);
+        color: var(--ink);
         transition: all 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 
         &.open {
