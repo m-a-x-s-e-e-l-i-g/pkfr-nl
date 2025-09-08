@@ -381,6 +381,16 @@ const gymList = [
             'images/gyms/minded-motion/minded-motion-4.jpg',
             'images/gyms/minded-motion/minded-motion-5.jpg'
         ]
+    },
+    {
+        name: 'Elevation Freerun',
+        address: 'Hoge Bothofstraat 49, 7511 ZA Enschede',
+        latitude: 52.223019393034356,
+        longitude: 6.904051184179774,
+        website: 'https://www.elevationfreerun.com/',
+        images: [
+            'images/gyms/elevation-freerun/elevation-freerun-1.jpeg'
+        ]
     }
 ];
 
