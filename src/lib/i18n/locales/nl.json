@@ -158,7 +158,8 @@
   "intro": "Hier vind je de <b>{count}</b> indoor freerun <b>gyms</b> van Nederland!",
   "permissionTitle": "Geef pkfr.nl locatierechten.",
   "permissionDescription": "Deel je locatie om de lijst te sorteren op afstand.",
-  "visitWebsite": "Website bezoeken"
+  "viewLocation": "Bekijk Locatie",
+  "visitWebsite": "Bezoek Website"
     }
   }
  ,
