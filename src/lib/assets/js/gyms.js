@@ -367,6 +367,20 @@ const gymList = [
             'images/gyms/progression-academy/progression-academy-purmerend-4.jpg',
             'images/gyms/progression-academy/progression-academy-purmerend-5.jpg'
         ]
+    },
+    {
+        name: 'Minded Motion',
+        address: 'Garnizoenweg 17, 5928 NA Venlo',
+        latitude: 51.37392374720662,
+        longitude: 6.157620937570812,
+        website: 'https://mindedmotion.com/',
+        images: [
+            'images/gyms/minded-motion/minded-motion-1.jpg',
+            'images/gyms/minded-motion/minded-motion-2.jpg',
+            'images/gyms/minded-motion/minded-motion-3.jpg',
+            'images/gyms/minded-motion/minded-motion-4.jpg',
+            'images/gyms/minded-motion/minded-motion-5.jpg'
+        ]
     }
 ];
 
