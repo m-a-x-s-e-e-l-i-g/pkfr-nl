@@ -243,7 +243,8 @@
 	{ name: "FreeGrunn Veendam", url: "https://maps.app.goo.gl/hxiQqciZGPzAY5Lb7?g_st=ic", country: "Netherlands", author: "Flexbeweging" }, 
 	{ name: "FreeGrunn Groningen", url: "https://www.google.com/maps/d/edit?mid=1r00q3rS8Bta2sn_90vZsL-j8sO7MD9c&usp=share_link", country: "Netherlands", author: "Lennard Koops" },
 	{ name: "Göttingen Z Campus Mini Spots", url: "https://maps.app.goo.gl/M5HRYycDGK6tZM3G8", country: "Germany", author: "Lennart Jakob" },
-	{ name: "Göttingen, Kassel, Hannover, Hamburg", url: "https://maps.app.goo.gl/Jh4271PCrVZCbqvp6?g_st=iw", country: "Germany", author: "Lennart Jakob" }
+	{ name: "Göttingen, Kassel, Hannover, Hamburg", url: "https://maps.app.goo.gl/Jh4271PCrVZCbqvp6?g_st=iw", country: "Germany", author: "Lennart Jakob" },
+	{ name: "Freerun Gyms NL", url: "https://maps.app.goo.gl/4n4oQeJ4FysKAkcy5?g_st=ac", country: "Netherlands", author: "Max Seelig" }
 ];
 
   // Sort by name for better UX
