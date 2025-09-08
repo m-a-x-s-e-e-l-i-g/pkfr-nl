@@ -178,7 +178,7 @@
 									src={image}
 									layout="constrained"
 									width={800}
-									height={400}
+									height={800}
 									alt={gym.name}
 									cdn={import.meta.env.DEV ? undefined : "netlify"}
 								/>
