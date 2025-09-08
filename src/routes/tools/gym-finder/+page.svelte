@@ -5,6 +5,7 @@
 	import Autoplay from "embla-carousel-autoplay";
 	import * as Carousel from "$lib/components/ui/carousel/index.js";
 	import * as Alert from "$lib/components/ui/alert/index.js";
+	import * as Button from "$lib/components/ui/button/index.js";
 	import Icon from 'svelte-awesome';
 	import locationArrow from 'svelte-awesome/icons/locationArrow';
 	import { Image } from "@unpic/svelte";
@@ -28,12 +29,18 @@
 <style>
 	.gym-card {
 		background: var(--paper);
-		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 		border: 1px solid var(--border);
-		border-radius: 0.5rem;
+		border-radius: 12px;
 		margin-top: 2rem;
 		overflow: hidden;
-		transition: all 0.2s ease;
+		transition: all 0.3s ease;
+		position: relative;
+	}
+
+	.gym-card:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
 	}
 
 	.gym-content {
@@ -41,93 +48,91 @@
 		position: relative;
 	}
 
-	.gym-title {
-		font-size: 1.5rem;
-		font-weight: bold;
-		color: var(--ink);
-		margin: 0 0 1rem;
-		line-height: 1.3;
+	.carousel-container {
+		position: relative;
+		height: 320px;
+		overflow: hidden;
 	}
 
-	.distance-badge {
+	.gym-name-overlay {
 		position: absolute;
-		top: 1.5rem;
-		right: 1.5rem;
+		top: 1rem;
+		left: 1rem;
+		background: rgba(0, 0, 0, 0.8);
+		color: white;
+		padding: 0.5rem 1rem;
+		border-radius: 8px;
 		font-weight: bold;
-		background: var(--accent);
-		color: var(--paper);
-		padding: 0.25rem 0.5rem;
-		border-radius: 0.25rem;
-		font-size: 0.875rem;
+		z-index: 10;
+		backdrop-filter: blur(4px);
 	}
 
-	.gym-info {
-		margin-bottom: 1rem;
+	.gym-name {
+		font-size: 1.125rem;
+		margin: 0;
+	}
+
+	.gym-distance {
+		font-size: 0.75rem;
+		margin-top: 0.25rem;
+		opacity: 0.9;
+	}
+
+	.button-group {
 		display: flex;
-		align-items: flex-start;
 		gap: 0.75rem;
-		padding: 0.5rem;
-		background: var(--background);
-		border: 1px solid var(--border);
-		border-radius: 0.375rem;
-		line-height: 1.5;
+		flex-wrap: wrap;
+		margin-top: 1rem;
 	}
 
-	.gym-info-icon {
-		font-size: 1.1rem;
-		margin-top: 0.1rem;
-		flex-shrink: 0;
-		color: var(--dark);
-	}
-
-	.gym-info-content {
+	.button-group button {
+		margin: 0;
+		cursor: pointer;
 		flex: 1;
-		min-width: 0;
-		color: var(--ink);
-	}
-
-	.gym-info a {
-		color: var(--accent);
-		text-decoration: none;
-		word-break: break-word;
-		font-weight: 500;
-		transition: color 0.2s ease;
-	}
-
-	.gym-info a:hover {
-		text-decoration: underline;
+		min-width: 120px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		font-size: 0.9rem;
 	}
 
 	@media (max-width: 768px) {
 		.gym-card {
 			margin-top: 1.5rem;
+			border-radius: 8px;
 		}
 
 		.gym-content {
 			padding: 1rem;
 		}
 
-		.gym-title {
-			font-size: 1.25rem;
-			margin-bottom: 0.75rem;
+		.gym-name-overlay {
+			top: 0.5rem;
+			left: 0.5rem;
+			padding: 0.375rem 0.75rem;
 		}
 
-		.distance-badge {
-			top: 0.25rem;
-			right: 0.75rem;
-			font-size: 0.8rem;
-			padding: 0.1875rem 0.375rem;
-		}
-
-		.gym-info {
-			font-size: 0.9rem;
-			margin-bottom: 0.75rem;
-			gap: 0.5rem;
-			padding: 0.375rem;
-		}
-
-		.gym-info-icon {
+		.gym-name {
 			font-size: 1rem;
+		}
+
+		.gym-distance {
+			font-size: 0.7rem;
+		}
+
+		.button-group {
+			flex-direction: column;
+			gap: 0.5rem;
+			margin-top: 1rem;
+		}
+
+		.button-group button {
+			flex: none;
+			min-width: auto;
+			font-size: 0.85rem;
+			width: 100%;
+			margin: 0;
 		}
 	}
 </style>
@@ -152,50 +157,52 @@
 <div>
 	{#each gyms as gym}
 		<div class="gym-card">
-			<div class="gym-content">
-				<h2 class="gym-title">
-					{gym.name}
-				</h2>
-				{#if latitude && longitude}
-					<div class="distance-badge">
-						{gym.distance.toFixed(1)} km
-					</div>			
-				{/if}
-				<div class="gym-info">
-					<span class="gym-info-icon">📍</span>
-					<div class="gym-info-content">
-						<a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(gym.address)}`} target="_blank" rel="noopener noreferrer">{gym.address}</a>
-					</div>
+			<div class="carousel-container">
+				<div class="gym-name-overlay">
+					<div class="gym-name">{gym.name}</div>
+					{#if latitude && longitude}
+						<div class="gym-distance">{gym.distance.toFixed(1)} km</div>
+					{/if}
 				</div>
-				<div class="gym-info">
-					<span class="gym-info-icon">🌐</span>
-					<div class="gym-info-content">
-						<a href={gym.website} target="_blank" rel="noopener noreferrer">{$t('tools.gymFinder.visitWebsite')}</a>
-					</div>
+				<Carousel.Root
+					plugins={[
+						Autoplay({
+						delay: 2000,
+						}),
+					]}
+					>
+					<Carousel.Content>
+						{#each gym.images as image}
+							<Carousel.Item>
+								<Image
+									src={image}
+									layout="constrained"
+									width={800}
+									height={400}
+									alt={gym.name}
+									cdn={import.meta.env.DEV ? undefined : "netlify"}
+								/>
+							</Carousel.Item>
+						{/each}
+					</Carousel.Content>
+				</Carousel.Root>
+			</div>
+			<div class="gym-content">
+				<div class="button-group">
+					<button
+						class="button"
+						on:click={() => window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(gym.address)}`, '_blank')}
+					>
+						{$t('tools.gymFinder.viewLocation')}
+					</button>
+					<button
+						class="button"
+						on:click={() => window.open(gym.website, '_blank')}
+					>
+						{$t('tools.gymFinder.visitWebsite')}
+					</button>
 				</div>
 			</div>
-			<Carousel.Root
-				plugins={[
-					Autoplay({
-					delay: 2000,
-					}),
-				]}
-				>
-				 <Carousel.Content>
-					{#each gym.images as image}
-						<Carousel.Item>
-							<Image
-								src={image}
-								layout="constrained"
-								width={800}
-								height={400}
-								alt={gym.name}
-								cdn={import.meta.env.DEV ? undefined : "netlify"}
-							/>
-						</Carousel.Item>
-					{/each}
-				</Carousel.Content>
-			</Carousel.Root>
 		</div>
 	{/each}
 </div>
