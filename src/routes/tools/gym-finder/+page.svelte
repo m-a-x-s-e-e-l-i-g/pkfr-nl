@@ -5,7 +5,6 @@
 	import Autoplay from "embla-carousel-autoplay";
 	import * as Carousel from "$lib/components/ui/carousel/index.js";
 	import * as Alert from "$lib/components/ui/alert/index.js";
-	import * as Button from "$lib/components/ui/button/index.js";
 	import Icon from 'svelte-awesome';
 	import locationArrow from 'svelte-awesome/icons/locationArrow';
 	import { Image } from "@unpic/svelte";
@@ -143,6 +142,14 @@
 </svelte:head>
 <h1>{$t('tools.gymFinder.heading')}</h1>
 <p>{@html $t('tools.gymFinder.intro').replace('{count}', gyms.length)}</p>
+<div style="margin: 1.5rem 0;">
+	<button
+		class="button"
+		on:click={() => window.open('https://maps.app.goo.gl/4n4oQeJ4FysKAkcy5?g_st=ac', '_blank')}
+	>
+		{$t('tools.gymFinder.viewAllOnMap')}
+	</button>
+</div>
 {#if !latitude && !longitude}
 	<div transition:slide>
 		<Alert.Root>
