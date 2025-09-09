@@ -26,5 +26,9 @@ export const navItems = [
     {
         title: 'Tools',
         route: '/tools'
+    },
+    {
+        title: 'TV',
+        route: '/tv'
     }
 ];

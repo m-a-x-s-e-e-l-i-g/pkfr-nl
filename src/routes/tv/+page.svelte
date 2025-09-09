@@ -1,0 +1,525 @@
+<script lang="ts">
+	import { onMount } from 'svelte';
+	import { fade, scale } from 'svelte/transition';
+
+	let movies = [
+		{
+			id: 1,
+			title: "Jump London",
+			year: "2003",
+			description: "The documentary that introduced parkour to the world, featuring Sébastien Foucan and other founding traceurs.",
+			thumbnail: "https://image.tmdb.org/t/p/original/mSknYoFSBB6o8HeeCTojq3CERgd.jpg",
+			videoId: "l8fSXGP9wvQ",
+			type: "movie",
+			duration: "60 min"
+		},
+		{
+			id: 2,
+			title: "Jump Britain",
+			year: "2005", 
+			description: "The follow-up to Jump London, showcasing British traceurs and the growth of parkour in the UK.",
+			thumbnail: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/eTMM80n6xFiCwUdNYHEnxEP5QWb.jpg",
+			videoId: "2TJurAP9l-Q",
+			type: "movie",
+			duration: "60 min"
+		},
+		{
+			id: 3,
+			title: "Sole Destroyer 2020",
+			year: "2020",
+			description: "The Motus Projects athletes push their physical and mental limits in this raw documentary about the evolving sport of parkour. Through elation, stress, injury and laughter, their friendship drives their success.",
+			thumbnail: "https://image.tmdb.org/t/p/original/bizGkp2qchu73MNy9Vlh4KW7pQK.jpg",
+			videoId: "VlM7bOegiIg",
+			type: "movie",
+			duration: "40 min"
+		},
+		{
+			id: 4,
+			title: "Amsterdam Is Dead 2024",
+			year: "2024",
+			description: "AMSTERDAM IS DEAD a Parkour Film aiming to revive this city's lost street parkour scene. Documentaire door Fé Amsterdam.",
+			thumbnail: "https://image.tmdb.org/t/p/original/8jJ0IEc24tC1w24niLc2c343YPi.jpg",
+			videoId: "placeholder-amsterdam",
+			type: "movie",
+			duration: "48 min"
+		}
+	];
+
+	let playlists = [
+		{
+			id: 1,
+			title: "Parkour Tutorial Series",
+			creator: "Parkour Generations",
+			description: "Complete beginner to advanced parkour tutorial series covering all fundamental movements.",
+			thumbnail: "/images/tutorial-series-poster.jpg",
+			playlistId: "PLrAXtmRdnEQy1QsAHNDtpDYJE8BcLdqR7",
+			type: "playlist",
+			videoCount: 25
+		},
+		{
+			id: 2,
+			title: "World Championship Highlights",
+			creator: "FIG Parkour",
+			description: "Best moments from the FIG Parkour World Championships featuring the world's top athletes.",
+			thumbnail: "/images/world-championships-poster.jpg",
+			playlistId: "PLrAXtmRdnEQy1QsAHNDtpDYJE8BcLdqR8",
+			type: "playlist",
+			videoCount: 15
+		},
+		{
+			id: 3,
+			title: "Street Parkour Sessions", 
+			creator: "Storror",
+			description: "Raw street parkour sessions from around the world featuring creative lines and flows.",
+			thumbnail: "/images/street-sessions-poster.jpg",
+			playlistId: "PLrAXtmRdnEQy1QsAHNDtpDYJE8BcLdqR9",
+			type: "playlist",
+			videoCount: 42
+		},
+		{
+			id: 4,
+			title: "Parkour Philosophy",
+			creator: "Movement Culture",
+			description: "Deep discussions about the philosophy, mindset, and culture of parkour movement.",
+			thumbnail: "/images/philosophy-poster.jpg",
+			playlistId: "PLrAXtmRdnEQy1QsAHNDtpDYJE8BcLdqR0",
+			type: "playlist",
+			videoCount: 18
+		},
+		{
+			id: 5,
+			title: "NL Parkour Community TV",
+			creator: "Dutch Parkour Community",
+			description: "Alles wat uit Nederlandse community komt in een playlist - Dutch parkour content from the community.",
+			thumbnail: "/images/nl-community-poster.jpg",
+			playlistId: "PL3iwaCsp8s8P0lVvw3DkmMFmGxqBGSXnS",
+			type: "playlist",
+			videoCount: 0
+		},
+		{
+			id: 6,
+			title: "Must Watch: De Ultieme Playlist",
+			creator: "International Parkour",
+			description: "Alles internationaal.. alles wat cool is enzo - The ultimate international parkour must-watch collection.",
+			thumbnail: "/images/must-watch-poster.jpg",
+			playlistId: "PLIZ9EYUk7YaYgqhOHd1MqROfTmNw79UBy",
+			type: "playlist",
+			videoCount: 0
+		}
+	];
+
+	let selectedContent: any = null;
+	let showPlayer = false;
+	let allContent: any[] = [];
+	let selectedIndex = 0;
+
+	// Combine movies and playlists into one array for navigation
+	$: allContent = [...movies, ...playlists];
+
+	// Set first item as selected by default
+	$: if (allContent.length > 0 && !selectedContent) {
+		selectedContent = allContent[0];
+	}
+
+	function selectContent(content: any) {
+		selectedContent = content;
+		selectedIndex = allContent.findIndex(item => item.id === content.id && item.type === content.type);
+		showPlayer = false;
+	}
+
+	function selectByIndex(index: number) {
+		if (index >= 0 && index < allContent.length) {
+			selectedIndex = index;
+			selectedContent = allContent[index];
+			showPlayer = false;
+		}
+	}
+
+	function openContent(content: any) {
+		selectedContent = content;
+		showPlayer = true;
+	}
+
+	function closePlayer() {
+		showPlayer = false;
+	}
+
+	function getYouTubeEmbedUrl(videoId: string) {
+		return `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+	}
+
+	function getPlaylistEmbedUrl(playlistId: string) {
+		return `https://www.youtube.com/embed/videoseries?list=${playlistId}&autoplay=1`;
+	}
+
+	// Handle keyboard navigation
+	function handleKeydown(event: KeyboardEvent) {
+		if (showPlayer && event.key === 'Escape') {
+			closePlayer();
+			return;
+		}
+
+		// Arrow key navigation
+		if (!showPlayer) {
+			switch (event.key) {
+				case 'ArrowRight':
+					event.preventDefault();
+					selectByIndex(selectedIndex + 1);
+					break;
+				case 'ArrowLeft':
+					event.preventDefault();
+					selectByIndex(selectedIndex - 1);
+					break;
+				case 'ArrowDown':
+					event.preventDefault();
+					// Calculate columns based on screen width - approximate
+					const cols = window.innerWidth >= 1536 ? 6 : window.innerWidth >= 1280 ? 5 : window.innerWidth >= 1024 ? 4 : window.innerWidth >= 768 ? 3 : 2;
+					selectByIndex(selectedIndex + cols);
+					break;
+				case 'ArrowUp':
+					event.preventDefault();
+					const colsUp = window.innerWidth >= 1536 ? 6 : window.innerWidth >= 1280 ? 5 : window.innerWidth >= 1024 ? 4 : window.innerWidth >= 768 ? 3 : 2;
+					selectByIndex(selectedIndex - colsUp);
+					break;
+				case 'Enter':
+				case ' ':
+					event.preventDefault();
+					if (selectedContent) {
+						openContent(selectedContent);
+					}
+					break;
+			}
+		}
+	}
+
+	onMount(() => {
+		document.addEventListener('keydown', handleKeydown);
+		return () => {
+			document.removeEventListener('keydown', handleKeydown);
+		};
+	});
+</script>
+
+<svelte:head>
+	<title>Parkour TV - PKFR.nl</title>
+	<meta name="description" content="Watch parkour movies, documentaries, and YouTube playlists. Discover the best parkour content in one place." />
+</svelte:head>
+
+<div class="tv-full-width min-h-screen bg-gray-900 text-white">
+	<!-- Header Section -->
+	<div class="bg-gray-800 border-b border-gray-700">
+		<div class="container mx-auto px-6 py-6">
+			<h1 class="text-3xl font-bold text-white mb-2">Parkour TV</h1>
+			<p class="text-gray-300">Discover parkour movies, documentaries, and playlists</p>
+		</div>
+	</div>
+
+	<!-- Content Grid -->
+	<div class="flex">
+		<!-- Main Content Area -->
+		<div class="flex-1 container mx-auto px-6 py-8 pr-4">
+			<!-- Combined Movies and Playlists Grid -->
+			<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4">
+				<!-- Movies -->
+				{#each movies as movie}
+					<div 
+						class="group cursor-pointer transform hover:scale-105 transition-all duration-300"
+						class:scale-105={selectedContent && selectedContent.id === movie.id && selectedContent.type === movie.type}
+						on:click={() => selectContent(movie)}
+						on:keydown={(e) => e.key === 'Enter' && selectContent(movie)}
+						tabindex="0"
+						role="button"
+					>
+						<div class="relative aspect-[2/3] bg-gray-800 rounded-lg overflow-hidden mb-3 shadow-lg"
+							class:ring-4={selectedContent && selectedContent.id === movie.id && selectedContent.type === movie.type}
+							class:ring-red-500={selectedContent && selectedContent.id === movie.id && selectedContent.type === movie.type}
+						>
+							{#if movie.thumbnail.startsWith('http')}
+								<!-- Real movie poster -->
+								<img 
+									src={movie.thumbnail} 
+									alt="{movie.title} poster"
+									class="w-full h-full object-cover"
+									loading="lazy"
+								/>
+							{:else}
+								<!-- Placeholder for movie poster -->
+								<div class="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-700 flex items-center justify-center">
+									<div class="text-center p-3">
+										<svg class="w-8 h-8 mx-auto mb-2 opacity-60" fill="currentColor" viewBox="0 0 20 20">
+											<path d="M8 5v10l8-5-8-5z"/>
+										</svg>
+										<p class="text-xs opacity-80 font-medium text-center leading-tight">{movie.title}</p>
+									</div>
+								</div>
+							{/if}
+							
+							<!-- Hover overlay -->
+							<div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-colors duration-300 flex items-center justify-center">
+								<div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
+									<svg class="w-12 h-12 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
+										<path d="M8 5v10l8-5-8-5z"/>
+									</svg>
+									<p class="text-sm font-medium">Play</p>
+								</div>
+							</div>
+
+							<!-- Movie type badge -->
+							<div class="absolute top-2 left-2 bg-blue-600 px-2 py-1 rounded text-xs font-medium">
+								MOVIE
+							</div>
+
+							<!-- Duration badge -->
+							<div class="absolute bottom-2 right-2 bg-black/70 px-2 py-1 rounded text-xs">
+								{movie.duration}
+							</div>
+						</div>
+						
+					</div>
+				{/each}
+
+				<!-- Playlists -->
+				{#each playlists as playlist}
+					<div 
+						class="group cursor-pointer transform hover:scale-105 transition-all duration-300"
+						class:scale-105={selectedContent && selectedContent.id === playlist.id && selectedContent.type === playlist.type}
+						on:click={() => selectContent(playlist)}
+						on:keydown={(e) => e.key === 'Enter' && selectContent(playlist)}
+						tabindex="0"
+						role="button"
+					>
+						<div class="relative aspect-[2/3] bg-gray-800 rounded-lg overflow-hidden mb-3 shadow-lg"
+							class:ring-4={selectedContent && selectedContent.id === playlist.id && selectedContent.type === playlist.type}
+							class:ring-red-500={selectedContent && selectedContent.id === playlist.id && selectedContent.type === playlist.type}
+						>
+							{#if playlist.thumbnail.startsWith('http')}
+								<!-- Real playlist thumbnail -->
+								<img 
+									src={playlist.thumbnail} 
+									alt="{playlist.title} thumbnail"
+									class="w-full h-full object-cover"
+									loading="lazy"
+								/>
+							{:else}
+								<!-- Playlist thumbnail placeholder -->
+								<div class="absolute inset-0 bg-gradient-to-br from-red-600 to-pink-700 flex items-center justify-center">
+									<div class="text-center p-3">
+										<svg class="w-8 h-8 mx-auto mb-2 opacity-60" fill="currentColor" viewBox="0 0 20 20">
+											<path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"/>
+										</svg>
+										<p class="text-xs opacity-80 font-medium text-center leading-tight">{playlist.title}</p>
+									</div>
+								</div>
+							{/if}
+							
+							<!-- Hover overlay -->
+							<div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-colors duration-300 flex items-center justify-center">
+								<div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
+									<svg class="w-12 h-12 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
+										<path d="M8 5v10l8-5-8-5z"/>
+									</svg>
+									<p class="text-sm font-medium">Play</p>
+								</div>
+							</div>
+
+							<!-- Playlist type badge -->
+							<div class="absolute top-2 left-2 bg-red-600 px-2 py-1 rounded text-xs font-medium">
+								PLAYLIST
+							</div>
+
+							<!-- Video count badge -->
+							<div class="absolute bottom-2 right-2 bg-black/70 px-2 py-1 rounded text-xs">
+								{playlist.videoCount || '?'} videos
+							</div>
+						</div>
+						
+					</div>
+				{/each}
+			</div>
+		</div>
+
+		<!-- Sidebar -->
+		<div class="w-96 bg-gray-800 border-l border-gray-700 p-6 overflow-y-auto">
+			{#if selectedContent}
+				<!-- Content poster -->
+				<div class="mb-6">
+					{#if selectedContent.thumbnail.startsWith('http')}
+						<img 
+							src={selectedContent.thumbnail} 
+							alt="{selectedContent.title} poster"
+							class="w-full h-80 object-cover rounded-lg"
+						/>
+					{:else}
+						<div class="w-full h-80 bg-gradient-to-br from-blue-600 to-purple-700 rounded-lg flex items-center justify-center">
+							<div class="text-center p-4">
+								<svg class="w-16 h-16 mx-auto mb-4 opacity-60" fill="currentColor" viewBox="0 0 20 20">
+									<path d="M8 5v10l8-5-8-5z"/>
+								</svg>
+								<p class="text-lg font-medium">{selectedContent.title}</p>
+							</div>
+						</div>
+					{/if}
+				</div>
+
+				<!-- Content details -->
+				<div class="space-y-4">
+					<div>
+						<h2 class="text-2xl font-bold text-white mb-2">{selectedContent.title}</h2>
+						<div class="flex items-center gap-4 text-sm text-gray-400 mb-4">
+							{#if selectedContent.type === 'movie'}
+								<span class="bg-blue-600 px-2 py-1 rounded text-white text-xs">MOVIE</span>
+								<span>{selectedContent.year}</span>
+								<span>{selectedContent.duration}</span>
+							{:else}
+								<span class="bg-red-600 px-2 py-1 rounded text-white text-xs">PLAYLIST</span>
+								<span>{selectedContent.creator}</span>
+								<span>{selectedContent.videoCount || '?'} videos</span>
+							{/if}
+						</div>
+					</div>
+
+					<!-- Description -->
+					<div>
+						<h3 class="text-lg font-semibold text-white mb-2">Description</h3>
+						<p class="text-gray-300 leading-relaxed">
+							{selectedContent.description}
+						</p>
+					</div>
+
+					{#if selectedContent.type === 'movie'}
+						<!-- Movie specific details -->
+						<div>
+							<h3 class="text-lg font-semibold text-white mb-2">Details</h3>
+							<div class="space-y-2 text-sm">
+								<div class="flex justify-between">
+									<span class="text-gray-400">Year:</span>
+									<span class="text-white">{selectedContent.year}</span>
+								</div>
+								<div class="flex justify-between">
+									<span class="text-gray-400">Duration:</span>
+									<span class="text-white">{selectedContent.duration}</span>
+								</div>
+								<div class="flex justify-between">
+									<span class="text-gray-400">Type:</span>
+									<span class="text-white">Documentary</span>
+								</div>
+							</div>
+						</div>
+					{:else}
+						<!-- Playlist specific details -->
+						<div>
+							<h3 class="text-lg font-semibold text-white mb-2">Playlist Info</h3>
+							<div class="space-y-2 text-sm">
+								<div class="flex justify-between">
+									<span class="text-gray-400">Creator:</span>
+									<span class="text-white">{selectedContent.creator}</span>
+								</div>
+								<div class="flex justify-between">
+									<span class="text-gray-400">Videos:</span>
+									<span class="text-white">{selectedContent.videoCount || '?'}</span>
+								</div>
+								<div class="flex justify-between">
+									<span class="text-gray-400">Type:</span>
+									<span class="text-white">YouTube Playlist</span>
+								</div>
+							</div>
+						</div>
+					{/if}
+
+					<!-- Action buttons -->
+					<div class="pt-4">
+						<button 
+							on:click={() => openContent(selectedContent)}
+							class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2"
+						>
+							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+								<path d="M8 5v10l8-5-8-5z"/>
+							</svg>
+							Play Now
+						</button>
+					</div>
+				</div>
+			{:else}
+				<div class="text-center text-gray-400 py-12">
+					<svg class="w-16 h-16 mx-auto mb-4 opacity-30" fill="currentColor" viewBox="0 0 20 20">
+						<path d="M8 5v10l8-5-8-5z"/>
+					</svg>
+					<p>Select a movie or playlist to view details</p>
+				</div>
+			{/if}
+		</div>
+	</div>
+</div>
+
+<!-- Video Player Modal -->
+{#if showPlayer && selectedContent}
+	<div 
+		class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+		transition:fade={{ duration: 300 }}
+		on:click={closePlayer}
+		on:keydown={(e) => e.key === 'Escape' && closePlayer()}
+		role="dialog"
+		aria-modal="true"
+		tabindex="-1"
+	>
+		<div 
+			class="relative w-full max-w-6xl aspect-video bg-black rounded-lg overflow-hidden"
+			transition:scale={{ duration: 300 }}
+			on:click|stopPropagation
+			on:keydown|stopPropagation
+			role="presentation"
+		>
+			<!-- Close button -->
+			<button 
+				on:click={closePlayer}
+				class="absolute top-4 right-4 z-10 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+				aria-label="Close player"
+			>
+				<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+				</svg>
+			</button>
+
+			<!-- Video iframe -->
+			{#if selectedContent.type === 'movie'}
+				<iframe
+					src={getYouTubeEmbedUrl(selectedContent.videoId)}
+					title={selectedContent.title}
+					class="w-full h-full"
+					frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen
+				></iframe>
+			{:else if selectedContent.type === 'playlist'}
+				<iframe
+					src={getPlaylistEmbedUrl(selectedContent.playlistId)}
+					title={selectedContent.title}
+					class="w-full h-full"
+					frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen
+				></iframe>
+			{/if}
+		</div>
+	</div>
+{/if}
+
+<style>
+	.line-clamp-2 {
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+	
+	/* Full-width container that breaks out of the main container */
+	.tv-full-width {
+		position: relative;
+		left: 50%;
+		right: 50%;
+		margin-left: -50vw;
+		margin-right: -50vw;
+		width: 100vw;
+	}
+</style>
