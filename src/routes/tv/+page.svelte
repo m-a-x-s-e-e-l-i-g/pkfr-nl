@@ -25,7 +25,7 @@
 		},
 		{
 			id: 3,
-			title: "Sole Destroyer 2020",
+			title: "Sole Destroyer",
 			year: "2020",
 			description: "The Motus Projects athletes push their physical and mental limits in this raw documentary about the evolving sport of parkour. Through elation, stress, injury and laughter, their friendship drives their success.",
 			thumbnail: "https://image.tmdb.org/t/p/original/bizGkp2qchu73MNy9Vlh4KW7pQK.jpg",
@@ -35,11 +35,11 @@
 		},
 		{
 			id: 4,
-			title: "Amsterdam Is Dead 2024",
+			title: "Amsterdam Is Dead",
 			year: "2024",
 			description: "AMSTERDAM IS DEAD a Parkour Film aiming to revive this city's lost street parkour scene. Documentaire door Fé Amsterdam.",
 			thumbnail: "https://image.tmdb.org/t/p/original/8jJ0IEc24tC1w24niLc2c343YPi.jpg",
-			videoId: "placeholder-amsterdam",
+			videoId: "lJX3DUlSj4M",
 			type: "movie",
 			duration: "48 min"
 		}
@@ -48,63 +48,23 @@
 	let playlists = [
 		{
 			id: 1,
-			title: "Parkour Tutorial Series",
-			creator: "Parkour Generations",
-			description: "Complete beginner to advanced parkour tutorial series covering all fundamental movements.",
-			thumbnail: "/images/tutorial-series-poster.jpg",
-			playlistId: "PLrAXtmRdnEQy1QsAHNDtpDYJE8BcLdqR7",
-			type: "playlist",
-			videoCount: 25
-		},
-		{
-			id: 2,
-			title: "World Championship Highlights",
-			creator: "FIG Parkour",
-			description: "Best moments from the FIG Parkour World Championships featuring the world's top athletes.",
-			thumbnail: "/images/world-championships-poster.jpg",
-			playlistId: "PLrAXtmRdnEQy1QsAHNDtpDYJE8BcLdqR8",
-			type: "playlist",
-			videoCount: 15
-		},
-		{
-			id: 3,
-			title: "Street Parkour Sessions", 
-			creator: "Storror",
-			description: "Raw street parkour sessions from around the world featuring creative lines and flows.",
-			thumbnail: "/images/street-sessions-poster.jpg",
-			playlistId: "PLrAXtmRdnEQy1QsAHNDtpDYJE8BcLdqR9",
-			type: "playlist",
-			videoCount: 42
-		},
-		{
-			id: 4,
-			title: "Parkour Philosophy",
-			creator: "Movement Culture",
-			description: "Deep discussions about the philosophy, mindset, and culture of parkour movement.",
-			thumbnail: "/images/philosophy-poster.jpg",
-			playlistId: "PLrAXtmRdnEQy1QsAHNDtpDYJE8BcLdqR0",
-			type: "playlist",
-			videoCount: 18
-		},
-		{
-			id: 5,
 			title: "NL Parkour Community TV",
 			creator: "Dutch Parkour Community",
 			description: "Alles wat uit Nederlandse community komt in een playlist - Dutch parkour content from the community.",
 			thumbnail: "/images/nl-community-poster.jpg",
 			playlistId: "PL3iwaCsp8s8P0lVvw3DkmMFmGxqBGSXnS",
 			type: "playlist",
-			videoCount: 0
+			videoCount: 53
 		},
 		{
-			id: 6,
+			id: 2,
 			title: "Must Watch: De Ultieme Playlist",
-			creator: "International Parkour",
+			creator: "Koen Bangert",
 			description: "Alles internationaal.. alles wat cool is enzo - The ultimate international parkour must-watch collection.",
 			thumbnail: "/images/must-watch-poster.jpg",
 			playlistId: "PLIZ9EYUk7YaYgqhOHd1MqROfTmNw79UBy",
 			type: "playlist",
-			videoCount: 0
+			videoCount: 125
 		}
 	];
 
