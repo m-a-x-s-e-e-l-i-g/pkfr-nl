@@ -215,7 +215,7 @@
 <div class="-mx-60 min-h-screen bg-gray-900 text-white">
 	<!-- Header Section -->
 	<div class="container mx-auto px-6 py-0">
-		<h1 class="text-3xl font-bold text-white mb-2">Jumpflix <small>🍿PARKOUR TV🦘</small></h1>
+		<h1 class="text-3xl font-bold text-white mb-2">JUMPFLIX <small>🍿Parkour TV🦘</small></h1>
 		<p class="text-gray-300">Discover parkour movies, documentaries and playlists. Grab some popcorn!</p>
 	</div>
 
@@ -334,7 +334,7 @@
 						<img 
 							src={selectedContent.thumbnail} 
 							alt="{selectedContent.title} background"
-							class="w-full h-full object-cover scale-110"
+							class="w-full h-full object-cover scale-200"
 						/>
 						<div class="absolute inset-0 backdrop-blur-2xl bg-black/70 border-l border-white/10"></div>
 					{:else}
