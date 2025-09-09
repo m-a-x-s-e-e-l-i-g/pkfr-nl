@@ -11,7 +11,7 @@
 			thumbnail: "https://image.tmdb.org/t/p/original/mSknYoFSBB6o8HeeCTojq3CERgd.jpg",
 			videoId: "l8fSXGP9wvQ",
 			type: "movie",
-			duration: "60 min"
+			duration: "60m"
 		},
 		{
 			id: 2,
@@ -21,7 +21,7 @@
 			thumbnail: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/eTMM80n6xFiCwUdNYHEnxEP5QWb.jpg",
 			videoId: "2TJurAP9l-Q",
 			type: "movie",
-			duration: "60 min"
+			duration: "60m"
 		},
 		{
 			id: 3,
@@ -31,7 +31,7 @@
 			thumbnail: "https://image.tmdb.org/t/p/original/bizGkp2qchu73MNy9Vlh4KW7pQK.jpg",
 			videoId: "VlM7bOegiIg",
 			type: "movie",
-			duration: "40 min"
+			duration: "40m"
 		},
 		{
 			id: 4,
@@ -41,7 +41,18 @@
 			thumbnail: "https://image.tmdb.org/t/p/original/8jJ0IEc24tC1w24niLc2c343YPi.jpg",
 			videoId: "lJX3DUlSj4M",
 			type: "movie",
-			duration: "48 min"
+			duration: "48m"
+		},
+		{
+			id: 5,
+			title: "Roof Culture Asia",
+			year: "2017",
+			description: "Team Storror showcase Parkour on a stage never before seen - the rooftops of Asian megacities. The film follows team Storror on their exploration into what drives them to push the sport to such extremes, and the battles that face them when trying to shoot a feature film totally guerilla. RCA delves into the mental and physical preparation Parkour athletes have to undertake to make impossible 'leaps of faith', possible.",
+			thumbnail: "https://image.tmdb.org/t/p/original/aeAe6WOKXROmmXySeZN6dWccWPX.jpg",
+			videoId: "fmJPFZLc9dE",
+			type: "movie",
+			duration: "1h 53m",
+			trakt: "https://trakt.tv/movies/roof-culture-asia-2017"
 		}
 	];
 
