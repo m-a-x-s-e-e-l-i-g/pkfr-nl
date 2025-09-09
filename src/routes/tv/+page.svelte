@@ -11,7 +11,8 @@
 			thumbnail: "https://image.tmdb.org/t/p/original/mSknYoFSBB6o8HeeCTojq3CERgd.jpg",
 			videoId: "l8fSXGP9wvQ",
 			type: "movie",
-			duration: "60m"
+			duration: "60m",
+			trakt: "https://trakt.tv/movies/jump-london-2003"
 		},
 		{
 			id: 2,
@@ -21,7 +22,8 @@
 			thumbnail: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/eTMM80n6xFiCwUdNYHEnxEP5QWb.jpg",
 			videoId: "2TJurAP9l-Q",
 			type: "movie",
-			duration: "60m"
+			duration: "60m",
+			trakt: "https://trakt.tv/movies/jump-britain-2005"
 		},
 		{
 			id: 3,
@@ -31,7 +33,8 @@
 			thumbnail: "https://image.tmdb.org/t/p/original/bizGkp2qchu73MNy9Vlh4KW7pQK.jpg",
 			videoId: "VlM7bOegiIg",
 			type: "movie",
-			duration: "40m"
+			duration: "40m",
+			trakt: "https://trakt.tv/movies/sole-destroyer-2020"
 		},
 		{
 			id: 4,
@@ -41,7 +44,8 @@
 			thumbnail: "https://image.tmdb.org/t/p/original/8jJ0IEc24tC1w24niLc2c343YPi.jpg",
 			videoId: "lJX3DUlSj4M",
 			type: "movie",
-			duration: "48m"
+			duration: "48m",
+			trakt: "https://trakt.tv/movies/amsterdam-is-dead-2024"
 		},
 		{
 			id: 5,
@@ -53,6 +57,16 @@
 			type: "movie",
 			duration: "1h 53m",
 			trakt: "https://trakt.tv/movies/roof-culture-asia-2017"
+		},
+		{
+			id: 6,
+			title: "S.O.L",
+			year: "2022",
+			description: "S.O.L is a parkour tour film with the carefree vibe of 2010s summer edits, focusing less on moves and more on friendship, support, and shared training moments.",
+			thumbnail: "/images/posters/the-motus-projects-sol-poster.jpg",
+			videoId: "Tswad8jCgaM",
+			type: "movie",
+			duration: "1h 12m"
 		}
 	];
 
@@ -62,7 +76,7 @@
 			title: "NL Parkour Community TV",
 			creator: "Dutch Parkour Community",
 			description: "Alles wat uit Nederlandse community komt in een playlist - Dutch parkour content from the community.",
-			thumbnail: "/images/nl-community-poster.jpg",
+			thumbnail: "",
 			playlistId: "PL3iwaCsp8s8P0lVvw3DkmMFmGxqBGSXnS",
 			type: "playlist",
 			videoCount: 53
@@ -72,7 +86,7 @@
 			title: "Must Watch: De Ultieme Playlist",
 			creator: "Koen Bangert",
 			description: "Alles internationaal.. alles wat cool is enzo - The ultimate international parkour must-watch collection.",
-			thumbnail: "/images/must-watch-poster.jpg",
+			thumbnail: "",
 			playlistId: "PLIZ9EYUk7YaYgqhOHd1MqROfTmNw79UBy",
 			type: "playlist",
 			videoCount: 125
@@ -142,6 +156,11 @@
 
 	function getPlaylistEmbedUrl(playlistId: string) {
 		return `https://www.youtube.com/embed/videoseries?list=${playlistId}&autoplay=1&fs=1&modestbranding=1&controls=1`;
+	}
+
+	// Consider both external (http...) and local absolute ("/path/to/...") image URLs
+	function isImage(src: string) {
+		return typeof src === 'string' && (src.startsWith('http') || src.startsWith('/'));
 	}
 
 	// Handle keyboard navigation
@@ -240,7 +259,7 @@
 							class:ring-red-500={selectedContent && selectedContent.id === movie.id && selectedContent.type === movie.type}
 							title="{movie.title}"
 						>
-							{#if movie.thumbnail.startsWith('http')}
+							{#if isImage(movie.thumbnail)}
 								<!-- Real movie poster -->
 								<img 
 									src={movie.thumbnail} 
@@ -289,7 +308,7 @@
 							class:ring-red-500={selectedContent && selectedContent.id === playlist.id && selectedContent.type === playlist.type}
 							title="{playlist.title}"
 						>
-							{#if playlist.thumbnail.startsWith('http')}
+							{#if isImage(playlist.thumbnail)}
 								<!-- Real playlist thumbnail -->
 								<img 
 									src={playlist.thumbnail} 
@@ -330,7 +349,7 @@
 			{#if selectedContent}
 				<!-- Background with poster and glass effect -->
 				<div class="absolute inset-0 z-0">
-					{#if selectedContent.thumbnail.startsWith('http')}
+					{#if isImage(selectedContent.thumbnail)}
 						<img 
 							src={selectedContent.thumbnail} 
 							alt="{selectedContent.title} background"
