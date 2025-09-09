@@ -213,9 +213,9 @@
 	</div>
 
 	<!-- Content Grid -->
-	<div class="flex">
+	<div>
 		<!-- Main Content Area -->
-		<div class="flex-1 container mx-auto px-6 py-8 pr-4">
+		<div class="container mx-auto px-6 py-8 pr-4 mr-96">
 			<!-- Combined Movies and Playlists Grid -->
 			<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4">
 				<!-- Movies -->
@@ -337,30 +337,25 @@
 		</div>
 
 		<!-- Sidebar -->
-		<div class="w-96 bg-gray-800 border-l border-gray-700 p-6 overflow-y-auto">
+		<div class="w-96 border-l border-gray-700 p-6 fixed top-0 right-0 h-screen overflow-hidden">
 			{#if selectedContent}
-				<!-- Content poster -->
-				<div class="mb-6">
+				<!-- Background with poster and glass effect -->
+				<div class="absolute inset-0 z-0">
 					{#if selectedContent.thumbnail.startsWith('http')}
 						<img 
 							src={selectedContent.thumbnail} 
-							alt="{selectedContent.title} poster"
-							class="w-full h-80 object-cover rounded-lg"
+							alt="{selectedContent.title} background"
+							class="w-full h-full object-cover scale-110"
 						/>
+						<div class="absolute inset-0 backdrop-blur-2xl bg-black/70 border-l border-white/10"></div>
 					{:else}
-						<div class="w-full h-80 bg-gradient-to-br from-blue-600 to-purple-700 rounded-lg flex items-center justify-center">
-							<div class="text-center p-4">
-								<svg class="w-16 h-16 mx-auto mb-4 opacity-60" fill="currentColor" viewBox="0 0 20 20">
-									<path d="M8 5v10l8-5-8-5z"/>
-								</svg>
-								<p class="text-lg font-medium">{selectedContent.title}</p>
-							</div>
-						</div>
+						<div class="w-full h-full bg-gradient-to-br from-blue-600 to-purple-700 scale-110"></div>
+						<div class="absolute inset-0 backdrop-blur-2xl bg-black/70 border-l border-white/10"></div>
 					{/if}
 				</div>
 
 				<!-- Content details -->
-				<div class="space-y-4">
+				<div class="space-y-4 relative z-10">
 					<div>
 						<h2 class="text-2xl font-bold text-white mb-2">{selectedContent.title}</h2>
 						<div class="flex items-center gap-4 text-sm text-gray-400 mb-4">
@@ -438,7 +433,10 @@
 					</div>
 				</div>
 			{:else}
-				<div class="text-center text-gray-400 py-12">
+				<!-- Default background when no content selected -->
+				<div class="absolute inset-0 z-0 bg-gray-800 border-l border-white/10"></div>
+				
+				<div class="text-center text-gray-400 py-12 relative z-10">
 					<svg class="w-16 h-16 mx-auto mb-4 opacity-30" fill="currentColor" viewBox="0 0 20 20">
 						<path d="M8 5v10l8-5-8-5z"/>
 					</svg>
@@ -502,22 +500,13 @@
 	</div>
 {/if}
 
-<style>
-	.line-clamp-2 {
-		display: -webkit-box;
-		-webkit-line-clamp: 2;
-		line-clamp: 2;
-		-webkit-box-orient: vertical;
-		overflow: hidden;
-	}
-	
-	/* Full-width container that breaks out of the main container */
+<style>	
 	.tv-full-width {
 		position: relative;
 		left: 50%;
 		right: 50%;
 		margin-left: -50vw;
 		margin-right: -50vw;
-		width: 100vw;
+		width: calc(100vw - 24rem);
 	}
 </style>
