@@ -53,7 +53,10 @@
 			year: "2017",
 			description: "Team Storror push Parkour to the rooftops of Asian megacities, filming guerilla-style while exploring the drive, struggles, and preparation behind making impossible “leaps of faith” possible.",
 			thumbnail: "https://image.tmdb.org/t/p/original/aeAe6WOKXROmmXySeZN6dWccWPX.jpg",
-			videoId: "fmJPFZLc9dE",
+			externalUrl: "https://storrorplus.storror.com/programs/rca?cid=4256061",
+			paid: true,
+			provider: "STORROR+",
+			price: "€8",
 			type: "movie",
 			duration: "1h 53m",
 			trakt: "https://trakt.tv/movies/roof-culture-asia-2017"
@@ -99,6 +102,19 @@
 	let selectedIndex = 0;
 	let playerContainer: HTMLElement;
 
+	function isInlinePlayable(content: any) {
+		if (!content) return false;
+		if (content.type === 'movie') return Boolean(content.videoId);
+		if (content.type === 'playlist') return Boolean(content.playlistId);
+		return false;
+	}
+
+	function openExternalContent(content: any) {
+		if (content?.externalUrl) {
+			window.open(content.externalUrl, '_blank', 'noopener');
+		}
+	}
+
 	// Combine movies and playlists into one array for navigation
 	$: allContent = [...movies, ...playlists];
 
@@ -123,13 +139,19 @@
 
 	function openContent(content: any) {
 		selectedContent = content;
-		showPlayer = true;
-		// Request fullscreen after a short delay to ensure the player is rendered
-		setTimeout(() => {
-			if (playerContainer) {
-				requestFullscreen(playerContainer);
-			}
-		}, 100);
+		if (isInlinePlayable(content)) {
+			showPlayer = true;
+			// Request fullscreen after a short delay to ensure the player is rendered
+			setTimeout(() => {
+				if (playerContainer) {
+					requestFullscreen(playerContainer);
+				}
+			}, 100);
+		} else if (content?.externalUrl) {
+			openExternalContent(content);
+		} else {
+			console.warn('No playable source available for this item.');
+		}
 	}
 
 	function closePlayer() {
@@ -279,9 +301,12 @@
 								</div>
 							{/if}
 
-							<!-- Movie type badge -->
-							<div class="absolute top-2 left-2 bg-blue-600 px-2 py-1 rounded text-xs font-medium">
-								MOVIE
+							<!-- Movie type badge and paid indicator -->
+							<div class="absolute top-2 left-2 flex gap-2">
+								<span class="bg-blue-600 px-2 py-1 rounded text-xs font-medium">MOVIE</span>
+								{#if movie.paid}
+									<span class="bg-yellow-500 text-black px-2 py-1 rounded text-xs font-bold">PAID</span>
+								{/if}
 							</div>
 
 							<!-- Duration badge -->
@@ -369,6 +394,9 @@
 						<div class="flex items-center gap-4 text-sm text-gray-400 mb-4">
 							{#if selectedContent.type === 'movie'}
 								<span class="bg-blue-600 px-2 py-1 rounded text-white text-xs">MOVIE</span>
+								{#if selectedContent.paid}
+									<span class="bg-yellow-500 text-black px-2 py-1 rounded text-xs font-bold">PAID</span>
+								{/if}
 								<span>{selectedContent.year}</span>
 								<span>{selectedContent.duration}</span>
 							{:else}
@@ -404,6 +432,16 @@
 									<span class="text-gray-400">Type:</span>
 									<span class="text-white">Documentary</span>
 								</div>
+								{#if selectedContent.paid}
+									<div class="flex justify-between">
+										<span class="text-gray-400">Provider:</span>
+										<span class="text-white">{selectedContent.provider || 'External'}</span>
+									</div>
+									<div class="flex justify-between">
+										<span class="text-gray-400">Price:</span>
+										<span class="text-white">{selectedContent.price || ''}</span>
+									</div>
+								{/if}
 							</div>
 						</div>
 					{:else}
@@ -431,13 +469,26 @@
 				<!-- Action buttons - Fixed to bottom -->
 				<div class="relative z-10 pt-4">
 					<button 
-						on:click={() => openContent(selectedContent)}
+						on:click={() => {
+							if (isInlinePlayable(selectedContent)) {
+								openContent(selectedContent);
+							} else if (selectedContent?.externalUrl) {
+								openExternalContent(selectedContent);
+							}
+						}}
 						class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2 cursor-pointer"
 					>
-						<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-							<path d="M8 5v10l8-5-8-5z"/>
-						</svg>
-						Play Now
+						{#if isInlinePlayable(selectedContent)}
+							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+								<path d="M8 5v10l8-5-8-5z"/>
+							</svg>
+							Play Now
+						{:else}
+							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+								<path d="M14 3H6a2 2 0 00-2 2v12a2 2 0 002 2h8m4-4V5a2 2 0 00-2-2h-2m4 14l-4 4m0 0l-4-4m4 4V13" />
+							</svg>
+							Watch on {selectedContent.provider || 'External'} {selectedContent.price ? `(${selectedContent.price})` : ''}
+						{/if}
 					</button>
 				</div>
 			{:else}
@@ -486,7 +537,7 @@
 			</button>
 
 			<!-- Video iframe -->
-			{#if selectedContent.type === 'movie'}
+			{#if selectedContent.type === 'movie' && selectedContent.videoId}
 				<iframe
 					src={getYouTubeEmbedUrl(selectedContent.videoId)}
 					title={selectedContent.title}
@@ -495,7 +546,7 @@
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 					allowfullscreen
 				></iframe>
-			{:else if selectedContent.type === 'playlist'}
+			{:else if selectedContent.type === 'playlist' && selectedContent.playlistId}
 				<iframe
 					src={getPlaylistEmbedUrl(selectedContent.playlistId)}
 					title={selectedContent.title}
@@ -504,6 +555,10 @@
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 					allowfullscreen
 				></iframe>
+			{:else}
+				<div class="w-full h-full flex items-center justify-center text-gray-300">
+					<p>Not available for inline playback. Opening external provider…</p>
+				</div>
 			{/if}
 		</div>
 	</div>
