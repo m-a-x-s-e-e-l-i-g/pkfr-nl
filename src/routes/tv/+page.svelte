@@ -83,6 +83,7 @@
 	let showPlayer = false;
 	let allContent: any[] = [];
 	let selectedIndex = 0;
+	let playerContainer: HTMLElement;
 
 	// Combine movies and playlists into one array for navigation
 	$: allContent = [...movies, ...playlists];
@@ -109,23 +110,50 @@
 	function openContent(content: any) {
 		selectedContent = content;
 		showPlayer = true;
+		// Request fullscreen after a short delay to ensure the player is rendered
+		setTimeout(() => {
+			if (playerContainer) {
+				requestFullscreen(playerContainer);
+			}
+		}, 100);
 	}
 
 	function closePlayer() {
 		showPlayer = false;
+		// Exit fullscreen when closing player
+		if (document.fullscreenElement) {
+			document.exitFullscreen();
+		}
+	}
+
+	function requestFullscreen(element: HTMLElement) {
+		if (element.requestFullscreen) {
+			element.requestFullscreen();
+		} else if ((element as any).webkitRequestFullscreen) {
+			(element as any).webkitRequestFullscreen();
+		} else if ((element as any).msRequestFullscreen) {
+			(element as any).msRequestFullscreen();
+		}
 	}
 
 	function getYouTubeEmbedUrl(videoId: string) {
-		return `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+		return `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&fs=1&modestbranding=1&controls=1`;
 	}
 
 	function getPlaylistEmbedUrl(playlistId: string) {
-		return `https://www.youtube.com/embed/videoseries?list=${playlistId}&autoplay=1`;
+		return `https://www.youtube.com/embed/videoseries?list=${playlistId}&autoplay=1&fs=1&modestbranding=1&controls=1`;
 	}
 
 	// Handle keyboard navigation
 	function handleKeydown(event: KeyboardEvent) {
 		if (showPlayer && event.key === 'Escape') {
+			closePlayer();
+			return;
+		}
+
+		// Also handle fullscreen exit
+		if (event.key === 'Escape' && document.fullscreenElement) {
+			document.exitFullscreen();
 			closePlayer();
 			return;
 		}
@@ -165,6 +193,14 @@
 
 	onMount(() => {
 		document.addEventListener('keydown', handleKeydown);
+		
+		// Listen for fullscreen changes
+		document.addEventListener('fullscreenchange', () => {
+			if (!document.fullscreenElement && showPlayer) {
+				closePlayer();
+			}
+		});
+		
 		return () => {
 			document.removeEventListener('keydown', handleKeydown);
 		};
@@ -403,7 +439,8 @@
 <!-- Video Player Modal -->
 {#if showPlayer && selectedContent}
 	<div 
-		class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+		bind:this={playerContainer}
+		class="fixed inset-0 bg-black z-50 flex items-center justify-center"
 		transition:fade={{ duration: 300 }}
 		on:click={closePlayer}
 		on:keydown={(e) => e.key === 'Escape' && closePlayer()}
@@ -412,7 +449,7 @@
 		tabindex="-1"
 	>
 		<div 
-			class="relative w-full max-w-6xl aspect-video bg-black rounded-lg overflow-hidden"
+			class="relative w-full h-full bg-black"
 			transition:scale={{ duration: 300 }}
 			on:click|stopPropagation
 			on:keydown|stopPropagation
