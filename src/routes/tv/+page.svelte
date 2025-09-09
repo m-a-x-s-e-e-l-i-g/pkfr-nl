@@ -207,11 +207,9 @@
 
 <div class="tv-full-width min-h-screen bg-gray-900 text-white">
 	<!-- Header Section -->
-	<div class="bg-gray-800 border-b border-gray-700">
-		<div class="container mx-auto px-6 py-6">
-			<h1 class="text-3xl font-bold text-white mb-2">Parkour TV</h1>
-			<p class="text-gray-300">Discover parkour movies, documentaries, and playlists</p>
-		</div>
+	<div class="container mx-auto px-6 py-0">
+		<h1 class="text-3xl font-bold text-white mb-2">Jumpflix <small>🍿PARKOUR TV🦘</small></h1>
+		<p class="text-gray-300">Discover parkour movies, documentaries and playlists. Grab some popcorn!</p>
 	</div>
 
 	<!-- Content Grid -->
