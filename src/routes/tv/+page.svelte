@@ -47,7 +47,7 @@
 			id: 5,
 			title: "Roof Culture Asia",
 			year: "2017",
-			description: "Team Storror showcase Parkour on a stage never before seen - the rooftops of Asian megacities. The film follows team Storror on their exploration into what drives them to push the sport to such extremes, and the battles that face them when trying to shoot a feature film totally guerilla. RCA delves into the mental and physical preparation Parkour athletes have to undertake to make impossible 'leaps of faith', possible.",
+			description: "Team Storror push Parkour to the rooftops of Asian megacities, filming guerilla-style while exploring the drive, struggles, and preparation behind making impossible “leaps of faith” possible.",
 			thumbnail: "https://image.tmdb.org/t/p/original/aeAe6WOKXROmmXySeZN6dWccWPX.jpg",
 			videoId: "fmJPFZLc9dE",
 			type: "movie",
@@ -199,9 +199,10 @@
 						tabindex="0"
 						role="button"
 					>
-						<div class="relative aspect-[2/3] bg-gray-800 rounded-lg overflow-hidden mb-3 shadow-lg"
+						<div class="relative aspect-[2/3] bg-gray-800 rounded-lg overflow-hidden mb-3 shadow-lg group-hover:ring-4 group-hover:ring-blue-400 transition-all duration-300"
 							class:ring-4={selectedContent && selectedContent.id === movie.id && selectedContent.type === movie.type}
 							class:ring-red-500={selectedContent && selectedContent.id === movie.id && selectedContent.type === movie.type}
+							title="{movie.title}"
 						>
 							{#if movie.thumbnail.startsWith('http')}
 								<!-- Real movie poster -->
@@ -222,16 +223,6 @@
 									</div>
 								</div>
 							{/if}
-							
-							<!-- Hover overlay -->
-							<div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-colors duration-300 flex items-center justify-center">
-								<div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
-									<svg class="w-12 h-12 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
-										<path d="M8 5v10l8-5-8-5z"/>
-									</svg>
-									<p class="text-sm font-medium">Play</p>
-								</div>
-							</div>
 
 							<!-- Movie type badge -->
 							<div class="absolute top-2 left-2 bg-blue-600 px-2 py-1 rounded text-xs font-medium">
@@ -257,9 +248,10 @@
 						tabindex="0"
 						role="button"
 					>
-						<div class="relative aspect-[2/3] bg-gray-800 rounded-lg overflow-hidden mb-3 shadow-lg"
+						<div class="relative aspect-[2/3] bg-gray-800 rounded-lg overflow-hidden mb-3 shadow-lg group-hover:ring-4 group-hover:ring-red-400 transition-all duration-300"
 							class:ring-4={selectedContent && selectedContent.id === playlist.id && selectedContent.type === playlist.type}
 							class:ring-red-500={selectedContent && selectedContent.id === playlist.id && selectedContent.type === playlist.type}
+							title="{playlist.title}"
 						>
 							{#if playlist.thumbnail.startsWith('http')}
 								<!-- Real playlist thumbnail -->
@@ -280,16 +272,6 @@
 									</div>
 								</div>
 							{/if}
-							
-							<!-- Hover overlay -->
-							<div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-colors duration-300 flex items-center justify-center">
-								<div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
-									<svg class="w-12 h-12 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
-										<path d="M8 5v10l8-5-8-5z"/>
-									</svg>
-									<p class="text-sm font-medium">Play</p>
-								</div>
-							</div>
 
 							<!-- Playlist type badge -->
 							<div class="absolute top-2 left-2 bg-red-600 px-2 py-1 rounded text-xs font-medium">
@@ -308,7 +290,7 @@
 		</div>
 
 		<!-- Sidebar -->
-		<div class="w-96 border-l border-gray-700 p-6 fixed top-0 right-0 h-screen overflow-hidden">
+		<div class="w-96 border-l border-gray-700 p-6 fixed top-0 right-0 h-screen overflow-hidden flex flex-col">
 			{#if selectedContent}
 				<!-- Background with poster and glass effect -->
 				<div class="absolute inset-0 z-0">
@@ -326,7 +308,7 @@
 				</div>
 
 				<!-- Content details -->
-				<div class="space-y-4 relative z-10">
+				<div class="space-y-4 relative z-10 flex-1 overflow-y-auto">
 					<div>
 						<h2 class="text-2xl font-bold text-white mb-2">{selectedContent.title}</h2>
 						<div class="flex items-center gap-4 text-sm text-gray-400 mb-4">
@@ -389,19 +371,19 @@
 							</div>
 						</div>
 					{/if}
+				</div>
 
-					<!-- Action buttons -->
-					<div class="pt-4">
-						<button 
-							on:click={() => openContent(selectedContent)}
-							class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2"
-						>
-							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-								<path d="M8 5v10l8-5-8-5z"/>
-							</svg>
-							Play Now
-						</button>
-					</div>
+				<!-- Action buttons - Fixed to bottom -->
+				<div class="relative z-10 pt-4">
+					<button 
+						on:click={() => openContent(selectedContent)}
+						class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2 cursor-pointer"
+					>
+						<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+							<path d="M8 5v10l8-5-8-5z"/>
+						</svg>
+						Play Now
+					</button>
 				</div>
 			{:else}
 				<!-- Default background when no content selected -->
