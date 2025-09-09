@@ -178,5 +178,10 @@
       "stoeptegels": "Dat zijn <strong>{tiles}</strong> stoeptegels.",
       "footbags": "Of <strong>{bags}</strong> hacky sacks."
     }
+  },
+  "error": {
+    "message": "Oepsie poepski",
+    "subtitle": "Doen alsof niemand het zag, en snel naar huis.",
+    "backHome": "Terug naar Home"
   }
 }

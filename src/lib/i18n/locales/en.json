@@ -178,5 +178,10 @@
       "stoeptegels": "That's <strong>{tiles}</strong> sidewalk tiles.",
       "footbags": "Or <strong>{bags}</strong> hacky sacks."
     }
+  },
+  "error": {
+    "message": "Took the jump, missed the stick.",
+    "subtitle": "Chalk your shoes and try again. Or just go home.",
+    "backHome": "Back to Home"
   }
 }
