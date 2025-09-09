@@ -176,7 +176,7 @@
 	<meta name="description" content="Watch parkour movies, documentaries, and YouTube playlists. Discover the best parkour content in one place." />
 </svelte:head>
 
-<div class="tv-full-width min-h-screen bg-gray-900 text-white">
+<div class="-mx-60 min-h-screen bg-gray-900 text-white">
 	<!-- Header Section -->
 	<div class="container mx-auto px-6 py-0">
 		<h1 class="text-3xl font-bold text-white mb-2">Jumpflix <small>🍿PARKOUR TV🦘</small></h1>
@@ -186,7 +186,7 @@
 	<!-- Content Grid -->
 	<div>
 		<!-- Main Content Area -->
-		<div class="container mx-auto px-6 py-8 pr-4 mr-96">
+		<div class="container mx-auto px-6 py-8 pr-4">
 			<!-- Combined Movies and Playlists Grid -->
 			<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4">
 				<!-- Movies -->
@@ -452,14 +452,3 @@
 		</div>
 	</div>
 {/if}
-
-<style>	
-	.tv-full-width {
-		position: relative;
-		left: 50%;
-		right: 50%;
-		margin-left: -50vw;
-		margin-right: -50vw;
-		width: calc(100vw - 24rem);
-	}
-</style>

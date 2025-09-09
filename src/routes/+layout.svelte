@@ -37,7 +37,7 @@
 	actual contents will show up.
 -->
 {#if !$isLoading}
-<div class="layout" class:open={$isMenuOpen}>
+<div class="layout" class:open={$isMenuOpen} class:tv-layout={data.path === '/tv'}>
 	<Header></Header>
 	{#key data.path}
 		<main id="main" tabindex="-1" in:fade|global={transitionIn} out:fade|global={transitionOut}>
