@@ -3,7 +3,7 @@
 
 	const bubble = createBubbler();
 	import { setEmblaContex, type CarouselProps, type CarouselAPI } from "./context.js";
-	import { cn } from "$lib/utils.js.ts.js";
+	import { cn } from "$lib/utils";
 	import { writable } from "svelte/store";
 	import { onDestroy } from "svelte";
 

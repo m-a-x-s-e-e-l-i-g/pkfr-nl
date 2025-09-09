@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { fade, scale } from 'svelte/transition';
+	import { Switch } from "$lib/components/ui/switch/index.js";
 
 	let movies = [
 		{
@@ -100,6 +101,39 @@
 	let showPlayer = false;
 	let allContent: any[] = [];
 	let selectedIndex = 0;
+
+	// UI state: search, filter, sorting
+	let searchQuery: string = '';
+	// Show/hide paid content (default yes)
+	let showPaid: boolean = true;
+	let sortBy:
+		| 'default'
+		| 'title-asc'
+		| 'year-desc'
+		| 'year-asc'
+		| 'duration-asc'
+		| 'duration-desc' = 'default';
+
+	function parseYear(item: any): number {
+		const y = parseInt(item?.year);
+		return isNaN(y) ? 0 : y;
+	}
+
+	function parseDurationToMinutes(dur?: string): number {
+		if (!dur || typeof dur !== 'string') return Number.POSITIVE_INFINITY; // playlists or unknown push to end
+		let minutes = 0;
+		const hMatch = dur.match(/(\d+)\s*h/i);
+		const mMatch = dur.match(/(\d+)\s*m/i);
+		if (hMatch) minutes += parseInt(hMatch[1]) * 60;
+		if (mMatch) minutes += parseInt(mMatch[1]);
+		return minutes || Number.POSITIVE_INFINITY;
+	}
+
+	function matchesSearch(item: any, q: string): boolean {
+		if (!q) return true;
+		const hay = `${item.title || ''} ${item.description || ''} ${item.creator || ''}`.toLowerCase();
+		return hay.includes(q.toLowerCase());
+	}
 	let playerContainer: HTMLElement;
 
 	function isInlinePlayable(content: any) {
@@ -115,24 +149,66 @@
 		}
 	}
 
-	// Combine movies and playlists into one array for navigation
+	// Combine movies and playlists into one base array (original order for default sorting)
 	$: allContent = [...movies, ...playlists];
 
-	// Set first item as selected by default
-	$: if (allContent.length > 0 && !selectedContent) {
-		selectedContent = allContent[0];
+	// Build visible list using filter/search/sort
+	let visibleContent: any[] = [];
+	$: {
+		const filtered = allContent
+			.filter((item) => {
+				// If showPaid is false, hide items explicitly marked as paid
+				return showPaid ? true : !item.paid;
+			})
+			.filter((item) => matchesSearch(item, searchQuery));
+
+		let sorted = [...filtered];
+			switch (sortBy) {
+			case 'title-asc':
+				sorted.sort((a, b) => (a.title || '').localeCompare(b.title || ''));
+				break;
+			case 'year-desc':
+				sorted.sort((a, b) => parseYear(b) - parseYear(a));
+				break;
+			case 'year-asc':
+				sorted.sort((a, b) => parseYear(a) - parseYear(b));
+				break;
+			case 'duration-asc':
+				sorted.sort((a, b) => parseDurationToMinutes(a.duration) - parseDurationToMinutes(b.duration));
+				break;
+			case 'duration-desc':
+				sorted.sort((a, b) => parseDurationToMinutes(b.duration) - parseDurationToMinutes(a.duration));
+				break;
+			default:
+					// Default sorting: by id descending (newest first by id)
+					sorted.sort((a, b) => (b.id ?? 0) - (a.id ?? 0));
+					break;
+		}
+
+		visibleContent = sorted;
+	}
+
+	// Ensure a valid selected item from the visible list
+	$: if (visibleContent.length > 0) {
+		if (!selectedContent || !visibleContent.some((x) => x.id === selectedContent.id && x.type === selectedContent.type)) {
+			selectedContent = visibleContent[0];
+			selectedIndex = 0;
+		}
+	} else {
+		selectedContent = null;
+		selectedIndex = 0;
 	}
 
 	function selectContent(content: any) {
 		selectedContent = content;
-		selectedIndex = allContent.findIndex(item => item.id === content.id && item.type === content.type);
+		selectedIndex = visibleContent.findIndex(item => item.id === content.id && item.type === content.type);
 		showPlayer = false;
 	}
 
 	function selectByIndex(index: number) {
-		if (index >= 0 && index < allContent.length) {
+		if (index >= 0 && index < visibleContent.length) {
 			selectedIndex = index;
-			selectedContent = allContent[index];
+			selectedContent = visibleContent[index];
 			showPlayer = false;
 		}
 	}
@@ -222,7 +298,6 @@
 					selectByIndex(selectedIndex - colsUp);
 					break;
 				case 'Enter':
-				case ' ':
 					event.preventDefault();
 					if (selectedContent) {
 						openContent(selectedContent);
@@ -260,112 +335,119 @@
 		<p class="text-gray-300">Discover parkour movies, documentaries and playlists. Grab some popcorn!</p>
 	</div>
 
+	<!-- Controls: Search, Filter, Sort -->
+	<div class="container mx-auto px-6 pt-4">
+		<div class="flex flex-wrap items-center gap-3">
+			<!-- Search -->
+			<div class="relative flex-1 min-w-[220px]">
+				<input
+					bind:value={searchQuery}
+					type="search"
+					placeholder="Search titles, descriptions, creators…"
+					class="w-full rounded-lg bg-gray-800/80 border border-gray-700 text-white placeholder-gray-400 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600"
+				/>
+				<div class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-400">
+					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z"/></svg>
+				</div>
+			</div>
+
+			<!-- Show paid switch (shadcn-svelte) -->
+			<label class="flex items-center gap-3 select-none bg-gray-800/80 border border-gray-700 rounded-lg px-3 py-2">
+				<span class="text-sm text-gray-300">Show paid</span>
+				<Switch bind:checked={showPaid} aria-label="Show paid items" />
+			</label>
+
+			<!-- Sorting -->
+			<div>
+				<select bind:value={sortBy} class="rounded-lg bg-gray-800/80 border border-gray-700 text-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600">
+					<option value="default">Sort: Default</option>
+					<option value="title-asc">Title A–Z</option>
+					<option value="year-desc">Year (newest)</option>
+					<option value="year-asc">Year (oldest)</option>
+					<option value="duration-asc">Duration (short → long)</option>
+					<option value="duration-desc">Duration (long → short)</option>
+				</select>
+			</div>
+		</div>
+	</div>
+
 	<!-- Content Grid -->
 	<div>
 		<!-- Main Content Area -->
-		<div class="container mx-auto px-6 py-8 pr-4">
-			<!-- Combined Movies and Playlists Grid -->
+		<div class="container mx-auto px-6 py-6 pr-4">
+			<!-- Grid over unified, filtered & sorted content -->
 			<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4">
-				<!-- Movies -->
-				{#each movies as movie}
-					<div 
-						class="group cursor-pointer transform hover:scale-105 transition-all duration-300"
-						class:scale-105={selectedContent && selectedContent.id === movie.id && selectedContent.type === movie.type}
-						on:click={() => selectContent(movie)}
-						on:keydown={(e) => e.key === 'Enter' && selectContent(movie)}
-						tabindex="0"
-						role="button"
-					>
-						<div class="relative aspect-[2/3] bg-gray-800 rounded-lg overflow-hidden mb-3 shadow-lg group-hover:ring-4 group-hover:ring-blue-400 transition-all duration-300"
-							class:ring-4={selectedContent && selectedContent.id === movie.id && selectedContent.type === movie.type}
-							class:ring-red-500={selectedContent && selectedContent.id === movie.id && selectedContent.type === movie.type}
-							title="{movie.title}"
-						>
-							{#if isImage(movie.thumbnail)}
-								<!-- Real movie poster -->
-								<img 
-									src={movie.thumbnail} 
-									alt="{movie.title} poster"
-									class="w-full h-full object-cover"
-									loading="lazy"
-								/>
-							{:else}
-								<!-- Placeholder for movie poster -->
-								<div class="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-700 flex items-center justify-center">
-									<div class="text-center p-3">
-										<svg class="w-8 h-8 mx-auto mb-2 opacity-60" fill="currentColor" viewBox="0 0 20 20">
-											<path d="M8 5v10l8-5-8-5z"/>
-										</svg>
-										<p class="text-xs opacity-80 font-medium text-center leading-tight">{movie.title}</p>
+				{#if visibleContent.length === 0}
+					<div class="col-span-full text-center text-gray-400 py-8">No results. Try adjusting filters.</div>
+				{:else}
+					{#each visibleContent as item (item.type + ':' + item.id)}
+						{#if item.type === 'movie'}
+							<div 
+								class="group cursor-pointer transform hover:scale-105 transition-all duration-300"
+								class:scale-105={selectedContent && selectedContent.id === item.id && selectedContent.type === item.type}
+								on:click={() => selectContent(item)}
+								on:keydown={(e) => e.key === 'Enter' && selectContent(item)}
+								tabindex="0"
+								role="button"
+							>
+								<div class="relative aspect-[2/3] bg-gray-800 rounded-lg overflow-hidden mb-3 shadow-lg group-hover:ring-4 group-hover:ring-blue-400 transition-all duration-300"
+									class:ring-4={selectedContent && selectedContent.id === item.id && selectedContent.type === item.type}
+									class:ring-red-500={selectedContent && selectedContent.id === item.id && selectedContent.type === item.type}
+									title="{item.title}"
+								>
+									{#if isImage(item.thumbnail)}
+										<img src={item.thumbnail} alt="{item.title} poster" class="w-full h-full object-cover" loading="lazy" />
+									{:else}
+										<div class="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-700 flex items-center justify-center">
+											<div class="text-center p-3">
+												<svg class="w-8 h-8 mx-auto mb-2 opacity-60" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l8-5-8-5z"/></svg>
+												<p class="text-xs opacity-80 font-medium text-center leading-tight">{item.title}</p>
+											</div>
+										</div>
+									{/if}
+
+									<div class="absolute top-2 left-2 flex gap-2">
+										<span class="bg-blue-600 px-2 py-1 rounded text-xs font-medium">MOVIE</span>
+										{#if item.paid}
+											<span class="bg-yellow-500 text-black px-2 py-1 rounded text-xs font-bold">PAID</span>
+										{/if}
 									</div>
+
+									<div class="absolute bottom-2 right-2 bg-black/70 px-2 py-1 rounded text-xs">{item.duration}</div>
 								</div>
-							{/if}
-
-							<!-- Movie type badge and paid indicator -->
-							<div class="absolute top-2 left-2 flex gap-2">
-								<span class="bg-blue-600 px-2 py-1 rounded text-xs font-medium">MOVIE</span>
-								{#if movie.paid}
-									<span class="bg-yellow-500 text-black px-2 py-1 rounded text-xs font-bold">PAID</span>
-								{/if}
 							</div>
+						{:else if item.type === 'playlist'}
+							<div 
+								class="group cursor-pointer transform hover:scale-105 transition-all duration-300"
+								class:scale-105={selectedContent && selectedContent.id === item.id && selectedContent.type === item.type}
+								on:click={() => selectContent(item)}
+								on:keydown={(e) => e.key === 'Enter' && selectContent(item)}
+								tabindex="0"
+								role="button"
+							>
+								<div class="relative aspect-[2/3] bg-gray-800 rounded-lg overflow-hidden mb-3 shadow-lg group-hover:ring-4 group-hover:ring-red-400 transition-all duration-300"
+									class:ring-4={selectedContent && selectedContent.id === item.id && selectedContent.type === item.type}
+									class:ring-red-500={selectedContent && selectedContent.id === item.id && selectedContent.type === item.type}
+									title="{item.title}"
+								>
+									{#if isImage(item.thumbnail)}
+										<img src={item.thumbnail} alt="{item.title} thumbnail" class="w-full h-full object-cover" loading="lazy" />
+									{:else}
+										<div class="absolute inset-0 bg-gradient-to-br from-red-600 to-pink-700 flex items-center justify-center">
+											<div class="text-center p-3">
+												<svg class="w-8 h-8 mx-auto mb-2 opacity-60" fill="currentColor" viewBox="0 0 20 20"><path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"/></svg>
+												<p class="text-xs opacity-80 font-medium text-center leading-tight">{item.title}</p>
+											</div>
+										</div>
+									{/if}
 
-							<!-- Duration badge -->
-							<div class="absolute bottom-2 right-2 bg-black/70 px-2 py-1 rounded text-xs">
-								{movie.duration}
-							</div>
-						</div>
-						
-					</div>
-				{/each}
-
-				<!-- Playlists -->
-				{#each playlists as playlist}
-					<div 
-						class="group cursor-pointer transform hover:scale-105 transition-all duration-300"
-						class:scale-105={selectedContent && selectedContent.id === playlist.id && selectedContent.type === playlist.type}
-						on:click={() => selectContent(playlist)}
-						on:keydown={(e) => e.key === 'Enter' && selectContent(playlist)}
-						tabindex="0"
-						role="button"
-					>
-						<div class="relative aspect-[2/3] bg-gray-800 rounded-lg overflow-hidden mb-3 shadow-lg group-hover:ring-4 group-hover:ring-red-400 transition-all duration-300"
-							class:ring-4={selectedContent && selectedContent.id === playlist.id && selectedContent.type === playlist.type}
-							class:ring-red-500={selectedContent && selectedContent.id === playlist.id && selectedContent.type === playlist.type}
-							title="{playlist.title}"
-						>
-							{#if isImage(playlist.thumbnail)}
-								<!-- Real playlist thumbnail -->
-								<img 
-									src={playlist.thumbnail} 
-									alt="{playlist.title} thumbnail"
-									class="w-full h-full object-cover"
-									loading="lazy"
-								/>
-							{:else}
-								<!-- Playlist thumbnail placeholder -->
-								<div class="absolute inset-0 bg-gradient-to-br from-red-600 to-pink-700 flex items-center justify-center">
-									<div class="text-center p-3">
-										<svg class="w-8 h-8 mx-auto mb-2 opacity-60" fill="currentColor" viewBox="0 0 20 20">
-											<path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"/>
-										</svg>
-										<p class="text-xs opacity-80 font-medium text-center leading-tight">{playlist.title}</p>
-									</div>
+									<div class="absolute top-2 left-2 bg-red-600 px-2 py-1 rounded text-xs font-medium">PLAYLIST</div>
+									<div class="absolute bottom-2 right-2 bg-black/70 px-2 py-1 rounded text-xs">{item.videoCount || '?'} videos</div>
 								</div>
-							{/if}
-
-							<!-- Playlist type badge -->
-							<div class="absolute top-2 left-2 bg-red-600 px-2 py-1 rounded text-xs font-medium">
-								PLAYLIST
 							</div>
-
-							<!-- Video count badge -->
-							<div class="absolute bottom-2 right-2 bg-black/70 px-2 py-1 rounded text-xs">
-								{playlist.videoCount || '?'} videos
-							</div>
-						</div>
-						
-					</div>
-				{/each}
+						{/if}
+					{/each}
+				{/if}
 			</div>
 		</div>
 
