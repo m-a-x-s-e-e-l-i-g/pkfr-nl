@@ -2,33 +2,6 @@ form {
     margin: 2rem 0;
 }
 
-button,
-input[type='submit'] {
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    background: var(--darker);
-    color: var(--paper);
-    font-weight: bold;
-    border: 2px solid var(--darker);
-    border-radius: 0.125rem;
-    background: var(--darker);
-    margin: 2rem 0 0;
-    display: block;
-    width: max-content;
-    transition: background 0.2s;
-}
-
-label,
-fieldset {
-    font-weight: bold;
-    display: inline-block;
-}
-
-fieldset {
-    padding: 0;
-    border: 0;
-}
-
 select,
 textarea,
 input {
