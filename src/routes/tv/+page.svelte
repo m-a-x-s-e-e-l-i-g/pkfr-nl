@@ -403,16 +403,30 @@
 	<div class="container mx-auto px-6 pt-4">
 		<div class="flex flex-wrap items-center gap-3">
 			<!-- Search -->
-			<div class="relative flex-1 min-w-[220px]">
+			<div class="relative flex-1 min-w-[260px] group">
+				<span class="absolute inset-y-0 left-4 flex items-center pointer-events-none text-gray-400 group-focus-within:text-blue-600 transition-colors z-10">
+					<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z"/></svg>
+				</span>
+				{#if searchQuery}
+					<button
+						type="button"
+						class="absolute inset-y-0 right-3 flex items-center text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors p-1 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 z-10"
+						on:click={() => (searchQuery = '')}
+						aria-label="Clear search"
+					>
+						<svg class="w-4 h-4" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+					</button>
+				{/if}
 				<input
 					bind:value={searchQuery}
-					type="search"
+					type="text"
+					autocomplete="off"
+					spellcheck="false"
 					placeholder="Search titles, descriptions, creators…"
-					class="w-full rounded-lg bg-white/80 dark:bg-gray-800/80 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600"
+					aria-label="Search content"
+					class="w-full h-10 rounded-lg bg-white/80 dark:bg-gray-800/80 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-sm focus:outline-none focus:border-gray-300 dark:focus:border-gray-500 transition hover:border-gray-300 dark:hover:border-gray-500"
+					style="padding-left: 3rem; padding-right: 3rem;"
 				/>
-				<div class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-400">
-					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z"/></svg>
-				</div>
 			</div>
 
 			<!-- Show paid switch (shadcn-svelte) -->
