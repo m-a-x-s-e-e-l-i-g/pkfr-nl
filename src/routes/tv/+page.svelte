@@ -148,7 +148,7 @@
 			title: "Parkour - The Nature of Challenge",
 			creator: "Northern Parkour",
 			description: "A short documentary series exploring what parkour means to practitioners and the so-called 'parkour vision'.",
-			thumbnail: "",
+			thumbnail: "/images/posters/parkour-the-nature-of-challenge-poster.webp",
 			playlistId: "PLFE063C4ADA6CAA18",
 			type: "playlist",
 			videoCount: 4
