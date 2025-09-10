@@ -417,8 +417,8 @@
 
 <div class="md:-mx-60 min-h-screen bg-background text-foreground tv-page">
 	<!-- Header Section -->
-	<div class="container mx-auto px-6 py-0">
-		<h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">JUMPFLIX<small>🍿<br/>Parkour TV🦘</small></h1>
+	<div class="container mx-auto px-6 py-0 text-center">
+		<h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2"><small>🍿</small>JUMPFLIX<small>🍿</small></h1>
 		<p class="text-gray-600 dark:text-gray-300">Discover parkour movies, documentaries and playlists. Grab some popcorn!</p>
 	</div>
 
@@ -447,8 +447,8 @@
 					spellcheck="false"
 					placeholder="Search titles, descriptions, creators…"
 					aria-label="Search content"
-					class="w-full h-10 rounded-lg bg-white/80 dark:bg-gray-800/80 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-sm focus:outline-none focus:border-gray-300 dark:focus:border-gray-500 transition hover:border-gray-300 dark:hover:border-gray-500"
-					style="padding-left: 3rem; padding-right: 3rem;"
+					class="w-full h-10 bg-white/80 dark:bg-gray-800/80 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-sm focus:outline-none focus:border-gray-300 dark:focus:border-gray-500 transition hover:border-gray-300 dark:hover:border-gray-500"
+					style="padding-left: 3rem; padding-right: 1rem; border-radius: 0.5rem;"
 				/>
 			</div>
 
@@ -458,29 +458,29 @@
 				<Switch bind:checked={showPaid} aria-label="Show paid items" />
 			</label>
 
-				<!-- Sorting -->
-				<div>
-					<Select.Root type="single" bind:value={sortBy}>
-						<Select.Trigger class="w-[180px]">
-							<span>{sortLabels[sortBy]}</span>
-						</Select.Trigger>
-						<Select.Content>
-							<Select.Item value="default">Sort: Default</Select.Item>
-							<Select.Item value="title-asc">Title A–Z</Select.Item>
-							<Select.Item value="year-desc">Year (newest)</Select.Item>
-							<Select.Item value="year-asc">Year (oldest)</Select.Item>
-							<Select.Item value="duration-asc">Duration (short → long)</Select.Item>
-							<Select.Item value="duration-desc">Duration (long → short)</Select.Item>
-						</Select.Content>
-					</Select.Root>
-				</div>
+			<!-- Sorting -->
+			<div>
+				<Select.Root type="single" bind:value={sortBy}>
+					<Select.Trigger class="w-[180px]">
+						<span>{sortLabels[sortBy]}</span>
+					</Select.Trigger>
+					<Select.Content>
+						<Select.Item value="default">Sort: Default</Select.Item>
+						<Select.Item value="title-asc">Title A–Z</Select.Item>
+						<Select.Item value="year-desc">Year (newest)</Select.Item>
+						<Select.Item value="year-asc">Year (oldest)</Select.Item>
+						<Select.Item value="duration-asc">Duration (short → long)</Select.Item>
+						<Select.Item value="duration-desc">Duration (long → short)</Select.Item>
+					</Select.Content>
+				</Select.Root>
+			</div>
 		</div>
 	</div>
 
 	<!-- Content Grid -->
 	<div>
 		<!-- Main Content Area -->
-		<div class="container mx-auto px-6 py-6 pr-4 tv-main">
+		<div class="container mx-auto px-6 py-6 pr-4 tv-main mt-4">
 			<!-- Grid over unified, filtered & sorted content -->
 			<div bind:this={gridEl} class="grid auto-fit-grid gap-4">
 				{#if visibleContent.length === 0}
