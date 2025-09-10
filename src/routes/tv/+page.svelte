@@ -100,7 +100,7 @@
 			title: "Project Pilgrimage",
 			year: "2008",
 			description: "A documentary by Duncan Germain A.K.A TK17 following his journey to and around Lisses, the birthplace of Parkour. It contains footage of 150+ traceurs, and was shown to David Belle for approval before release.",
-			thumbnail: "",
+			thumbnail: "/images/posters/project-pilgrimage-poster.webp",
 			videoId: "M2sWvgsEXeU",
 			type: "movie",
 			duration: "1h 30m"
