@@ -72,6 +72,16 @@
 			videoId: "Tswad8jCgaM",
 			type: "movie",
 			duration: "1h 12m"
+		},
+		{
+			id: 7,
+			title: "People in Motion",
+			year: "2012",
+			description: "A documentary showcasing the journey of the Motus Projects team as they explore the world of parkour.",
+			thumbnail: "https://image.tmdb.org/t/p/original/4WiU9gS5eEYbT8Sh1tStv5IK9qf.jpg",
+			videoId: "QH09YCtpKaw",
+			type: "movie",
+			duration: "55m"
 		}
 	];
 
