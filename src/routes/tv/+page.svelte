@@ -533,7 +533,7 @@
 
 			<!-- Show paid switch (shadcn-svelte) -->
 			<label class="flex items-center gap-3 select-none bg-white/80 dark:bg-gray-800/80 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2">
-				<span class="text-sm text-gray-700 dark:text-gray-300">Show paid</span>
+				<span class="text-sm text-gray-700 dark:text-gray-300">Paid</span>
 				<Switch bind:checked={showPaid} aria-label="Show paid items" />
 			</label>
 
