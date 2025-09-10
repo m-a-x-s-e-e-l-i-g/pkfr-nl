@@ -392,11 +392,11 @@
 	<meta name="description" content="Watch parkour movies, documentaries, and YouTube playlists. Discover the best parkour content in one place." />
 </svelte:head>
 
-<div class="md:-mx-60 min-h-screen bg-gray-900 text-white">
+<div class="md:-mx-60 min-h-screen bg-background text-foreground tv-page">
 	<!-- Header Section -->
 	<div class="container mx-auto px-6 py-0">
-		<h1 class="text-3xl font-bold text-white mb-2">JUMPFLIX <small>🍿Parkour TV🦘</small></h1>
-		<p class="text-gray-300">Discover parkour movies, documentaries and playlists. Grab some popcorn!</p>
+		<h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">JUMPFLIX <small>🍿Parkour TV🦘</small></h1>
+		<p class="text-gray-600 dark:text-gray-300">Discover parkour movies, documentaries and playlists. Grab some popcorn!</p>
 	</div>
 
 	<!-- Controls: Search, Filter, Sort -->
@@ -408,7 +408,7 @@
 					bind:value={searchQuery}
 					type="search"
 					placeholder="Search titles, descriptions, creators…"
-					class="w-full rounded-lg bg-gray-800/80 border border-gray-700 text-white placeholder-gray-400 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600"
+					class="w-full rounded-lg bg-white/80 dark:bg-gray-800/80 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600"
 				/>
 				<div class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-400">
 					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z"/></svg>
@@ -416,8 +416,8 @@
 			</div>
 
 			<!-- Show paid switch (shadcn-svelte) -->
-			<label class="flex items-center gap-3 select-none bg-gray-800/80 border border-gray-700 rounded-lg px-3 py-2">
-				<span class="text-sm text-gray-300">Show paid</span>
+			<label class="flex items-center gap-3 select-none bg-white/80 dark:bg-gray-800/80 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2">
+				<span class="text-sm text-gray-700 dark:text-gray-300">Show paid</span>
 				<Switch bind:checked={showPaid} aria-label="Show paid items" />
 			</label>
 
@@ -459,7 +459,7 @@
 								tabindex="0"
 								role="button"
 							>
-								<div class="relative aspect-[2/3] bg-gray-800 rounded-lg overflow-hidden mb-3 shadow-lg group-hover:ring-4 group-hover:ring-blue-400 transition-all duration-300"
+								<div class="relative aspect-[2/3] bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden mb-3 shadow-lg group-hover:ring-4 group-hover:ring-blue-400 transition-all duration-300"
 									class:ring-4={selectedContent && selectedContent.id === item.id && selectedContent.type === item.type}
 									class:ring-red-500={selectedContent && selectedContent.id === item.id && selectedContent.type === item.type}
 									title="{item.title}"
@@ -482,7 +482,7 @@
 										{/if}
 									</div>
 
-									<div class="absolute bottom-2 right-2 bg-black/70 px-2 py-1 rounded text-xs">{item.duration}</div>
+									<div class="absolute bottom-2 right-2 bg-black/70 px-2 py-1 rounded text-xs text-white/90">{item.duration}</div>
 								</div>
 							</div>
 						{:else if item.type === 'playlist'}
@@ -494,7 +494,7 @@
 								tabindex="0"
 								role="button"
 							>
-								<div class="relative aspect-[2/3] bg-gray-800 rounded-lg overflow-hidden mb-3 shadow-lg group-hover:ring-4 group-hover:ring-red-400 transition-all duration-300"
+								<div class="relative aspect-[2/3] bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden mb-3 shadow-lg group-hover:ring-4 group-hover:ring-red-400 transition-all duration-300"
 									class:ring-4={selectedContent && selectedContent.id === item.id && selectedContent.type === item.type}
 									class:ring-red-500={selectedContent && selectedContent.id === item.id && selectedContent.type === item.type}
 									title="{item.title}"
@@ -511,7 +511,7 @@
 									{/if}
 
 									<div class="absolute top-2 left-2 bg-red-600 px-2 py-1 rounded text-xs font-medium">PLAYLIST</div>
-									<div class="absolute bottom-2 right-2 bg-black/70 px-2 py-1 rounded text-xs">{item.videoCount || '?'} videos</div>
+									<div class="absolute bottom-2 right-2 bg-black/70 px-2 py-1 rounded text-xs text-white/90">{item.videoCount || '?'} videos</div>
 								</div>
 							</div>
 						{/if}
@@ -521,28 +521,28 @@
 		</div>
 
 		<!-- Sidebar (desktop & tablet) -->
-		<div class="hidden md:flex w-96 border-l border-gray-700 p-6 fixed top-0 right-0 h-screen overflow-hidden flex-col">
+		<div class="hidden md:flex w-96 border-l border-gray-200 dark:border-gray-700 p-6 fixed top-0 right-0 h-screen overflow-hidden flex-col bg-white/70 dark:bg-transparent backdrop-blur-sm">
 			{#if selectedContent}
 				<!-- Background with poster and glass effect -->
-				<div class="absolute inset-0 z-0">
+					<div class="absolute inset-0 z-0">
 					{#if isImage(selectedContent.thumbnail)}
-						<img 
+							<img 
 							src={selectedContent.thumbnail} 
 							alt="{selectedContent.title} background"
 							class="w-full h-full object-cover scale-200"
 						/>
-						<div class="absolute inset-0 backdrop-blur-2xl bg-black/70 border-l border-white/10"></div>
+							<div class="absolute inset-0 backdrop-blur-2xl bg-white/70 dark:bg-black/70 border-l border-black/10 dark:border-white/10"></div>
 					{:else}
-						<div class="w-full h-full bg-gradient-to-br from-blue-600 to-purple-700 scale-110"></div>
-						<div class="absolute inset-0 backdrop-blur-2xl bg-black/70 border-l border-white/10"></div>
+						<div class="w-full h-full bg-gradient-to-br from-blue-500 to-purple-600 dark:from-blue-600 dark:to-purple-700 scale-110"></div>
+						<div class="absolute inset-0 backdrop-blur-2xl bg-white/70 dark:bg-black/70 border-l border-black/10 dark:border-white/10"></div>
 					{/if}
 				</div>
 
 				<!-- Content details -->
 				<div class="space-y-4 relative z-10 flex-1 overflow-y-auto">
 					<div>
-						<h2 class="text-2xl font-bold text-white mb-2">{selectedContent.title}</h2>
-						<div class="flex items-center gap-4 text-sm text-gray-400 mb-4">
+						<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">{selectedContent.title}</h2>
+						<div class="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400 mb-4">
 							{#if selectedContent.type === 'movie'}
 								<span class="bg-blue-600 px-2 py-1 rounded text-white text-xs">MOVIE</span>
 								{#if selectedContent.paid}
@@ -580,8 +580,8 @@
 
 					<!-- Description -->
 					<div>
-						<h3 class="text-lg font-semibold text-white mb-2">Description</h3>
-						<p class="text-gray-300 leading-relaxed">
+						<h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Description</h3>
+						<p class="text-gray-700 dark:text-gray-300 leading-relaxed">
 							{selectedContent.description}
 						</p>
 					</div>
@@ -589,28 +589,28 @@
 					{#if selectedContent.type === 'movie'}
 						<!-- Movie specific details -->
 						<div>
-							<h3 class="text-lg font-semibold text-white mb-2">Details</h3>
+							<h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Details</h3>
 							<div class="space-y-2 text-sm">
 								<div class="flex justify-between">
-									<span class="text-gray-400">Year:</span>
-									<span class="text-white">{selectedContent.year}</span>
+									<span class="text-gray-500 dark:text-gray-400">Year:</span>
+									<span class="text-gray-900 dark:text-white">{selectedContent.year}</span>
 								</div>
 								<div class="flex justify-between">
-									<span class="text-gray-400">Duration:</span>
-									<span class="text-white">{selectedContent.duration}</span>
+									<span class="text-gray-500 dark:text-gray-400">Duration:</span>
+									<span class="text-gray-900 dark:text-white">{selectedContent.duration}</span>
 								</div>
 								<div class="flex justify-between">
-									<span class="text-gray-400">Type:</span>
-									<span class="text-white">Documentary</span>
+									<span class="text-gray-500 dark:text-gray-400">Type:</span>
+									<span class="text-gray-900 dark:text-white">Documentary</span>
 								</div>
 								{#if selectedContent.paid}
 									<div class="flex justify-between">
-										<span class="text-gray-400">Provider:</span>
-										<span class="text-white">{selectedContent.provider || 'External'}</span>
+										<span class="text-gray-500 dark:text-gray-400">Provider:</span>
+										<span class="text-gray-900 dark:text-white">{selectedContent.provider || 'External'}</span>
 									</div>
 									<div class="flex justify-between">
-										<span class="text-gray-400">Price:</span>
-										<span class="text-white">{selectedContent.price || ''}</span>
+										<span class="text-gray-500 dark:text-gray-400">Price:</span>
+										<span class="text-gray-900 dark:text-white">{selectedContent.price || ''}</span>
 									</div>
 								{/if}
 							</div>
@@ -618,19 +618,19 @@
 					{:else}
 						<!-- Playlist specific details -->
 						<div>
-							<h3 class="text-lg font-semibold text-white mb-2">Playlist Info</h3>
+							<h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Playlist Info</h3>
 							<div class="space-y-2 text-sm">
 								<div class="flex justify-between">
-									<span class="text-gray-400">Creator:</span>
-									<span class="text-white">{selectedContent.creator}</span>
+									<span class="text-gray-500 dark:text-gray-400">Creator:</span>
+									<span class="text-gray-900 dark:text-white">{selectedContent.creator}</span>
 								</div>
 								<div class="flex justify-between">
-									<span class="text-gray-400">Videos:</span>
-									<span class="text-white">{selectedContent.videoCount || '?'}</span>
+									<span class="text-gray-500 dark:text-gray-400">Videos:</span>
+									<span class="text-gray-900 dark:text-white">{selectedContent.videoCount || '?'}</span>
 								</div>
 								<div class="flex justify-between">
-									<span class="text-gray-400">Type:</span>
-									<span class="text-white">YouTube Playlist</span>
+									<span class="text-gray-500 dark:text-gray-400">Type:</span>
+									<span class="text-gray-900 dark:text-white">YouTube Playlist</span>
 								</div>
 							</div>
 						</div>
@@ -664,9 +664,9 @@
 				</div>
 			{:else}
 				<!-- Default background when no content selected -->
-				<div class="absolute inset-0 z-0 bg-gray-800 border-l border-white/10"></div>
+				<div class="absolute inset-0 z-0 bg-white dark:bg-gray-800 border-l border-black/10 dark:border-white/10"></div>
 				
-				<div class="text-center text-gray-400 py-12 relative z-10">
+				<div class="text-center text-gray-500 dark:text-gray-400 py-12 relative z-10">
 					<svg class="w-16 h-16 mx-auto mb-4 opacity-30" fill="currentColor" viewBox="0 0 20 20">
 						<path d="M8 5v10l8-5-8-5z"/>
 					</svg>
@@ -677,14 +677,14 @@
 
 		<!-- Mobile Details Overlay -->
 		{#if isMobile && showDetailsPanel && selectedContent}
-			<div class="md:hidden fixed inset-0 z-40 bg-black/90 backdrop-blur-xl flex flex-col overflow-y-auto" transition:fade>
+			<div class="md:hidden fixed inset-0 z-40 bg-white/95 dark:bg-black/90 backdrop-blur-xl flex flex-col overflow-y-auto" transition:fade>
 				<!-- Top bar -->
-				<div class="sticky top-0 z-50 flex items-center justify-between px-4 py-3 bg-black/70 backdrop-blur border-b border-white/10">
-					<button on:click={closeDetailsPanel} class="flex items-center gap-2 text-sm font-medium text-white px-3 py-2 rounded-lg bg-white/10 hover:bg-white/20">
+				<div class="sticky top-0 z-50 flex items-center justify-between px-4 py-3 bg-white/80 dark:bg-black/70 backdrop-blur border-b border-black/10 dark:border-white/10">
+					<button on:click={closeDetailsPanel} class="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-white px-3 py-2 rounded-lg bg-black/5 hover:bg-black/10 dark:bg-white/10 dark:hover:bg-white/20">
 						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
 						Back
 					</button>
-					<h2 class="text-base font-semibold line-clamp-1 pr-2">{selectedContent.title}</h2>
+					<h2 class="text-base font-semibold line-clamp-1 pr-2 text-gray-900 dark:text-white">{selectedContent.title}</h2>
 				</div>
 
 				<!-- Poster background -->
@@ -692,10 +692,10 @@
 					{#if isImage(selectedContent.thumbnail)}
 						<img src={selectedContent.thumbnail} alt="{selectedContent.title} background" class="w-full h-72 object-cover opacity-60" />
 					{/if}
-					<div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/10"></div>
+					<div class="absolute inset-0 bg-gradient-to-t from-white via-white/70 to-white/10 dark:from-black dark:via-black/60 dark:to-black/10"></div>
 					<div class="absolute bottom-4 left-4 right-4">
-						<h3 class="text-2xl font-bold mb-2">{selectedContent.title}</h3>
-						<div class="flex flex-wrap items-center gap-2 text-xs text-gray-300 mb-3">
+						<h3 class="text-2xl font-bold mb-2 text-gray-900 dark:text-white">{selectedContent.title}</h3>
+						<div class="flex flex-wrap items-center gap-2 text-xs text-gray-700 dark:text-gray-300 mb-3">
 							{#if selectedContent.type === 'movie'}
 								<span class="bg-blue-600 px-2 py-1 rounded">MOVIE</span>
 								{#if selectedContent.paid}<span class="bg-yellow-400 text-black px-2 py-1 rounded font-bold">PAID</span>{/if}
@@ -733,36 +733,36 @@
 				<!-- Content body -->
 				<div class="px-4 pb-28 pt-4 space-y-6">
 					<div>
-						<h4 class="text-sm font-semibold uppercase tracking-wide text-gray-400 mb-1">Description</h4>
-						<p class="text-gray-200 text-sm leading-relaxed">{selectedContent.description}</p>
+						<h4 class="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-1">Description</h4>
+						<p class="text-gray-700 dark:text-gray-200 text-sm leading-relaxed">{selectedContent.description}</p>
 					</div>
 
 					{#if selectedContent.type === 'movie'}
 						<div>
-							<h4 class="text-sm font-semibold uppercase tracking-wide text-gray-400 mb-2">Details</h4>
-							<ul class="text-xs text-gray-300 space-y-1">
-								<li class="flex justify-between"><span class="text-gray-400">Year</span><span>{selectedContent.year}</span></li>
-								<li class="flex justify-between"><span class="text-gray-400">Duration</span><span>{selectedContent.duration}</span></li>
+							<h4 class="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-2">Details</h4>
+							<ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1">
+								<li class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">Year</span><span>{selectedContent.year}</span></li>
+								<li class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">Duration</span><span>{selectedContent.duration}</span></li>
 								{#if selectedContent.paid}
-									<li class="flex justify-between"><span class="text-gray-400">Provider</span><span>{selectedContent.provider || 'External'}</span></li>
-									<li class="flex justify-between"><span class="text-gray-400">Price</span><span>{selectedContent.price || ''}</span></li>
+									<li class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">Provider</span><span>{selectedContent.provider || 'External'}</span></li>
+									<li class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">Price</span><span>{selectedContent.price || ''}</span></li>
 								{/if}
 							</ul>
 						</div>
 					{:else}
 						<div>
-							<h4 class="text-sm font-semibold uppercase tracking-wide text-gray-400 mb-2">Playlist Info</h4>
-							<ul class="text-xs text-gray-300 space-y-1">
-								<li class="flex justify-between"><span class="text-gray-400">Creator</span><span>{selectedContent.creator}</span></li>
-								<li class="flex justify-between"><span class="text-gray-400">Videos</span><span>{selectedContent.videoCount || '?'}</span></li>
-								<li class="flex justify-between"><span class="text-gray-400">Type</span><span>YouTube Playlist</span></li>
+							<h4 class="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-2">Playlist Info</h4>
+							<ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1">
+								<li class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">Creator</span><span>{selectedContent.creator}</span></li>
+								<li class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">Videos</span><span>{selectedContent.videoCount || '?'}</span></li>
+								<li class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">Type</span><span>YouTube Playlist</span></li>
 							</ul>
 						</div>
 					{/if}
 				</div>
 
 				<!-- Bottom action bar -->
-				<div class="fixed bottom-0 left-0 right-0 z-50 p-4 bg-black/80 backdrop-blur border-t border-white/10">
+				<div class="fixed bottom-0 left-0 right-0 z-50 p-4 bg-white/90 dark:bg-black/80 backdrop-blur border-t border-black/10 dark:border-white/10">
 					<button 
 						on:click={() => {
 							if (isInlinePlayable(selectedContent)) {
@@ -786,6 +786,12 @@
 		{/if}
 	</div>
 </div>
+
+<style>
+	/* Minor light theme adjustments specific to tv page */
+	.tv-page :global(.group:hover img) { filter: brightness(1.05); }
+	.dark .tv-page :global(.group:hover img) { filter: brightness(1); }
+</style>
 
 <!-- Video Player Modal -->
 {#if showPlayer && selectedContent}
