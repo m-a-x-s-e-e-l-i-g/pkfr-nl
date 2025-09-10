@@ -832,6 +832,13 @@
 	/* Auto-fit grid for posters: enforce a comfortable minimum width so icons don't get tiny */
 	.auto-fit-grid {
 		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+		justify-content: center;
+		justify-items: center;
+	}
+
+	.auto-fit-grid > * {
+		width: 100%;
+		max-width: 300px; /* adjust if you want larger/smaller posters */
 	}
 
 	@media (min-width: 768px) {
