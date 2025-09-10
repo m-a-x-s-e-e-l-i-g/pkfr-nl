@@ -773,7 +773,6 @@
 	/* Only apply hover effects on non-mobile devices */
 	@media (min-width: 768px) {
 		.tv-page :global(.group:hover img) { filter: brightness(1.05); }
-		.dark .tv-page :global(.group:hover img) { filter: brightness(1); }
 	}
 
 	.auto-fit-grid {

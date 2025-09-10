@@ -28,7 +28,7 @@ export const navItems = [
         route: '/tools'
     },
     {
-        title: 'TV',
+        title: 'JUMPFLIX',
         route: '/tv'
     }
 ];
