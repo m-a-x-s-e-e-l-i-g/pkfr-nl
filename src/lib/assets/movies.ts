@@ -133,5 +133,15 @@ export const movies = [
 		videoId: "IC9xmrrNPyY",
 		type: "movie",
 		duration: "47m"
+	},
+	{
+		id: 13,
+		title: "Balancing Organisms",
+		year: "2017",
+		description: "A poetic documentary following urban athletes as they practice parkour, jumping from roof to roof through the city. Filmmaker Juriën Cornelissen captures the physical experience and adventure in this graduation film.",
+		thumbnail: "/images/posters/balancing-organisms-convoi-films-parkour-poster.webp",
+		vimeoId: "223802198",
+		type: "movie",
+		duration: "28m"
 	}
 ];

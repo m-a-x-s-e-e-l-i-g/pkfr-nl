@@ -65,7 +65,7 @@
 
 	function isInlinePlayable(content: any) {
 		if (!content) return false;
-		if (content.type === 'movie') return Boolean(content.videoId);
+		if (content.type === 'movie') return Boolean(content.videoId || content.vimeoId);
 		if (content.type === 'playlist') return Boolean(content.playlistId);
 		return false;
 	}
@@ -195,6 +195,10 @@
 
 	function getYouTubeEmbedUrl(videoId: string) {
 		return `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&fs=1&modestbranding=1&controls=1`;
+	}
+
+	function getVimeoEmbedUrl(vimeoId: string) {
+		return `https://player.vimeo.com/video/${vimeoId}?autoplay=1&title=0&byline=0&portrait=0`;
 	}
 
 	function getPlaylistEmbedUrl(playlistId: string) {
@@ -854,6 +858,15 @@
 			{#if selectedContent.type === 'movie' && selectedContent.videoId}
 				<iframe
 					src={getYouTubeEmbedUrl(selectedContent.videoId)}
+					title={selectedContent.title}
+					class="w-full h-full"
+					frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen
+				></iframe>
+			{:else if selectedContent.type === 'movie' && selectedContent.vimeoId}
+				<iframe
+					src={getVimeoEmbedUrl(selectedContent.vimeoId)}
 					title={selectedContent.title}
 					class="w-full h-full"
 					frameborder="0"
