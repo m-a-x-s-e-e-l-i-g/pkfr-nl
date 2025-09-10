@@ -112,5 +112,26 @@ export const movies = [
 		type: "movie",
 		duration: "1h 9m",
 		trakt: "https://trakt.tv/movies/storror-supertramps-thailand-2015"
+	},
+	{
+		id: 11,
+		title: "GATECRASHER: An All-Women’s Parkour Action Film",
+		year: "2024",
+		description: "“Gatecrashers” is an all-women Parkour action film following 8 athletes across three European cities. It celebrates female Parkour at its highest level—pushing limits, exploring, and inspiring anyone who loves to move or wants to start.",
+		thumbnail: "https://image.tmdb.org/t/p/original/lcXONMiYnSF7oks7S9wH3WU31mo.jpg",
+		videoId: "4izoWYFmNg0",
+		type: "movie",
+		duration: "38m",
+		trakt: "https://trakt.tv/movies/gatecrasher-an-all-women-s-parkour-action-film-2024"
+	},
+	{
+		id: 12,
+		title: "Queen City: Parkour's First All-Female Film",
+		year: "2023",
+		description: "In August 2021, eight elite women gathered in Denver to train and film parkour, creating a project that reflects their vision of the city and passion for movement.",
+		thumbnail: "/images/posters/queen-city-parkour-female-poster.webp",
+		videoId: "IC9xmrrNPyY",
+		type: "movie",
+		duration: "47m"
 	}
 ];
