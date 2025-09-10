@@ -343,7 +343,7 @@
 </script>
 
 <svelte:head>
-	<title>Parkour TV - PKFR.nl</title>
+	<title>JUMPFLIX Parkour Freerunning TV - PKFR.nl</title>
 	<meta name="description" content="{$t('tv.description')}" />
 </svelte:head>
 
