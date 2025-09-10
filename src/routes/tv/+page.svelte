@@ -891,7 +891,7 @@
 		}
 	}
 
-	:global(main) {
+	:global(.tv-layout main) {
 		max-width: 100vw;
 		padding: 0 1rem 0 0;
 	}
