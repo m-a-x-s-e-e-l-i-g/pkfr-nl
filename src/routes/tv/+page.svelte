@@ -3,6 +3,7 @@
 	import { fade, scale } from 'svelte/transition';
 	import { Switch } from "$lib/components/ui/switch/index.js";
 	import * as Select from "$lib/components/ui/select/index.js";
+    import { Description } from '$lib/components/ui/alert';
 
 	let movies = [
 		{
@@ -94,6 +95,30 @@
 			type: "movie",
 			duration: "52m",
 			trakt: "https://trakt.tv/movies/my-playground-2009"
+		},
+		{
+			id: 9,
+			title: "Project Pilgrimage",
+			year: "2008",
+			description: "A documentary by Duncan Germain A.K.A TK17 following his journey to and around Lisses, the birthplace of Parkour. It contains footage of 150+ traceurs, and was shown to David Belle for approval before release.",
+			thumbnail: "",
+			videoId: "M2sWvgsEXeU",
+			type: "movie",
+			duration: "1h 30m"
+		},
+		{
+			id: 10,
+			title: "Storror Supertramps - Thailand",
+			year: "2015",
+			description: "Seven parkour athletes roam Southeast Asia for 28 days with no plans, money, or accommodation—capturing a feature-length adventure about freedom and pushing limits.",
+			thumbnail: "https://image.tmdb.org/t/p/original/i8Fxvtool5SsqKkatpAsAxCliNJ.jpg",
+			externalUrl: "https://storrorplus.storror.com/programs/supertramps-thailand",
+			paid: true,
+			provider: "STORROR+",
+			price: "€6",
+			type: "movie",
+			duration: "1h 9m",
+			trakt: "https://trakt.tv/movies/storror-supertramps-thailand-2015"
 		}
 	];
 
@@ -117,6 +142,16 @@
 			playlistId: "PLIZ9EYUk7YaYgqhOHd1MqROfTmNw79UBy",
 			type: "playlist",
 			videoCount: 125
+		},
+		{
+			id: 3,
+			title: "Parkour - The Nature of Challenge",
+			creator: "Obsidian1138",
+			description: "A short documentary series exploring what parkour means to practitioners and the so-called 'parkour vision'.",
+			thumbnail: "",
+			playlistId: "PLFE063C4ADA6CAA18",
+			type: "playlist",
+			videoCount: 4
 		}
 	];
 
