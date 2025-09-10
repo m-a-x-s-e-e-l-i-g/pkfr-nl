@@ -473,13 +473,13 @@
 								tabindex="0"
 								role="button"
 							>
-								<div class="relative aspect-[2/3] bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden mb-3 shadow-lg group-hover:ring-4 group-hover:ring-blue-400 transition-all duration-300"
+								<div class="relative aspect-[2/3] aspect-[2/3] bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden mb-3 shadow-lg group-hover:ring-4 group-hover:ring-blue-400 transition-all duration-300"
 									class:ring-4={selectedContent && selectedContent.id === item.id && selectedContent.type === item.type}
 									class:ring-red-500={selectedContent && selectedContent.id === item.id && selectedContent.type === item.type}
 									title="{item.title}"
 								>
 									{#if isImage(item.thumbnail)}
-										<img src={item.thumbnail} alt="{item.title} poster" class="w-full h-full object-cover" loading="lazy" />
+										<img src={item.thumbnail} alt="{item.title} poster" class="w-full h-full object-cover" loading="lazy" style="height:100%;" />
 									{:else}
 										<div class="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-700 flex items-center justify-center">
 											<div class="text-center p-3">
@@ -575,9 +575,9 @@
 									href={selectedContent.trakt}
 									target="_blank"
 									rel="noopener noreferrer"
-									class="inline-flex items-center justify-center w-7 h-7 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#ED1C24] focus:ring-offset-black rounded transition hover:scale-105"
+									class="inline-flex items-center justify-center w-5 h-5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#ED1C24] focus:ring-offset-black rounded transition hover:scale-105"
 									aria-label="View on Trakt"
-									title="Trakt"
+									title="View on Trakt"
 								>
 									<img 
 										src="https://trakt.tv/assets/logos/logomark.square.gradient-b644b16c38ff775861b4b1f58c1230f6a097a2466ab33ae00445a505c33fcb91.svg" 
@@ -586,7 +586,7 @@
 										loading="lazy" 
 										decoding="async"
 									/>
-									<span class="sr-only">Trakt</span>
+									<span class="sr-only">View on Trakt</span>
 								</a>
 							{/if}
 						</div>
