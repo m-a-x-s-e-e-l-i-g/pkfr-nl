@@ -5,6 +5,7 @@
 	import * as Select from "$lib/components/ui/select/index.js";
 	import { movies } from '$lib/assets/movies';
 	import { playlists } from '$lib/assets/playlists';
+	import { t } from 'svelte-i18n';
 
 	let selectedContent: any = null;
 	let showPlayer = false;
@@ -343,14 +344,14 @@
 
 <svelte:head>
 	<title>Parkour TV - PKFR.nl</title>
-	<meta name="description" content="Watch parkour movies, documentaries, and YouTube playlists. Discover the best parkour content in one place." />
+	<meta name="description" content="{$t('tv.description')}" />
 </svelte:head>
 
 <div class="md:-mx-60 min-h-screen bg-background text-foreground tv-page">
 	<!-- Header Section -->
 	<div class="container mx-auto px-6 py-0 text-center">
 		<h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2"><small>🍿</small>JUMPFLIX<small>🍿</small></h1>
-		<p class="text-gray-600 dark:text-gray-300">Discover parkour movies, documentaries and playlists. Grab some popcorn!</p>
+		<p class="text-gray-600 dark:text-gray-300">{$t('tv.description')}</p>
 	</div>
 
 	<!-- Controls: Search, Filter, Sort -->
@@ -376,7 +377,7 @@
 					type="text"
 					autocomplete="off"
 					spellcheck="false"
-					placeholder="Search titles, descriptions, creators…"
+					placeholder="{$t('tv.searchPlaceholder')}"
 					aria-label="Search content"
 					class="w-full h-10 bg-white/80 dark:bg-gray-800/80 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-sm focus:outline-none focus:border-gray-300 dark:focus:border-gray-500 transition hover:border-gray-300 dark:hover:border-gray-500"
 					style="padding-left: 3rem; padding-right: 1rem; border-radius: 0.5rem;"
@@ -558,7 +559,7 @@
 
 					<!-- Description -->
 					<div>
-						<h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Description</h3>
+						<h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">{$t('tv.description_label')}</h3>
 						<p class="text-gray-700 dark:text-gray-300 leading-relaxed">
 							{selectedContent.description}
 						</p>
@@ -570,11 +571,11 @@
 							<h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Details</h3>
 							<div class="space-y-2 text-sm">
 								<div class="flex justify-between">
-									<span class="text-gray-500 dark:text-gray-400">Year:</span>
+									<span class="text-gray-500 dark:text-gray-400">{$t('tv.year')}:</span>
 									<span class="text-gray-900 dark:text-white">{selectedContent.year}</span>
 								</div>
 								<div class="flex justify-between">
-									<span class="text-gray-500 dark:text-gray-400">Duration:</span>
+									<span class="text-gray-500 dark:text-gray-400">{$t('tv.duration')}:</span>
 									<span class="text-gray-900 dark:text-white">{selectedContent.duration}</span>
 								</div>
 								<div class="flex justify-between">
@@ -587,7 +588,7 @@
 										<span class="text-gray-900 dark:text-white">{selectedContent.provider || 'External'}</span>
 									</div>
 									<div class="flex justify-between">
-										<span class="text-gray-500 dark:text-gray-400">Price:</span>
+										<span class="text-gray-500 dark:text-gray-400">{$t('tv.price')}:</span>
 										<span class="text-gray-900 dark:text-white">{selectedContent.price || ''}</span>
 									</div>
 								{/if}
@@ -631,12 +632,12 @@
 							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
 								<path d="M8 5v10l8-5-8-5z"/>
 							</svg>
-							Play Now
+							{$t('tv.playNow')}
 						{:else}
-							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-								<path d="M14 3H6a2 2 0 00-2 2v12a2 2 0 002 2h8m4-4V5a2 2 0 00-2-2h-2m4 14l-4 4m0 0l-4-4m4 4V13" />
+							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+								<path d="M8 5v10l8-5-8-5z"/>
 							</svg>
-							Watch on {selectedContent.provider || 'External'} {selectedContent.price ? `(${selectedContent.price})` : ''}
+							{$t('tv.watchOn')} {selectedContent.provider || 'External'}
 						{/if}
 					</button>
 				</div>
@@ -662,7 +663,7 @@
 					<div class="sticky top-0 z-50 flex items-center justify-between px-4 py-3 bg-white/80 dark:bg-black/70 backdrop-blur border-b border-black/10 dark:border-white/10">
 						<button on:click={closeDetailsPanel} class="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-white px-3 py-2 rounded-lg bg-black/5 hover:bg-black/10 dark:bg-white/10 dark:hover:bg-white/20">
 							<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-							Back
+							{$t('tv.back')}
 						</button>
 						<h2 class="text-base font-semibold line-clamp-2 pr-2 pl-2 text-gray-900 dark:text-white" style="margin:0;font-size:1em!important">{selectedContent.title}</h2>
 					</div>
@@ -713,7 +714,7 @@
 					<!-- Content body -->
 					<div class="px-4 pb-28 pt-4 space-y-6">
 						<div>
-							<h4 class="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-1">Description</h4>
+							<h4 class="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-1">{$t('tv.description_label')}</h4>
 							<p class="text-gray-700 dark:text-gray-200 text-sm leading-relaxed">{selectedContent.description}</p>
 						</div>
 
@@ -721,11 +722,11 @@
 							<div>
 								<h4 class="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-2">Details</h4>
 								<ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1">
-									<li class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">Year</span><span>{selectedContent.year}</span></li>
-									<li class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">Duration</span><span>{selectedContent.duration}</span></li>
+									<li class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">{$t('tv.year')}</span><span>{selectedContent.year}</span></li>
+									<li class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">{$t('tv.duration')}</span><span>{selectedContent.duration}</span></li>
 									{#if selectedContent.paid}
 										<li class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">Provider</span><span>{selectedContent.provider || 'External'}</span></li>
-										<li class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">Price</span><span>{selectedContent.price || ''}</span></li>
+										<li class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">{$t('tv.price')}</span><span>{selectedContent.price || ''}</span></li>
 									{/if}
 								</ul>
 							</div>
@@ -756,10 +757,10 @@
 					>
 						{#if isInlinePlayable(selectedContent)}
 							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l8-5-8-5z"/></svg>
-							Play Now
+							{$t('tv.playNow')}
 						{:else}
 							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l8-5-8-5z"/></svg>
-							Watch on {selectedContent.provider || 'External'} {selectedContent.price ? `(${selectedContent.price})` : ''}
+							{$t('tv.watchOn')} {selectedContent.provider || 'External'}
 						{/if}
 					</button>
 				</div>

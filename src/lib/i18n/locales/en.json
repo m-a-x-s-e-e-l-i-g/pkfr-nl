@@ -179,6 +179,17 @@
       "footbags": "Or <strong>{bags}</strong> hacky sacks."
     }
   },
+  "tv": {
+    "description": "Discover parkour movies, documentaries and playlists. Grab some popcorn!",
+    "searchPlaceholder": "Search titles, descriptions, creators…",
+    "description_label": "Description",
+    "playNow": "Play Now",
+    "duration": "Duration",
+    "year": "Year",
+    "watchOn": "Watch on ",
+    "price": "Price",
+    "back": "Back"
+  },
   "error": {
     "message": "Took the jump, missed the stick.",
     "subtitle": "Chalk your shoes and try again. Or just go home.",
