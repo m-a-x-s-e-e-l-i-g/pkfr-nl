@@ -36,10 +36,15 @@ main {
         margin-left: 0;
         margin-right: 0;
 
-        // From small breakpoint (sidebar visible) reserve space
-        @media (min-width: vars.$smMin) {
-            width: calc(100vw - 24rem);
-            margin-right: 24rem;
+        
+
+        // Add top margin to main content to account for fixed header
+        main {
+            // From small breakpoint (sidebar visible) reserve space
+            @media (min-width: vars.$smMin) {
+                width: calc(100vw - 24rem);
+                margin-right: 24rem;
+            }
         }
     }
 }

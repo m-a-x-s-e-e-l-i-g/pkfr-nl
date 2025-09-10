@@ -3,7 +3,6 @@
 	import { fade, scale } from 'svelte/transition';
 	import { Switch } from "$lib/components/ui/switch/index.js";
 	import * as Select from "$lib/components/ui/select/index.js";
-    import { Description } from '$lib/components/ui/alert';
 
 	let movies = [
 		{
@@ -207,6 +206,9 @@
 	}
 	let playerContainer: HTMLElement;
 	let gridEl: HTMLElement;
+	let sidebarEl: HTMLElement;
+	let headerHeight = 0;
+	let sidebarTop = 0;
 
 	function isInlinePlayable(content: any) {
 		if (!content) return false;
@@ -427,8 +429,46 @@
 				showDetailsPanel = false; // ensure overlay hidden when switching to desktop
 			}
 		}
+
+		// Calculate header height for sidebar positioning
+		function updateHeaderHeight() {
+			const header = document.querySelector('header');
+			headerHeight = header ? header.offsetHeight : 0;
+			console.log(headerHeight);
+			updateSidebarPosition();
+		}
+
+		// Handle scroll for simulated sticky sidebar
+		function handleScroll() {
+			updateSidebarPosition();
+		}
+
+		function updateSidebarPosition() {
+			if (!sidebarEl || isMobile) return;
+			
+			const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+			
+			// If we've scrolled past the header, stick to top
+			if (scrollTop >= headerHeight) {
+				sidebarTop = 0;
+			} else {
+				// Otherwise, position below the header minus scroll
+				sidebarTop = headerHeight - scrollTop;
+			}
+			
+			// Apply the calculated top position
+			sidebarEl.style.top = `${sidebarTop}px`;
+			sidebarEl.style.height = `calc(100vh - ${sidebarTop}px)`;
+		}
+
 		updateIsMobile();
-		window.addEventListener('resize', updateIsMobile);
+		updateHeaderHeight();
+		
+		window.addEventListener('resize', () => {
+			updateIsMobile();
+			updateHeaderHeight();
+		});
+		window.addEventListener('scroll', handleScroll);
 		document.addEventListener('keydown', handleKeydown);
 		
 		// Listen for fullscreen changes
@@ -440,7 +480,11 @@
 		
 		return () => {
 			document.removeEventListener('keydown', handleKeydown);
-			window.removeEventListener('resize', updateIsMobile);
+			window.removeEventListener('resize', () => {
+				updateIsMobile();
+				updateHeaderHeight();
+			});
+			window.removeEventListener('scroll', handleScroll);
 		};
 	});
 </script>
@@ -593,7 +637,7 @@
 		</div>
 
 	<!-- Sidebar (desktop & tablet) -->
-	<div class="hidden md:flex w-96 border-l border-gray-200 dark:border-gray-700 p-6 fixed top-0 right-0 h-screen overflow-hidden flex-col bg-white/70 dark:bg-transparent backdrop-blur-sm">
+	<div bind:this={sidebarEl} class="hidden md:flex w-96 border-l border-gray-200 dark:border-gray-700 p-6 fixed right-0 overflow-hidden flex-col bg-white/70 dark:bg-transparent backdrop-blur-sm" style="top: {sidebarTop}px; height: calc(100vh - {sidebarTop}px);">
 			{#if selectedContent}
 				<!-- Background with poster and glass effect -->
 					<div class="absolute inset-0 z-0">
@@ -611,7 +655,7 @@
 				</div>
 
 				<!-- Content details -->
-				<div class="space-y-4 relative z-10 flex-1 overflow-y-auto">
+				<div class="space-y-4 relative z-10 flex-1">
 					<div>
 						<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">{selectedContent.title}</h2>
 						<div class="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400 mb-4">
