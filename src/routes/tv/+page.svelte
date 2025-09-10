@@ -825,11 +825,9 @@
 </div>
 
 <style>
-	/* Minor light theme adjustments specific to tv page */
 	.tv-page :global(.group:hover img) { filter: brightness(1.05); }
 	.dark .tv-page :global(.group:hover img) { filter: brightness(1); }
 
-	/* Auto-fit grid for posters: enforce a comfortable minimum width so icons don't get tiny */
 	.auto-fit-grid {
 		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 		justify-content: center;
@@ -838,7 +836,7 @@
 
 	.auto-fit-grid > * {
 		width: 100%;
-		max-width: 300px; /* adjust if you want larger/smaller posters */
+		max-width: 300px;
 	}
 
 	@media (min-width: 768px) {
