@@ -812,7 +812,7 @@
 							<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
 							Back
 						</button>
-						<h2 class="text-base font-semibold line-clamp-1 pr-2 text-gray-900 dark:text-white" style="margin:0">{selectedContent.title}</h2>
+						<h2 class="text-base font-semibold line-clamp-2 pr-2 pl-2 text-gray-900 dark:text-white" style="margin:0;font-size:1em!important">{selectedContent.title}</h2>
 					</div>
 
 					<!-- Poster background -->
