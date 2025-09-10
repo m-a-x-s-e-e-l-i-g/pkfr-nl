@@ -23,6 +23,7 @@ Live site
 - 🧭 Tools: Gym Finder, Spot Map Finder and other small utilities.
 - 🔗 Community Links: WhatsApp groups, Instagram, playlists and partner sites.
 - 📨 User Contributions: Forms connected to Telegram for easy community input.
+- 🍿 JUMPFLIX: A collection of documentaries and playlists related to parkour and freerunning.
 
 ## Quick start — developer 🔧
 
