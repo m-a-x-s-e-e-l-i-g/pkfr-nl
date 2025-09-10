@@ -77,11 +77,23 @@
 			id: 7,
 			title: "People in Motion",
 			year: "2012",
-			description: "A documentary showcasing the journey of the Motus Projects team as they explore the world of parkour.",
+			description: "Cedric Dahl traveled the US west coast with 5 parkour practitioners who shared a passion for movement. This film documents the experience over 9 months.",
 			thumbnail: "https://image.tmdb.org/t/p/original/4WiU9gS5eEYbT8Sh1tStv5IK9qf.jpg",
 			videoId: "QH09YCtpKaw",
 			type: "movie",
-			duration: "55m"
+			duration: "55m",
+			trakt: "https://trakt.tv/movies/people-in-motion-2012"
+		},
+		{
+			id: 8,
+			title: "My Playground",
+			year: "2009",
+			description: "Mainly set in Copenhagen the film follows Team JiYo as they explore the city and encounter the obstacles it presents.",
+			thumbnail: "https://image.tmdb.org/t/p/original/1jHKoGP6NPbnzmf73dvynENdWzr.jpg",
+			videoId: "BX-KFdI4LG8",
+			type: "movie",
+			duration: "52m",
+			trakt: "https://trakt.tv/movies/my-playground-2009"
 		}
 	];
 
@@ -543,6 +555,26 @@
 								<span>{selectedContent.creator}</span>
 								<span>{selectedContent.videoCount || '?'} videos</span>
 							{/if}
+
+							{#if selectedContent.trakt}
+								<a
+									href={selectedContent.trakt}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="inline-flex items-center justify-center w-7 h-7 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#ED1C24] focus:ring-offset-black rounded transition hover:scale-105"
+									aria-label="View on Trakt"
+									title="Trakt"
+								>
+									<img 
+										src="https://trakt.tv/assets/logos/logomark.square.gradient-b644b16c38ff775861b4b1f58c1230f6a097a2466ab33ae00445a505c33fcb91.svg" 
+										alt="" 
+										class="w-full h-full select-none" 
+										loading="lazy" 
+										decoding="async"
+									/>
+									<span class="sr-only">Trakt</span>
+								</a>
+							{/if}
 						</div>
 					</div>
 
@@ -673,6 +705,26 @@
 								<span class="bg-red-600 px-2 py-1 rounded">PLAYLIST</span>
 								<span>{selectedContent.creator}</span>
 								<span>{selectedContent.videoCount || '?'} videos</span>
+							{/if}
+
+							{#if selectedContent.trakt}
+								<a
+									href={selectedContent.trakt}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="inline-flex items-center justify-center w-7 h-7 focus:outline-none focus:ring-2 focus:ring-[#ED1C24] focus:ring-offset-2 focus:ring-offset-black rounded transition active:scale-95 hover:scale-105"
+									aria-label="View on Trakt"
+									title="Trakt"
+								>
+									<img 
+										src="https://trakt.tv/assets/logos/logomark.square.gradient-b644b16c38ff775861b4b1f58c1230f6a097a2466ab33ae00445a505c33fcb91.svg" 
+										alt="" 
+										class="w-full h-full select-none" 
+										loading="lazy" 
+										decoding="async"
+									/>
+									<span class="sr-only">Trakt</span>
+								</a>
 							{/if}
 						</div>
 					</div>
