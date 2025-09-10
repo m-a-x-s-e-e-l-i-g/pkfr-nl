@@ -71,6 +71,4 @@
 	<li><span><Icon data={instagram}/></span><a href="https://www.instagram.com/parkour_culture_NL/" rel="noreferrer" target="_blank">{$t('links.instagram')}</a></li>
 	<li><span><Icon data={spotify}/></span><a href="https://spoti.fi/3OazXTm" rel="noreferrer" target="_blank">{$t('links.spotifyPlaylist')}</a></li>
 	<li><span><Icon data={externalLink}/></span><a href="https://parkourculture.nl/" rel="noreferrer" target="_blank">{$t('links.parkourcultureWebsite')}</a></li>
-	<li><span><Icon data={youtube}/></span><a href="https://youtube.com/playlist?list=PL3iwaCsp8s8P0lVvw3DkmMFmGxqBGSXnS&si=Mu8VorSdOCdnwjK6" rel="noreferrer" target="_blank">{$t('links.nlParkourPulse')}</a></li>
-	<li><span><Icon data={youtube}/></span><a href="https://youtube.com/playlist?list=PLIZ9EYUk7YaYgqhOHd1MqROfTmNw79UBy&si=JZ6U0iPv_J0RuUSw" rel="noreferrer" target="_blank">{$t('links.mustWatch')}</a></li>
 </ul>

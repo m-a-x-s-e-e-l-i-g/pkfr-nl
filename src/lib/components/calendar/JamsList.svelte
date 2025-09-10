@@ -49,6 +49,11 @@
 	:global(.dark .fc-list-event:hover .fc-list-event-time) {
 		color: var(--paper) !important;
 	}
+
+	/* Fix day text color in dark mode */
+	:global(.dark .fc-list-day-text, .dark .fc-list-day-side-text) {
+		color: var(--paper) !important;
+	}
 </style>
 
 <FullCalendar {options} />

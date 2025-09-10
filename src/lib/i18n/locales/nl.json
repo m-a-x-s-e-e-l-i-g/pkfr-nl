@@ -178,5 +178,21 @@
       "stoeptegels": "Dat zijn <strong>{tiles}</strong> stoeptegels.",
       "footbags": "Of <strong>{bags}</strong> hacky sacks."
     }
+  },
+  "tv": {
+    "description": "Ontdek parkour films, documentaires en playlists. Pak wat popcorn!",
+    "searchPlaceholder": "Zoek titels, omschrijvingen, makers…",
+    "description_label": "Omschrijving",
+    "playNow": "Nu afspelen",
+    "duration": "Lengte",
+    "year": "Jaar",
+    "watchOn": "Bekijk op ",
+    "price": "Prijs",
+    "back": "Terug"
+  },
+  "error": {
+    "message": "Oepsie poepski",
+    "subtitle": "Doen alsof niemand het zag, en snel naar huis.",
+    "backHome": "Terug naar Home"
   }
 }

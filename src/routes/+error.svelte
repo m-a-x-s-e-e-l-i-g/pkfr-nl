@@ -1,18 +1,19 @@
 <!-- This page handles any error encountered by the site. -->
 <script>
 import { page } from '$app/stores'
+import { t } from 'svelte-i18n'
 </script>
 
 <div class="error-container">
 	<div class="error-content">
 		<div class="error-text">
 			<h1 class="error-code">{$page.status}</h1>
-			<h2 class="error-message">Oops, overshot that one.</h2>
-			<p class="error-subtitle">Let's jump back to safety.</p>
-			<a href="/" class="button">Back to Home</a>
+			<h2 class="error-message">{$t('error.message')}</h2>
+			<p class="error-subtitle">{$t('error.subtitle')}</p>
+			<a href="/" class="button">{$t('error.backHome')}</a>
 		</div>
 		<div class="error-illustration">
-			<img src="/images/404guy.png" alt="Parkour athlete jumping" class="parkour-guy" />
+			<img src="/images/skrrrrt.png" alt="Parkour athlete skrrrrting" class="parkour-guy" />
 		</div>
 	</div>
 </div>

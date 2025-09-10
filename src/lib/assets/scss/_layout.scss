@@ -29,6 +29,24 @@ main {
     grid-template-columns: 100%;
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
+    
+    &.tv-layout {
+        // Mobile: take full width (sidebar hidden)
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+
+        
+
+        // Add top margin to main content to account for fixed header
+        main {
+            // From small breakpoint (sidebar visible) reserve space
+            @media (min-width: vars.$smMin) {
+                width: calc(100vw - 24rem);
+                margin-right: 24rem;
+            }
+        }
+    }
 }
 
 .button {
