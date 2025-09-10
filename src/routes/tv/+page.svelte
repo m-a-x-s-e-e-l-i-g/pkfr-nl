@@ -592,13 +592,12 @@
 									{/if}
 
 									<div class="absolute top-2 left-2 flex gap-2">
-										<span class="bg-blue-600 px-2 py-1 rounded text-xs font-medium">MOVIE</span>
 										{#if item.paid}
-											<span class="bg-yellow-500 text-black px-2 py-1 rounded text-xs font-bold">PAID</span>
+											<span class="bg-yellow-500 text-black px-2 py-1 rounded text-[10px] font-bold">PAID</span>
 										{/if}
 									</div>
 
-									<div class="absolute bottom-2 right-2 bg-black/70 px-2 py-1 rounded text-xs text-white/90">{item.duration}</div>
+									<div class="absolute bottom-2 right-2 bg-black/70 px-2 py-1 rounded text-[10px] text-white/90">{item.duration}</div>
 								</div>
 							</div>
 						{:else if item.type === 'playlist'}
@@ -626,8 +625,7 @@
 										</div>
 									{/if}
 
-									<div class="absolute top-2 left-2 bg-red-600 px-2 py-1 rounded text-xs font-medium">PLAYLIST</div>
-									<div class="absolute bottom-2 right-2 bg-black/70 px-2 py-1 rounded text-xs text-white/90">{item.videoCount || '?'} videos</div>
+									<div class="absolute bottom-2 right-2 bg-black/70 px-2 py-1 rounded text-[10px] text-white/90">{item.videoCount || '?'} videos</div>
 								</div>
 							</div>
 						{/if}
