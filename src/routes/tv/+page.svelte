@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { fade, scale } from 'svelte/transition';
 	import { Switch } from "$lib/components/ui/switch/index.js";
+	import * as Select from "$lib/components/ui/select/index.js";
 
 	let movies = [
 		{
@@ -103,16 +104,26 @@
 	let selectedIndex = 0;
 
 	// UI state: search, filter, sorting
-	let searchQuery: string = '';
-	// Show/hide paid content (default yes)
-	let showPaid: boolean = true;
-	let sortBy:
+	type SortBy =
 		| 'default'
 		| 'title-asc'
 		| 'year-desc'
 		| 'year-asc'
 		| 'duration-asc'
-		| 'duration-desc' = 'default';
+		| 'duration-desc';
+	let searchQuery: string = '';
+	// Show/hide paid content (default yes)
+	let showPaid: boolean = true;
+	let sortBy: SortBy = 'default';
+
+	const sortLabels: Record<SortBy, string> = {
+		default: 'Sort: Default',
+		'title-asc': 'Title A–Z',
+		'year-desc': 'Year (newest)',
+		'year-asc': 'Year (oldest)',
+		'duration-asc': 'Duration (short → long)',
+		'duration-desc': 'Duration (long → short)'
+	};
 
 	function parseYear(item: any): number {
 		const y = parseInt(item?.year);
@@ -357,17 +368,22 @@
 				<Switch bind:checked={showPaid} aria-label="Show paid items" />
 			</label>
 
-			<!-- Sorting -->
-			<div>
-				<select bind:value={sortBy} class="rounded-lg bg-gray-800/80 border border-gray-700 text-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600">
-					<option value="default">Sort: Default</option>
-					<option value="title-asc">Title A–Z</option>
-					<option value="year-desc">Year (newest)</option>
-					<option value="year-asc">Year (oldest)</option>
-					<option value="duration-asc">Duration (short → long)</option>
-					<option value="duration-desc">Duration (long → short)</option>
-				</select>
-			</div>
+				<!-- Sorting -->
+				<div>
+					<Select.Root type="single" bind:value={sortBy}>
+						<Select.Trigger class="w-[180px]">
+							<span>{sortLabels[sortBy]}</span>
+						</Select.Trigger>
+						<Select.Content>
+							<Select.Item value="default">Sort: Default</Select.Item>
+							<Select.Item value="title-asc">Title A–Z</Select.Item>
+							<Select.Item value="year-desc">Year (newest)</Select.Item>
+							<Select.Item value="year-asc">Year (oldest)</Select.Item>
+							<Select.Item value="duration-asc">Duration (short → long)</Select.Item>
+							<Select.Item value="duration-desc">Duration (long → short)</Select.Item>
+						</Select.Content>
+					</Select.Root>
+				</div>
 		</div>
 	</div>
 
