@@ -171,6 +171,7 @@
 		return hay.includes(q.toLowerCase());
 	}
 	let playerContainer: HTMLElement;
+	let gridEl: HTMLElement;
 
 	function isInlinePlayable(content: any) {
 		if (!content) return false;
@@ -342,14 +343,36 @@
 					break;
 				case 'ArrowDown':
 					event.preventDefault();
-					// Calculate columns based on screen width - approximate
-					const cols = window.innerWidth >= 1536 ? 6 : window.innerWidth >= 1280 ? 5 : window.innerWidth >= 1024 ? 4 : window.innerWidth >= 768 ? 3 : 2;
-					selectByIndex(selectedIndex + cols);
+					// Prefer dynamic column calculation from the grid when available so navigation follows layout
+					let dynamicCols = 0;
+					try {
+						if (gridEl && gridEl.children && gridEl.children.length > 0) {
+							const first = gridEl.children[0] as HTMLElement;
+							const itemW = Math.ceil(first.getBoundingClientRect().width);
+							const containerW = Math.floor(gridEl.getBoundingClientRect().width);
+							dynamicCols = Math.max(1, Math.floor(containerW / (itemW || 1)));
+						}
+					} catch (e) {
+						dynamicCols = 0;
+					}
+					const downCols = dynamicCols || (window.innerWidth >= 1536 ? 6 : window.innerWidth >= 1280 ? 5 : window.innerWidth >= 1024 ? 4 : window.innerWidth >= 768 ? 3 : 2);
+					selectByIndex(selectedIndex + downCols);
 					break;
 				case 'ArrowUp':
 					event.preventDefault();
-					const colsUp = window.innerWidth >= 1536 ? 6 : window.innerWidth >= 1280 ? 5 : window.innerWidth >= 1024 ? 4 : window.innerWidth >= 768 ? 3 : 2;
-					selectByIndex(selectedIndex - colsUp);
+					let dynamicColsUp = 0;
+					try {
+						if (gridEl && gridEl.children && gridEl.children.length > 0) {
+							const first = gridEl.children[0] as HTMLElement;
+							const itemW = Math.ceil(first.getBoundingClientRect().width);
+							const containerW = Math.floor(gridEl.getBoundingClientRect().width);
+							dynamicColsUp = Math.max(1, Math.floor(containerW / (itemW || 1)));
+						}
+					} catch (e) {
+						dynamicColsUp = 0;
+					}
+					const upCols = dynamicColsUp || (window.innerWidth >= 1536 ? 6 : window.innerWidth >= 1280 ? 5 : window.innerWidth >= 1024 ? 4 : window.innerWidth >= 768 ? 3 : 2);
+					selectByIndex(selectedIndex - upCols);
 					break;
 				case 'Enter':
 					event.preventDefault();
@@ -395,7 +418,7 @@
 <div class="md:-mx-60 min-h-screen bg-background text-foreground tv-page">
 	<!-- Header Section -->
 	<div class="container mx-auto px-6 py-0">
-		<h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">JUMPFLIX <small>🍿Parkour TV🦘</small></h1>
+		<h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">JUMPFLIX<small>🍿<br/>Parkour TV🦘</small></h1>
 		<p class="text-gray-600 dark:text-gray-300">Discover parkour movies, documentaries and playlists. Grab some popcorn!</p>
 	</div>
 
@@ -457,9 +480,9 @@
 	<!-- Content Grid -->
 	<div>
 		<!-- Main Content Area -->
-		<div class="container mx-auto px-6 py-6 pr-4">
+		<div class="container mx-auto px-6 py-6 pr-4 tv-main">
 			<!-- Grid over unified, filtered & sorted content -->
-			<div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4">
+			<div bind:this={gridEl} class="grid auto-fit-grid gap-4">
 				{#if visibleContent.length === 0}
 					<div class="col-span-full text-center text-gray-400 py-8">No results. Try adjusting filters.</div>
 				{:else}
@@ -534,8 +557,8 @@
 			</div>
 		</div>
 
-		<!-- Sidebar (desktop & tablet) -->
-		<div class="hidden md:flex w-96 border-l border-gray-200 dark:border-gray-700 p-6 fixed top-0 right-0 h-screen overflow-hidden flex-col bg-white/70 dark:bg-transparent backdrop-blur-sm">
+	<!-- Sidebar (desktop & tablet) -->
+	<div class="hidden md:flex w-96 border-l border-gray-200 dark:border-gray-700 p-6 fixed top-0 right-0 h-screen overflow-hidden flex-col bg-white/70 dark:bg-transparent backdrop-blur-sm">
 			{#if selectedContent}
 				<!-- Background with poster and glass effect -->
 					<div class="absolute inset-0 z-0">
@@ -805,6 +828,33 @@
 	/* Minor light theme adjustments specific to tv page */
 	.tv-page :global(.group:hover img) { filter: brightness(1.05); }
 	.dark .tv-page :global(.group:hover img) { filter: brightness(1); }
+
+	/* Auto-fit grid for posters: enforce a comfortable minimum width so icons don't get tiny */
+	.auto-fit-grid {
+		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	}
+
+	@media (min-width: 768px) {
+		.tv-page {
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.tv-page .container {
+			max-width: 100%;
+			width: 100%;
+		}
+
+		.tv-page .tv-main {
+			width: 100%;
+			padding-right: 1rem;
+		}
+	}
+
+	:global(main) {
+		max-width: 100vw;
+		padding: 0 1rem 0 0;
+	}
 </style>
 
 <!-- Video Player Modal -->
