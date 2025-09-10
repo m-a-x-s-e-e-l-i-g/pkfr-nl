@@ -568,16 +568,22 @@
 					{#each visibleContent as item (item.type + ':' + item.id)}
 						{#if item.type === 'movie'}
 							<div 
-								class="group cursor-pointer transform hover:scale-105 transition-all duration-300"
-								class:scale-105={selectedContent && selectedContent.id === item.id && selectedContent.type === item.type}
+								class="group cursor-pointer"
+								class:transform={!isMobile}
+								class:hover:scale-105={!isMobile}
+								class:transition-all={!isMobile}
+								class:duration-300={!isMobile}
+								class:scale-105={!isMobile && selectedContent && selectedContent.id === item.id && selectedContent.type === item.type}
 								on:click={() => selectContent(item)}
 								on:keydown={(e) => e.key === 'Enter' && selectContent(item)}
 								tabindex="0"
 								role="button"
 							>
-								<div class="relative aspect-[2/3] aspect-[2/3] bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden mb-3 shadow-lg group-hover:ring-4 group-hover:ring-blue-400 transition-all duration-300"
-									class:ring-4={selectedContent && selectedContent.id === item.id && selectedContent.type === item.type}
-									class:ring-red-500={selectedContent && selectedContent.id === item.id && selectedContent.type === item.type}
+								<div class="relative aspect-[2/3] aspect-[2/3] bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden mb-3 shadow-lg transition-all duration-300"
+									class:group-hover:ring-4={!isMobile}
+									class:group-hover:ring-blue-400={!isMobile}
+									class:ring-4={!isMobile && selectedContent && selectedContent.id === item.id && selectedContent.type === item.type}
+									class:ring-red-500={!isMobile && selectedContent && selectedContent.id === item.id && selectedContent.type === item.type}
 									title="{item.title}"
 								>
 									{#if isImage(item.thumbnail)}
@@ -602,16 +608,22 @@
 							</div>
 						{:else if item.type === 'playlist'}
 							<div 
-								class="group cursor-pointer transform hover:scale-105 transition-all duration-300"
-								class:scale-105={selectedContent && selectedContent.id === item.id && selectedContent.type === item.type}
+								class="group cursor-pointer"
+								class:transform={!isMobile}
+								class:hover:scale-105={!isMobile}
+								class:transition-all={!isMobile}
+								class:duration-300={!isMobile}
+								class:scale-105={!isMobile && selectedContent && selectedContent.id === item.id && selectedContent.type === item.type}
 								on:click={() => selectContent(item)}
 								on:keydown={(e) => e.key === 'Enter' && selectContent(item)}
 								tabindex="0"
 								role="button"
 							>
-								<div class="relative aspect-[2/3] bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden mb-3 shadow-lg group-hover:ring-4 group-hover:ring-red-400 transition-all duration-300"
-									class:ring-4={selectedContent && selectedContent.id === item.id && selectedContent.type === item.type}
-									class:ring-red-500={selectedContent && selectedContent.id === item.id && selectedContent.type === item.type}
+								<div class="relative aspect-[2/3] bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden mb-3 shadow-lg transition-all duration-300"
+									class:group-hover:ring-4={!isMobile}
+									class:group-hover:ring-red-400={!isMobile}
+									class:ring-4={!isMobile && selectedContent && selectedContent.id === item.id && selectedContent.type === item.type}
+									class:ring-red-500={!isMobile && selectedContent && selectedContent.id === item.id && selectedContent.type === item.type}
 									title="{item.title}"
 								>
 									{#if isImage(item.thumbnail)}
@@ -905,8 +917,11 @@
 </div>
 
 <style>
-	.tv-page :global(.group:hover img) { filter: brightness(1.05); }
-	.dark .tv-page :global(.group:hover img) { filter: brightness(1); }
+	/* Only apply hover effects on non-mobile devices */
+	@media (min-width: 768px) {
+		.tv-page :global(.group:hover img) { filter: brightness(1.05); }
+		.dark .tv-page :global(.group:hover img) { filter: brightness(1); }
+	}
 
 	.auto-fit-grid {
 		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -917,6 +932,17 @@
 	.auto-fit-grid > * {
 		width: 100%;
 		max-width: 300px;
+	}
+
+	/* Mobile responsive grid - smaller posters for 2 columns */
+	@media (max-width: 767px) {
+		.auto-fit-grid {
+			grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+		}
+		
+		.auto-fit-grid > * {
+			max-width: 200px;
+		}
 	}
 
 	@media (min-width: 768px) {
