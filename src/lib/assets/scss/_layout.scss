@@ -31,9 +31,16 @@ main {
     min-height: 100vh;
     
     &.tv-layout {
-        width: calc(100vw - 24rem);
+        // Mobile: take full width (sidebar hidden)
+        width: 100%;
         margin-left: 0;
-        margin-right: 24rem;
+        margin-right: 0;
+
+        // From small breakpoint (sidebar visible) reserve space
+        @media (min-width: vars.$smMin) {
+            width: calc(100vw - 24rem);
+            margin-right: 24rem;
+        }
     }
 }
 

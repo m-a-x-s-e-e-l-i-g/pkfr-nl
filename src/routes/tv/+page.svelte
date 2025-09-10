@@ -102,6 +102,9 @@
 	let showPlayer = false;
 	let allContent: any[] = [];
 	let selectedIndex = 0;
+	// Mobile responsive state
+	let isMobile = false;
+	let showDetailsPanel = false; // mobile details overlay
 
 	// UI state: search, filter, sorting
 	type SortBy =
@@ -214,6 +217,13 @@
 		selectedContent = content;
 		selectedIndex = visibleContent.findIndex(item => item.id === content.id && item.type === content.type);
 		showPlayer = false;
+		if (isMobile) {
+			showDetailsPanel = true; // open overlay on mobile
+			// Prevent body scroll beneath
+			document.documentElement.classList.add('overflow-hidden');
+		} else {
+			document.documentElement.classList.remove('overflow-hidden');
+		}
 	}
 
 	function selectByIndex(index: number) {
@@ -228,6 +238,11 @@
 		selectedContent = content;
 		if (isInlinePlayable(content)) {
 			showPlayer = true;
+			// On mobile hide detail panel while playing
+			if (isMobile) {
+				showDetailsPanel = false;
+				document.documentElement.classList.remove('overflow-hidden');
+			}
 			// Request fullscreen after a short delay to ensure the player is rendered
 			setTimeout(() => {
 				if (playerContainer) {
@@ -247,6 +262,12 @@
 		if (document.fullscreenElement) {
 			document.exitFullscreen();
 		}
+		document.documentElement.classList.remove('overflow-hidden');
+	}
+
+	function closeDetailsPanel() {
+		showDetailsPanel = false;
+		document.documentElement.classList.remove('overflow-hidden');
 	}
 
 	function requestFullscreen(element: HTMLElement) {
@@ -319,6 +340,15 @@
 	}
 
 	onMount(() => {
+		// Initial mobile detection & resize listener
+		function updateIsMobile() {
+			isMobile = window.innerWidth < 768; // Tailwind md breakpoint
+			if (!isMobile) {
+				showDetailsPanel = false; // ensure overlay hidden when switching to desktop
+			}
+		}
+		updateIsMobile();
+		window.addEventListener('resize', updateIsMobile);
 		document.addEventListener('keydown', handleKeydown);
 		
 		// Listen for fullscreen changes
@@ -330,6 +360,7 @@
 		
 		return () => {
 			document.removeEventListener('keydown', handleKeydown);
+			window.removeEventListener('resize', updateIsMobile);
 		};
 	});
 </script>
@@ -339,7 +370,7 @@
 	<meta name="description" content="Watch parkour movies, documentaries, and YouTube playlists. Discover the best parkour content in one place." />
 </svelte:head>
 
-<div class="-mx-60 min-h-screen bg-gray-900 text-white">
+<div class="md:-mx-60 min-h-screen bg-gray-900 text-white">
 	<!-- Header Section -->
 	<div class="container mx-auto px-6 py-0">
 		<h1 class="text-3xl font-bold text-white mb-2">JUMPFLIX <small>🍿Parkour TV🦘</small></h1>
@@ -392,7 +423,7 @@
 		<!-- Main Content Area -->
 		<div class="container mx-auto px-6 py-6 pr-4">
 			<!-- Grid over unified, filtered & sorted content -->
-			<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4">
+			<div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4">
 				{#if visibleContent.length === 0}
 					<div class="col-span-full text-center text-gray-400 py-8">No results. Try adjusting filters.</div>
 				{:else}
@@ -467,8 +498,8 @@
 			</div>
 		</div>
 
-		<!-- Sidebar -->
-		<div class="w-96 border-l border-gray-700 p-6 fixed top-0 right-0 h-screen overflow-hidden flex flex-col">
+		<!-- Sidebar (desktop & tablet) -->
+		<div class="hidden md:flex w-96 border-l border-gray-700 p-6 fixed top-0 right-0 h-screen overflow-hidden flex-col">
 			{#if selectedContent}
 				<!-- Background with poster and glass effect -->
 				<div class="absolute inset-0 z-0">
@@ -601,6 +632,96 @@
 				</div>
 			{/if}
 		</div>
+
+		<!-- Mobile Details Overlay -->
+		{#if isMobile && showDetailsPanel && selectedContent}
+			<div class="md:hidden fixed inset-0 z-40 bg-black/90 backdrop-blur-xl flex flex-col overflow-y-auto" transition:fade>
+				<!-- Top bar -->
+				<div class="sticky top-0 z-50 flex items-center justify-between px-4 py-3 bg-black/70 backdrop-blur border-b border-white/10">
+					<button on:click={closeDetailsPanel} class="flex items-center gap-2 text-sm font-medium text-white px-3 py-2 rounded-lg bg-white/10 hover:bg-white/20">
+						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+						Back
+					</button>
+					<h2 class="text-base font-semibold line-clamp-1 pr-2">{selectedContent.title}</h2>
+				</div>
+
+				<!-- Poster background -->
+				<div class="relative">
+					{#if isImage(selectedContent.thumbnail)}
+						<img src={selectedContent.thumbnail} alt="{selectedContent.title} background" class="w-full h-72 object-cover opacity-60" />
+					{/if}
+					<div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/10"></div>
+					<div class="absolute bottom-4 left-4 right-4">
+						<h3 class="text-2xl font-bold mb-2">{selectedContent.title}</h3>
+						<div class="flex flex-wrap items-center gap-2 text-xs text-gray-300 mb-3">
+							{#if selectedContent.type === 'movie'}
+								<span class="bg-blue-600 px-2 py-1 rounded">MOVIE</span>
+								{#if selectedContent.paid}<span class="bg-yellow-400 text-black px-2 py-1 rounded font-bold">PAID</span>{/if}
+								<span>{selectedContent.year}</span>
+								<span>{selectedContent.duration}</span>
+							{:else}
+								<span class="bg-red-600 px-2 py-1 rounded">PLAYLIST</span>
+								<span>{selectedContent.creator}</span>
+								<span>{selectedContent.videoCount || '?'} videos</span>
+							{/if}
+						</div>
+					</div>
+				</div>
+
+				<!-- Content body -->
+				<div class="px-4 pb-28 pt-4 space-y-6">
+					<div>
+						<h4 class="text-sm font-semibold uppercase tracking-wide text-gray-400 mb-1">Description</h4>
+						<p class="text-gray-200 text-sm leading-relaxed">{selectedContent.description}</p>
+					</div>
+
+					{#if selectedContent.type === 'movie'}
+						<div>
+							<h4 class="text-sm font-semibold uppercase tracking-wide text-gray-400 mb-2">Details</h4>
+							<ul class="text-xs text-gray-300 space-y-1">
+								<li class="flex justify-between"><span class="text-gray-400">Year</span><span>{selectedContent.year}</span></li>
+								<li class="flex justify-between"><span class="text-gray-400">Duration</span><span>{selectedContent.duration}</span></li>
+								{#if selectedContent.paid}
+									<li class="flex justify-between"><span class="text-gray-400">Provider</span><span>{selectedContent.provider || 'External'}</span></li>
+									<li class="flex justify-between"><span class="text-gray-400">Price</span><span>{selectedContent.price || ''}</span></li>
+								{/if}
+							</ul>
+						</div>
+					{:else}
+						<div>
+							<h4 class="text-sm font-semibold uppercase tracking-wide text-gray-400 mb-2">Playlist Info</h4>
+							<ul class="text-xs text-gray-300 space-y-1">
+								<li class="flex justify-between"><span class="text-gray-400">Creator</span><span>{selectedContent.creator}</span></li>
+								<li class="flex justify-between"><span class="text-gray-400">Videos</span><span>{selectedContent.videoCount || '?'}</span></li>
+								<li class="flex justify-between"><span class="text-gray-400">Type</span><span>YouTube Playlist</span></li>
+							</ul>
+						</div>
+					{/if}
+				</div>
+
+				<!-- Bottom action bar -->
+				<div class="fixed bottom-0 left-0 right-0 z-50 p-4 bg-black/80 backdrop-blur border-t border-white/10">
+					<button 
+						on:click={() => {
+							if (isInlinePlayable(selectedContent)) {
+								openContent(selectedContent);
+							} else if (selectedContent?.externalUrl) {
+								openExternalContent(selectedContent);
+							}
+						}}
+						class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2"
+					>
+						{#if isInlinePlayable(selectedContent)}
+							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l8-5-8-5z"/></svg>
+							Play Now
+						{:else}
+							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 00-2 2v12a2 2 0 002 2h8m4-4V5a2 2 0 00-2-2h-2m4 14l-4 4m0 0l-4-4m4 4V13" /></svg>
+							Watch on {selectedContent.provider || 'External'} {selectedContent.price ? `(${selectedContent.price})` : ''}
+						{/if}
+					</button>
+				</div>
+			</div>
+		{/if}
 	</div>
 </div>
 
