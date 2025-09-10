@@ -28,5 +28,15 @@ export const playlists = [
 		playlistId: "PLFE063C4ADA6CAA18",
 		type: "playlist",
 		videoCount: 4
+	},
+	{
+		id: 4,
+		title: "Forest Flow | Parkour in Nature",
+		creator: "Max Seelig",
+		description: "A playlist showcasing parkour in natural environments.",
+		thumbnail: "/images/posters/forest-flow-parkour-in-nature-poster.webp",
+		playlistId: "PL3iwaCsp8s8Mdg2gI45nhevmbalyAeBJ5",
+		type: "playlist",
+		videoCount: 2
 	}
 ];
