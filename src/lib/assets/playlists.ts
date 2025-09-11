@@ -38,5 +38,15 @@ export const playlists = [
 		playlistId: "PL3iwaCsp8s8Mdg2gI45nhevmbalyAeBJ5",
 		type: "playlist",
 		videoCount: 2
+	},
+	{
+		id: 5,
+		title: "World Chase Tag",
+		creator: "World Chase Tag",
+		description: "The First and Only Global League for Professional Tag! 🏃‍♂️ #KeepChasing #DontGetCaught",
+		thumbnail: "/images/posters/world-chase-tag-poster.webp",
+		playlistId: "UUvo8BitSExXgP-eYjXwJvgw",
+		type: "playlist",
+		videoCount: 312
 	}
 ];
