@@ -180,5 +180,57 @@ export const movies = [
 		paid: true,
 		provider: "JustWatch",
 		externalUrl: "https://www.justwatch.com/us/movie/district-b13-ultimatum"
+	},
+	{
+		id: 17,
+		title: "Tracers",
+		year: "2015",
+		description: "A NYC bike messenger, hunted by the mob, dives into an underground parkour crew that offers a risky way out.",
+		thumbnail: "https://image.tmdb.org/t/p/original/2XoazCkD4gRlqkJK7q6TOTUx1ta.jpg",
+		type: "movie",
+		duration: "1h 34m",
+		trakt: "https://trakt.tv/movies/tracers-2015",
+		paid: true,
+		provider: "JustWatch",
+		externalUrl: "https://www.justwatch.com/us/movie/tracers"
+	},
+	{
+		id: 18,
+		title: "Brick Mansions",
+		year: "2014",
+		description: "An undercover cop and an ex-con with parkour skills team up to stop a crime lord’s bomb plot in walled-off Detroit.",
+		thumbnail: "https://image.tmdb.org/t/p/original/6OopiNRk7lWP0hPsY0eYqq2kQTi.jpg",
+		type: "movie",
+		duration: "1h 30m",
+		trakt: "https://trakt.tv/movies/brick-mansions-2014",
+		paid: true,
+		provider: "JustWatch",
+		externalUrl: "https://www.justwatch.com/us/movie/brick-mansions"
+	},
+	{
+		id: 19,
+		title: "6 Underground",
+		year: "2019",
+		description: "A dead-on-paper billionaire forms a covert parkour-savvy vigilante squad to topple a brutal dictator.",
+		thumbnail: "https://image.tmdb.org/t/p/original/lnWkyG3LLgbbrIEeyl5mK5VRFe4.jpg",
+		type: "movie",
+		duration: "2h 8m",
+		trakt: "https://trakt.tv/movies/6-underground-2019",
+		paid: true,
+		provider: "JustWatch",
+		externalUrl: "https://www.justwatch.com/us/movie/6-underground"
+	},
+	{
+		id: 20,
+		title: "Freerunner",
+		year: "2011",
+		description: "With an explosive collar ticking down, a freerunner sprints across the city battling rivals to save himself and his girlfriend.",
+		thumbnail: "https://image.tmdb.org/t/p/original/uy1FNiDvSqUkAKkQ7Nvb42ntdfr.jpg",
+		type: "movie",
+		duration: "1h 27m",
+		trakt: "https://trakt.tv/movies/freerunner-2011",
+		paid: true,
+		provider: "JustWatch",
+		externalUrl: "https://www.justwatch.com/us/movie/freerunner"
 	}
 ];
