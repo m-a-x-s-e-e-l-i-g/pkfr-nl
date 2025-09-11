@@ -152,6 +152,7 @@ export const movies = [
 		thumbnail: "https://image.tmdb.org/t/p/original/1uvjUh8lcPuUCk4qW2K6dhT534m.jpg",
 		videoId: "0GyxTe9W_yI",
 		type: "movie",
-		duration: "1h 11m"
+		duration: "1h 11m",
+		trakt: "https://trakt.tv/movies/generation-yamakasi-2006"
 	}
 ];
