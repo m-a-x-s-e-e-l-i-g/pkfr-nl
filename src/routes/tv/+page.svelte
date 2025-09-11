@@ -686,7 +686,7 @@
 							<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
 							{$t('tv.back')}
 						</button>
-						<h2 class="text-base font-semibold line-clamp-2 pr-2 pl-2 text-gray-900 dark:text-white" style="margin:0;font-size:1em!important">{selectedContent.title}</h2>
+						<h2 class="text-base line-clamp-2 pr-2 pl-2 text-gray-900 dark:text-white" style="margin:0;font-size:.9em!important;font-family: 'Inter', sans-serif;">{selectedContent.title}</h2>
 					</div>
 
 					<!-- Poster background -->
@@ -735,13 +735,13 @@
 					<!-- Content body -->
 					<div class="px-4 pb-28 pt-4 space-y-6">
 						<div>
-							<h4 class="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-1">{$t('tv.description_label')}</h4>
+							<h4 class="text-sm font-semibold tracking-wide text-gray-500 dark:text-gray-400 mb-1">{$t('tv.description_label')}</h4>
 							<p class="text-gray-700 dark:text-gray-200 text-sm leading-relaxed">{selectedContent.description}</p>
 						</div>
 
 						{#if selectedContent.type === 'movie'}
 							<div>
-								<h4 class="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-2">Details</h4>
+								<h4 class="text-sm font-semibold tracking-wide text-gray-500 dark:text-gray-400 mb-2">Details</h4>
 								<ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1">
 									<li class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">{$t('tv.year')}</span><span>{selectedContent.year}</span></li>
 									<li class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">{$t('tv.duration')}</span><span>{selectedContent.duration}</span></li>
@@ -753,7 +753,7 @@
 							</div>
 						{:else}
 							<div>
-								<h4 class="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-2">Playlist Info</h4>
+								<h4 class="text-sm font-semibold tracking-wide text-gray-500 dark:text-gray-400 mb-2">Playlist Info</h4>
 								<ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1">
 									<li class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">Creator</span><span>{selectedContent.creator}</span></li>
 									<li class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">Videos</span><span>{selectedContent.videoCount || '?'}</span></li>
