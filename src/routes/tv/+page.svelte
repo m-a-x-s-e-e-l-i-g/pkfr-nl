@@ -541,7 +541,7 @@
 				<!-- Content details -->
 				<div class="space-y-4 relative z-10 flex-1">
 					<div>
-						<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">{selectedContent.title}</h2>
+						<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2" style="font-weight:100;">{selectedContent.title}</h2>
 						<div class="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400 mb-4">
 							{#if selectedContent.type === 'movie'}
 								<span class="bg-blue-600 px-2 py-1 rounded text-white text-xs">MOVIE</span>
@@ -580,7 +580,7 @@
 
 					<!-- Description -->
 					<div>
-						<h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">{$t('tv.description_label')}</h3>
+						<br/>
 						<p class="text-gray-700 dark:text-gray-300 leading-relaxed">
 							{selectedContent.description}
 						</p>
@@ -589,16 +589,7 @@
 					{#if selectedContent.type === 'movie'}
 						<!-- Movie specific details -->
 						<div>
-							<h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Details</h3>
 							<div class="space-y-2 text-sm">
-								<div class="flex justify-between">
-									<span class="text-gray-500 dark:text-gray-400">{$t('tv.year')}:</span>
-									<span class="text-gray-900 dark:text-white">{selectedContent.year}</span>
-								</div>
-								<div class="flex justify-between">
-									<span class="text-gray-500 dark:text-gray-400">{$t('tv.duration')}:</span>
-									<span class="text-gray-900 dark:text-white">{selectedContent.duration}</span>
-								</div>
 								<div class="flex justify-between">
 									<span class="text-gray-500 dark:text-gray-400">Type:</span>
 									<span class="text-gray-900 dark:text-white">Documentary</span>
@@ -618,7 +609,6 @@
 					{:else}
 						<!-- Playlist specific details -->
 						<div>
-							<h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Playlist Info</h3>
 							<div class="space-y-2 text-sm">
 								<div class="flex justify-between">
 									<span class="text-gray-500 dark:text-gray-400">Creator:</span>
@@ -696,7 +686,7 @@
 						{/if}
 						<div class="absolute inset-0 bg-gradient-to-t from-white via-white/70 to-white/10 dark:from-black dark:via-black/60 dark:to-black/10"></div>
 						<div class="absolute bottom-4 left-4 right-4">
-							<h3 class="text-2xl font-bold mb-2 text-gray-900 dark:text-white">{selectedContent.title}</h3>
+							<h3 class="mb-2 text-gray-900 dark:text-white" style="font-size:2em!important;font-weight:100;">{selectedContent.title}</h3>
 							<div class="flex flex-wrap items-center gap-2 text-xs text-gray-700 dark:text-gray-300 mb-3">
 								{#if selectedContent.type === 'movie'}
 									<span class="bg-blue-600 px-2 py-1 rounded">MOVIE</span>
@@ -735,16 +725,12 @@
 					<!-- Content body -->
 					<div class="px-4 pb-28 pt-4 space-y-6">
 						<div>
-							<h4 class="text-sm font-semibold tracking-wide text-gray-500 dark:text-gray-400 mb-1">{$t('tv.description_label')}</h4>
 							<p class="text-gray-700 dark:text-gray-200 text-sm leading-relaxed">{selectedContent.description}</p>
 						</div>
 
 						{#if selectedContent.type === 'movie'}
 							<div>
-								<h4 class="text-sm font-semibold tracking-wide text-gray-500 dark:text-gray-400 mb-2">Details</h4>
-								<ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1">
-									<li class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">{$t('tv.year')}</span><span>{selectedContent.year}</span></li>
-									<li class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">{$t('tv.duration')}</span><span>{selectedContent.duration}</span></li>
+								<ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1" style="padding-left:0;">
 									{#if selectedContent.paid}
 										<li class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">Provider</span><span>{selectedContent.provider || 'External'}</span></li>
 										<li class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">{$t('tv.price')}</span><span>{selectedContent.price || ''}</span></li>
@@ -753,8 +739,7 @@
 							</div>
 						{:else}
 							<div>
-								<h4 class="text-sm font-semibold tracking-wide text-gray-500 dark:text-gray-400 mb-2">Playlist Info</h4>
-								<ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1">
+								<ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1" style="padding-left:0;">
 									<li class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">Creator</span><span>{selectedContent.creator}</span></li>
 									<li class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">Videos</span><span>{selectedContent.videoCount || '?'}</span></li>
 									<li class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">Type</span><span>YouTube Playlist</span></li>
