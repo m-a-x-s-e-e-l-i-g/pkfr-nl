@@ -42,18 +42,56 @@
 	}
 
 	// Create a deterministic shuffled list by hashing seed+key, then ranking
+	// Previous approach (sorting by hash) produced patterns; use a better seeded PRNG + Fisher–Yates.
+	// Seeded PRNG utilities (xmur3 -> sfc32) for deterministic but higher-quality pseudo-random numbers.
+	function xmur3(str: string) {
+		let h = 1779033703 ^ str.length;
+		for (let i = 0; i < str.length; i++) {
+			h = Math.imul(h ^ str.charCodeAt(i), 3432918353);
+			h = (h << 13) | (h >>> 19);
+		}
+		return function () {
+			h = Math.imul(h ^ (h >>> 16), 2246822507);
+			h = Math.imul(h ^ (h >>> 13), 3266489909);
+			h ^= h >>> 16;
+			return h >>> 0; // unsigned 32-bit
+		};
+	}
+
+	function sfc32(a: number, b: number, c: number, d: number) {
+		return function () {
+			a >>>= 0; b >>>= 0; c >>>= 0; d >>>= 0;
+			let t = (a + b) | 0;
+			a = b ^ (b >>> 9);
+			b = (c + (c << 3)) | 0;
+			c = (c << 21) | (c >>> 11);
+			c = (c + t) | 0;
+			d = (d + 1) | 0;
+			t = (t + d) | 0;
+			c = (c + t) | 0;
+			return (t >>> 0) / 4294967296; // 0..1
+		};
+	}
+
+	function createSeededRng(seedStr: string) {
+		const seedGen = xmur3(seedStr);
+		return sfc32(seedGen(), seedGen(), seedGen(), seedGen());
+	}
+
+	function shuffleDeterministic<T>(arr: T[], rng: () => number): T[] {
+		for (let i = arr.length - 1; i > 0; i--) {
+			const j = Math.floor(rng() * (i + 1));
+			[arr[i], arr[j]] = [arr[j], arr[i]];
+		}
+		return arr;
+	}
+
 	const _rankMap = new Map<string, number>();
-	const _shuffledDeterministic = [..._initialCombined]
-		.map((item) => {
-			const key = `${item.type}:${item.id}`;
-			return { item, key, hv: hashString(_seed + key) };
-		})
-		.sort((a, b) => {
-			if (a.hv === b.hv) return a.key.localeCompare(b.key);
-			return a.hv - b.hv;
-		});
-	_shuffledDeterministic.forEach(({ item, key }, index) => {
-		_rankMap.set(key, index);
+	// Use a composite seed so that small catalog changes still fully reshuffle daily.
+	const _rng = createSeededRng(_seed + ':' + _initialCombined.length);
+	const _shuffledDeterministic = shuffleDeterministic([..._initialCombined], _rng);
+	_shuffledDeterministic.forEach((item, index) => {
+		_rankMap.set(`${item.type}:${item.id}`, index);
 	});
 
 	const sortLabels: Record<SortBy, string> = {
