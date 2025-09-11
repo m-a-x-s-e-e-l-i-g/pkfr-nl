@@ -28,11 +28,33 @@
 	let showPaid: boolean = true;
 	let sortBy: SortBy = 'default';
 
-	// Static random order (computed once per component instance) for default sorting
+	// Deterministic pseudo-random order (stable between SSR + hydration) to avoid poster/content mismatches.
 	const _initialCombined = [...movies, ...playlists];
-	const _randomOrder = [..._initialCombined].sort(() => Math.random() - 0.5);
-	const _randomIndexMap = new Map<string, number>();
-	_randomOrder.forEach((item, i) => _randomIndexMap.set(`${item.type}:${item.id}`, i));
+	const _seed = new Date().toISOString().slice(0, 10);
+
+	function hashString(str: string): number {
+		// Simple DJB2 hash
+		let h = 5381;
+		for (let i = 0; i < str.length; i++) {
+			h = (h * 33) ^ str.charCodeAt(i);
+		}
+		return h >>> 0; // force unsigned
+	}
+
+	// Create a deterministic shuffled list by hashing seed+key, then ranking
+	const _rankMap = new Map<string, number>();
+	const _shuffledDeterministic = [..._initialCombined]
+		.map((item) => {
+			const key = `${item.type}:${item.id}`;
+			return { item, key, hv: hashString(_seed + key) };
+		})
+		.sort((a, b) => {
+			if (a.hv === b.hv) return a.key.localeCompare(b.key);
+			return a.hv - b.hv;
+		});
+	_shuffledDeterministic.forEach(({ item, key }, index) => {
+		_rankMap.set(key, index);
+	});
 
 	const sortLabels: Record<SortBy, string> = {
 		default: 'Sort: Random',
@@ -113,10 +135,10 @@
 				sorted.sort((a, b) => parseDurationToMinutes(b.duration) - parseDurationToMinutes(a.duration));
 				break;
 			default:
-				// Default sorting: stable random order (generated once at component creation)
+				// Default sorting: deterministic pseudo-random daily order
 				sorted.sort((a, b) => {
-					const ai = _randomIndexMap.get(`${a.type}:${a.id}`) ?? 0;
-					const bi = _randomIndexMap.get(`${b.type}:${b.id}`) ?? 0;
+					const ai = _rankMap.get(`${a.type}:${a.id}`) ?? 0;
+					const bi = _rankMap.get(`${b.type}:${b.id}`) ?? 0;
 					return ai - bi;
 				});
 				break;
