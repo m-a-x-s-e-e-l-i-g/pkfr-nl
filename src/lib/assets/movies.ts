@@ -143,5 +143,15 @@ export const movies = [
 		vimeoId: "223802198",
 		type: "movie",
 		duration: "28m"
+	},
+	{
+		id: 14,
+		title: "Génération Yamakasi",
+		year: "2006",
+		description: "Dive into the Art of Displacement! Yamakasi transform Paris’s suburbs into playgrounds, inspiring youth with discipline and will. As it becomes an extreme sport, will its social message survive?",
+		thumbnail: "https://image.tmdb.org/t/p/original/1uvjUh8lcPuUCk4qW2K6dhT534m.jpg",
+		videoId: "0GyxTe9W_yI",
+		type: "movie",
+		duration: "1h 11m"
 	}
 ];
