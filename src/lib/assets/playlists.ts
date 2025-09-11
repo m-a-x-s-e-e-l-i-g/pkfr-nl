@@ -48,5 +48,15 @@ export const playlists = [
 		playlistId: "UUvo8BitSExXgP-eYjXwJvgw",
 		type: "playlist",
 		videoCount: 312
+	},
+	{
+		id: 6,
+		title: "Gravity Series | Spanish Parkour",
+		creator: "Adrian Pueyo",
+		description: "A four-part Spanish parkour series (2013–2015) featuring MADD, BTT GUP, James Kingston and others.",
+		thumbnail: "/images/posters/gravity-series-spanish-parkour-poster.webp",
+		playlistId: "PLQLQeBBGuzK93e_bI1nt7j5Hkb92Nzgre",
+		type: "playlist",
+		videoCount: 4
 	}
 ];
