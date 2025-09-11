@@ -182,10 +182,7 @@
   "tv": {
     "description": "JUMPFLIX: Discover parkour movies, documentaries and playlists. Grab some popcorn!",
     "searchPlaceholder": "Search titles, descriptions, creators…",
-    "description_label": "Description",
     "playNow": "Play Now",
-    "duration": "Duration",
-    "year": "Year",
     "watchOn": "Watch on ",
     "price": "Price",
     "back": "Back"
