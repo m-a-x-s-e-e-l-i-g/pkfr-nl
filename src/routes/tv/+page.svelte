@@ -28,8 +28,14 @@
 	let showPaid: boolean = true;
 	let sortBy: SortBy = 'default';
 
+	// Static random order (computed once per component instance) for default sorting
+	const _initialCombined = [...movies, ...playlists];
+	const _randomOrder = [..._initialCombined].sort(() => Math.random() - 0.5);
+	const _randomIndexMap = new Map<string, number>();
+	_randomOrder.forEach((item, i) => _randomIndexMap.set(`${item.type}:${item.id}`, i));
+
 	const sortLabels: Record<SortBy, string> = {
-		default: 'Sort: Default',
+		default: 'Sort: Random',
 		'title-asc': 'Title A–Z',
 		'year-desc': 'Year (newest)',
 		'year-asc': 'Year (oldest)',
@@ -76,7 +82,7 @@
 		}
 	}
 
-	// Combine movies and playlists into one base array (original order for default sorting)
+	// Combine movies and playlists into one base array (original list; random default order handled separately)
 	$: allContent = [...movies, ...playlists];
 
 	// Build visible list using filter/search/sort
@@ -107,9 +113,13 @@
 				sorted.sort((a, b) => parseDurationToMinutes(b.duration) - parseDurationToMinutes(a.duration));
 				break;
 			default:
-					// Default sorting: by id descending (newest first by id)
-					sorted.sort((a, b) => (b.id ?? 0) - (a.id ?? 0));
-					break;
+				// Default sorting: stable random order (generated once at component creation)
+				sorted.sort((a, b) => {
+					const ai = _randomIndexMap.get(`${a.type}:${a.id}`) ?? 0;
+					const bi = _randomIndexMap.get(`${b.type}:${b.id}`) ?? 0;
+					return ai - bi;
+				});
+				break;
 		}
 
 		visibleContent = sorted;
