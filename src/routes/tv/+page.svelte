@@ -354,8 +354,25 @@
 <div class="md:-mx-60 min-h-screen bg-background text-foreground tv-page">
 	<!-- Header Section -->
 	<div class="container mx-auto px-6 py-0 text-center">
-		<h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2"><small>🍿</small>JUMPFLIX<small>🍿</small></h1>
-		<p class="text-gray-600 dark:text-gray-300">{$t('tv.description')}</p>
+		<div class="my-2 flex justify-center">
+			<!-- Light theme logo -->
+			<img 
+				src="/images/jumpflix-light.webp" 
+				alt="JUMPFLIX parkour tv" 
+				class="dark:hidden"
+				style="height: 150px; width: auto; max-height: 150px;"
+				loading="eager"
+			/>
+			<!-- Dark theme logo -->
+			<img 
+				src="/images/jumpflix-dark.webp" 
+				alt="JUMPFLIX parkour tv" 
+				class="hidden dark:block"
+				style="height: 150px; width: auto; max-height: 150px;"
+				loading="eager"
+			/>
+		</div>
+		<p class="text-gray-600 dark:text-gray-300" style="font-size:14px;">{$t('tv.description')}</p>
 	</div>
 
 	<!-- Controls: Search, Filter, Sort -->
@@ -821,6 +838,7 @@
 	:global(.tv-layout main) {
 		max-width: 100vw;
 		padding: 0 1rem 0 0;
+		margin: 1rem auto;
 	}
 </style>
 
