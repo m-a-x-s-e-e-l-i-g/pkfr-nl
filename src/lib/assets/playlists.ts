@@ -32,7 +32,7 @@ export const playlists = [
 	{
 		id: 4,
 		title: "Forest Flow | Parkour in Nature",
-		creator: "Max Seelig",
+		creator: "pkfr.nl",
 		description: "A playlist showcasing parkour in natural environments.",
 		thumbnail: "/images/posters/forest-flow-parkour-in-nature-poster.webp",
 		playlistId: "PL3iwaCsp8s8Mdg2gI45nhevmbalyAeBJ5",
