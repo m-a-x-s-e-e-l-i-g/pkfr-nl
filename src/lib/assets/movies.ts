@@ -232,5 +232,53 @@ export const movies = [
 		paid: true,
 		provider: "JustWatch",
 		externalUrl: "https://www.justwatch.com/us/movie/freerunner"
+	},
+	{
+		id: 21,
+		title: "From Here to There",
+		year: "2015",
+		description: "Road trip documentary following Jesse La Flair and Cory DeMeyers chasing their freerunning ambitions across the US.",
+		thumbnail: "https://image.tmdb.org/t/p/original/2YuDZjJxDn3XV5Ju7RtylWu7VXM.jpg",
+		type: "movie",
+		duration: "1h",
+		trakt: "https://trakt.tv/movies/from-here-to-there-2015",
+		paid: true,
+		provider: "TV Guide",
+		externalUrl: "https://www.tvguide.com/movies/from-here-to-there/2030325953/"
+	},
+	{
+		id: 22,
+		title: "Bound By Movement",
+		year: "2019",
+		description: "“Bound by Movement” follows top parkour athletes on a 63-day U.S. tour, risking injury and arrest to film daring flips and tricks in iconic spots and abandoned buildings, revealing the drive that unites them until things inevitably go wrong.",
+		thumbnail: "https://image.tmdb.org/t/p/original/gqblO1Yaeuu3G2WBYsEghxx30EB.jpg",
+		type: "movie",
+		duration: "1h 22m",
+		trakt: "https://trakt.tv/movies/bound-by-movement-2019",
+		videoId: "o3-B5EH0mDE"
+	},
+	{
+		id: 23,
+		title: "Capstone: The England Project",
+		year: "2022",
+		description: "Showcase of UK parkour talent pushing creative and powerful new directions following the original Capstone project.",
+		thumbnail: "https://image.tmdb.org/t/p/original/pFGNaarSN94MxGTznyW3m4KINL4.jpg",
+		videoId: "fv4lg1TfKIA",
+		type: "movie",
+		duration: "17m",
+		trakt: "https://trakt.tv/movies/capstone-the-england-project-2022"
+	},
+	{
+		id: 24,
+		title: "Run",
+		year: "2013",
+		description: "A street-smart 17-year-old parkour thief faces a dangerous past while trying to protect his family.",
+		thumbnail: "https://image.tmdb.org/t/p/original/lcEOVoHUyfcMCjciOWikPLWPK0Z.jpg",
+		type: "movie",
+		duration: "1h 46m",
+		trakt: "https://trakt.tv/movies/run-2013",
+		paid: true,
+		externalUrl: "https://www.justwatch.com/us/movie/run-2013",
+		provider: "JustWatch"
 	}
 ];
