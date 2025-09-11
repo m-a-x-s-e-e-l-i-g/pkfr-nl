@@ -154,5 +154,31 @@ export const movies = [
 		type: "movie",
 		duration: "1h 11m",
 		trakt: "https://trakt.tv/movies/generation-yamakasi-2006"
+	},
+	{
+		id: 15,
+		title: "District B13",
+		year: "2004",
+		description: "Set in the ghettos of Paris in 2010, an undercover cop and ex-thug try to infiltrate a gang in order to defuse a neutron bomb.",
+		thumbnail: "https://image.tmdb.org/t/p/original/rEfjLYSQHf1EA83vqNPP1KV3Dp6.jpg",
+		type: "movie",
+		duration: "1h 24m",
+		trakt: "https://trakt.tv/movies/district-b13-2004",
+		paid: true,
+		provider: "JustWatch",
+		externalUrl: "https://www.justwatch.com/us/movie/b13"
+	},
+	{
+		id: 16,
+		title: "District 13: Ultimatum",
+		year: "2009",
+		description: "Damien and Leito return to District 13 on a mission to bring peace to the troubled sector that is controlled by five different gang bosses, before the city’s secret services take drastic measures to solve the problem.",
+		thumbnail: "https://image.tmdb.org/t/p/original/8okAUSzfWiudSYMXLJYBnlcILcz.jpg",
+		type: "movie",
+		duration: "1h 41m",
+		trakt: "https://trakt.tv/movies/district-13-ultimatum-2009",
+		paid: true,
+		provider: "JustWatch",
+		externalUrl: "https://www.justwatch.com/us/movie/district-b13-ultimatum"
 	}
 ];

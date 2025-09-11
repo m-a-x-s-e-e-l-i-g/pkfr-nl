@@ -599,10 +599,6 @@
 										<span class="text-gray-500 dark:text-gray-400">Provider:</span>
 										<span class="text-gray-900 dark:text-white">{selectedContent.provider || 'External'}</span>
 									</div>
-									<div class="flex justify-between">
-										<span class="text-gray-500 dark:text-gray-400">{$t('tv.price')}:</span>
-										<span class="text-gray-900 dark:text-white">{selectedContent.price || ''}</span>
-									</div>
 								{/if}
 							</div>
 						</div>
@@ -733,7 +729,6 @@
 								<ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1" style="padding-left:0;">
 									{#if selectedContent.paid}
 										<li class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">Provider</span><span>{selectedContent.provider || 'External'}</span></li>
-										<li class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">{$t('tv.price')}</span><span>{selectedContent.price || ''}</span></li>
 									{/if}
 								</ul>
 							</div>
