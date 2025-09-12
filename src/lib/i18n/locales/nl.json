@@ -178,7 +178,7 @@
     },
     "tv": {
         "description": "JUMPFLIX: Ontdek parkour films, documentaires en playlists. Pak wat popcorn!",
-        "searchPlaceholder": "Zoek titels, omschrijvingen, makers…",
+        "searchPlaceholder": "Zoeken…",
         "playNow": "Nu afspelen",
         "watchOn": "Bekijk op ",
         "back": "Terug"
