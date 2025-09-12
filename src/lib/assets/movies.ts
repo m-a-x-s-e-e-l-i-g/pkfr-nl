@@ -88,7 +88,19 @@ export const movies = [
 		price: "€8",
 		type: "movie",
 		duration: "1h 53m",
-		trakt: "https://trakt.tv/movies/roof-culture-asia-2017"
+		trakt: "https://trakt.tv/movies/roof-culture-asia-2017",
+		creators: ["STORROR"],
+		starring: [
+			"Benj Cave",
+			"Toby Segar",
+			"Max Cave",
+			"Callum Powell",
+			"Sacha Powell",
+			"Richard Ferreday",
+			"Drew Taylor",
+			"Joshua Burnett-Blake",
+			"Giles Campbell Longley"
+		]
 	},
 	{
 		id: 6,
@@ -98,7 +110,20 @@ export const movies = [
 		thumbnail: "/images/posters/the-motus-projects-sol-poster.jpg",
 		videoId: "Tswad8jCgaM",
 		type: "movie",
-		duration: "1h 12m"
+		duration: "1h 12m",
+		creators: ["The Motus Projects", "Max Barker", "Kelan Ryan", "Sam Sutherland"],
+		starring: [
+			"Travis Verkaik",
+			"Rachel Gough",
+			"Ethan Rudd",
+			"Joseph Marx",
+			"Sam Sutherland",
+			"Kelan Ryan",
+			"Johnstone Macpherson-Stewart",
+			"George McGowan",
+			"Max Barker",
+			"Robbie Griffith"
+		]
 	},
 	{
 		id: 7,
@@ -109,7 +134,8 @@ export const movies = [
 		videoId: "QH09YCtpKaw",
 		type: "movie",
 		duration: "55m",
-		trakt: "https://trakt.tv/movies/people-in-motion-2012"
+		trakt: "https://trakt.tv/movies/people-in-motion-2012",
+		creators: ["Cedric Dahl"]
 	},
 	{
 		id: 8,
@@ -130,7 +156,8 @@ export const movies = [
 		thumbnail: "/images/posters/project-pilgrimage-poster.webp",
 		videoId: "M2sWvgsEXeU",
 		type: "movie",
-		duration: "1h 30m"
+		duration: "1h 30m",
+		creators: ["Duncan Germain"],
 	},
 	{
 		id: 10,
@@ -144,7 +171,8 @@ export const movies = [
 		price: "€6",
 		type: "movie",
 		duration: "1h 9m",
-		trakt: "https://trakt.tv/movies/storror-supertramps-thailand-2015"
+		trakt: "https://trakt.tv/movies/storror-supertramps-thailand-2015",
+		creators: ["STORROR"]
 	},
 	{
 		id: 11,
