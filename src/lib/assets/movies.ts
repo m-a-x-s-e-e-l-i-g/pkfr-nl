@@ -153,18 +153,28 @@ export const movies = [
 		videoId: "BX-KFdI4LG8",
 		type: "movie",
 		duration: "52m",
-		trakt: "https://trakt.tv/movies/my-playground-2009"
+		trakt: "https://trakt.tv/movies/my-playground-2009",
+		creators: ["Kaspar Astrup Schröder"],
+		starring: [
+			"Team, JiYo",
+			"Big Archtects",
+			"Team Frazy",
+			"Team PKTK",
+			"American Parkour",
+			"Tim 'Livewire' Shieff",
+			"Ryan Doyle"
+		]
 	},
 	{
 		id: 9,
 		title: "Project Pilgrimage",
 		year: "2008",
-		description: "A documentary by Duncan Germain A.K.A TK17 following his journey to and around Lisses, the birthplace of Parkour. It contains footage of 150+ traceurs, and was shown to David Belle for approval before release.",
+		description: "A documentary following his journey to and around Lisses, the birthplace of Parkour. It contains footage of 150+ traceurs, and was shown to David Belle for approval before release.",
 		thumbnail: "/images/posters/project-pilgrimage-poster.webp",
 		videoId: "M2sWvgsEXeU",
 		type: "movie",
 		duration: "1h 30m",
-		creators: ["Duncan Germain"],
+		creators: ["Duncan Germain A.K.A TK17"],
 	},
 	{
 		id: 10,
@@ -179,7 +189,16 @@ export const movies = [
 		type: "movie",
 		duration: "1h 9m",
 		trakt: "https://trakt.tv/movies/storror-supertramps-thailand-2015",
-		creators: ["STORROR"]
+		creators: ["STORROR"],
+		starring: [
+			"Benj Cave",
+			"Toby Segar",
+			"Max Cave",
+			"Callum Powell",
+			"Sacha Powell",
+			"Steven Whitely",
+			"Drew Taylor"
+		]
 	},
 	{
 		id: 11,
@@ -190,7 +209,21 @@ export const movies = [
 		videoId: "4izoWYFmNg0",
 		type: "movie",
 		duration: "38m",
-		trakt: "https://trakt.tv/movies/gatecrasher-an-all-women-s-parkour-action-film-2024"
+		trakt: "https://trakt.tv/movies/gatecrasher-an-all-women-s-parkour-action-film-2024",
+		creators: ["Point A Parkour", "Renae Dambly", "Lisa Schneider", "KIDA"],
+		starring: [
+			"Tamila Benabdallah",
+			"Elise Bickley",
+			"Renae Dambly",
+			"Lisa Eckert",
+			"Rachel Gough",
+			"Hazal Nehir",
+			"Lilou Ruel",
+			"Lisa Schneider",
+			"Camila Stefaniu",
+			"Louisa Chang",
+			"Stanislava Kirilova"
+		]
 	},
 	{
 		id: 12,
@@ -200,7 +233,18 @@ export const movies = [
 		thumbnail: "/images/posters/queen-city-parkour-female-poster.webp",
 		videoId: "IC9xmrrNPyY",
 		type: "movie",
-		duration: "47m"
+		duration: "47m",
+		creators: ["Point A Parkour", "Max Henry", "Sean Endres"],
+		starring: [
+			"Tamila Benabdallah",
+			"Kristine Dietrich",
+			"Sara Mudallal",
+			"Kira Nguyen",
+			"Sydney Olson",
+			"Seneca Schwartz",
+			"Alyssa Serpa",
+			"Sheep"
+		]
 	},
 	{
 		id: 13,
@@ -210,7 +254,12 @@ export const movies = [
 		thumbnail: "/images/posters/balancing-organisms-convoi-films-parkour-poster.webp",
 		vimeoId: "223802198",
 		type: "movie",
-		duration: "28m"
+		duration: "28m",
+		creators: ["Juriën Cornelissen", "Convoi Films"],
+		starring: [
+			"Luciano Balestra",
+			"Phil Doyle"
+		]
 	},
 	{
 		id: 14,
