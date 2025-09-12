@@ -8,7 +8,9 @@ export const movies = [
 		videoId: "l8fSXGP9wvQ",
 		type: "movie",
 		duration: "60m",
-		trakt: "https://trakt.tv/movies/jump-london-2003"
+		trakt: "https://trakt.tv/movies/jump-london-2003",
+		creators: ["Channel 4", "Mike Christie"],
+		starring: ["Sébastien Foucan"]
 	},
 	{
 		id: 2,
@@ -19,7 +21,9 @@ export const movies = [
 		videoId: "2TJurAP9l-Q",
 		type: "movie",
 		duration: "60m",
-		trakt: "https://trakt.tv/movies/jump-britain-2005"
+		trakt: "https://trakt.tv/movies/jump-britain-2005",
+		creators: ["Channel 4", "Mike Christie"],
+		starring: ["Sébastien Foucan"]
 	},
 	{
 		id: 3,
@@ -30,7 +34,18 @@ export const movies = [
 		videoId: "VlM7bOegiIg",
 		type: "movie",
 		duration: "40m",
-		trakt: "https://trakt.tv/movies/sole-destroyer-2020"
+		trakt: "https://trakt.tv/movies/sole-destroyer-2020",
+		creators: ["The Motus Projects", "Giles Campbell Longley"],
+		starring: [
+			"Kelan Ryan",
+			"Jordan Tyler Lea",
+			"Johnstone Macpherson-Stewart",
+			"Luke Stones",
+			"George McGowan",
+			"Joseph Marx",
+			"Robbie Griffith",
+			"Max Barker"
+		]
 	},
 	{
 		id: 4,
@@ -41,7 +56,25 @@ export const movies = [
 		videoId: "lJX3DUlSj4M",
 		type: "movie",
 		duration: "48m",
-		trakt: "https://trakt.tv/movies/amsterdam-is-dead-2024"
+		trakt: "https://trakt.tv/movies/amsterdam-is-dead-2024",
+		creators: ["Fé Amsterdam", "Safier Elzinga", "Dave Alvar"],
+		starring: [
+			"Jan Simon",
+			"Naël Saint-Paul",
+			"Twan de Wilde",
+			"Maurits Dorren",
+			"Safier Elzinga",
+			"Sjoerd Rensma",
+			"Bram Looijen",
+			"Abel Marce",
+			"Vic Kooy",
+			"Wieger Hoekstra",
+			"Liziano Ostina",
+			"Silver Moscou",
+			"Francesco Kamstra",
+			"Dave Alvar",
+			"Tobias Roest"
+		]
 	},
 	{
 		id: 5,
@@ -289,6 +322,8 @@ export const movies = [
 		thumbnail: "/images/posters/what-happened-myrm-parkour-documentary.webp",
 		type: "movie",
 		duration: "37m",
-		videoId: "Ncw1cIaJg4M"
+		videoId: "Ncw1cIaJg4M",
+		creators: ["MYRM"],
+		starring: ["Callum Powell", "Dante Grazioli", "Juho Kuusisaari", "Brandon Douglass", "Dylan Baker", "Kie Willis", "Joe Hougaard", "Phil Doyle", "Max Henry"]
 	}
 ];

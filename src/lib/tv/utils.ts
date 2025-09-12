@@ -73,9 +73,15 @@ export function parseDurationToMinutes(dur?: string): number {
 
 export function matchesSearch(item: ContentItem, q: string): boolean {
   if (!q) return true;
-  // Only match against the title (movie / playlist name). Previously also searched description & creator.
-  const title = (item.title || '').toLowerCase();
-  return title.includes(q.toLowerCase());
+  const needle = q.toLowerCase();
+  const haystacks: string[] = [];
+  if (item.title) haystacks.push(item.title);
+  if ((item as any).description) haystacks.push((item as any).description);
+  // new creators array
+  if ((item as any).creators && Array.isArray((item as any).creators)) haystacks.push(...(item as any).creators);
+  // starring array
+  if ((item as any).starring && Array.isArray((item as any).starring)) haystacks.push(...(item as any).starring);
+  return haystacks.some(h => (h || '').toLowerCase().includes(needle));
 }
 
 export function filterAndSortContent(all: ContentItem[], rankMap: Map<string, number>, state: TvState): ContentItem[] {

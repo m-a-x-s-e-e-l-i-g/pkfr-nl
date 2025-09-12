@@ -2,17 +2,17 @@ export const playlists = [
 	{
 		id: 1,
 		title: "Dutch Community TV",
-		creator: "the Netherlands",
+		creators: ["the Netherlands"],
 		description: "Dutch parkour content from the community.",
 		thumbnail: "/images/posters/dutch-parkour-community-tv-playlist-freerunning.webp",
 		playlistId: "PL3iwaCsp8s8P0lVvw3DkmMFmGxqBGSXnS",
 		type: "playlist",
-		videoCount: 53
+		videoCount: 53,
+		starring: []
 	},
 	// {
 	// 	id: 2,
 	// 	title: "Must Watch: De Ultieme Playlist",
-	// 	creator: "Koen Bangert",
 	// 	description: "The ultimate international parkour must-watch collection.",
 	// 	thumbnail: "",
 	// 	playlistId: "PLIZ9EYUk7YaYgqhOHd1MqROfTmNw79UBy",
@@ -22,41 +22,45 @@ export const playlists = [
 	{
 		id: 3,
 		title: "Parkour - The Nature of Challenge",
-		creator: "Northern Parkour",
+		creators: ["Northern Parkour"],
 		description: "A short documentary series exploring what parkour means to practitioners and the so-called 'parkour vision'.",
 		thumbnail: "/images/posters/parkour-the-nature-of-challenge-poster.webp",
 		playlistId: "PLFE063C4ADA6CAA18",
 		type: "playlist",
-		videoCount: 4
+		videoCount: 4,
+		starring: []
 	},
 	{
 		id: 4,
 		title: "Forest Flow | Parkour in Nature",
-		creator: "pkfr.nl",
+		creators: ["pkfr.nl"],
 		description: "A playlist showcasing parkour in natural environments.",
 		thumbnail: "/images/posters/forest-flow-parkour-in-nature-poster.webp",
 		playlistId: "PL3iwaCsp8s8Mdg2gI45nhevmbalyAeBJ5",
 		type: "playlist",
-		videoCount: 2
+		videoCount: 2,
+		starring: []
 	},
 	{
 		id: 5,
 		title: "World Chase Tag",
-		creator: "World Chase Tag",
+		creators: ["World Chase Tag"],
 		description: "The First and Only Global League for Professional Tag! 🏃‍♂️ #KeepChasing #DontGetCaught",
 		thumbnail: "/images/posters/world-chase-tag-poster.webp",
 		playlistId: "UUvo8BitSExXgP-eYjXwJvgw",
 		type: "playlist",
-		videoCount: 312
+		videoCount: 312,
+		starring: []
 	},
 	{
 		id: 6,
 		title: "Gravity Series | Spanish Parkour",
-		creator: "Adrian Pueyo",
+		creators: ["Adrian Pueyo"],
 		description: "A four-part Spanish parkour series (2013–2015) featuring MADD, BTT GUP, James Kingston and others.",
 		thumbnail: "/images/posters/gravity-series-spanish-parkour-poster.webp",
 		playlistId: "PLQLQeBBGuzK93e_bI1nt7j5Hkb92Nzgre",
 		type: "playlist",
-		videoCount: 4
+		videoCount: 4,
+		starring: []
 	}
 ];

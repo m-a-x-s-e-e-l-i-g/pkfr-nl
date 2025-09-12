@@ -17,12 +17,15 @@ export interface Movie extends BaseContent {
   videoId?: string; // YouTube
   vimeoId?: string; // Vimeo
   trakt?: string; // external metadata link
+  creators?: string[];
+  starring?: string[];
 }
 
 export interface Playlist extends BaseContent {
   type: 'playlist';
-  creator?: string;
-  playlistId?: string; // YouTube playlist / channel id
+  creators?: string[];
+  starring?: string[];
+  playlistId?: string; // YouTube playlist id
   videoCount?: number;
 }
 

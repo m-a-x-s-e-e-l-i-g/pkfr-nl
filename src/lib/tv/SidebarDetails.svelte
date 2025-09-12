@@ -5,6 +5,17 @@
   export let selected: ContentItem | null;
   export let openContent: (c: ContentItem) => void;
   export let openExternal: (c: ContentItem) => void;
+
+  // UI state for expanding long name lists
+  let showAllCreators = false;
+  let showAllStarring = false;
+  const MAX_NAMES = 8; // number of names to show before collapsing
+
+  // Reset expansion state when selection changes
+  $: if (selected) {
+    showAllCreators = false;
+    showAllStarring = false;
+  }
 </script>
 
 {#if selected}
@@ -28,7 +39,9 @@
           <span>{(selected as any).duration}</span>
         {:else}
           <span class="bg-red-600 px-2 py-1 rounded text-white text-xs">PLAYLIST</span>
-          <span>{(selected as any).creator}</span>
+          {#if (selected as any).creators?.length}
+            <span>{(selected as any).creators.join(', ')}</span>
+          {/if}
           <span>{(selected as any).videoCount || '?'} videos</span>
         {/if}
         {#if (selected as any).trakt}
@@ -49,12 +62,75 @@
         {#if selected.paid}
           <div class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">Provider:</span><span class="text-gray-900 dark:text-white">{selected.provider || 'External'}</span></div>
         {/if}
+        {#if (selected as any).creators?.length}
+          <div class="space-y-1">
+            <span class="text-gray-500 dark:text-gray-400 block">Creators:</span>
+            <div class="flex flex-wrap gap-1">
+              {#each (showAllCreators ? (selected as any).creators : (selected as any).creators.slice(0, MAX_NAMES)) as c}
+                <span class="px-2 py-0.5 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white text-xs font-medium">{c}</span>
+              {/each}
+              {#if (selected as any).creators.length > MAX_NAMES}
+                <button class="px-2 py-0.5 rounded-full bg-blue-600 text-white text-xs font-medium hover:bg-blue-700 transition" on:click={() => showAllCreators = !showAllCreators} title={showAllCreators ? 'Show fewer' : 'Show all'}>
+                  {#if showAllCreators}−{/if}{#if !showAllCreators}+{/if}
+                  {(selected as any).creators.length - MAX_NAMES}
+                </button>
+              {/if}
+            </div>
+          </div>
+        {/if}
+        {#if (selected as any).starring?.length}
+          <div class="space-y-1">
+            <span class="text-gray-500 dark:text-gray-400 block">Starring:</span>
+            <div class="flex flex-wrap gap-1">
+              {#each (showAllStarring ? (selected as any).starring : (selected as any).starring.slice(0, MAX_NAMES)) as s}
+                <span class="px-2 py-0.5 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white text-xs font-medium">{s}</span>
+              {/each}
+              {#if (selected as any).starring.length > MAX_NAMES}
+                <button class="px-2 py-0.5 rounded-full bg-blue-600 text-white text-xs font-medium hover:bg-blue-700 transition" on:click={() => showAllStarring = !showAllStarring} title={showAllStarring ? 'Show fewer' : 'Show all'}>
+                  {#if showAllStarring}−{/if}{#if !showAllStarring}+{/if}
+                  {(selected as any).starring.length - MAX_NAMES}
+                </button>
+              {/if}
+            </div>
+          </div>
+        {/if}
       </div>
     {:else}
       <div class="space-y-2 text-sm">
-        <div class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">Creator:</span><span class="text-gray-900 dark:text-white">{(selected as any).creator}</span></div>
+        {#if (selected as any).creators?.length}
+          <div class="space-y-1">
+            <span class="text-gray-500 dark:text-gray-400 block">Creators:</span>
+            <div class="flex flex-wrap gap-1">
+              {#each (showAllCreators ? (selected as any).creators : (selected as any).creators.slice(0, MAX_NAMES)) as c}
+                <span class="px-2 py-0.5 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white text-xs font-medium">{c}</span>
+              {/each}
+              {#if (selected as any).creators.length > MAX_NAMES}
+                <button class="px-2 py-0.5 rounded-full bg-blue-600 text-white text-xs font-medium hover:bg-blue-700 transition" on:click={() => showAllCreators = !showAllCreators} title={showAllCreators ? 'Show fewer' : 'Show all'}>
+                  {#if showAllCreators}−{/if}{#if !showAllCreators}+{/if}
+                  {(selected as any).creators.length - MAX_NAMES}
+                </button>
+              {/if}
+            </div>
+          </div>
+        {/if}
         <div class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">Videos:</span><span class="text-gray-900 dark:text-white">{(selected as any).videoCount || '?'}</span></div>
         <div class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">Type:</span><span class="text-gray-900 dark:text-white">YouTube Playlist</span></div>
+        {#if (selected as any).starring?.length}
+          <div class="space-y-1">
+            <span class="text-gray-500 dark:text-gray-400 block">Starring:</span>
+            <div class="flex flex-wrap gap-1">
+              {#each (showAllStarring ? (selected as any).starring : (selected as any).starring.slice(0, MAX_NAMES)) as s}
+                <span class="px-2 py-0.5 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white text-xs font-medium">{s}</span>
+              {/each}
+              {#if (selected as any).starring.length > MAX_NAMES}
+                <button class="px-2 py-0.5 rounded-full bg-blue-600 text-white text-xs font-medium hover:bg-blue-700 transition" on:click={() => showAllStarring = !showAllStarring} title={showAllStarring ? 'Show fewer' : 'Show all'}>
+                  {#if showAllStarring}−{/if}{#if !showAllStarring}+{/if}
+                  {(selected as any).starring.length - MAX_NAMES}
+                </button>
+              {/if}
+            </div>
+          </div>
+        {/if}
       </div>
     {/if}
   </div>

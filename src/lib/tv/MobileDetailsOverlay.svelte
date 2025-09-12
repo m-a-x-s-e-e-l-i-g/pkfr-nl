@@ -37,7 +37,9 @@
               <span>{(selected as any).duration}</span>
             {:else}
               <span class="bg-red-600 px-2 py-1 rounded">PLAYLIST</span>
-              <span>{(selected as any).creator}</span>
+              {#if (selected as any).creators?.length}
+                <span class="truncate max-w-[50vw]">{(selected as any).creators.join(', ')}</span>
+              {/if}
               <span>{(selected as any).videoCount || '?'} videos</span>
             {/if}
             {#if selected.type === 'movie' && (selected as any).trakt}
@@ -59,14 +61,25 @@
               {#if selected.paid}
                 <li class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">Provider</span><span>{selected.provider || 'External'}</span></li>
               {/if}
+              {#if (selected as any).creators?.length}
+                <li class="flex flex-col gap-1"><span class="text-gray-500 dark:text-gray-400">Creators</span><span>{(selected as any).creators.join(', ')}</span></li>
+              {/if}
+              {#if (selected as any).starring?.length}
+                <li class="flex flex-col gap-1"><span class="text-gray-500 dark:text-gray-400">Starring</span><span>{(selected as any).starring.join(', ')}</span></li>
+              {/if}
             </ul>
           </div>
         {:else}
           <div>
             <ul class="text-xs text-gray-600 dark:text-gray-300 space-y-1" style="padding-left:0;">
-              <li class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">Creator</span><span>{(selected as any).creator}</span></li>
+              {#if (selected as any).creators?.length}
+                <li class="flex flex-col"><span class="text-gray-500 dark:text-gray-400">Creators</span><span>{(selected as any).creators.join(', ')}</span></li>
+              {/if}
               <li class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">Videos</span><span>{(selected as any).videoCount || '?'}</span></li>
               <li class="flex justify-between"><span class="text-gray-500 dark:text-gray-400">Type</span><span>YouTube Playlist</span></li>
+              {#if (selected as any).starring?.length}
+                <li class="flex flex-col gap-1"><span class="text-gray-500 dark:text-gray-400">Starring</span><span>{(selected as any).starring.join(', ')}</span></li>
+              {/if}
             </ul>
           </div>
         {/if}
