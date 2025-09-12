@@ -135,7 +135,14 @@ export const movies = [
 		type: "movie",
 		duration: "55m",
 		trakt: "https://trakt.tv/movies/people-in-motion-2012",
-		creators: ["Cedric Dahl"]
+		creators: ["Cedric Dahl", "Ben Hoffman"],
+		starring: [
+			"Jacob Seil",
+			"Paul Whitecotton",
+			"David Agajanian",
+			"Brian Orosco",
+			"Lonnie Tisdale"
+		]
 	},
 	{
 		id: 8,
