@@ -283,7 +283,9 @@ export const movies = [
 		trakt: "https://trakt.tv/movies/district-b13-2004",
 		paid: true,
 		provider: "JustWatch",
-		externalUrl: "https://www.justwatch.com/us/movie/b13"
+		externalUrl: "https://www.justwatch.com/us/movie/b13",
+		creators: ["Pierre Morel"],
+		starring: ["David Belle"]
 	},
 	{
 		id: 16,
@@ -296,7 +298,9 @@ export const movies = [
 		trakt: "https://trakt.tv/movies/district-13-ultimatum-2009",
 		paid: true,
 		provider: "JustWatch",
-		externalUrl: "https://www.justwatch.com/us/movie/district-b13-ultimatum"
+		externalUrl: "https://www.justwatch.com/us/movie/district-b13-ultimatum",
+		creators: ["Patrick Alessandrin"],
+		starring: ["David Belle"]
 	},
 	{
 		id: 17,
@@ -309,7 +313,9 @@ export const movies = [
 		trakt: "https://trakt.tv/movies/tracers-2015",
 		paid: true,
 		provider: "JustWatch",
-		externalUrl: "https://www.justwatch.com/us/movie/tracers"
+		externalUrl: "https://www.justwatch.com/us/movie/tracers",
+		creators: ["Daniel Benmayor"],
+		starring: ["Taylor Lautner"]
 	},
 	{
 		id: 18,
@@ -322,7 +328,9 @@ export const movies = [
 		trakt: "https://trakt.tv/movies/brick-mansions-2014",
 		paid: true,
 		provider: "JustWatch",
-		externalUrl: "https://www.justwatch.com/us/movie/brick-mansions"
+		externalUrl: "https://www.justwatch.com/us/movie/brick-mansions",
+		creators: ["Camille Delamarre"],
+		starring: ["David Belle", "Paul Walker"]
 	},
 	{
 		id: 19,
@@ -335,7 +343,10 @@ export const movies = [
 		trakt: "https://trakt.tv/movies/6-underground-2019",
 		paid: true,
 		provider: "JustWatch",
-		externalUrl: "https://www.justwatch.com/us/movie/6-underground"
+		externalUrl: "https://www.justwatch.com/us/movie/6-underground",
+		creators: ["Michael Bay"],
+		starring: ["Ryan Reynolds"]
+
 	},
 	{
 		id: 20,
@@ -348,7 +359,9 @@ export const movies = [
 		trakt: "https://trakt.tv/movies/freerunner-2011",
 		paid: true,
 		provider: "JustWatch",
-		externalUrl: "https://www.justwatch.com/us/movie/freerunner"
+		externalUrl: "https://www.justwatch.com/us/movie/freerunner",
+		creators: ["Lawrence Silverstein"],
+		starring: ["Sean Faris"]
 	},
 	{
 		id: 21,
@@ -361,7 +374,9 @@ export const movies = [
 		trakt: "https://trakt.tv/movies/from-here-to-there-2015",
 		paid: true,
 		provider: "TV Guide",
-		externalUrl: "https://www.tvguide.com/movies/from-here-to-there/2030325953/"
+		externalUrl: "https://www.tvguide.com/movies/from-here-to-there/2030325953/",
+		creators: ["Spinning Owls Productions", "Concrete Collective", "La Flair Films"],
+		starring: ["Jesse La Flair", "Cory DeMeyers", "Anan Anwar", "Brienne La Flair", "Gabriel Nunez"]
 	},
 	{
 		id: 22,
@@ -372,7 +387,13 @@ export const movies = [
 		type: "movie",
 		duration: "1h 22m",
 		trakt: "https://trakt.tv/movies/bound-by-movement-2019",
-		videoId: "o3-B5EH0mDE"
+		videoId: "o3-B5EH0mDE",
+		creators: ["Jesse La Flair"],
+		starring: [
+			"Jesse La Flair",
+			"Sydney Olson",
+			"Corbin Reinhardt"
+		]
 	},
 	{
 		id: 23,
@@ -383,7 +404,16 @@ export const movies = [
 		videoId: "fv4lg1TfKIA",
 		type: "movie",
 		duration: "17m",
-		trakt: "https://trakt.tv/movies/capstone-the-england-project-2022"
+		trakt: "https://trakt.tv/movies/capstone-the-england-project-2022",
+		creators: ["CAPST1"],
+		starring: [	
+			"Toby Segar",
+			"Travis Verkaik",
+			"Philip Doyle",
+			"Jannis Schauer",
+			"Joe Scandrett",
+			"Ed Scott"
+		]
 	},
 	{
 		id: 24,
@@ -396,7 +426,8 @@ export const movies = [
 		trakt: "https://trakt.tv/movies/run-2013",
 		paid: true,
 		externalUrl: "https://www.justwatch.com/us/movie/run-2013",
-		provider: "JustWatch"
+		provider: "JustWatch",
+		creators: ["Spinning Owls Productions", "224 Entertainment", "Simone Bartesaghi"]
 	},
 	{
 		id: 25,

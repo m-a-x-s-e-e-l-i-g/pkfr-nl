@@ -22,7 +22,7 @@ export const playlists = [
 	{
 		id: 3,
 		title: "Parkour - The Nature of Challenge",
-		creators: ["Northern Parkour"],
+		creators: ["Northern Parkour", "Dave Sedgley", "Paul Maunder"],
 		description: "A short documentary series exploring what parkour means to practitioners and the so-called 'parkour vision'.",
 		thumbnail: "/images/posters/parkour-the-nature-of-challenge-poster.webp",
 		playlistId: "PLFE063C4ADA6CAA18",
@@ -61,6 +61,6 @@ export const playlists = [
 		playlistId: "PLQLQeBBGuzK93e_bI1nt7j5Hkb92Nzgre",
 		type: "playlist",
 		videoCount: 4,
-		starring: []
+		starring: ["MADD", "BTT", "GUP", "Scott Bass", "James Kingston", "Tyler Harder", "Marc Selby", "Curtis Randolph", "Franziska Marie", "Garrett Moore", "the Spanish Community"]
 	}
 ];
