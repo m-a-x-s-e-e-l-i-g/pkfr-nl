@@ -244,7 +244,11 @@
 	{ name: "FreeGrunn Groningen", url: "https://www.google.com/maps/d/edit?mid=1r00q3rS8Bta2sn_90vZsL-j8sO7MD9c&usp=share_link", country: "Netherlands", author: "Lennard Koops" },
 	{ name: "Göttingen Z Campus Mini Spots", url: "https://maps.app.goo.gl/M5HRYycDGK6tZM3G8", country: "Germany", author: "Lennart Jakob" },
 	{ name: "Göttingen, Kassel, Hannover, Hamburg", url: "https://maps.app.goo.gl/Jh4271PCrVZCbqvp6?g_st=iw", country: "Germany", author: "Lennart Jakob" },
-	{ name: "Freerun Gyms NL", url: "https://maps.app.goo.gl/4n4oQeJ4FysKAkcy5?g_st=ac", country: "Netherlands", author: "Max Seelig" }
+	{ name: "Freerun Gyms NL", url: "https://maps.app.goo.gl/4n4oQeJ4FysKAkcy5?g_st=ac", country: "Netherlands", author: "Max Seelig" },
+	{ name: "New York City", url: "https://goo.gl/maps/e5UiPtg2zARyNCDHA?g_st=ac", country: "United States", author: "PKNYC" },
+	{ name: "American Parkour Hotspots", url: "https://goo.gl/maps/RjtAs2N6n48Fn8B4A?g_st=ac", country: "United States", author: "American Parkour" },
+	{ name: "London", url: "https://goo.gl/maps/QRJdc6q7hHQAZqhB9?g_st=ac", country: "United Kingdom", author: "London Community" },
+	
 ];
 
   // Sort by name for better UX
