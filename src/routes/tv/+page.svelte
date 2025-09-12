@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { get } from 'svelte/store';
 	import { Switch } from '$lib/components/ui/switch/index.js';
 	import * as Select from '$lib/components/ui/select/index.js';
 	import { t } from 'svelte-i18n';
@@ -48,28 +49,72 @@
 
 	function openExternalContent(content: ContentItem) { if (content?.externalUrl) window.open(content.externalUrl, '_blank', 'noopener'); }
 
+	let columns = 1;
+
+	function computeColumns(): number {
+		if (!gridEl) return 1;
+		const children = Array.from(gridEl.children) as HTMLElement[];
+		if (!children.length) return 1;
+		const firstTop = children[0].offsetTop;
+		let count = 0;
+		for (const el of children) {
+			// Break when next row starts (allow tiny diff tolerance)
+			if (Math.abs(el.offsetTop - firstTop) < 2) count++; else break;
+		}
+		return count || 1;
+	}
+
+	// Re-compute columns whenever visible content length changes (layout likely changed)
+	$: if (browser) { columns = computeColumns(); }
+
+	function isTypingTarget(target: EventTarget | null) {
+		if (!(target instanceof HTMLElement)) return false;
+		const tag = target.tagName;
+		if (target.isContentEditable) return true;
+		if ([ 'INPUT', 'TEXTAREA', 'SELECT', 'BUTTON' ].includes(tag)) return true;
+		// Exclude custom select triggers etc by role
+		const role = target.getAttribute('role');
+		if (role && ['textbox','combobox','button'].includes(role)) return true;
+		return false;
+	}
+
+	function scrollSelectedIntoView(idx: number) {
+		if (!gridEl) return;
+		const el = gridEl.children[idx] as HTMLElement | undefined;
+		if (el) {
+			// Use rAF to wait for any reactive DOM updates
+			requestAnimationFrame(() => {
+				try { el.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' }); } catch {}
+			});
+		}
+	}
+
+	function setIndex(idx: number) {
+		const list = get(visibleContent);
+		if (!list.length) return;
+		const clamped = Math.max(0, Math.min(list.length - 1, idx));
+		selectedIndex.set(clamped);
+		selectedContent.set(list[clamped]);
+		scrollSelectedIntoView(clamped);
+	}
+
 	function handleKeydown(event: KeyboardEvent) {
-		let $showPlayer: boolean; let $selectedIndex: number; let $visible: ContentItem[]; let $selected: ContentItem | null;
-		showPlayer.subscribe(v=> $showPlayer = v)();
-		selectedIndex.subscribe(v=> $selectedIndex = v)();
-		visibleContent.subscribe(v=> $visible = v)();
-		selectedContent.subscribe(v=> $selected = v)();
+		const $showPlayer = get(showPlayer);
 		if ($showPlayer && event.key === 'Escape') { closePlayer(); return; }
 		if (event.key === 'Escape' && document.fullscreenElement) { document.exitFullscreen(); closePlayer(); return; }
-		if (!$showPlayer) {
-			switch (event.key) {
-				case 'ArrowRight': event.preventDefault(); selectedIndex.set(Math.min($visible.length - 1, $selectedIndex + 1)); selectedContent.set($visible[Math.min($visible.length - 1, $selectedIndex + 1)]); break;
-				case 'ArrowLeft': event.preventDefault(); selectedIndex.set(Math.max(0, $selectedIndex - 1)); selectedContent.set($visible[Math.max(0, $selectedIndex - 1)]); break;
-				case 'ArrowDown': event.preventDefault();
-					let dyn = 0; try { if (gridEl?.children?.length) { const f = gridEl.children[0] as HTMLElement; const itemW = Math.ceil(f.getBoundingClientRect().width); const containerW = Math.floor(gridEl.getBoundingClientRect().width); dyn = Math.max(1, Math.floor(containerW / (itemW || 1))); } } catch {}
-					const downCols = dyn || (window.innerWidth >= 1536 ? 6 : window.innerWidth >= 1280 ? 5 : window.innerWidth >= 1024 ? 4 : window.innerWidth >= 768 ? 3 : 2);
-					const next = Math.min($visible.length -1, $selectedIndex + downCols); selectedIndex.set(next); selectedContent.set($visible[next]); break;
-				case 'ArrowUp': event.preventDefault();
-					let dynUp = 0; try { if (gridEl?.children?.length) { const f = gridEl.children[0] as HTMLElement; const itemW = Math.ceil(f.getBoundingClientRect().width); const containerW = Math.floor(gridEl.getBoundingClientRect().width); dynUp = Math.max(1, Math.floor(containerW / (itemW || 1))); } } catch {}
-					const upCols = dynUp || (window.innerWidth >= 1536 ? 6 : window.innerWidth >= 1280 ? 5 : window.innerWidth >= 1024 ? 4 : window.innerWidth >= 768 ? 3 : 2);
-					const prev = Math.max(0, $selectedIndex - upCols); selectedIndex.set(prev); selectedContent.set($visible[prev]); break;
-				case 'Enter': event.preventDefault(); if ($selected) openContent($selected); break;
-			}
+		// Ignore when focused in an input / typing target
+		if (isTypingTarget(event.target)) return;
+		if ($showPlayer) return;
+		const list = get(visibleContent);
+		if (!list.length) return;
+		const idx = get(selectedIndex);
+		const current = get(selectedContent);
+		switch (event.key) {
+			case 'ArrowRight': event.preventDefault(); setIndex(idx + 1); break;
+			case 'ArrowLeft': event.preventDefault(); setIndex(idx - 1); break;
+			case 'ArrowDown': event.preventDefault(); setIndex(idx + columns); break;
+			case 'ArrowUp': event.preventDefault(); setIndex(idx - columns); break;
+			case 'Enter': if (current) { event.preventDefault(); openContent(current); } break;
 		}
 	}
 
@@ -78,8 +123,8 @@
 		function updateHeaderHeight() { const header = document.querySelector('header'); headerHeight = header ? header.offsetHeight : 0; updateSidebarPosition(); }
 		function updateSidebarPosition() { if (!sidebarEl || isMobile) return; const scrollTop = window.pageYOffset || document.documentElement.scrollTop; sidebarTop = scrollTop >= headerHeight ? 0 : headerHeight - scrollTop; sidebarEl.style.top = `${sidebarTop}px`; sidebarEl.style.height = `calc(100vh - ${sidebarTop}px)`; }
 		function handleScroll() { updateSidebarPosition(); }
-		updateIsMobile(); updateHeaderHeight();
-		const resizeHandler = () => { updateIsMobile(); updateHeaderHeight(); };
+		updateIsMobile(); updateHeaderHeight(); columns = computeColumns();
+		const resizeHandler = () => { updateIsMobile(); updateHeaderHeight(); columns = computeColumns(); };
 		window.addEventListener('resize', resizeHandler);
 		window.addEventListener('scroll', handleScroll);
 		document.addEventListener('keydown', handleKeydown);
