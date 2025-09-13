@@ -440,5 +440,29 @@ export const movies = [
 		videoId: "Ncw1cIaJg4M",
 		creators: ["MYRM"],
 		starring: ["Callum Powell", "Dante Grazioli", "Juho Kuusisaari", "Brandon Douglass", "Dylan Baker", "Kie Willis", "Joe Hougaard", "Phil Doyle", "Max Henry"]
+	},
+	{
+		id: 26,
+		title: "Quality Control",
+		year: "2021",
+		description: "Months of filming have been put together in the hopes of capturing the Swedish parkour scene and the general vibe we have whilst training.",
+		thumbnail: "/images/posters/quality-control-swedish-parkour-documentary.webp",
+		type: "movie",
+		duration: "35m",
+		videoId: "ifr0XZjuG3Q",
+		creators: ["KIPA"],
+		starring: ["Kevin Franzén", "Hugo Arnesson", "Miranda Tibbling", "Matar Gaza", "Murat Alishev", "Joel Larsson", "Lester Castro", "Matar Gaza"]
+	},
+	{
+		id: 27,
+		title: "state Of miNd",
+		year: "2023",
+		description: "A documentary about living permanently switched ON. A mindset where fear fades and passion takes over—driving you to create, move, and push limits every day.",
+		thumbnail: "/images/posters/sick-mode-state-Of-miNd-poster-parkour.webp",
+		type: "movie",
+		duration: "14m",
+		videoId: "cZMb7SeUnvk",
+		creators: ["Sick Mode", "Kamil Tobiasz", "Flying Carpet Studio"],
+		starring: ["Kamil Półtorak", "Oskar Opatowski", "Kacper Kośmider", "Miłosz Jarmołowicz", "Kacper Lipski", "Dawid Zakrzewski", "Konrad Kapek", "Mateusz Petryszyn"]
 	}
 ];
