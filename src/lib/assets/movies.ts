@@ -464,5 +464,30 @@ export const movies = [
 		videoId: "cZMb7SeUnvk",
 		creators: ["Sick Mode", "Kamil Tobiasz", "Flying Carpet Studio"],
 		starring: ["Kamil Półtorak", "Oskar Opatowski", "Kacper Kośmider", "Miłosz Jarmołowicz", "Kacper Lipski", "Dawid Zakrzewski", "Konrad Kapek", "Mateusz Petryszyn"]
-	}
+	},
+	{
+		id: 28,
+		title: "CRACKSTONE",
+		year: "2023",
+		description: "Grassroots GEFAM-funded parkour film inspired by Capst1, spotlighting the creative flip side of movement. Filmed in Frankfurt, the name stuck after an inside joke about the city's rough edges—capturing a raw, collaborative energy the crew hopes to build on.",
+		thumbnail: "/images/posters/gefam-crackstone-parkour-film-poster.webp",
+		videoId: "4n4Lr0yoTNc",
+		type: "movie",
+		duration: "36m",
+		creators: ["Luca Beaufort", "Safier Elzinga", "GEFAM", "Francesco Kamstra", "Sjoerd Rensma"],
+		starring: [
+			"Amir Kaiser",
+			"Laurenz Weeke",
+			"Josef Vyhlas",
+			"Lukas Divis",
+			"Safier Elzinga",
+			"Sjoerd Rensma",
+			"Ryuya Kuwasaki",
+			"Zoe Kern",
+			"Francesco Kamstra",
+			"Tobias Roest",
+			"Ryuya Shirai"
+		]
+	},
+	
 ];
