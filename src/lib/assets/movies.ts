@@ -561,5 +561,37 @@ export const movies = [
 			"Marc Busch",
 			"Drew Taylor"
 		]
+	},
+	{
+		id: 32,
+		title: "NEOPHYTE - A Munich Parkour Project",
+		year: "2023",
+		description: "Displaying a great part of the versatile Munich PK scene, with 19 athletes ticking off their most fearful challenges!",
+		thumbnail: "/images/posters/neophyte-a-munich-parkour-project-matttma-poster.webp",
+		videoId: "FzOO7Pvo50c",
+		type: "movie",
+		duration: "17m",
+		creators: ["MATTTMA", "Levin Pellkofer", "Alex Flatau"],
+		starring: [
+			"Matthias Mayer",
+			"Lisa Eckert",
+			"André Niederkofler",
+			"Benno Kirmse",
+			"Philipp Rasper",
+			"Jannis Schauer",
+			"Markus Walberer",
+			"Nasser Asefi",
+			"Felix Erdmann",
+			"Gustavo Engelhardt",
+			"Gyo Yoshida",
+			"Jonas Nussbaum",
+			"Jakob Vöckler",
+			"Alexander Flatau",
+			"Raphael Kanefzky",
+			"Henrik Schmieder",
+			"Ludwig Hefele",
+			"Levin Pellkofer",
+			"Viktor v. Magnus"
+		]
 	}
 ];
