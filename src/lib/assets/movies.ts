@@ -571,7 +571,7 @@ export const movies = [
 		videoId: "FzOO7Pvo50c",
 		type: "movie",
 		duration: "17m",
-		creators: ["MATTTMA", "Levin Pellkofer", "Alex Flatau"],
+		creators: ["MATTTMA", "Matthias Mayer", "Levin Pellkofer", "Alex Flatau"],
 		starring: [
 			"Matthias Mayer",
 			"Lisa Eckert",
