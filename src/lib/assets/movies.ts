@@ -593,5 +593,17 @@ export const movies = [
 			"Levin Pellkofer",
 			"Viktor v. Magnus"
 		]
+	},
+	{
+		id: 33,
+		title: "FISHBOY & DR.EEL",
+		year: "2024",
+		description: "Matt McCreary and Kevin Franzén present \"Fishboy & Dr.Eel\"—a summer of wild ideas, unique spots, big laughs, and an unforgettable ender filmed in Hamburg and Brighton.",
+		thumbnail: "/images/posters/fishboy-and-dr-eel-parkour-freerunning-movie-poster.webp",
+		videoId: "TBgN_HQJhds",
+		type: "movie",
+		duration: "9m",
+		creators: ["Jack Dodds", "Ben Carm", "Lester Castro Nilsson"],
+		starring: ["Matt McCreary", "Kevin Franzén"]
 	}
 ];
