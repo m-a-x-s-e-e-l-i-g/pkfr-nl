@@ -1,3 +1,5 @@
+import { t } from "svelte-i18n";
+
 export const movies = [
 	{
 		id: 1,
@@ -489,5 +491,37 @@ export const movies = [
 			"Ryuya Shirai"
 		]
 	},
-	
+	{
+		id: 29,
+		title: "Hazel",
+		year: "2022",
+		description: "Hazel marks Ethan Rud’s 10 years of parkour, channeling grief after a mentor’s loss. Filmed in Minneapolis and Los Angeles by Noah Heath, it’s a dark, moody street video paving the way for shorter pay-per-view films.",
+		thumbnail: "/images/posters/the-motus-projects-hazel-poster-freerunning.webp",
+		videoId: "EvJGWvXrINw",
+		type: "movie",
+		duration: "10m",
+		creators: ["The Motus Projects", "Noah Heath"],
+		starring: ["Ethan Rud"]
+	},
+	{
+		id: 30,
+		title: "SABAI SABAI",
+		year: "2023",
+		description: "This film is very fine! It shows the beauty of parkour in Thailand, combining stunning locations with smooth movement and a chilled vibe.",
+		thumbnail: "/images/posters/sabai-sabai-parkour-freerunning-movie-poster.webp",
+		videoId: "DKZ-bt2oaic",
+		type: "movie",
+		duration: "23m",
+		creators: ["GEFAM", "Julius Klein", "Lucas Siehl", "Simon Pronk"],
+		starring: [
+			"Julius Klein",
+			"Simon Pronk",
+			"Jovan Uljarevic",
+			"Luca Beaufort",
+			"Lucas Siehl",
+			"Yoojin Lee",
+			"Jonas Rosenberg",
+			"Valentin Huwer"
+		]
+	}
 ];
