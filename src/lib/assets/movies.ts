@@ -523,5 +523,43 @@ export const movies = [
 			"Jonas Rosenberg",
 			"Valentin Huwer"
 		]
+	},
+	{
+		id: 31,
+		title: "RUNNING A FAMILY",
+		year: "2023",
+		description: "Commit's documentary about the power of a community. Highlighting the parkour community in Eindhoven, by showing the stories of their team members.", 
+		thumbnail: "/images/posters/running-a-family-commit-freerun-documentary.webp",
+		videoId: "i9Zq7oT5Cvw",
+		type: "movie",
+		duration: "22m",
+		creators: [
+			"Studio Lafo",
+			"Lumens",
+			"Lars Cleven",
+			"Tommy Köhlbrugge",
+			"Stef Cleven",
+			"Jeroen Schreiner",
+			"Omar Malasi",
+			"Dutch Drone Gods",
+			"Gijs van Os",
+			"Cas Oerlemans",
+			"Nabil El Hamdaoui",
+			"Colin Dust",
+			"Brend Kuppers",
+			"Luke Linssen",
+			"Commit Freerun"
+		],
+		starring: [
+			"Johan Vereijken",
+			"Bart van der Linden",
+			"Jeroen Schreiner",
+			"Hidde Martens",
+			"Siebe van de Spijker",
+			"Lisa Eckert",
+			"Joe Scandrett",
+			"Marc Busch",
+			"Drew Taylor"
+		]
 	}
 ];
