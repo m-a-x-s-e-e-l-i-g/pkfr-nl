@@ -107,7 +107,7 @@ export const movies = [
 		title: "S.O.L",
 		year: "2022",
 		description: "S.O.L is a parkour tour film with the carefree vibe of 2010s summer edits, focusing less on moves and more on friendship, support, and shared training moments.",
-		thumbnail: "/images/posters/the-motus-projects-sol-poster.jpg",
+		thumbnail: "/images/posters/the-motus-projects-sol-poster.webp",
 		videoId: "Tswad8jCgaM",
 		type: "movie",
 		duration: "1h 12m",
