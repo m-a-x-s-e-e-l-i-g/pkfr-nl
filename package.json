@@ -53,11 +53,11 @@
     },
     "type": "module",
     "dependencies": {
-        "@tailwindcss/postcss": "^4.1.12",
+        "@tailwindcss/postcss": "^4.1.13",
         "@unpic/svelte": "^1.0.0",
         "embla-carousel-autoplay": "^8.6.0",
         "embla-carousel-svelte": "^8.6.0",
-        "eslint": "^9.34.0",
+        "eslint": "^9.35.0",
         "just-throttle": "^4.2.0",
         "svelte-awesome": "^3.3.5",
         "svelte-i18n": "^4.0.1",
