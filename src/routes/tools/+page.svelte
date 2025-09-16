@@ -4,20 +4,10 @@
     import calculator from 'svelte-awesome/icons/calculator';
     import mapO from 'svelte-awesome/icons/mapO';
     import mapMarker from 'svelte-awesome/icons/mapMarker';
+    import television from 'svelte-awesome/icons/television';
     import { t } from 'svelte-i18n';
 
     $: tools = [
-        { 
-            name: $t('tools.distanceConverter.name'),
-            link: '/tools/distance-converter', 
-            icon: calculator, 
-            description: $t('tools.distanceConverter.description'),
-            colorStart: 'rgb(239, 68, 68)', // red-500
-            colorEnd: 'rgb(249, 115, 22)', // orange-500
-            bgGradient: 'from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20',
-            iconColor: 'text-red-600 dark:text-red-400',
-            bgIconClass: 'calculator'
-        },
         {
             name: $t('tools.spotMapFinder.name'),
             link: '/tools/spot-map-finder',
@@ -39,6 +29,29 @@
             bgGradient: 'from-green-50 to-teal-50 dark:from-green-900/20 dark:to-teal-900/20',
             iconColor: 'text-green-600 dark:text-green-400',
             bgIconClass: 'location'
+        },
+        {
+            name: $t('tools.jumpflix.name'),
+            link: 'https://www.jumpflix.tv',
+            icon: television,
+            description: $t('tools.jumpflix.description'),
+            colorStart: 'rgb(37, 99, 235)',
+            colorEnd: 'rgb(59, 130, 246)',
+            bgGradient: 'from-indigo-50 to-blue-50 dark:from-indigo-900/20 dark:to-blue-900/20',
+            iconColor: 'text-indigo-600 dark:text-indigo-400',
+            bgIconClass: 'tv',
+            external: true
+        },
+    { 
+            name: $t('tools.distanceConverter.name'),
+            link: '/tools/distance-converter', 
+            icon: calculator, 
+            description: $t('tools.distanceConverter.description'),
+            colorStart: 'rgb(239, 68, 68)', // red-500
+            colorEnd: 'rgb(249, 115, 22)', // orange-500
+            bgGradient: 'from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20',
+            iconColor: 'text-red-600 dark:text-red-400',
+            bgIconClass: 'calculator'
         }
     ];
 </script>
@@ -113,6 +126,10 @@
         content: '📍';
     }
 
+    .background-icon.tv::after {
+        content: '📺';
+    }
+
     .tool-card:hover .background-icon {
         opacity: 0.15;
         transform: rotate(14deg) scale(2.7) translate(10%, -10%);
@@ -183,6 +200,8 @@
                 href={tool.link} 
                 class="tool-card group block p-6 bg-gradient-to-br {tool.bgGradient} border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 backdrop-blur-sm"
                 style="--icon-bg-start: {tool.colorStart}; --icon-bg-end: {tool.colorEnd}; --title-gradient-start: {tool.colorStart}; --title-gradient-end: {tool.colorEnd};"
+                target={tool.external ? '_blank' : undefined}
+                rel={tool.external ? 'noopener noreferrer' : undefined}
             >
                 <!-- Background Icon -->
                 <div class="background-icon {tool.bgIconClass}"></div>

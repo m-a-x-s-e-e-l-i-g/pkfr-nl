@@ -2,6 +2,7 @@
 	import { currentPage, isMenuOpen } from '$lib/assets/js/store'
 
 	let { href, children } = $props();
+	const isExternal = href?.startsWith('http');
 
 	let isCurrentPage = $derived($currentPage.startsWith(href))
 
@@ -19,6 +20,8 @@
 		onclick={maybeCloseMenu}
 		class:active={isCurrentPage}
 		aria-current={isCurrentPage ? 'page' : false}
+		target={isExternal ? '_blank' : undefined}
+		rel={isExternal ? 'noopener noreferrer' : undefined}
 	>
 		{@render children?.()}
 	</a>

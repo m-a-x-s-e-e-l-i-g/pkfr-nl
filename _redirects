@@ -3,4 +3,5 @@
 /kennisbank/ / 301
 /blog/* / 301
 /gym-finder/ /tools/gym-finder 301
-/jumpflix/ /tv 301
+/jumpflix/ https://www.jumpflix.tv 301
+/tv/ https://www.jumpflix.tv 301

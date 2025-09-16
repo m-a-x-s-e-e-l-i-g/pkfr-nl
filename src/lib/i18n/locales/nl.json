@@ -135,6 +135,10 @@
     "tools": {
         "pageTitle": "Tools",
         "heading": "Tools",
+        "jumpflix": {
+            "name": "JUMPFLIX",
+            "description": "Ontdek parkour films, documentaires en playlists."
+        },
         "distanceConverter": {
             "name": "Afstand Analyser 5000™",
             "description": "Maak sprongen eerlijk door schoenmaatverschillen te compenseren."
@@ -176,16 +180,9 @@
             "footbags": "Of <strong>{bags}</strong> hacky sacks."
         }
     },
-    "tv": {
-        "description": "JUMPFLIX: Ontdek parkour films, documentaires en playlists. Pak wat popcorn!",
-        "searchPlaceholder": "Zoek op titel, maker of atleet...",
-        "playNow": "Nu afspelen",
-        "watchOn": "Bekijk op ",
-        "back": "Terug"
-    },
     "error": {
-        "message": "Oepsie poepski",
-        "subtitle": "Doen alsof niemand het zag, en snel naar huis.",
+        "message": "Skrrrt",
+        "subtitle": "Skivakantie.",
         "backHome": "Terug naar Home"
     }
 }

@@ -29,6 +29,6 @@ export const navItems = [
     },
     {
         title: 'JUMPFLIX',
-        route: '/tv'
+        route: 'https://www.jumpflix.tv'
     }
 ];
