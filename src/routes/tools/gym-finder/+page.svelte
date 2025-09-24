@@ -145,7 +145,7 @@
 <div style="margin: 1.5rem 0;">
 	<button
 		class="button"
-		on:click={() => window.open('https://maps.app.goo.gl/4n4oQeJ4FysKAkcy5?g_st=ac', '_blank')}
+		onclick={() => window.open('https://maps.app.goo.gl/4n4oQeJ4FysKAkcy5?g_st=ac', '_blank')}
 	>
 		{$t('tools.gymFinder.viewAllOnMap')}
 	</button>
@@ -198,13 +198,13 @@
 				<div class="button-group">
 					<button
 						class="button"
-						on:click={() => window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(gym.address)}`, '_blank')}
+						onclick={() => window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(gym.address)}`, '_blank')}
 					>
 						{$t('tools.gymFinder.viewLocation')}
 					</button>
 					<button
 						class="button"
-						on:click={() => window.open(gym.website, '_blank')}
+						onclick={() => window.open(gym.website, '_blank')}
 					>
 						{$t('tools.gymFinder.visitWebsite')}
 					</button>

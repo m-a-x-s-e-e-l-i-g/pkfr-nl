@@ -21,7 +21,7 @@
 
 	<p>
 		&copy;{new Date().getFullYear()} {@html siteAuthor} <br/><br/>
-		<a href="https://www.maxmade.nl" target="_blank" rel="noreferrer">
+		<a href="https://www.maxmade.nl" target="_blank" rel="noreferrer" aria-label="Visit the MAXmade website">
 			<svg width="140" height="26" viewBox="0 0 542.4 113.6" xmlns="http://www.w3.org/2000/svg" aria-label="MAXmade logo" class="maxmade-logo">
 				<g>
 					<polygon class="logo-fill" points="274.3,55.6 256.9,27.5 239.4,55.6 256.9,55.6"/>
@@ -37,7 +37,7 @@
 				</g>
 			</svg>
 		</a> <br/><br/>
-		<a href="{siteLink}" target="_blank" rel="noreferrer"><Icon data={github}/></a>
+		<a href="{siteLink}" target="_blank" rel="noreferrer" aria-label="Visit the project GitHub"><Icon data={github}/></a>
 	</p>
 </footer>
 
@@ -62,3 +62,4 @@
 		fill: #f8fafc;
 	}
 </style>
+
