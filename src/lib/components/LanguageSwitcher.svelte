@@ -24,7 +24,7 @@
 <div class="language-switcher">
 	<button 
 		class="flag-btn {$locale === 'nl' ? 'active' : ''}"
-		on:click={() => switchLanguage('nl')}
+		onclick={() => switchLanguage('nl')}
 		title="Nederlands"
 		aria-label="Switch to Dutch"
 	>
@@ -36,7 +36,7 @@
 	</button>
 	<button 
 		class="flag-btn {$locale === 'en' ? 'active' : ''}"
-		on:click={() => switchLanguage('en')}
+		onclick={() => switchLanguage('en')}
 		title="English"
 		aria-label="Switch to English"
 	>
@@ -113,3 +113,4 @@
 		}
 	}
 </style>
+

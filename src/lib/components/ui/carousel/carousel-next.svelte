@@ -32,10 +32,11 @@
 		className
 	)}
 	disabled={!$canScrollNext}
-	on:click={scrollNext}
+	onclick={scrollNext}
 	on:keydown={handleKeyDown}
 	{...rest}
 >
 	<ArrowRight class="h-4 w-4" />
 	<span class="sr-only">Next slide</span>
 </Button>
+
