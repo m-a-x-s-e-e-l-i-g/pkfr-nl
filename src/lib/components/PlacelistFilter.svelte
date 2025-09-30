@@ -248,6 +248,7 @@
 	{ name: "New York City", url: "https://goo.gl/maps/e5UiPtg2zARyNCDHA?g_st=ac", country: "United States", author: "PKNYC" },
 	{ name: "American Parkour Hotspots", url: "https://goo.gl/maps/RjtAs2N6n48Fn8B4A?g_st=ac", country: "United States", author: "American Parkour" },
 	{ name: "London", url: "https://goo.gl/maps/QRJdc6q7hHQAZqhB9?g_st=ac", country: "United Kingdom", author: "London Community" },
+	{ name: "Hamburg 🍔", url: "https://maps.app.goo.gl/ko4oZmU5gfX4WDuo8", country: "Germany", author: "Koen Bangert" },
 	
 ];
 
