@@ -249,7 +249,9 @@
 	{ name: "American Parkour Hotspots", url: "https://goo.gl/maps/RjtAs2N6n48Fn8B4A?g_st=ac", country: "United States", author: "American Parkour" },
 	{ name: "London", url: "https://goo.gl/maps/QRJdc6q7hHQAZqhB9?g_st=ac", country: "United Kingdom", author: "London Community" },
 	{ name: "Hamburg 🍔", url: "https://maps.app.goo.gl/ko4oZmU5gfX4WDuo8", country: "Germany", author: "Koen Bangert" },
-	
+	{ name: "Mannheim 🚀", url: "https://maps.app.goo.gl/YwNT31RvpDWJNgAa7", country: "Germany", author: "Koen Bangert" },
+	{ name: "Berlin 🛡️", url: "https://maps.app.goo.gl/wPfw2Ts3kpv96buMA", country: "Germany", author: "Koen Bangert" },
+	{ name: "Frankfurt ⚠️", url: "https://maps.app.goo.gl/vVeipA6v6KCVxRXG8", country: "Germany", author: "Koen Bangert" }	
 ];
 
   // Sort by name for better UX
