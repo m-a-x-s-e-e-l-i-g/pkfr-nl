@@ -10,6 +10,31 @@
 <h1>{$t('spots.title')}</h1>
 <p>{@html $t('spots.description')}</p>
 <div class="wrapper">
+	<h2>{$t('spots.parkourSpotTitle')}</h2>
+	<article class="main">
+		<p>
+			{@html $t('spots.parkourSpotDescription')}
+		</p>
+	</article>
+	<aside class="aside aside-right">
+		<picture>
+			<img
+				src="/images/parkour-spot-app-device-mockup.webp"
+				alt="Parkour.Spot logo"
+				style="width:250px"
+			/>
+		</picture>
+	</aside>
+	<footer>
+		<a
+			href="https://parkour.spot/"
+			rel="noreferrer"
+			target="_blank"
+			class="button">{$t('spots.parkourSpotButton')}</a
+		>
+	</footer>
+</div>
+<div class="wrapper">
 	<h2>{$t('spots.spotMapsTitle')}</h2>
 <article class="main">
 	<p>
