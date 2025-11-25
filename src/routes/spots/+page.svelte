@@ -19,7 +19,7 @@
 	<aside class="aside aside-right">
 		<picture>
 			<img
-				src="/images/ParkourSpot.png"
+				src="/images/parkour-spot-app-device-mockup.webp"
 				alt="Parkour.Spot logo"
 				style="width:250px"
 			/>
