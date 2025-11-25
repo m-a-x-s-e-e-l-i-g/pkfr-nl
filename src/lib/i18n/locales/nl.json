@@ -25,6 +25,9 @@
     "spots": {
         "title": "Spots",
         "description": "Parkour spots vinden kan tijd kosten, behalve als je al weet waar ze zijn! Je vind hier apps, kaarten en lijsten die goed zijn voor spots in Nederland. Zoek je liever iets binnen, probeer dan de <a href=\"/tools/gym-finder\">Gym Finder</a>.",
+        "parkourSpotTitle": "Parkour.Spot",
+        "parkourSpotDescription": "Parkour.Spot is een community app voor het vinden, beoordelen en delen van je eigen parkour spots. Het is open source en bevat waar mogelijk de spot kaarten hieronder.",
+        "parkourSpotButton": "Open Parkour.Spot",
         "spotMapsTitle": "Spot kaarten van freerunners",
         "spotMapsDescription": "Uitstekende parkour spot kaarten van Nederlandse freerunners. Deze kaarten helpen je snel lokale spots te vinden en zijn ideaal voor iedereen die nieuwe trainingsplekken zoekt. Heb jij zelf een spot map van jouw regio? Deel hem gerust via de knop hieronder!",
         "shareSpotList": "Deel jouw spot lijst hier!",
