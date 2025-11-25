@@ -27,7 +27,7 @@
 	</aside>
 	<footer>
 		<a
-			href="https://parkour.spot/nl"
+			href="https://parkour.spot/"
 			rel="noreferrer"
 			target="_blank"
 			class="button">{$t('spots.parkourSpotButton')}</a
