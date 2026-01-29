@@ -3,6 +3,8 @@
     import ToolCard from '$lib/components/ToolCard.svelte';
     import { t } from 'svelte-i18n';
 
+    const heroPhoto = '/images/hero-images/20a37b89-07e0-445a-9cc3-da1352142c9a_rw_1920.webp';
+
     $: tools = [
         {
             name: $t('tools.spotMapFinder.name'),
@@ -40,7 +42,7 @@
     <title>{$t('tools.pageTitle')} {titlePostfix}</title>
 </svelte:head>
 
-<section class="page-hero">
+<section class="page-hero" style={`--hero-photo: url("${heroPhoto}")`}>
     <div class="hero-content">
         <span class="hero-badge">🛠️ {$t('tools.heading')}</span>
         <h1>{$t('tools.heading')}</h1>
@@ -67,6 +69,7 @@
     .page-hero {
         position: relative;
         overflow: hidden;
+        --hero-tint: rgba(255, 255, 255, 0.32);
         background: linear-gradient(
             180deg,
             color-mix(in oklab, var(--color-card) 92%, var(--color-primary) 8%) 0%,
@@ -85,6 +88,7 @@
         position: absolute;
         inset: 0;
         background:
+            linear-gradient(var(--hero-tint), var(--hero-tint)),
             radial-gradient(
                 900px 420px at 50% 0%,
                 color-mix(in oklab, var(--color-primary) 26%, transparent),
@@ -94,9 +98,17 @@
                 800px 360px at 15% 15%,
                 color-mix(in oklab, var(--color-accent) 18%, transparent),
                 transparent 55%
-            );
+            ),
+            var(--hero-photo);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
         opacity: 0.65;
         pointer-events: none;
+    }
+
+    :global(.dark) .page-hero {
+        --hero-tint: rgba(0, 0, 0, 0.58);
     }
 
     :global(.dark) .page-hero::before {

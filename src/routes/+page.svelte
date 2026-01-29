@@ -4,6 +4,8 @@
 	import ToolCard from '$lib/components/ToolCard.svelte';
 	import { siteTitle, titlePostfix } from '$lib/config';
 	import { t } from 'svelte-i18n';
+
+	const heroPhoto = '/images/hero-images/4c603e86-2375-4d4a-b1b6-5724029da98f_rw_1920.webp';
 </script>
 
 <svelte:head>
@@ -11,7 +13,7 @@
 </svelte:head>
 
 <!-- Hero Section -->
-<section class="home-hero mb-12">
+<section class="home-hero mb-12" style={`--hero-photo: url("${heroPhoto}")`}>
 	<div class="home-hero-inner">
 		<div class="grid gap-8 md:grid-cols-12 md:items-center">
 			<div class="md:col-span-7">
@@ -136,6 +138,7 @@
 	.home-hero {
 		position: relative;
 		overflow: hidden;
+		--hero-tint: rgba(255, 255, 255, 0.28);
 		border-radius: 1.5rem;
 		border: 1px solid var(--color-border);
 		background: linear-gradient(
@@ -150,6 +153,7 @@
 		position: absolute;
 		inset: 0;
 		background:
+			linear-gradient(var(--hero-tint), var(--hero-tint)),
 			radial-gradient(
 				900px 480px at 0% 0%,
 				color-mix(in oklab, var(--color-primary) 22%, transparent),
@@ -159,9 +163,17 @@
 				900px 520px at 100% 15%,
 				color-mix(in oklab, var(--color-accent) 16%, transparent),
 				transparent 55%
-			);
+			),
+			var(--hero-photo);
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
 		opacity: 0.75;
 		pointer-events: none;
+	}
+
+	:global(.dark) .home-hero {
+		--hero-tint: rgba(0, 0, 0, 0.62);
 	}
 
 	:global(.dark) .home-hero::before {

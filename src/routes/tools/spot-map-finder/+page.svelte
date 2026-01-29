@@ -4,13 +4,15 @@
   import InputCollector from '$lib/components/InputCollector.svelte';
   import { page } from '$app/stores';
   import { t } from 'svelte-i18n';
+
+  const heroPhoto = '/images/hero-images/bd927f92-c9c2-4b92-9a82-27be84699571_rw_1920.webp';
 </script>
 
 <svelte:head>
   <title>{$t('tools.spotMapFinder.pageTitle')} {titlePostfix}</title>
 </svelte:head>
 
-<section class="page-hero">
+<section class="page-hero" style={`--hero-photo: url("${heroPhoto}")`}>
   <div class="hero-content">
     <span class="hero-badge">🗺️ Tool</span>
     <h1>{$t('tools.spotMapFinder.heading')}</h1>
@@ -40,6 +42,7 @@
   .page-hero {
     position: relative;
     overflow: hidden;
+    --hero-tint: rgba(255, 255, 255, 0.32);
     background: linear-gradient(
       180deg,
       color-mix(in oklab, var(--color-card) 92%, var(--color-primary) 8%) 0%,
@@ -58,6 +61,7 @@
     position: absolute;
     inset: 0;
     background:
+      linear-gradient(var(--hero-tint), var(--hero-tint)),
       radial-gradient(
         900px 420px at 50% 0%,
         color-mix(in oklab, var(--color-primary) 26%, transparent),
@@ -67,9 +71,17 @@
         800px 360px at 15% 15%,
         color-mix(in oklab, var(--color-accent) 18%, transparent),
         transparent 55%
-      );
+      ),
+      var(--hero-photo);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     opacity: 0.65;
     pointer-events: none;
+  }
+
+  :global(.dark) .page-hero {
+    --hero-tint: rgba(0, 0, 0, 0.58);
   }
 
   :global(.dark) .page-hero::before {
