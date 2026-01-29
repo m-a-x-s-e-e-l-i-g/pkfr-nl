@@ -41,18 +41,18 @@
 <style>
 	/* FullCalendar Dark Mode Overrides - Component Level */
 	:global(.dark .fc-list-event:hover) {
-		background: var(--darker) !important;
-		border-color: var(--accent) !important;
+		background: var(--color-muted) !important;
+		border-color: var(--color-primary) !important;
 	}
 	
 	:global(.dark .fc-list-event:hover .fc-list-event-title),
 	:global(.dark .fc-list-event:hover .fc-list-event-time) {
-		color: var(--paper) !important;
+		color: var(--color-foreground) !important;
 	}
 
 	/* Fix day text color in dark mode */
 	:global(.dark .fc-list-day-text, .dark .fc-list-day-side-text) {
-		color: var(--paper) !important;
+		color: var(--color-foreground) !important;
 	}
 </style>
 

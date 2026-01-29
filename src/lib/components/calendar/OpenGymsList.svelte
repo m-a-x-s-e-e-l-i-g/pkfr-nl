@@ -44,18 +44,18 @@
 <style>
 	/* FullCalendar Dark Mode Overrides - Component Level */
 	:global(.dark .fc-list-event:hover) {
-		background: var(--darker) !important;
-		border-color: var(--accent) !important;
+		background: var(--color-muted) !important;
+		border-color: var(--color-primary) !important;
 	}
 	
 	:global(.dark .fc-list-event:hover .fc-list-event-title),
 	:global(.dark .fc-list-event:hover .fc-list-event-time) {
-		color: var(--paper) !important;
+		color: var(--color-foreground) !important;
 	}
 
 	/* Fix header toolbar for dark mode */
 	:global(.dark .fc-toolbar-title) {
-		color: var(--paper) !important;
+		color: var(--color-foreground) !important;
 		padding-left: 20px;
 	}
 
@@ -64,24 +64,25 @@
 	}
 
 	:global(.dark .fc-button) {
-		background: var(--darker) !important;
-		border-color: var(--border) !important;
-		color: var(--paper) !important;
+		background: var(--color-card) !important;
+		border-color: var(--color-border) !important;
+		color: var(--color-foreground) !important;
 	}
 
 	:global(.dark .fc-button:hover) {
-		background: var(--accent) !important;
-		border-color: var(--accent) !important;
+		background: var(--color-primary) !important;
+		border-color: var(--color-primary) !important;
+		color: var(--color-primary-foreground) !important;
 	}
 
 	/* Make header background dark in dark theme */
 	:global(.dark .fc-toolbar) {
-		background: var(--darker) !important;
+		background: var(--color-card) !important;
 	}
 
 	/* Fix day text color in dark mode */
 	:global(.dark .fc-list-day-text, .dark .fc-list-day-side-text) {
-		color: var(--paper) !important;
+		color: var(--color-foreground) !important;
 	}
 </style>
 

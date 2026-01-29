@@ -37,15 +37,20 @@
 	actual contents will show up.
 -->
 {#if !$isLoading}
-<div class="layout" class:open={$isMenuOpen}>
+<div class="page-wrapper" class:open={$isMenuOpen}>
 	<Header></Header>
 	{#key data.path}
-		<main id="main" tabindex="-1" in:fade|global={transitionIn} out:fade|global={transitionOut}>
+		<main id="main" tabindex="-1" class="main-content" in:fade|global={transitionIn} out:fade|global={transitionOut}>
 			{@render children?.()}
 		</main>
 	{/key}
 	<Footer></Footer>
 </div>
 {:else}
-<div class="loading">Loading...</div>
+<div class="min-h-screen flex items-center justify-center bg-background">
+	<div class="flex flex-col items-center gap-4">
+		<div class="w-10 h-10 rounded-xl bg-primary text-primary-foreground flex items-center justify-center font-black text-sm">PK</div>
+		<span class="text-muted-foreground">Loading...</span>
+	</div>
+</div>
 {/if}

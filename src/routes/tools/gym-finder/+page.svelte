@@ -27,9 +27,9 @@
 
 <style>
 	.gym-card {
-		background: var(--paper);
+		background: var(--color-card);
 		box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-		border: 1px solid var(--border);
+		border: 1px solid var(--color-border);
 		border-radius: 12px;
 		margin-top: 2rem;
 		overflow: hidden;
@@ -134,22 +134,119 @@
 			margin: 0;
 		}
 	}
+
+	.page-hero {
+		position: relative;
+		overflow: hidden;
+		background: linear-gradient(
+			180deg,
+			color-mix(in oklab, var(--color-card) 92%, var(--color-primary) 8%) 0%,
+			var(--color-background) 100%
+		);
+		border: 1px solid var(--color-border);
+		border-radius: 1rem;
+		padding: 4rem 1.5rem;
+		margin: 0 0 2rem 0;
+		text-align: center;
+		color: var(--color-foreground);
+	}
+
+	.page-hero::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background:
+			radial-gradient(
+				900px 420px at 50% 0%,
+				color-mix(in oklab, var(--color-primary) 26%, transparent),
+				transparent 60%
+			),
+			radial-gradient(
+				800px 360px at 15% 15%,
+				color-mix(in oklab, var(--color-accent) 18%, transparent),
+				transparent 55%
+			);
+		opacity: 0.65;
+		pointer-events: none;
+	}
+
+	:global(.dark) .page-hero::before {
+		opacity: 0.85;
+	}
+
+	.hero-content {
+		position: relative;
+		z-index: 1;
+		max-width: 56rem;
+		margin: 0 auto;
+	}
+
+	.hero-badge {
+		display: inline-block;
+		background: color-mix(in oklab, var(--color-card) 80%, transparent);
+		border: 1px solid color-mix(in oklab, var(--color-border) 85%, transparent);
+		backdrop-filter: blur(8px);
+		padding: 0.5rem 1rem;
+		border-radius: 2rem;
+		font-size: 0.875rem;
+		font-weight: 600;
+		margin-bottom: 1rem;
+	}
+
+	.page-hero h1 {
+		font-size: 2.5rem;
+		font-weight: 800;
+		margin-bottom: 1rem;
+		color: var(--color-foreground);
+	}
+
+	.hero-description {
+		font-size: 1.125rem;
+		opacity: 1;
+		color: color-mix(in oklab, var(--color-foreground) 78%, transparent);
+		max-width: 42rem;
+		margin: 0 auto;
+	}
+
+	.page-hero :global(a) {
+		color: inherit;
+		text-decoration-color: currentColor;
+		text-underline-offset: 3px;
+	}
+
+	.page-hero :global(a:hover) {
+		color: inherit;
+		text-decoration-thickness: 2px;
+	}
+
+	.hero-actions {
+		margin-top: 1.5rem;
+		display: flex;
+		justify-content: center;
+	}
 </style>
 
 
 <svelte:head>
 	<title>{$t('tools.gymFinder.pageTitle')} {titlePostfix}</title>
 </svelte:head>
-<h1>{$t('tools.gymFinder.heading')}</h1>
-<p>{@html $t('tools.gymFinder.intro').replace('{count}', gyms.length)}</p>
-<div style="margin: 1.5rem 0;">
-	<button
-		class="button"
-		on:click={() => window.open('https://maps.app.goo.gl/4n4oQeJ4FysKAkcy5?g_st=ac', '_blank')}
-	>
-		{$t('tools.gymFinder.viewAllOnMap')}
-	</button>
-</div>
+
+<section class="page-hero">
+	<div class="hero-content">
+		<span class="hero-badge">📍 Tool</span>
+		<h1>{$t('tools.gymFinder.heading')}</h1>
+		<p class="hero-description">{@html $t('tools.gymFinder.intro').replace('{count}', `${gyms.length}`)}</p>
+		<div class="hero-actions">
+			<button
+				class="button"
+				onclick={() => window.open('https://maps.app.goo.gl/4n4oQeJ4FysKAkcy5?g_st=ac', '_blank')}
+			>
+				{$t('tools.gymFinder.viewAllOnMap')}
+			</button>
+		</div>
+	</div>
+</section>
+
 {#if !latitude && !longitude}
 	<div transition:slide>
 		<Alert.Root>
@@ -198,13 +295,13 @@
 				<div class="button-group">
 					<button
 						class="button"
-						on:click={() => window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(gym.address)}`, '_blank')}
+						onclick={() => window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(gym.address)}`, '_blank')}
 					>
 						{$t('tools.gymFinder.viewLocation')}
 					</button>
 					<button
 						class="button"
-						on:click={() => window.open(gym.website, '_blank')}
+						onclick={() => window.open(gym.website, '_blank')}
 					>
 						{$t('tools.gymFinder.visitWebsite')}
 					</button>

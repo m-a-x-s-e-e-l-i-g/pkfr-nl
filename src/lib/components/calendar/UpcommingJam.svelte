@@ -90,7 +90,7 @@ const CustomViewConfig = {
 <svelte:head>
 	<style>
 		.fc-custom {
-			background-color: var(--paper) !important;
+			background-color: var(--color-card) !important;
 			padding: 1rem;
 		}
 		.fc-custom .grid-container{
@@ -108,10 +108,10 @@ const CustomViewConfig = {
 			margin-top: 0.2em;
 		}
 		.fc-custom, .fc-custom h2, .fc-custom p, .fc-custom .grid-item, .fc-custom .description {
-			color: var(--ink) !important;
+			color: var(--color-foreground) !important;
 		}
 		.fc-custom a:not(.button) {
-			color: var(--accent) !important;
+			color: var(--color-primary) !important;
 		}
 		.fc-custom a:not(.button):hover {
 			text-decoration: underline;

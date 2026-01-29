@@ -24,7 +24,7 @@
 <div class="language-switcher">
 	<button 
 		class="flag-btn {$locale === 'nl' ? 'active' : ''}"
-		on:click={() => switchLanguage('nl')}
+		onclick={() => switchLanguage('nl')}
 		title="Nederlands"
 		aria-label="Switch to Dutch"
 	>
@@ -36,7 +36,7 @@
 	</button>
 	<button 
 		class="flag-btn {$locale === 'en' ? 'active' : ''}"
-		on:click={() => switchLanguage('en')}
+		onclick={() => switchLanguage('en')}
 		title="English"
 		aria-label="Switch to English"
 	>
@@ -78,14 +78,14 @@
 	.flag-btn:hover {
 		opacity: 0.9;
 		transform: translateY(-1px);
-		background-color: hsl(var(--muted));
-		border-color: hsl(var(--border));
+		background-color: var(--color-muted);
+		border-color: var(--color-border);
 	}
 
 	.flag-btn.active {
 		opacity: 1;
-		background-color: hsl(var(--accent) / 0.08);
-		border-color: hsl(var(--accent) / 0.2);
+		background-color: color-mix(in oklch, var(--color-accent) 12%, transparent);
+		border-color: color-mix(in oklch, var(--color-accent) 35%, var(--color-border));
 	}
 
 	.flag-btn svg {

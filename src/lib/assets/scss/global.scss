@@ -29,3 +29,15 @@ a:not(header a, .button, table a) {
         text-decoration: underline;
     }
 }
+
+// Card-style links should not get the default red underline on hover.
+a.link-card,
+a.tool-card,
+a.card,
+a.placelist-link {
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
