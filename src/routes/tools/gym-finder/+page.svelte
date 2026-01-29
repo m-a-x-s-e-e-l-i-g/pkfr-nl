@@ -50,7 +50,7 @@
 
 	.carousel-container {
 		position: relative;
-		height: 320px;
+		height: 350px;
 		overflow: hidden;
 	}
 
