@@ -108,27 +108,6 @@
 	</div>
 </section>
 
-<!-- Highlights -->
-<section class="section">
-	<div class="grid md:grid-cols-3 gap-6">
-		<div class="card p-6">
-			<div class="text-2xl mb-4">📣</div>
-			<h3 class="mb-2">{$t('home.highlights.stayUpdatedTitle')}</h3>
-			<p class="text-muted-foreground">{$t('home.highlights.stayUpdatedDescription')}</p>
-		</div>
-		<div class="card p-6">
-			<div class="text-2xl mb-4">🤝</div>
-			<h3 class="mb-2">{$t('home.highlights.trainTogetherTitle')}</h3>
-			<p class="text-muted-foreground">{$t('home.highlights.trainTogetherDescription')}</p>
-		</div>
-		<div class="card p-6">
-			<div class="text-2xl mb-4">🧭</div>
-			<h3 class="mb-2">{$t('home.highlights.spotFastTitle')}</h3>
-			<p class="text-muted-foreground">{$t('home.highlights.spotFastDescription')}</p>
-		</div>
-	</div>
-</section>
-
 <!-- Featured Tools -->
 <section class="section">
 	<div class="section-header">

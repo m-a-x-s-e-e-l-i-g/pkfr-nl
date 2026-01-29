@@ -54,6 +54,12 @@
 	:global(.dark .fc-list-day-text, .dark .fc-list-day-side-text) {
 		color: var(--color-foreground) !important;
 	}
+	:global(.fc .fc-list-day > *) {
+		background-color: var(--color-card) !important;
+	}
+	:global(.dark .fc-event:hover *)  {
+		background: var(--color-muted) !important;
+	}
 </style>
 
 <FullCalendar {options} />

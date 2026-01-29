@@ -53,12 +53,6 @@
 		color: var(--color-foreground) !important;
 	}
 
-	/* Fix header toolbar for dark mode */
-	:global(.dark .fc-toolbar-title) {
-		color: var(--color-foreground) !important;
-		padding-left: 20px;
-	}
-
 	:global(.fc-media-screen, .fc-header-toolbar.fc-toolbar) {
 		border-radius: 15px;
 	}
@@ -69,20 +63,11 @@
 		color: var(--color-foreground) !important;
 	}
 
-	:global(.dark .fc-button:hover) {
-		background: var(--color-primary) !important;
-		border-color: var(--color-primary) !important;
-		color: var(--color-primary-foreground) !important;
+	:global(.fc .fc-list-day > *) {
+		background-color: var(--color-card) !important;
 	}
-
-	/* Make header background dark in dark theme */
-	:global(.dark .fc-toolbar) {
-		background: var(--color-card) !important;
-	}
-
-	/* Fix day text color in dark mode */
-	:global(.dark .fc-list-day-text, .dark .fc-list-day-side-text) {
-		color: var(--color-foreground) !important;
+	:global(.dark .fc-event:hover *)  {
+		background: var(--color-muted) !important;
 	}
 </style>
 

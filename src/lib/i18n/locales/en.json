@@ -27,14 +27,6 @@
         "whatsappDescription": "The Dutch parkour and freerunning community is mainly active on WhatsApp. <a href=\"https://chat.whatsapp.com/GamwcVgPYnq3UbKog2H9M8\" rel=\"noreferrer\" target=\"_blank\">Join the community</a>, so you can easily find people to session with.",
         "aboutTitle": "About pkfr.nl",
         "aboutDescription": "The goal of pkfr.nl is to have all useful information about freerunning and parkour in one place. Here you'll find overviews of the <a href=\"/spots\">best spots</a>, <a href=\"/open-gyms\">open gyms</a> and <a href=\"/links\">community links</a>.",
-        "highlights": {
-            "stayUpdatedTitle": "Stay up to date",
-            "stayUpdatedDescription": "Follow jams, open gyms and community updates effortlessly.",
-            "trainTogetherTitle": "Train together",
-            "trainTogetherDescription": "Find locals and train together in any city.",
-            "spotFastTitle": "Find your spot fast",
-            "spotFastDescription": "Discover spots and gyms with smart tools."
-        },
         "featuredToolsTitle": "Featured tools"
     },
     "events": {

@@ -116,6 +116,7 @@ const CustomViewConfig = {
 		.fc-custom a:not(.button):hover {
 			text-decoration: underline;
 		}
+		
 	</style>
 </svelte:head>
 

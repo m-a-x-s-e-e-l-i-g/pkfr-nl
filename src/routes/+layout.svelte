@@ -9,6 +9,7 @@
 	import { currentPage, isMenuOpen } from '$lib/assets/js/store';
 	import { theme } from '$lib/stores/settings.js';
 	import { navItems } from '$lib/config';
+	import { siteTitle } from '$lib/config';
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import '$lib/i18n';
@@ -49,7 +50,7 @@
 {:else}
 <div class="min-h-screen flex items-center justify-center bg-background">
 	<div class="flex flex-col items-center gap-4">
-		<div class="w-10 h-10 rounded-xl bg-primary text-primary-foreground flex items-center justify-center font-black text-sm">PK</div>
+		<div class="font-black text-xl text-foreground lowercase">{siteTitle}</div>
 		<span class="text-muted-foreground">Loading...</span>
 	</div>
 </div>

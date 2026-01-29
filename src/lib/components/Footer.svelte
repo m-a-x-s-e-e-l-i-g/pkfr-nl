@@ -10,8 +10,7 @@
 	<div class="footer-content">
 		<div class="footer-brand">
 			<div class="footer-logo">
-				<span class="logo-badge">PK</span>
-				<span class="logo-text">PKFR.nl</span>
+				<span class="logo-text">pkfr.nl</span>
 			</div>
 			<p class="footer-tagline">{$t('site.tagline')}</p>
 		</div>
@@ -96,19 +95,6 @@
 		.footer-logo {
 			justify-content: center;
 		}
-	}
-
-	.logo-badge {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 2.5rem;
-		height: 2.5rem;
-		background: var(--color-primary);
-		color: white;
-		font-weight: 900;
-		font-size: 0.875rem;
-		border-radius: 0.5rem;
 	}
 
 	.logo-text {
