@@ -292,8 +292,7 @@
 								<Image
 									src={image}
 									layout="constrained"
-									width={900}
-									height={900}
+									height={350}
 									alt={gym.name}
 									cdn={import.meta.env.DEV ? undefined : "netlify"}
 								/>
