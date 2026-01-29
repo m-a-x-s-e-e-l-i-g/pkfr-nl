@@ -33,6 +33,7 @@ a:not(header a, .button, table a) {
 // Card-style links should not get the default red underline on hover.
 a.link-card,
 a.tool-card,
+a.home-hero-link,
 a.card,
 a.placelist-link {
     text-decoration: none;

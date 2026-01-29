@@ -37,7 +37,7 @@
 			<h2>{$t('spots.spotMapsTitle')}</h2>
 			<p>{@html $t('spots.spotMapsDescription')}</p>
 			<PlacelistFilter />
-			<a href="/tools/spot-map-finder" class="button-secondary">{$t('spots.shareSpotList')}</a>
+			<a href="/tools/spot-map-finder" class="button">{$t('spots.shareSpotList')} →</a>
 		</div>
 	</div>
 </section>
@@ -57,7 +57,7 @@
 		<div class="spot-card-content">
 			<h2>{$t('spots.cityLegendsTitle')}</h2>
 			<p>{@html $t('spots.cityLegendsDescription')}</p>
-			<a href="https://citylegends.io/download-app" rel="noreferrer" target="_blank" class="button-accent">
+			<a href="https://citylegends.io/download-app" rel="noreferrer" target="_blank" class="button">
 				{$t('spots.downloadApp')} →
 			</a>
 		</div>

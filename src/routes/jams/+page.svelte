@@ -76,10 +76,14 @@
 			<span class="card-icon">💬</span>
 			<h2>{$t('jams.notificationsTitle')}</h2>
 			<p>{@html $t('jams.notificationsDescription')}</p>
-			<a href="https://chat.whatsapp.com/IhKX7dXV9Vo7duEMmyzTpO"
-				rel="norefferer"
+			<a
+				href="https://chat.whatsapp.com/IhKX7dXV9Vo7duEMmyzTpO"
+				rel="noreferrer"
 				target="_blank"
-				class="button-accent">{$t('jams.followWhatsapp')}</a>
+				class="button"
+			>
+				{$t('jams.followWhatsapp')} →
+			</a>
 		</div>
 
 		<div class="section-card">

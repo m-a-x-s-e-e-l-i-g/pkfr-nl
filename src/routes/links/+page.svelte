@@ -16,9 +16,9 @@
 
 <section class="page-hero">
 	<div class="hero-content">
-		<span class="hero-badge">🔗 Links</span>
+		<span class="hero-badge">🔗 {$t('nav.links')}</span>
 		<h1>{$t('links.heading')}</h1>
-		<p class="hero-description">Handige links naar de Nederlandse parkour community</p>
+		<p class="hero-description">{$t('links.heroDescription')}</p>
 	</div>
 </section>
 

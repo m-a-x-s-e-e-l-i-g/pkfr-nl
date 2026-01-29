@@ -3,6 +3,7 @@
 	import { siteAuthor, siteLink } from '$lib/config'
 	import Icon from 'svelte-awesome';
 	import github from 'svelte-awesome/icons/github';
+	import { t } from 'svelte-i18n';
 </script>
 
 <footer class="footer">
@@ -12,16 +13,14 @@
 				<span class="logo-badge">PK</span>
 				<span class="logo-text">PKFR.nl</span>
 			</div>
-			<p class="footer-tagline">De Nederlandse Parkour & Freerunning Community</p>
+			<p class="footer-tagline">{$t('site.tagline')}</p>
 		</div>
 
 		<div class="footer-nav">
-			<h4>Navigatie</h4>
 			<MainNav />
 		</div>
 
 		<div class="footer-links">
-			<h4>Links</h4>
 			<ul>
 				<li><a href="/">Home</a></li>
 				<li><a href="{siteLink}" target="_blank" rel="noreferrer">GitHub</a></li>
@@ -128,16 +127,6 @@
 		.footer-tagline {
 			margin: 0 auto;
 		}
-	}
-
-	.footer-nav h4,
-	.footer-links h4 {
-		font-weight: 700;
-		font-size: 0.875rem;
-		color: var(--color-foreground);
-		margin-bottom: 1rem;
-		text-transform: uppercase;
-		letter-spacing: 0.05em;
 	}
 
 	.footer-nav :global(.main-nav) {

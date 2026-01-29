@@ -1,4 +1,9 @@
 {
+    "common": {
+        "viewAll": "Bekijk alle",
+        "viewTools": "Bekijk tools",
+        "joinWhatsapp": "Join WhatsApp"
+    },
     "nav": {
         "spots": "Spots",
         "jams": "Jams & Events",
@@ -9,12 +14,28 @@
     "home": {
         "title": "Dé spot voor de Nederlandse parkour / freerunning scene",
         "subtitle": "Alles wat je nodig hebt om deel uit te maken, en op de hoogte te blijven van de Nederlandse parkour en freerunning community.",
+        "quickNavTitle": "Snel navigeren",
+        "quickNav": {
+            "spotsDescription": "Vind trainingslocaties",
+            "jamsDescription": "Aankomende evenementen",
+            "openGymsDescription": "Train binnen",
+            "toolsDescription": "Handige hulpmiddelen"
+        },
         "upcomingOpenGyms": "Aankomenende Open Gyms",
         "viewAllOpenGyms": "Bekijk alle open gyms",
         "whatsappCommunity": "WhatsApp Community",
         "whatsappDescription": "De Nederlandse parkour en freerunning community is vooral actief op WhatsApp. <a href=\"https://chat.whatsapp.com/GamwcVgPYnq3UbKog2H9M8\" rel=\"noreferrer\" target=\"_blank\">Join de community</a>, zo kun je makkelijk mensen vinden om mee te seshen.",
         "aboutTitle": "Over pkfr.nl",
-        "aboutDescription": "Het doel van pkfr.nl is om alle handige informatie over freerunning en parkour op één plek te hebben. Hier zijn overzichten van de <a href=\"/spots\">beste spots</a>, <a href=\"/open-gyms\">open gyms</a> en <a href=\"/links\">community linkjes</a>."
+        "aboutDescription": "Het doel van pkfr.nl is om alle handige informatie over freerunning en parkour op één plek te hebben. Hier zijn overzichten van de <a href=\"/spots\">beste spots</a>, <a href=\"/open-gyms\">open gyms</a> en <a href=\"/links\">community linkjes</a>.",
+        "highlights": {
+            "stayUpdatedTitle": "Blijf op de hoogte",
+            "stayUpdatedDescription": "Volg jams, open gyms en community updates zonder moeite.",
+            "trainTogetherTitle": "Samen trainen",
+            "trainTogetherDescription": "Vind locals en train in elke stad met elkaar.",
+            "spotFastTitle": "Snel je spot",
+            "spotFastDescription": "Ontdek spots en gyms met slimme tools."
+        },
+        "featuredToolsTitle": "Uitgelichte tools"
     },
     "events": {
         "upcomingEvent": "Op {date} is het eerstvolgende event: <b>{title}</b>.",
@@ -63,7 +84,7 @@
         "pageTitle": "Open Gyms",
         "heading": "Open Gyms",
         "intro": "Bij een open gym kun je zonder lidmaatschap in jouw favoriete indoor freerun gym trainen. Er zijn locaties door heel het land, maar let op: je moet je soms wel even aanmelden.",
-        "finder": "Ben je benieuwd naar hoe een gym eruit ziet of welke er in jouw buurt zijn? Check dan de <a href=\"/tools/gym-finder\">Gym Finder</a>.",
+        "finder": "Ben je benieuwd naar hoe een gym eruit ziet of welke er in jouw buurt zijn? Check dan de Gym Finder.",
         "submitTitle": "Wijziging insturen",
         "addToCalendar": "Toevoegen aan agenda",
         "addToCalendarShort": "Toevoegen",
@@ -117,7 +138,8 @@
     "site": {
         "title": "pkfr.nl",
         "titlePostfix": "- Parkour & Freerunning Community Nederland",
-        "description": "Dé spot voor de Nederlandse parkour & freerunning community."
+        "description": "Dé spot voor de Nederlandse parkour & freerunning community.",
+        "tagline": "De Nederlandse Parkour & Freerunning Community"
     },
     "language": {
         "switch": "Taal wijzigen",
@@ -127,6 +149,7 @@
     "links": {
         "pageTitle": "Community Links",
         "heading": "Community Links",
+        "heroDescription": "Handige links naar de Nederlandse parkour community",
         "whatsappCommunity": "WhatsApp Community NL",
         "whatsappTraining": "WhatsApp Traingroep NL",
         "instagram": "Instagram (Parkourculture)",
@@ -138,6 +161,7 @@
     "tools": {
         "pageTitle": "Tools",
         "heading": "Tools",
+        "heroDescription": "Handige hulpmiddelen voor de Nederlandse parkour community",
         "jumpflix": {
             "name": "JUMPFLIX",
             "description": "Ontdek parkour films, documentaires en playlists."

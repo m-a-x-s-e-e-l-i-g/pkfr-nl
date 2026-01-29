@@ -3,6 +3,7 @@
 	import InputCollector from '$lib/components/InputCollector.svelte';
 	import { page } from '$app/stores';
 	import OpenGymsList from '$lib/components/calendar/OpenGymsList.svelte';
+	import ToolCard from '$lib/components/ToolCard.svelte';
 	import CalendarAddSVG from '$lib/components/svg/CalendarAddSVG.svelte';
 	import DownloadSVG from '$lib/components/svg/DownloadSVG.svelte';
 	import ExternalLinkSVG from '$lib/components/svg/ExternalLinkSVG.svelte';
@@ -23,40 +24,49 @@
 </section>
 
 <section class="content-section">
-	<div class="section-card">
-		<p class="finder-info">{@html $t('openGyms.finder')}</p>
-		<OpenGymsList/>
+	<div class="grid gap-6">
+		<ToolCard
+			href="/tools/gym-finder"
+			name={$t('tools.gymFinder.name')}
+			description={$t('openGyms.finder')}
+			emoji="📍"
+			color="green"
+		/>
 
-		<div class="calendar-actions">
-			<a
-				href="https://calendar.google.com/calendar/?cid=MmY0OWI4ZDM0Njk2ZTI3YWE1MDhhNGM2NjllNDUzM2M3NGMxMWFlNGU1ZmZjOWRjNDhjZDVjMDZkMGEwM2NiM0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
-				rel="noreferrer"
-				target="_blank"
-				class="button-secondary action-btn">
-				<CalendarAddSVG />
-				<span class="btn-text">{$t('openGyms.addToCalendar')}</span>
-				<span class="btn-text-mobile">{$t('openGyms.addToCalendarShort')}</span>
-			</a>
+		<div class="section-card">
+			<OpenGymsList />
 
-			<a
-				href="https://calendar.google.com/calendar/ical/2f49b8d34696e27aa508a4c669e4533c74c11ae4e5ffc9dc48cd5c06d0a03cb3%40group.calendar.google.com/public/basic.ics"
-				rel="noreferrer"
-				target="_blank"
-				class="button-secondary action-btn">
-				<DownloadSVG />
-				<span class="btn-text">{$t('openGyms.downloadICal')}</span>
-				<span class="btn-text-mobile">{$t('openGyms.downloadShort')}</span>
-			</a>
+			<div class="calendar-actions">
+				<a
+					href="https://calendar.google.com/calendar/?cid=MmY0OWI4ZDM0Njk2ZTI3YWE1MDhhNGM2NjllNDUzM2M3NGMxMWFlNGU1ZmZjOWRjNDhjZDVjMDZkMGEwM2NiM0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
+					rel="noreferrer"
+					target="_blank"
+					class="button-secondary action-btn">
+					<CalendarAddSVG />
+					<span class="btn-text">{$t('openGyms.addToCalendar')}</span>
+					<span class="btn-text-mobile">{$t('openGyms.addToCalendarShort')}</span>
+				</a>
 
-			<a
-				href="https://calendar.google.com/calendar/embed?src=2f49b8d34696e27aa508a4c669e4533c74c11ae4e5ffc9dc48cd5c06d0a03cb3%40group.calendar.google.com&ctz=Europe%2FAmsterdam"
-				rel="noreferrer"
-				target="_blank"
-				class="button-secondary action-btn">
-				<ExternalLinkSVG />
-				<span class="btn-text">{$t('openGyms.openCalendar')}</span>
-				<span class="btn-text-mobile">{$t('openGyms.openShort')}</span>
-			</a>
+				<a
+					href="https://calendar.google.com/calendar/ical/2f49b8d34696e27aa508a4c669e4533c74c11ae4e5ffc9dc48cd5c06d0a03cb3%40group.calendar.google.com/public/basic.ics"
+					rel="noreferrer"
+					target="_blank"
+					class="button-secondary action-btn">
+					<DownloadSVG />
+					<span class="btn-text">{$t('openGyms.downloadICal')}</span>
+					<span class="btn-text-mobile">{$t('openGyms.downloadShort')}</span>
+				</a>
+
+				<a
+					href="https://calendar.google.com/calendar/embed?src=2f49b8d34696e27aa508a4c669e4533c74c11ae4e5ffc9dc48cd5c06d0a03cb3%40group.calendar.google.com&ctz=Europe%2FAmsterdam"
+					rel="noreferrer"
+					target="_blank"
+					class="button-secondary action-btn">
+					<ExternalLinkSVG />
+					<span class="btn-text">{$t('openGyms.openCalendar')}</span>
+					<span class="btn-text-mobile">{$t('openGyms.openShort')}</span>
+				</a>
+			</div>
 		</div>
 	</div>
 </section>
@@ -169,11 +179,6 @@
 		font-weight: 700;
 		color: var(--color-foreground);
 		margin: 0 0 1rem 0;
-	}
-
-	.finder-info {
-		color: var(--color-muted-foreground);
-		margin-bottom: 1.5rem;
 	}
 
 	.calendar-actions {

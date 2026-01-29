@@ -1,6 +1,7 @@
 <script>
 	import OpenGymsShortList from '$lib/components/calendar/OpenGymsShortList.svelte';
 	import UpcommingJam from '$lib/components/calendar/UpcommingJam.svelte';
+	import ToolCard from '$lib/components/ToolCard.svelte';
 	import { siteTitle, titlePostfix } from '$lib/config';
 	import { t } from 'svelte-i18n';
 </script>
@@ -22,38 +23,38 @@
 			<div class="md:col-span-5">
 				<div class="home-hero-panel">
 					<div class="flex items-center justify-between">
-						<h2 class="text-base font-semibold">Snel navigeren</h2>
+						<h2 class="text-base font-semibold">{$t('home.quickNavTitle')}</h2>
 					</div>
 					<div class="mt-4 grid gap-3">
 						<a href="/spots" class="home-hero-link">
 							<span class="home-hero-link-icon">📍</span>
 							<span class="home-hero-link-text">
-								<span class="home-hero-link-title">Spots</span>
-								<span class="home-hero-link-desc">Vind trainingslocaties</span>
+								<span class="home-hero-link-title">{$t('nav.spots')}</span>
+								<span class="home-hero-link-desc">{$t('home.quickNav.spotsDescription')}</span>
 							</span>
 							<span class="home-hero-link-arrow">→</span>
 						</a>
 						<a href="/jams" class="home-hero-link">
 							<span class="home-hero-link-icon">🎉</span>
 							<span class="home-hero-link-text">
-								<span class="home-hero-link-title">Jams & Events</span>
-								<span class="home-hero-link-desc">Aankomende evenementen</span>
+								<span class="home-hero-link-title">{$t('nav.jams')}</span>
+								<span class="home-hero-link-desc">{$t('home.quickNav.jamsDescription')}</span>
 							</span>
 							<span class="home-hero-link-arrow">→</span>
 						</a>
 						<a href="/open-gyms" class="home-hero-link">
 							<span class="home-hero-link-icon">🏋️</span>
 							<span class="home-hero-link-text">
-								<span class="home-hero-link-title">Open Gyms</span>
-								<span class="home-hero-link-desc">Train binnen</span>
+								<span class="home-hero-link-title">{$t('nav.openGyms')}</span>
+								<span class="home-hero-link-desc">{$t('home.quickNav.openGymsDescription')}</span>
 							</span>
 							<span class="home-hero-link-arrow">→</span>
 						</a>
 						<a href="/tools" class="home-hero-link">
 							<span class="home-hero-link-icon">🛠️</span>
 							<span class="home-hero-link-text">
-								<span class="home-hero-link-title">Tools</span>
-								<span class="home-hero-link-desc">Handige hulpmiddelen</span>
+								<span class="home-hero-link-title">{$t('nav.tools')}</span>
+								<span class="home-hero-link-desc">{$t('home.quickNav.toolsDescription')}</span>
 							</span>
 							<span class="home-hero-link-arrow">→</span>
 						</a>
@@ -68,7 +69,7 @@
 <section class="section">
 	<div class="section-header">
 		<h2>{$t('jams.upcomingTitle')}</h2>
-		<a href="/jams" class="text-sm font-medium text-primary hover:text-primary/80">Bekijk alle →</a>
+		<a href="/jams" class="text-sm font-medium text-primary hover:text-primary/80">{$t('common.viewAll')} →</a>
 	</div>
 	<div class="card">
 		<div class="p-6">
@@ -81,7 +82,7 @@
 <section class="section">
 	<div class="section-header">
 		<h2>{$t('home.upcomingOpenGyms')}</h2>
-		<a href="/open-gyms" class="text-sm font-medium text-primary hover:text-primary/80">Bekijk alle →</a>
+		<a href="/open-gyms" class="text-sm font-medium text-primary hover:text-primary/80">{$t('common.viewAll')} →</a>
 	</div>
 	<div class="card">
 		<div class="p-6">
@@ -96,8 +97,8 @@
 		<div class="card p-6 border-l-4 border-l-accent">
 			<h3 class="mb-3">{$t('home.whatsappCommunity')}</h3>
 			<p class="text-muted-foreground mb-4">{@html $t('home.whatsappDescription')}</p>
-			<a href="https://chat.whatsapp.com/GamwcVgPYnq3UbKog2H9M8" target="_blank" rel="noreferrer" class="button-accent">
-				Join WhatsApp →
+			<a href="https://chat.whatsapp.com/GamwcVgPYnq3UbKog2H9M8" target="_blank" rel="noreferrer" class="button">
+				{$t('common.joinWhatsapp')} →
 			</a>
 		</div>
 		<div class="card p-6">
@@ -112,18 +113,18 @@
 	<div class="grid md:grid-cols-3 gap-6">
 		<div class="card p-6">
 			<div class="text-2xl mb-4">📣</div>
-			<h3 class="mb-2">Blijf op de hoogte</h3>
-			<p class="text-muted-foreground">Volg jams, open gyms en community updates zonder moeite.</p>
+			<h3 class="mb-2">{$t('home.highlights.stayUpdatedTitle')}</h3>
+			<p class="text-muted-foreground">{$t('home.highlights.stayUpdatedDescription')}</p>
 		</div>
 		<div class="card p-6">
 			<div class="text-2xl mb-4">🤝</div>
-			<h3 class="mb-2">Samen trainen</h3>
-			<p class="text-muted-foreground">Vind locals en train in elke stad met elkaar.</p>
+			<h3 class="mb-2">{$t('home.highlights.trainTogetherTitle')}</h3>
+			<p class="text-muted-foreground">{$t('home.highlights.trainTogetherDescription')}</p>
 		</div>
 		<div class="card p-6">
 			<div class="text-2xl mb-4">🧭</div>
-			<h3 class="mb-2">Snel je spot</h3>
-			<p class="text-muted-foreground">Ontdek spots en gyms met slimme tools.</p>
+			<h3 class="mb-2">{$t('home.highlights.spotFastTitle')}</h3>
+			<p class="text-muted-foreground">{$t('home.highlights.spotFastDescription')}</p>
 		</div>
 	</div>
 </section>
@@ -131,22 +132,24 @@
 <!-- Featured Tools -->
 <section class="section">
 	<div class="section-header">
-		<h2>Featured Tools</h2>
-		<a href="/tools" class="text-sm font-medium text-primary hover:text-primary/80">Bekijk tools →</a>
+		<h2>{$t('home.featuredToolsTitle')}</h2>
+		<a href="/tools" class="text-sm font-medium text-primary hover:text-primary/80">{$t('common.viewTools')} →</a>
 	</div>
 	<div class="grid md:grid-cols-2 gap-6">
-		<a href="/tools/spot-map-finder" class="card p-6 group hover:border-primary/40 transition-all">
-			<div class="text-2xl mb-4">🗺️</div>
-			<h3 class="mb-2">Spot Map Finder</h3>
-			<p class="text-muted-foreground">Zoek snel een spotkaart bij jou in de buurt en deel je eigen kaart.</p>
-			<p class="mt-4 text-sm font-semibold text-primary group-hover:translate-x-1 transition-transform">→</p>
-		</a>
-		<a href="/tools/gym-finder" class="card p-6 group hover:border-accent/40 transition-all">
-			<div class="text-2xl mb-4">📍</div>
-			<h3 class="mb-2">Gym Finder</h3>
-			<p class="text-muted-foreground">Vind open gyms, check tijden en plan je volgende trainingssessie.</p>
-			<p class="mt-4 text-sm font-semibold text-primary group-hover:translate-x-1 transition-transform">→</p>
-		</a>
+		<ToolCard
+			href="/tools/spot-map-finder"
+			name={$t('tools.spotMapFinder.name')}
+			description={$t('tools.spotMapFinder.description')}
+			emoji="🗺️"
+			color="blue"
+		/>
+		<ToolCard
+			href="/tools/gym-finder"
+			name={$t('tools.gymFinder.name')}
+			description={$t('tools.gymFinder.description')}
+			emoji="📍"
+			color="green"
+		/>
 	</div>
 </section>
 
