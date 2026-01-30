@@ -61,6 +61,13 @@
 				<span class="link-arrow">→</span>
 			</a>
 		</li>
+		<li class="link-card website">
+			<span class="link-icon"><Icon data={externalLink}/></span>
+			<a href="https://www.weave-pk.nl/museum" rel="noreferrer" target="_blank">
+				<span class="link-title">{$t('links.weaveMuseumTitle')}</span>
+				<span class="link-arrow">→</span>
+			</a>
+		</li>
 	</ul>
 </section>
 
