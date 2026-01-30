@@ -292,7 +292,6 @@
 								<Image
 									src={image}
 									layout="constrained"
-									height={350}
 									alt={gym.name}
 									cdn={import.meta.env.DEV ? undefined : "netlify"}
 								/>
