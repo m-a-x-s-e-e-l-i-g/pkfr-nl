@@ -7,8 +7,8 @@
 	align-items: flex-end;
 	border-radius: 0.75rem;
 	padding: 1.25rem 1.5rem;
-	border: 1px solid var(--border);
-	background: var(--paper);
+	border: 1px solid var(--color-border);
+	background: var(--color-card);
 	transition: all 0.2s ease;
   }
 
@@ -23,7 +23,7 @@
   .spot-filter-group label {
 	font-weight: 600;
 	font-size: 1rem;
-	color: var(--ink);
+	color: var(--color-foreground);
 	margin-bottom: 0.1rem;
   }
 
@@ -31,11 +31,11 @@
   .spot-filter-select {
 	height: 44px;
 	padding: 0 0.9rem;
-	border: 1.5px solid var(--border);
+	border: 1.5px solid var(--color-input);
 	border-radius: 0.5rem;
 	font-size: 1.05rem;
-	background: var(--background);
-	color: var(--ink);
+	background: var(--color-background);
+	color: var(--color-foreground);
 	transition: border-color 0.2s, box-shadow 0.2s;
 	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.03);
 	box-sizing: border-box;
@@ -44,8 +44,8 @@
   .spot-filter-input:focus,
   .spot-filter-select:focus {
 	outline: none;
-	border-color: var(--accent);
-	box-shadow: 0 0 0 2px rgba(230, 57, 70, 0.1);
+	border-color: var(--color-primary);
+	box-shadow: 0 0 0 3px color-mix(in oklch, var(--color-primary) 25%, transparent);
   }
 
   @media all and (max-width: 800px) {
@@ -91,8 +91,8 @@
 	margin: 0 0 1.5rem 0;
 	padding: 0;
 	border-radius: 0.75rem;
-	background: var(--paper);
-	border: 1px solid var(--border);
+	background: var(--color-card);
+	border: 1px solid var(--color-border);
 	box-shadow: 0 2px 8px 0 rgba(0,0,0,0.05);
 	max-height: 400px;
 	overflow-y: auto;
@@ -102,7 +102,7 @@
   .results-count {
 	margin: 0 0 1rem 0;
 	font-size: 0.95rem;
-	color: var(--dark);
+	color: var(--color-muted-foreground);
 	font-weight: 500;
   }
 
@@ -117,7 +117,7 @@
   }
 
   .placelist-item + .placelist-item {
-	border-top: 1px solid var(--border);
+	border-top: 1px solid var(--color-border);
   }
 
   .placelist-item {
@@ -129,7 +129,7 @@
 	display: flex;
 	align-items: center;
 	padding: 1.25rem 1.5rem;
-	color: var(--ink);
+	color: var(--color-foreground);
 	text-decoration: none;
 	font-size: 1.08rem;
 	font-weight: 500;
@@ -147,8 +147,8 @@
   }
 
   .placelist-link:hover, .placelist-link:focus {
-	background: var(--lightAccent);
-	color: var(--accent);
+	background: color-mix(in oklch, var(--color-primary) 10%, var(--color-card));
+	color: var(--color-primary);
 	text-decoration: none;
   }
 
@@ -168,7 +168,7 @@
   .placelist-author {
 	font-size: 0.8rem;
 	font-weight: 400;
-	color: var(--dark);
+	color: var(--color-muted-foreground);
 	margin: 0;
   }
 
@@ -183,8 +183,8 @@
 
   .country-badge {
 	display: inline-block;
-	background-color: var(--border);
-	color: var(--dark);
+	background-color: var(--color-muted);
+	color: var(--color-muted-foreground);
 	padding: 0.25rem 0.625rem;
 	border-radius: 9999px;
 	font-size: 0.75rem;
@@ -205,10 +205,10 @@
 
   .no-results {
 	font-style: italic;
-	color: var(--dark);
+	color: var(--color-muted-foreground);
 	padding: 2rem 1.5rem;
-	background: var(--paper);
-	border: 1px solid var(--border);
+	background: var(--color-card);
+	border: 1px solid var(--color-border);
 	border-radius: 0.75rem;
 	text-align: center;
 	transition: all 0.2s ease;

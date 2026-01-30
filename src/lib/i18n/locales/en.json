@@ -1,4 +1,9 @@
 {
+    "common": {
+        "viewAll": "View all",
+        "viewTools": "View tools",
+        "joinWhatsapp": "Join WhatsApp"
+    },
     "nav": {
         "spots": "Spots",
         "jams": "Jams & Events",
@@ -9,12 +14,20 @@
     "home": {
         "title": "The spot for the Dutch parkour / freerunning scene",
         "subtitle": "Everything you need to be part of and stay up to date with the Dutch parkour and freerunning community.",
+        "quickNavTitle": "Quick navigation",
+        "quickNav": {
+            "spotsDescription": "Find training locations",
+            "jamsDescription": "Upcoming events",
+            "openGymsDescription": "Train indoors",
+            "toolsDescription": "Helpful tools"
+        },
         "upcomingOpenGyms": "Upcoming Open Gyms",
         "viewAllOpenGyms": "View all open gyms",
         "whatsappCommunity": "WhatsApp Community",
         "whatsappDescription": "The Dutch parkour and freerunning community is mainly active on WhatsApp. <a href=\"https://chat.whatsapp.com/GamwcVgPYnq3UbKog2H9M8\" rel=\"noreferrer\" target=\"_blank\">Join the community</a>, so you can easily find people to session with.",
         "aboutTitle": "About pkfr.nl",
-        "aboutDescription": "The goal of pkfr.nl is to have all useful information about freerunning and parkour in one place. Here you'll find overviews of the <a href=\"/spots\">best spots</a>, <a href=\"/open-gyms\">open gyms</a> and <a href=\"/links\">community links</a>."
+        "aboutDescription": "The goal of pkfr.nl is to have all useful information about freerunning and parkour in one place. Here you'll find overviews of the <a href=\"/spots\">best spots</a>, <a href=\"/open-gyms\">open gyms</a> and <a href=\"/links\">community links</a>.",
+        "featuredToolsTitle": "Featured tools"
     },
     "events": {
         "upcomingEvent": "On {date} is the next event: <b>{title}</b>.",
@@ -63,7 +76,7 @@
         "pageTitle": "Open Gyms",
         "heading": "Open Gyms",
         "intro": "At an open gym you can train at your favorite indoor freerun gym without a membership. There are locations across the country, but note: you sometimes need to register.",
-        "finder": "Curious how a gym looks or which ones are near you? Check the <a href=\"/tools/gym-finder\">Gym Finder</a>.",
+        "finder": "Curious how a gym looks or which ones are near you? Check the Gym Finder.",
         "submitTitle": "Submit a change",
         "addToCalendar": "Add to calendar",
         "addToCalendarShort": "Add",
@@ -117,7 +130,8 @@
     "site": {
         "title": "pkfr.nl",
         "titlePostfix": "- Parkour & Freerunning Community Netherlands",
-        "description": "The spot for the Dutch parkour & freerunning community."
+        "description": "The spot for the Dutch parkour & freerunning community.",
+        "tagline": "The Dutch Parkour & Freerunning Community"
     },
     "language": {
         "switch": "Change language",
@@ -127,6 +141,7 @@
     "links": {
         "pageTitle": "Community Links",
         "heading": "Community Links",
+        "heroDescription": "Useful links for the Dutch parkour community.",
         "whatsappCommunity": "WhatsApp Community NL",
         "whatsappTraining": "WhatsApp Training Group NL",
         "instagram": "Instagram (Parkourculture)",
@@ -138,6 +153,7 @@
     "tools": {
         "pageTitle": "Tools",
         "heading": "Tools",
+        "heroDescription": "Useful tools for the Dutch parkour community.",
         "jumpflix": {
             "name": "JUMPFLIX",
             "description": "Discover parkour movies, documentaries and playlists."

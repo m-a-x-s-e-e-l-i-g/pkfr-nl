@@ -39,6 +39,12 @@
 </script>
 
 <style>
+	:global(.fc .fc-list-day > *) {
+		background-color: var(--color-card) !important;
+	}
+	:global(.dark .fc-event:hover *)  {
+		background: var(--color-muted) !important;
+	}
 </style>
 
 <FullCalendar {options} />

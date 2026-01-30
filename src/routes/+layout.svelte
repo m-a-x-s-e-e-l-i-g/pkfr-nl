@@ -9,6 +9,7 @@
 	import { currentPage, isMenuOpen } from '$lib/assets/js/store';
 	import { theme } from '$lib/stores/settings.js';
 	import { navItems } from '$lib/config';
+	import { siteTitle } from '$lib/config';
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import '$lib/i18n';
@@ -37,15 +38,20 @@
 	actual contents will show up.
 -->
 {#if !$isLoading}
-<div class="layout" class:open={$isMenuOpen}>
+<div class="page-wrapper" class:open={$isMenuOpen}>
 	<Header></Header>
 	{#key data.path}
-		<main id="main" tabindex="-1" in:fade|global={transitionIn} out:fade|global={transitionOut}>
+		<main id="main" tabindex="-1" class="main-content" in:fade|global={transitionIn} out:fade|global={transitionOut}>
 			{@render children?.()}
 		</main>
 	{/key}
 	<Footer></Footer>
 </div>
 {:else}
-<div class="loading">Loading...</div>
+<div class="min-h-screen flex items-center justify-center bg-background">
+	<div class="flex flex-col items-center gap-4">
+		<div class="font-black text-xl text-foreground lowercase">{siteTitle}</div>
+		<span class="text-muted-foreground">Loading...</span>
+	</div>
+</div>
 {/if}
