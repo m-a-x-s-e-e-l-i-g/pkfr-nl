@@ -15,7 +15,7 @@
         "@fullcalendar/daygrid": "^6.1.19",
         "@fullcalendar/google-calendar": "^6.1.19",
         "@fullcalendar/list": "^6.1.19",
-        "@internationalized/date": "^3.9.0",
+        "@internationalized/date": "^3.10.1",
         "@lucide/svelte": "^0.515.0",
         "@sveltejs/adapter-netlify": "^5.2.2",
         "@sveltejs/kit": "^2.50.1",
