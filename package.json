@@ -57,7 +57,7 @@
         "@unpic/svelte": "^1.0.0",
         "embla-carousel-autoplay": "^8.6.0",
         "embla-carousel-svelte": "^8.6.0",
-        "eslint": "^9.35.0",
+        "eslint": "^9.39.2",
         "just-throttle": "^4.2.0",
         "svelte-awesome": "^3.3.5",
         "svelte-i18n": "^4.0.1",
