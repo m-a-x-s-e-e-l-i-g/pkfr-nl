@@ -27,26 +27,7 @@
 	margin-bottom: 0.1rem;
   }
 
-  .spot-filter-input,
-  .spot-filter-select {
-	height: 44px;
-	padding: 0 0.9rem;
-	border: 1.5px solid var(--color-input);
-	border-radius: 0.5rem;
-	font-size: 1.05rem;
-	background: var(--color-background);
-	color: var(--color-foreground);
-	transition: border-color 0.2s, box-shadow 0.2s;
-	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.03);
-	box-sizing: border-box;
-  }
-
-  .spot-filter-input:focus,
-  .spot-filter-select:focus {
-	outline: none;
-	border-color: var(--color-primary);
-	box-shadow: 0 0 0 3px color-mix(in oklch, var(--color-primary) 25%, transparent);
-  }
+  /* Input/select visuals come from global .input/.select styles (src/app.pcss). */
 
   @media all and (max-width: 800px) {
 	.filters.spot-filters {
@@ -61,12 +42,11 @@
 	  width: 100%;
 	  flex: none;
 	}
-	.spot-filter-input,
-	.spot-filter-select {
+	.filters.spot-filters :global(.input),
+	.filters.spot-filters :global(.select) {
 	  width: 100%;
 	  font-size: 1rem;
-	  height: 48px;
-	  padding: 0 1rem;
+	  min-height: 48px;
 	}
   }
 
@@ -76,10 +56,9 @@
 	  margin: 0.75rem 0 1.25rem 0;
 	  border-radius: 0.5rem;
 	}
-	.spot-filter-input,
-	.spot-filter-select {
-	  height: 44px;
-	  padding: 0 0.875rem;
+	.filters.spot-filters :global(.input),
+	.filters.spot-filters :global(.select) {
+	  min-height: 44px;
 	}
 	.spot-filter-group label {
 	  font-size: 0.95rem;
@@ -277,11 +256,11 @@
 <div class="filters spot-filters">
 	<div class="filter-group spot-filter-group">
 		<label for="search">{$t('filter.searchByName')}</label>
-		<input type="text" id="search" bind:value={searchQuery} placeholder={$t('filter.searchPlaceholder')} class="spot-filter-input" />
+		<input type="text" id="search" bind:value={searchQuery} placeholder={$t('filter.searchPlaceholder')} class="input" />
 	</div>
 	<div class="filter-group spot-filter-group">
 		<label for="country">{$t('filter.filterByCountry')}</label>
-		<select id="country" bind:value={selectedCountry} class="spot-filter-select">
+		<select id="country" bind:value={selectedCountry} class="select">
 			<option value="">{$t('filter.allCountries')}</option>
 			{#each countries as country}
 				<option value={country}>{country}</option>

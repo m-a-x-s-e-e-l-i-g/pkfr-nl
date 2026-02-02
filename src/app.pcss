@@ -198,6 +198,15 @@
   @apply hover:-translate-y-0.5 active:translate-y-0;
 }
 
+.button:disabled,
+.button-secondary:disabled,
+.button-accent:disabled,
+.button-outline:disabled {
+  @apply pointer-events-none cursor-not-allowed opacity-60;
+  @apply shadow-none hover:shadow-none;
+  @apply translate-y-0 hover:-translate-y-0;
+}
+
 .button,
 .button-secondary,
 .button-accent,
@@ -232,10 +241,46 @@
   @apply shadow-sm transition-colors;
   @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2;
   @apply ring-offset-background;
+  @apply placeholder:text-muted-foreground/60;
 }
 
 .input:disabled {
   @apply opacity-60 cursor-not-allowed;
+}
+
+.select:disabled,
+.textarea:disabled {
+  @apply opacity-60 cursor-not-allowed;
+}
+
+.select {
+  @apply w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground;
+  @apply shadow-sm transition-colors;
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2;
+  @apply ring-offset-background;
+  @apply placeholder:text-muted-foreground/60;
+  @apply pr-10;
+}
+
+.textarea {
+  @apply w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground;
+  @apply shadow-sm transition-colors;
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2;
+  @apply ring-offset-background;
+  @apply placeholder:text-muted-foreground/60;
+  @apply min-h-28 py-2.5 resize-y;
+}
+
+.form-field {
+  @apply space-y-2;
+}
+
+.form-label {
+  @apply block text-sm font-semibold text-foreground/90;
+}
+
+.form-help {
+  @apply text-xs text-muted-foreground;
 }
 
 /* Badge/Pill Styles */
