@@ -207,6 +207,24 @@
             url: 'https://maps.app.goo.gl/vVeipA6v6KCVxRXG8',
             country: 'Germany',
             author: 'Koen Bangert'
+        },
+        {
+            name: 'Spots Spain',
+            url: 'https://maps.app.goo.gl/k42QoRxF1EPWYvHK8?g_st=iw',
+            country: 'Spain',
+            author: 'Joan Delgado Galbany'
+        },
+        {
+            name: 'Barcelona',
+            url: 'https://maps.app.goo.gl/oFUoHoLEqaBNxGWp6?g_st=iw',
+            country: 'Spain',
+            author: 'Alexbargar'
+        },
+        {
+            name: 'Around Denver',
+            url: 'https://maps.app.goo.gl/GZ8nMHh3CzyRrF177?g_st=ac',
+            country: 'United States',
+            author: 'Luke Albrecht'
         }
     ];
 
