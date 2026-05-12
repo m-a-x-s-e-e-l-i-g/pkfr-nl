@@ -183,6 +183,10 @@
             "permissionDescription": "Share your location so the list can be sorted by distance.",
             "viewLocation": "View Location",
             "visitWebsite": "Visit Website"
+        },
+        "sessionGoals": {
+            "name": "Session Goals",
+            "description": "Track your parkour progress and set goals for your training sessions."
         }
     },
     "distanceConverter": {
