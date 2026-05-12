@@ -34,6 +34,14 @@
             description: $t('tools.distanceConverter.description'),
             emoji: '🧮',
             color: 'orange'
+        },
+        {
+            name: $t('tools.sessionGoals.name'),
+            link: 'https://sessiongoals.com',
+            description: $t('tools.sessionGoals.description'),
+            emoji: '🎯',
+            color: 'teal',
+            external: true
         }
     ];
 </script>

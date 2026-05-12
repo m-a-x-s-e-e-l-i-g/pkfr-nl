@@ -183,6 +183,10 @@
             "permissionDescription": "Deel je locatie om de lijst te sorteren op afstand.",
             "viewLocation": "Bekijk Locatie",
             "visitWebsite": "Bezoek Website"
+        },
+        "sessionGoals": {
+            "name": "Session Goals",
+            "description": "Volg je parkour voortgang en stel doelen in voor je trainingsessies."
         }
     },
     "distanceConverter": {

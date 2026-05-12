@@ -58,6 +58,9 @@
 	.tool-card.orange::before {
 		background: linear-gradient(90deg, #f97316, #ef4444);
 	}
+	.tool-card.teal::before {
+		background: linear-gradient(90deg, #14b8a6, #06b6d4);
+	}
 
 	.tool-card:hover {
 		transform: translateY(-4px);
