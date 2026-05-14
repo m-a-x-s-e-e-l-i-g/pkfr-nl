@@ -101,6 +101,12 @@
             author: 'parkourberlin.de'
         },
         {
+            name: 'Berlin (Philip Neiß)',
+            url: 'https://www.google.com/maps/d/viewer?mid=1JEG_SP7oDmzWNGXdOs9wj_GTkgvpCqU&ll=52.519701464094986%2C13.387896739012216&z=9',
+            country: 'Germany',
+            author: 'Philip Neiß'
+        },
+        {
             name: 'Malta',
             url: 'https://www.google.com/maps/d/u/0/viewer?mid=179s3NuwEe8lVkM1N-3AhXErusF4WLts2',
             country: 'Malta',
