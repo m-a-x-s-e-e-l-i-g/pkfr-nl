@@ -28,6 +28,14 @@
             color: 'purple',
             external: true
         },
+        {
+            name: $t('tools.parkourSpot.name'),
+            link: 'https://parkour.spot/',
+            description: $t('tools.parkourSpot.description'),
+            emoji: '🌍',
+            color: 'green',
+            external: true
+        },
         { 
             name: $t('tools.distanceConverter.name'),
             link: '/tools/distance-converter', 

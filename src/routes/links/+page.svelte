@@ -2,10 +2,6 @@
 	import { titlePostfix } from '$lib/config';
 	import Icon from 'svelte-awesome';
 	import whatsapp from 'svelte-awesome/icons/whatsapp';
-	import instagram from 'svelte-awesome/icons/instagram';
-	import spotify from 'svelte-awesome/icons/spotify';
-	import externalLink from 'svelte-awesome/icons/externalLink';
-	import youtube from 'svelte-awesome/icons/youtube';
 	import { t } from 'svelte-i18n';
 
 	const heroPhoto = '/images/gyms/vrog/vrog-amsterdam-4.jpg';
@@ -40,29 +36,69 @@
 				<span class="link-arrow">→</span>
 			</a>
 		</li>
-		<li class="link-card instagram">
-			<span class="link-icon"><Icon data={instagram}/></span>
-			<a href="https://www.instagram.com/parkour_culture_NL/" rel="noreferrer" target="_blank">
-				<span class="link-title">{$t('links.instagram')}</span>
+		<li class="link-card website parkourspot">
+			<span class="link-icon">
+				<img
+					class="brand-favicon"
+					src="https://parkour.spot/favicon.svg"
+					alt="parkour.spot logo"
+					width="28"
+					height="28"
+					loading="lazy"
+					decoding="async"
+				/>
+			</span>
+			<a href="https://parkour.spot" rel="noreferrer" target="_blank">
+				<span class="link-title">{$t('links.parkourSpot')}</span>
 				<span class="link-arrow">→</span>
 			</a>
 		</li>
-		<li class="link-card spotify">
-			<span class="link-icon"><Icon data={spotify}/></span>
-			<a href="https://spoti.fi/3OazXTm" rel="noreferrer" target="_blank">
-				<span class="link-title">{$t('links.spotifyPlaylist')}</span>
+		<li class="link-card website jumpflix">
+			<span class="link-icon">
+				<img
+					class="brand-favicon"
+					src="https://jumpflix.tv/favicon-32x32.png"
+					alt="jumpflix.tv logo"
+					width="28"
+					height="28"
+					loading="lazy"
+					decoding="async"
+				/>
+			</span>
+			<a href="https://jumpflix.tv" rel="noreferrer" target="_blank">
+				<span class="link-title">{$t('links.jumpflixTv')}</span>
 				<span class="link-arrow">→</span>
 			</a>
 		</li>
-		<li class="link-card website">
-			<span class="link-icon"><Icon data={externalLink}/></span>
+		<li class="link-card website parkourculture">
+			<span class="link-icon">
+				<img
+					class="brand-favicon"
+					src="https://parkourculture.nl/favicon.ico"
+					alt="Parkourculture logo"
+					width="28"
+					height="28"
+					loading="lazy"
+					decoding="async"
+				/>
+			</span>
 			<a href="https://parkourculture.nl/" rel="noreferrer" target="_blank">
 				<span class="link-title">{$t('links.parkourcultureWebsite')}</span>
 				<span class="link-arrow">→</span>
 			</a>
 		</li>
-		<li class="link-card website">
-			<span class="link-icon"><Icon data={externalLink}/></span>
+		<li class="link-card website weavepk">
+			<span class="link-icon">
+				<img
+					class="brand-favicon"
+					src="https://www.weave-pk.nl/favicon.ico"
+					alt="Weave PK logo"
+					width="28"
+					height="28"
+					loading="lazy"
+					decoding="async"
+				/>
+			</span>
 			<a href="https://www.weave-pk.nl/museum" rel="noreferrer" target="_blank">
 				<span class="link-title">{$t('links.weaveMuseumTitle')}</span>
 				<span class="link-arrow">→</span>
@@ -199,14 +235,6 @@
 		border-color: #25D366;
 	}
 
-	.link-card.instagram:hover {
-		border-color: #E4405F;
-	}
-
-	.link-card.spotify:hover {
-		border-color: #1DB954;
-	}
-
 	.link-card.website:hover {
 		border-color: var(--color-primary);
 	}
@@ -226,19 +254,40 @@
 		color: #25D366;
 	}
 
-	.instagram .link-icon {
-		background: rgba(228, 64, 95, 0.1);
-		color: #E4405F;
-	}
-
-	.spotify .link-icon {
-		background: rgba(29, 185, 84, 0.1);
-		color: #1DB954;
-	}
-
 	.website .link-icon {
 		background: var(--color-muted);
 		color: var(--color-primary);
+	}
+
+	.link-card.parkourspot:hover {
+		border-color: color-mix(in oklab, #24cc7a 55%, var(--color-border));
+	}
+
+	.link-card.jumpflix:hover {
+		border-color: color-mix(in oklab, #f05252 55%, var(--color-border));
+	}
+
+	.link-card.parkourspot .link-icon,
+	.link-card.jumpflix .link-icon,
+	.link-card.parkourculture .link-icon,
+	.link-card.weavepk .link-icon {
+		border: 1px solid color-mix(in oklab, var(--color-border) 80%, transparent);
+	}
+
+	.link-card.parkourspot:hover .link-icon {
+		background: color-mix(in oklab, #24cc7a 12%, var(--color-muted));
+	}
+
+	.link-card.jumpflix:hover .link-icon {
+		background: color-mix(in oklab, #f05252 12%, var(--color-muted));
+	}
+
+	.brand-favicon {
+		display: block;
+		width: 1.75rem;
+		height: 1.75rem;
+		object-fit: contain;
+		border-radius: 0.35rem;
 	}
 
 	.link-card a {

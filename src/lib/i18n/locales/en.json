@@ -169,8 +169,8 @@
         "heroDescription": "Useful links for the Dutch parkour community.",
         "whatsappCommunity": "WhatsApp Community NL",
         "whatsappTraining": "WhatsApp Training Group NL",
-        "instagram": "Instagram (Parkourculture)",
-        "spotifyPlaylist": "Spotify playlist",
+        "parkourSpot": "parkour.spot",
+        "jumpflixTv": "jumpflix.tv",
         "parkourcultureWebsite": "Parkourculture website (for classes, workshops and kids parties in and around Utrecht)",
         "weaveMuseumTitle": "Weave PK: Digital Parkour & Freerun Museum",
         "nlParkourPulse": "NL Parkour Pulse: Fresh videos",
@@ -183,6 +183,10 @@
         "jumpflix": {
             "name": "JUMPFLIX",
             "description": "Discover parkour movies, documentaries and playlists."
+        },
+        "parkourSpot": {
+            "name": "parkour.spot",
+            "description": "Discover and share parkour spots worldwide through the community map."
         },
         "distanceConverter": {
             "name": "Distance Analyzer 5000™",
