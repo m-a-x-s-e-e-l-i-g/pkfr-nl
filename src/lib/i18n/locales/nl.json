@@ -70,7 +70,10 @@
         "followWhatsapp": "Volg de WhatsApp channel",
         "europeTitle": "Jams in Europa",
         "europeDescription": "Wat fijn dat je betrokken wil zijn bij de internationale community! Bekijk deze kalender die beheerd wordt door MATTTMA, met jams in heel Europa.",
-        "europeButton": "Freerun jams in Europa"
+        "europeButton": "Freerun jams in Europa",
+        "americaTitle": "Jams in Amerika",
+        "americaDescription": "Bekijk deze communitykalender van American Parkour met jams en events in Noord-Amerika en daarbuiten.",
+        "americaButton": "Freerun jams in Amerika"
     },
     "jamsEurope": {
         "pageTitle": "Jams in Europa",
@@ -81,6 +84,17 @@
         "sourceTitle": "Bron & credits",
         "sourceDescription": "Deze kalender is afkomstig van MATTTMA. Thanks voor het onderhouden van dit overzicht voor de community.",
         "sourceButton": "Bekijk bron op matttma.de",
+        "backButton": "Terug naar Nederlandse jams"
+    },
+    "jamsAmerica": {
+        "pageTitle": "Jams in Amerika",
+        "heading": "Freerun jams in Amerika",
+        "intro": "Hier vind je de communitykalender van American Parkour met jams en events in Amerika.",
+        "calendarTitle": "Amerikaanse jamkalender",
+        "calendarIntro": "Een overzicht van community events via American Parkour.",
+        "sourceTitle": "Bron & credits",
+        "sourceDescription": "Deze kalender is afkomstig van American Parkour Community Events.",
+        "sourceButton": "Bekijk bron op americanparkour.com",
         "backButton": "Terug naar Nederlandse jams"
     },
     "openGyms": {

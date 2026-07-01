@@ -70,7 +70,10 @@
         "followWhatsapp": "Follow the WhatsApp channel",
         "europeTitle": "Jams in Europe",
         "europeDescription": "Nice that you want to be involved with the international community! Check this calendar maintained by MATTTMA, with jams across Europe.",
-        "europeButton": "Freerun jams in Europe"
+        "europeButton": "Freerun jams in Europe",
+        "americaTitle": "Jams in America",
+        "americaDescription": "Check this community calendar from American Parkour with jams and events across North America and beyond.",
+        "americaButton": "Freerun jams in America"
     },
     "jamsEurope": {
         "pageTitle": "Jams in Europe",
@@ -81,6 +84,17 @@
         "sourceTitle": "Source & credits",
         "sourceDescription": "This calendar is sourced from MATTTMA. Big thanks for maintaining this community overview.",
         "sourceButton": "View source on matttma.de",
+        "backButton": "Back to Dutch jams"
+    },
+    "jamsAmerica": {
+        "pageTitle": "Jams in America",
+        "heading": "Freerun jams in America",
+        "intro": "Here you can find the community calendar from American Parkour with jams and events across America.",
+        "calendarTitle": "American jam calendar",
+        "calendarIntro": "An overview of community events from American Parkour.",
+        "sourceTitle": "Source & credits",
+        "sourceDescription": "This calendar is sourced from American Parkour Community Events.",
+        "sourceButton": "View source on americanparkour.com",
         "backButton": "Back to Dutch jams"
     },
     "openGyms": {

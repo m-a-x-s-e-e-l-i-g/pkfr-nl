@@ -96,6 +96,13 @@
 				href="/jams/europe"
 				class="button">{$t('jams.europeButton')}</a>
 		</div>
+
+		<div class="section-card">
+			<span class="card-icon">🇺🇸</span>
+			<h2>{$t('jams.americaTitle')}</h2>
+			<p>{@html $t('jams.americaDescription')}</p>
+			<a href="/jams/america" class="button">{$t('jams.americaButton')}</a>
+		</div>
 	</div>
 </section>
 
@@ -231,7 +238,7 @@
 
 	.grid-2 {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
 		gap: 1.5rem;
 	}
 
