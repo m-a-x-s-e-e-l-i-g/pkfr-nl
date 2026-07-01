@@ -72,6 +72,17 @@
         "europeDescription": "Wat fijn dat je betrokken wil zijn bij de internationale community! Bekijk deze kalender die beheerd wordt door MATTTMA, met jams in heel Europa.",
         "europeButton": "Freerun jams in Europa"
     },
+    "jamsEurope": {
+        "pageTitle": "Jams in Europa",
+        "heading": "Freerun jams in Europa",
+        "intro": "Hier vind je de internationale kalender met jams door heel Europa.",
+        "calendarTitle": "Europese jamkalender",
+        "calendarIntro": "Een overzicht van Europese jams, gedeeld door de internationale community.",
+        "sourceTitle": "Bron & credits",
+        "sourceDescription": "Deze kalender is afkomstig van MATTTMA. Thanks voor het onderhouden van dit overzicht voor de community.",
+        "sourceButton": "Bekijk bron op matttma.de",
+        "backButton": "Terug naar Nederlandse jams"
+    },
     "openGyms": {
         "pageTitle": "Open Gyms",
         "heading": "Open Gyms",

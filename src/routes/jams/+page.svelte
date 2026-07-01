@@ -93,9 +93,7 @@
 			<h2>{$t('jams.europeTitle')}</h2>
 			<p>{@html $t('jams.europeDescription')}</p>
 			<a
-				href="https://www.matttma.de/en/parkourjamcalendar"
-				rel="noreferrer"
-				target="_blank"
+				href="/jams/europe"
 				class="button">{$t('jams.europeButton')}</a>
 		</div>
 	</div>
