@@ -231,6 +231,12 @@
             url: 'https://maps.app.goo.gl/GZ8nMHh3CzyRrF177?g_st=ac',
             country: 'United States',
             author: 'Luke Albrecht'
+        },
+        {
+            name: 'Denver',
+            url: 'https://maps.app.goo.gl/tdfvHTiRa8wnwMEc6?g_st=ac',
+            country: 'United States',
+            author: 'Julius Porter'
         }
     ];
 
