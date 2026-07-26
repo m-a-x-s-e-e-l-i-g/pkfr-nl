@@ -30,7 +30,7 @@
         "eslint-plugin-svelte": "^3.20.0",
         "mdsvex": "^0.12.7",
         "netlify-plugin-submit-sitemap": "^0.4.0",
-        "postcss": "^8.5.16",
+        "postcss": "^8.5.23",
         "postcss-load-config": "^6.0.1",
         "prettier": "^3.9.4",
         "prettier-plugin-svelte": "^4.1.1",
