@@ -250,8 +250,8 @@ export const createEuropeJamCalendar = (events, now = new Date()) => {
         'METHOD:PUBLISH',
         'X-WR-CALNAME:MATTTMA European Parkour Jams',
         'X-WR-CALDESC:European parkour jams maintained by MATTTMA and shared by pkfr.nl',
-        'REFRESH-INTERVAL;VALUE=DURATION:PT6H',
-        'X-PUBLISHED-TTL:PT6H',
+        'REFRESH-INTERVAL;VALUE=DURATION:PT1H',
+        'X-PUBLISHED-TTL:PT1H',
         ...upcomingEvents.flatMap((event) => createEventLines(event, timestamp)),
         'END:VCALENDAR'
     ];

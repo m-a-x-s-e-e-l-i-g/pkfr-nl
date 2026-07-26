@@ -1,14 +1,16 @@
 <script lang="ts">
     import CalendarAddSVG from '$lib/components/svg/CalendarAddSVG.svelte';
-    import DownloadSVG from '$lib/components/svg/DownloadSVG.svelte';
     import { siteURL } from '$lib/config';
     import { t } from 'svelte-i18n';
 
     export let feedPath: string;
 
     const calendarFeedUrl = `https://www.${siteURL}${feedPath}`;
-    const googleCalendarUrl = `https://calendar.google.com/calendar/u/0/r?cid=${encodeURIComponent(calendarFeedUrl)}`;
+    const webcalFeedUrl = calendarFeedUrl.replace(/^https:/, 'webcal:');
+    const googleCalendarUrl = `https://calendar.google.com/calendar/r?cid=${encodeURIComponent(webcalFeedUrl)}`;
 </script>
+
+<p class="subscription-note">{$t('calendarSubscriptions.description')}</p>
 
 <div class="calendar-actions" aria-label={$t('calendarSubscriptions.label')}>
     <a
@@ -21,18 +23,25 @@
         <span>{$t('calendarSubscriptions.google')}</span>
     </a>
 
-    <a href={calendarFeedUrl} rel="noreferrer" target="_blank" class="button-secondary action-btn">
-        <DownloadSVG />
+    <a href={webcalFeedUrl} class="button-secondary action-btn">
+        <CalendarAddSVG />
         <span>{$t('calendarSubscriptions.ical')}</span>
     </a>
 </div>
 
 <style>
+    .subscription-note {
+        margin: 1.5rem 0 0;
+        color: var(--color-muted-foreground);
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
     .calendar-actions {
         display: flex;
         flex-wrap: wrap;
         gap: 1rem;
-        margin-top: 1.5rem;
+        margin-top: 0.75rem;
     }
 
     .action-btn {

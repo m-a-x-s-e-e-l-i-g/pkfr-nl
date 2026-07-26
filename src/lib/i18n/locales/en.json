@@ -37,8 +37,9 @@
     },
     "calendarSubscriptions": {
         "label": "Calendar subscription options",
-        "google": "Add to Google Calendar",
-        "ical": "iCal feed"
+        "description": "Live subscription: new and changed events appear automatically. Refresh timing is controlled by your calendar app.",
+        "google": "Subscribe in Google Calendar",
+        "ical": "Subscribe in calendar app"
     },
     "spots": {
         "title": "Spots",

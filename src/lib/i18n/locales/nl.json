@@ -37,8 +37,9 @@
     },
     "calendarSubscriptions": {
         "label": "Opties om je op de kalender te abonneren",
-        "google": "Toevoegen aan Google Agenda",
-        "ical": "iCal-feed"
+        "description": "Live abonnement: nieuwe en gewijzigde events verschijnen automatisch. Je agenda-app bepaalt hoe vaak de kalender wordt ververst.",
+        "google": "Abonneren in Google Agenda",
+        "ical": "Abonneren in agenda-app"
     },
     "spots": {
         "title": "Spots",
