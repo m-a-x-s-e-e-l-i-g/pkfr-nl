@@ -35,6 +35,11 @@
         "addToCalendar": "Add to my calendar",
         "viewAllEvents": "View all events"
     },
+    "calendarSubscriptions": {
+        "label": "Calendar subscription options",
+        "google": "Add to Google Calendar",
+        "ical": "iCal feed"
+    },
     "spots": {
         "title": "Spots",
         "description": "Finding parkour spots can take time, unless you already know where they are! Here you'll find apps, maps and lists that are great for spots in the Netherlands. Looking for something indoors? Try the <a href=\"/tools/gym-finder\">Gym Finder</a>.",

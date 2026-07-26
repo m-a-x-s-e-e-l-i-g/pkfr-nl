@@ -35,6 +35,11 @@
         "addToCalendar": "Plaats in mijn agenda",
         "viewAllEvents": "Bekijk alle events"
     },
+    "calendarSubscriptions": {
+        "label": "Opties om je op de kalender te abonneren",
+        "google": "Toevoegen aan Google Agenda",
+        "ical": "iCal-feed"
+    },
     "spots": {
         "title": "Spots",
         "description": "Parkour spots vinden kan tijd kosten, behalve als je al weet waar ze zijn! Je vind hier apps, kaarten en lijsten die goed zijn voor spots in Nederland. Zoek je liever iets binnen, probeer dan de <a href=\"/tools/gym-finder\">Gym Finder</a>.",

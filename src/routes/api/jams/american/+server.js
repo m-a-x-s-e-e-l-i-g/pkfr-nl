@@ -1,7 +1,5 @@
 import { json } from '@sveltejs/kit';
-
-const AMERICAN_JAM_FEED_URL =
-	'https://americanparkour.com/?post_type=tribe_events&ical=1&eventDisplay=list&iframe=1';
+import { AMERICAN_JAM_FEED_URL } from '$lib/calendarFeeds';
 const CACHE_TTL_MS = 30 * 60 * 1000;
 
 let cachedEvents = null;

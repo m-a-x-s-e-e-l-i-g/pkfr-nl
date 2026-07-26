@@ -1,6 +1,7 @@
 <script>
 	import { titlePostfix } from '$lib/config';
 	import EuropeJamsList from '$lib/components/calendar/EuropeJamsList.svelte';
+	import CalendarSubscribeActions from '$lib/components/calendar/CalendarSubscribeActions.svelte';
 	import { t } from 'svelte-i18n';
 
 	const heroPhoto = '/images/gyms/rush-world/rush-world-rotterdam-west-2.jpg';
@@ -24,6 +25,7 @@
 		<h2>{$t('jamsEurope.calendarTitle')}</h2>
 		<p class="section-subtitle">{$t('jamsEurope.calendarIntro')}</p>
 		<EuropeJamsList />
+		<CalendarSubscribeActions feedPath="/api/jams/europe/calendar.ics" />
 	</div>
 </section>
 
