@@ -25,7 +25,7 @@
 </section>
 
 <section class="content-section">
-	<div class="section-card">
+	<div class="section-card calendar-card">
 		<h2>{$t('jams.upcomingTitle')}</h2>
 		<p class="section-subtitle">{$t('jams.upcomingSubtitle')}</p>
 		<JamsList/>
@@ -271,6 +271,10 @@
 	@media (max-width: 768px) {
 		.page-hero {
 			padding: 3rem 1rem;
+		}
+
+		.calendar-card {
+			padding: clamp(1rem, 5vw, 1.5rem);
 		}
 
 		.page-hero h1 {

@@ -60,6 +60,83 @@
 	:global(.dark .fc-event:hover *)  {
 		background: var(--color-muted) !important;
 	}
+
+	@media (max-width: 40rem) {
+		:global(.fc) {
+			height: clamp(30rem, 70svh, 40rem) !important;
+		}
+
+		:global(.fc .fc-view-harness) {
+			flex: 1 1 auto;
+			min-height: 0;
+			height: auto !important;
+			padding-bottom: 0 !important;
+		}
+
+		:global(.fc .fc-list-day-cushion) {
+			display: flex;
+			align-items: baseline;
+			justify-content: space-between;
+			gap: 0.375rem;
+			padding: 0.625rem 0.5rem;
+		}
+
+		:global(.fc .fc-list-day-cushion::after) {
+			display: none;
+		}
+
+		:global(.fc .fc-list-day-text) {
+			min-width: 0;
+		}
+
+		:global(.fc .fc-list-day-side-text) {
+			flex: 0 0 auto;
+		}
+
+		:global(.fc .fc-list-table) {
+			display: block;
+			table-layout: fixed;
+		}
+
+		:global(.fc .fc-list-table tbody),
+		:global(.fc .fc-list-day),
+		:global(.fc .fc-list-day > th) {
+			display: block;
+			width: 100%;
+		}
+
+		:global(.fc .fc-list-event) {
+			display: grid;
+			grid-template-columns: 1rem minmax(0, 1fr);
+			column-gap: 0.625rem;
+			width: 100%;
+			min-height: 5.5rem;
+			padding: 0.75rem;
+			border-bottom: 1px solid var(--fc-border-color);
+		}
+
+		:global(.fc .fc-list-event > td) {
+			width: auto;
+			padding: 0;
+			border: 0;
+		}
+
+		:global(.fc .fc-list-event-time) {
+			grid-column: 1 / -1;
+			padding-bottom: 0.5rem;
+		}
+
+		:global(.fc .fc-list-event-graphic) {
+			grid-column: 1;
+			padding-top: 0.35rem;
+		}
+
+		:global(.fc .fc-list-event-title) {
+			grid-column: 2;
+			min-width: 0;
+			line-height: 1.45;
+		}
+	}
 </style>
 
 <FullCalendar {options} />
