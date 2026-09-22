@@ -27,15 +27,27 @@
 </script>
 
 <style>
+	.gym-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1.5rem;
+	}
+
+	.location-notice {
+		margin-bottom: 1.5rem;
+	}
+
 	.gym-card {
+		display: flex;
+		flex-direction: column;
 		background: var(--color-card);
 		box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 		border: 1px solid var(--color-border);
 		border-radius: 12px;
-		margin-top: 2rem;
 		overflow: hidden;
 		transition: all 0.3s ease;
 		position: relative;
+		min-width: 0;
 	}
 
 	.gym-card:hover {
@@ -44,45 +56,85 @@
 	}
 
 	.gym-content {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
 		padding: 1.5rem;
 		position: relative;
 	}
 
 	.carousel-container {
 		position: relative;
-		height: 350px;
+		aspect-ratio: 4 / 3;
+		background: color-mix(in oklab, var(--color-card) 82%, var(--color-foreground) 18%);
 		overflow: hidden;
 	}
 
-	.gym-name-overlay {
+	.carousel-container :global([role='region']),
+	.carousel-container :global(.overflow-hidden),
+	.carousel-container :global([data-embla-container]),
+	.carousel-container :global([data-embla-slide]) {
+		height: 100%;
+	}
+
+	.gym-photo-frame {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+
+	.gym-photo-frame :global(img) {
 		position: absolute;
-		top: 1rem;
-		left: 1rem;
-		background: rgba(0, 0, 0, 0.8);
-		color: white;
-		padding: 0.5rem 1rem;
-		border-radius: 8px;
-		font-weight: bold;
-		z-index: 10;
-		backdrop-filter: blur(4px);
+		inset: 0;
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.gym-photo-frame :global(.gym-photo-backdrop) {
+		object-fit: cover;
+		filter: blur(24px) brightness(0.7);
+		transform: scale(1.12);
+	}
+
+	.gym-photo-frame :global(.gym-photo-main) {
+		object-fit: contain;
 	}
 
 	.gym-name {
 		font-size: 1.125rem;
 		margin: 0;
+		font-weight: 700;
 	}
 
 	.gym-distance {
-		font-size: 0.75rem;
-		margin-top: 0.25rem;
-		opacity: 0.9;
+		position: absolute;
+		right: 0.875rem;
+		bottom: 0.875rem;
+		z-index: 1;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.5rem 0.875rem;
+		border: 1px solid rgba(255, 255, 255, 0.28);
+		border-radius: 999px;
+		background: rgba(12, 20, 32, 0.84);
+		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+		color: white;
+		font-size: 0.875rem;
+		font-weight: 700;
+		line-height: 1;
+		pointer-events: none;
+		backdrop-filter: blur(6px);
 	}
 
 	.button-group {
 		display: flex;
 		gap: 0.75rem;
 		flex-wrap: wrap;
-		margin-top: 1rem;
+		margin-top: auto;
+		padding-top: 1rem;
 	}
 
 	.button-group button {
@@ -98,8 +150,16 @@
 	}
 
 	@media (max-width: 768px) {
+		.location-notice {
+			margin-bottom: 1rem;
+		}
+
+		.gym-grid {
+			grid-template-columns: minmax(0, 1fr);
+			gap: 1rem;
+		}
+
 		.gym-card {
-			margin-top: 1.5rem;
 			border-radius: 8px;
 		}
 
@@ -107,24 +167,13 @@
 			padding: 1rem;
 		}
 
-		.gym-name-overlay {
-			top: 0.5rem;
-			left: 0.5rem;
-			padding: 0.375rem 0.75rem;
-		}
-
 		.gym-name {
 			font-size: 1rem;
-		}
-
-		.gym-distance {
-			font-size: 0.7rem;
 		}
 
 		.button-group {
 			flex-direction: column;
 			gap: 0.5rem;
-			margin-top: 1rem;
 		}
 
 		.button-group button {
@@ -259,7 +308,7 @@
 </section>
 
 {#if !latitude && !longitude}
-	<div transition:slide>
+	<div class="location-notice" transition:slide>
 		<Alert.Root>
 			<Icon data={locationArrow} class="h-4 w-4"/>
 			<Alert.Title>{$t('tools.gymFinder.permissionTitle')}</Alert.Title>
@@ -269,16 +318,10 @@
 		</Alert.Root>
 	</div>
 {/if}
-<div>
+<div class="gym-grid">
 	{#each gyms as gym}
 		<div class="gym-card">
 			<div class="carousel-container">
-				<div class="gym-name-overlay">
-					<div class="gym-name">{gym.name}</div>
-					{#if latitude && longitude}
-						<div class="gym-distance">{gym.distance.toFixed(1)} km</div>
-					{/if}
-				</div>
 				<Carousel.Root
 					plugins={[
 						Autoplay({
@@ -289,18 +332,33 @@
 					<Carousel.Content>
 						{#each gym.images as image}
 							<Carousel.Item>
-								<Image
-									src={image}
-									layout="constrained"
-									alt={gym.name}
-									cdn={import.meta.env.DEV ? undefined : "netlify"}
-								/>
+								<div class="gym-photo-frame">
+									<Image
+										src={`/${image}`}
+										layout="constrained"
+										alt=""
+										aria-hidden="true"
+										class="gym-photo-backdrop"
+										cdn={import.meta.env.DEV ? undefined : "netlify"}
+									/>
+									<Image
+										src={`/${image}`}
+										layout="constrained"
+										alt={gym.name}
+										class="gym-photo-main"
+										cdn={import.meta.env.DEV ? undefined : "netlify"}
+									/>
+								</div>
 							</Carousel.Item>
 						{/each}
 					</Carousel.Content>
 				</Carousel.Root>
+				{#if latitude && longitude}
+					<div class="gym-distance"><Icon data={locationArrow} class="h-3 w-3"/>{gym.distance.toFixed(1)} km</div>
+				{/if}
 			</div>
 			<div class="gym-content">
+				<h2 class="gym-name">{gym.name}</h2>
 				<div class="button-group">
 					<button
 						class="button"
