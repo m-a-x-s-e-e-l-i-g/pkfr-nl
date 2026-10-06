@@ -15,6 +15,7 @@
 	import { fade } from 'svelte/transition';
 	import '$lib/i18n';
 	import { isLoading } from 'svelte-i18n';
+	import { outboundLinks } from '$lib/outboundLinks';
 	let { data, children } = $props();
 
 	const transitionIn = { delay: 150, duration: 150 };
@@ -41,7 +42,7 @@
 <Seo />
 
 {#if !$isLoading}
-<div class="page-wrapper" class:open={$isMenuOpen}>
+<div class="page-wrapper" class:open={$isMenuOpen} use:outboundLinks>
 	<Header></Header>
 	{#key data.path}
 		<main id="main" tabindex="-1" class="main-content" in:fade|global={transitionIn} out:fade|global={transitionOut}>

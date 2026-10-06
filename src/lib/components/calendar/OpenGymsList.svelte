@@ -5,6 +5,7 @@
 	import nlLocale from '@fullcalendar/core/locales/nl';
 	import enLocale from '@fullcalendar/core/locales/en-gb';
 	import { locale } from 'svelte-i18n';
+	import { outboundUrl } from '$lib/outboundLinks';
 
   $: calendarLocale = $locale === 'en' ? enLocale : nlLocale;
 
@@ -30,7 +31,7 @@
 		eventClick: (info) => {
 			if (info.event.url) {
 				info.jsEvent.preventDefault();
-				window.open(info.event.url, '_blank');
+				window.open(outboundUrl(info.event.url), '_blank');
 			}
 		},
 		plugins: [ListPlugin, googleCalendarPlugin],

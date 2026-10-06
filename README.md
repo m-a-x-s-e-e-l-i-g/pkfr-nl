@@ -67,6 +67,8 @@ Notes
 
 ## Search and AI retrieval
 
+- The root layout adds `utm_source=pkfr.nl`, `utm_medium=referral` and `utm_campaign=community` to external HTTP(S) navigation links after hydration, including translated HTML, calendar descriptions and links inserted by client navigation. Existing campaign tags and functional query parameters/fragments are preserved. Internal URLs, calendar feeds, downloads, non-web protocols and signed URLs remain unchanged. Source data, feeds, canonical URLs and structured data keep their original URLs. Visitors without JavaScript can still follow the original links.
+
 - `/tools/gym-finder` links all 34 entries to permanent `/gyms/{slug}` profiles. Preserve slugs when changing gym names. Photos/coordinates are in `src/lib/assets/js/gyms.js`; bilingual editorial summaries, official URLs, source review dates and location notices are in `src/lib/gymProfiles.js`.
 - Gym profiles render on the server with photos, directions, facilities, official sources and nearby gyms. Their seven-day open-gym list uses the shared calendar cache and matches street, house number and city/postcode, never a brand alone. Calendar failures preserve the profile and show a distinct unavailable message. No matched sessions does not imply a gym is closed.
 - All gym routes are included in the dynamic sitemap. Profiles use individual metadata/social images and SportsActivityLocation/PostalAddress/GeoCoordinates plus breadcrumbs; the Finder uses an ItemList. Entries with uncertain old indoor locations retain their routes and source notices but omit address/coordinates from structured data. Opening hours, prices and ratings are not fabricated or copied into schema.
