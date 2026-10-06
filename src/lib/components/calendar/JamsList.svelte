@@ -26,7 +26,7 @@
     <div class="agenda-state">
         <h3>{$t('jamAgenda.emptyTitle')}</h3>
         <p>{$t('jamAgenda.emptyDescription')}</p>
-        <a href="#submit-jam">{$t('jams.submitTitle')} →</a>
+        <a href="/jams#submit-jam">{$t('jams.submitTitle')} →</a>
     </div>
 {:else}
     <div class="jam-agenda">
