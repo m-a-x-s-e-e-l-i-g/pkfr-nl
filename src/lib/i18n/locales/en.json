@@ -297,7 +297,8 @@
     "jamArchive": {
         "badge": "Jam archive",
         "title": "Past jams & events",
-        "description": "Saved jams from the Dutch, European and American Parkour calendars. These events have finished; their details remain available. The archive grows as events are captured.",
+        "description": "Past jams from the Dutch, European and American Parkour calendars, including their available history and saved events. Open an event for its original dates and details.",
+        "count": "{count, plural, one {# past event} other {# past events}} in this calendar overview.",
         "link": "Browse past jams",
         "filterLabel": "Filter the jam archive",
         "regions": {
@@ -306,7 +307,8 @@
             "europe": "Europe",
             "america": "American Parkour"
         },
-        "empty": "No past jams have been saved for this calendar yet.",
+        "empty": "No past jams were found in this calendar.",
+        "partial": "Some calendar history could not be loaded. Available events are shown below; the overview may be incomplete. Please try again.",
         "unavailable": "The jam archive is temporarily unavailable. Please try again later.",
         "pagination": "Jam archive pages",
         "previous": "Previous",

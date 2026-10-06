@@ -1,6 +1,6 @@
 import { SEO_PAGES, sitemapXml } from '$lib/seo';
-import { isPastJam, jamPath } from '$lib/jamEvents';
-import { archivedJams } from '$lib/server/jamArchive';
+import { jamPath } from '$lib/jamEvents';
+import { loadJamHistory } from '$lib/server/jamHistory';
 import { loadJams } from '$lib/server/jamEvents';
 import { loadInternationalJams } from '$lib/server/internationalJams';
 
@@ -11,19 +11,19 @@ export async function GET({ fetch }) {
         const sources = await Promise.allSettled([
             loadJams(),
             loadInternationalJams('europe', fetch),
-            loadInternationalJams('america', fetch)
+            loadInternationalJams('america', fetch),
+            loadJamHistory(fetch)
         ]);
-        const captured = await archivedJams();
+        if (
+            sources.some((source) => source.status === 'rejected') ||
+            sources[3].value.unavailableSources.length
+        )
+            return new Response('Sitemap temporarily unavailable', { status: 503 });
         const paths = [
             ...Object.keys(SEO_PAGES),
-            ...captured.filter((event) => isPastJam(event)).map(jamPath),
-            ...sources.flatMap((source) =>
-                source.status === 'fulfilled' ? source.value.map(jamPath) : []
-            )
+            ...sources[3].value.events.map(jamPath),
+            ...sources.slice(0, 3).flatMap((source) => source.value.map(jamPath))
         ];
-        // Don't cache an incomplete calendar after a transient upstream failure.
-        if (sources.some((source) => source.status === 'rejected'))
-            return new Response('Sitemap temporarily unavailable', { status: 503 });
         return new Response(sitemapXml(paths), {
             headers: {
                 'content-type': 'application/xml; charset=utf-8',

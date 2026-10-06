@@ -159,7 +159,7 @@ export function jamMarkdown(agenda) {
         'Maintained by Max Seelig with contributions from the Dutch parkour community. Event descriptions come from the calendar; confirm participation requirements with the organizer.',
         '',
         `JSON: ${SITE_ORIGIN}/api/jams`,
-        `Past captured events: ${SITE_ORIGIN}/jams/archive`,
+        `Past events: ${SITE_ORIGIN}/jams/archive`,
         `Submit an event or correction: ${SITE_ORIGIN}/jams#submit-jam`,
         '',
         `## Events (${data.count})`

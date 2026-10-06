@@ -17,7 +17,7 @@ test('calendar loading recovers from outages, follows every result page, and ser
     });
     const originalFetch = globalThis.fetch;
     try {
-        const { loadJams, loadJam, loadJamAgenda } = await server.ssrLoadModule(
+        const { loadJams, loadJam, loadJamAgenda, loadPastDutchJams } = await server.ssrLoadModule(
             '/src/lib/server/jamEvents.js'
         );
         globalThis.fetch = async () => new Response('', { status: 503 });
@@ -53,6 +53,49 @@ test('calendar loading recovers from outages, follows every result page, and ser
         assert.ok(Number.isFinite(Date.parse(agenda.retrievedAt)));
         assert.equal((await loadJamAgenda()).retrievedAt, agenda.retrievedAt);
         assert.equal(requestedPages.length, 2);
+
+        let historyCalls = 0;
+        globalThis.fetch = async (url) => {
+            historyCalls++;
+            assert.equal(url.searchParams.has('timeMin'), false);
+            assert.ok(url.searchParams.has('timeMax'));
+            assert.equal(url.searchParams.get('singleEvents'), 'true');
+            return Response.json(
+                url.searchParams.has('pageToken')
+                    ? {
+                          items: [
+                              {
+                                  ...fixture('old2'),
+                                  start: { date: '1999-01-01' },
+                                  end: { date: '1999-01-02' }
+                              }
+                          ]
+                      }
+                    : {
+                          items: [
+                              {
+                                  ...fixture('old1'),
+                                  start: { date: '2000-01-01' },
+                                  end: { date: '2000-01-02' }
+                              },
+                              fixture('future'),
+                              { ...fixture('cancelledPast'), status: 'cancelled' }
+                          ],
+                          nextPageToken: 'history-next'
+                      }
+            );
+        };
+        const [history, sameHistory] = await Promise.all([
+            loadPastDutchJams(),
+            loadPastDutchJams()
+        ]);
+        assert.deepEqual(
+            history.map((event) => event.id),
+            ['old1', 'old2']
+        );
+        assert.equal(history, sameHistory);
+        assert.equal(await loadPastDutchJams(), history);
+        assert.equal(historyCalls, 2);
 
         globalThis.fetch = async (url) => {
             assert.ok(url.pathname.endsWith('/events/past123'));

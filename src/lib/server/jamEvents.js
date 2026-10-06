@@ -1,11 +1,13 @@
 import { error } from '@sveltejs/kit';
 import { normalizeJam } from './normalizeJam.js';
 import { JAM_TIME_ZONE, isPastJam } from '$lib/jamEvents';
-import { archivedJam, preserveJam } from './jamArchive.js';
+import { archivedJam, preserveJam, preserveJamHistory } from './jamArchive.js';
 
 const CACHE_TTL = 5 * 60 * 1000;
 let cachedList;
 let pendingList;
+let cachedHistory;
+let pendingHistory;
 
 async function requestEvents(path = '', params = {}) {
     const key = import.meta.env.VITE_GOOGLE_API_KEY;
@@ -62,6 +64,40 @@ export async function loadJams() {
 export async function loadJamAgenda() {
     const events = await loadJams();
     return { events, retrievedAt: cachedList.retrievedAt };
+}
+
+export async function loadPastDutchJams() {
+    if (cachedHistory && cachedHistory.expires > Date.now()) return cachedHistory.events;
+    if (pendingHistory) return pendingHistory;
+    pendingHistory = (async () => {
+        const now = new Date();
+        const events = [];
+        let pageToken;
+        do {
+            const data = await requestEvents('', {
+                singleEvents: 'true',
+                orderBy: 'startTime',
+                maxResults: '2500',
+                // No lower cutoff: retrieve all available history, including recurrence instances.
+                timeMax: now.toISOString(),
+                ...(pageToken ? { pageToken } : {})
+            });
+            events.push(
+                ...(data.items || [])
+                    .map(normalizeJam)
+                    .filter((event) => event && isPastJam(event, now))
+            );
+            pageToken = data.nextPageToken;
+        } while (pageToken);
+        const preserved = await preserveJamHistory('dutch', events);
+        cachedHistory = { events: preserved, expires: Date.now() + CACHE_TTL };
+        return preserved;
+    })();
+    try {
+        return await pendingHistory;
+    } finally {
+        pendingHistory = null;
+    }
 }
 
 export async function loadJam(id) {

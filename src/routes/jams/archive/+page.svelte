@@ -15,6 +15,7 @@
     <span class="badge">{$t('jamArchive.badge')}</span>
     <h1>{$t('jamArchive.title')}</h1>
     <p>{$t('jamArchive.description')}</p>
+    {#if data.total > 0}<p>{$t('jamArchive.count', { values: { count: data.total } })}</p>{/if}
     <a class="button" href="/jams">{$t('jamAgenda.upcomingAction')} →</a>
 </header>
 
@@ -30,15 +31,17 @@
     {/each}
 </nav>
 
-{#if data.archiveUnavailable}
+{#if data.historyIncomplete}
     <div class="card p-6" role="status">
-        <p>{$t('jamArchive.unavailable')}</p>
+        <p>{$t(data.archiveUnavailable ? 'jamArchive.unavailable' : 'jamArchive.partial')}</p>
         <a href={archiveUrl(data.archivePage)} data-sveltekit-reload>{$t('jamAgenda.retry')} →</a>
     </div>
-{:else if !data.events.length}
-    <div class="card p-6"><p>{$t('jamArchive.empty')}</p></div>
-{:else}
+{/if}
+
+{#if data.events.length}
     <JamsList events={data.events} archive />
+{:else if !data.historyIncomplete}
+    <div class="card p-6"><p>{$t('jamArchive.empty')}</p></div>
 {/if}
 
 {#if data.pages > 1}

@@ -4,7 +4,8 @@ import {
     normalizeInternationalJam,
     upcomingInternationalJams,
     loadInternationalJam,
-    loadInternationalJams
+    loadInternationalJams,
+    loadPastInternationalJams
 } from '../src/lib/server/internationalJams.js';
 import {
     eventIdFromSlug,
@@ -90,10 +91,11 @@ test('past details use the full source feed and distinguish missing events from 
         }
     ];
     const fetch = async (url) => {
-        assert.equal(url, '/api/jams/american?includePast=true');
+        assert.ok(['/api/jams/american', '/api/jams/american?includePast=true'].includes(url));
         return Response.json({ events: items });
     };
     assert.deepEqual(await loadInternationalJams('america', fetch), []);
+    assert.equal((await loadPastInternationalJams('america', fetch)).length, 1);
     const event = await loadInternationalJam('america', 'old@apk.com', fetch);
     assert.equal(event.title, 'Previous jam');
     assert.ok(event.description.includes('<strong>description</strong>'));

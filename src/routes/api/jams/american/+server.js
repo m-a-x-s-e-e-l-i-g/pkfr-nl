@@ -2,9 +2,8 @@ import { json } from '@sveltejs/kit';
 import { AMERICAN_JAM_FEED_URL } from '$lib/calendarFeeds';
 const CACHE_TTL_MS = 30 * 60 * 1000;
 
-let cachedEvents = null;
-let cacheExpiresAt = 0;
-let pendingRequest = null;
+const cachedLists = new Map();
+const pendingRequests = new Map();
 
 const normalizeUrl = (value) => {
 	if (!value) {
@@ -183,6 +182,7 @@ const parseIcalEvents = (icalText) => {
 };
 
 const mapEvent = (event, index) => {
+	if (event.STATUS?.value?.toUpperCase() === 'CANCELLED') return null;
 	const startInfo = parseIcalDateTime(event.DTSTART);
 	if (!startInfo?.value) {
 		return null;
@@ -225,50 +225,71 @@ const toDate = (value) => {
 	return parsedDate;
 };
 
-const loadAmericanEvents = async () => {
-	if (cachedEvents && Date.now() < cacheExpiresAt) {
-		return cachedEvents;
-	}
+async function requestIcal(url, signal) {
+	const response = await fetch(url, {
+		signal: AbortSignal.any([signal, AbortSignal.timeout(10000)]),
+		headers: { accept: 'text/calendar,text/plain;q=0.9,*/*;q=0.8' }
+	});
+	if (!response.ok) throw new Error(`Failed to load American jams feed (${response.status})`);
+	const text = await response.text();
+	if (!text.trimStart().startsWith('BEGIN:VCALENDAR') || !text.includes('END:VCALENDAR'))
+		throw new Error('Invalid American calendar response');
+	return parseIcalEvents(text);
+}
 
-	if (pendingRequest) {
-		return pendingRequest;
-	}
-
-	pendingRequest = (async () => {
-		const response = await fetch(AMERICAN_JAM_FEED_URL, {
-			signal: AbortSignal.timeout(10000),
-			headers: {
-				accept: 'text/calendar,text/plain;q=0.9,*/*;q=0.8'
-			}
-		});
-
-		if (!response.ok) {
-			throw new Error(`Failed to load American jams feed (${response.status})`);
-		}
-
-		const icalText = await response.text();
-		const events = parseIcalEvents(icalText)
-			.map(mapEvent)
-			.filter((event) => event !== null)
-			.filter((event) => {
-				const startDate = toDate(event.start);
-				if (!startDate) {
-					return false;
+const loadAmericanEvents = async (includePast = false) => {
+	const key = includePast ? 'history' : 'upcoming';
+	const cached = cachedLists.get(key);
+	if (cached && Date.now() < cached.expires) return cached.events;
+	if (pendingRequests.has(key)) return pendingRequests.get(key);
+	const request = (async () => {
+		const events = new Map();
+		if (includePast) {
+			for (const event of await loadAmericanEvents()) events.set(event.id, event);
+			const signal = AbortSignal.timeout(45000);
+			const seen = new Set();
+			let pageSize;
+			for (let page = 1; ; page++) {
+				if (page > 500) throw new Error('American calendar pagination limit exceeded');
+				const url = new URL(AMERICAN_JAM_FEED_URL);
+				url.searchParams.set('eventDisplay', 'past');
+				url.searchParams.set('paged', String(page));
+				const items = await requestIcal(url, signal);
+				pageSize ??= items.length;
+				let added = 0;
+				for (const [index, item] of items.entries()) {
+					const sourceId =
+						item.UID?.value || `${item.DTSTART?.value}:${item.SUMMARY?.value}`;
+					if (!seen.has(sourceId)) {
+						seen.add(sourceId);
+						added++;
+					}
+					const event = mapEvent(item, index);
+					if (event) events.set(event.id, event);
 				}
-
-				return true;
-			})
-			.sort((a, b) => new Date(a.start).valueOf() - new Date(b.start).valueOf());
-
-		cachedEvents = events;
-		cacheExpiresAt = Date.now() + CACHE_TTL_MS;
-		return events;
+				// The export contains overlapping windows larger than the site's list pages.
+				if (!items.length || items.length < pageSize) break;
+				if (!added) throw new Error('American calendar repeated a history page');
+			}
+		} else {
+			for (const [index, item] of (
+				await requestIcal(AMERICAN_JAM_FEED_URL, AbortSignal.timeout(15000))
+			).entries()) {
+				const event = mapEvent(item, index);
+				if (event && toDate(event.start)) events.set(event.id, event);
+			}
+		}
+		const list = [...events.values()]
+			.filter((event) => toDate(event.start))
+			.sort((a, b) => Date.parse(a.start) - Date.parse(b.start));
+		cachedLists.set(key, { events: list, expires: Date.now() + CACHE_TTL_MS });
+		return list;
 	})();
-
+	pendingRequests.set(key, request);
 	try {
-		return await pendingRequest;
+		return await request;
 	} finally {
-		pendingRequest = null;
+		pendingRequests.delete(key);
 	}
 };
 
@@ -276,10 +297,13 @@ export const prerender = false;
 
 export const GET = async ({ url }) => {
 	try {
-		const allEvents = await loadAmericanEvents();
+		const allEvents = await loadAmericanEvents(url.searchParams.get('includePast') === 'true');
 		const today = new Date();
 		today.setHours(0, 0, 0, 0);
-		const events = url.searchParams.get('includePast') === 'true' ? allEvents : allEvents.filter((event) => (toDate(event.end) || toDate(event.start)) >= today);
+		const events =
+			url.searchParams.get('includePast') === 'true'
+				? allEvents
+				: allEvents.filter((event) => (toDate(event.end) || toDate(event.start)) >= today);
 		return json(
 			{ events },
 			{
@@ -290,6 +314,6 @@ export const GET = async ({ url }) => {
 		);
 	} catch (error) {
 		console.error('Failed to load American jams feed', error);
-		return json({ events: [] }, { status: 500 });
+		return json({ events: [] }, { status: 503, headers: { 'cache-control': 'no-store' } });
 	}
 };

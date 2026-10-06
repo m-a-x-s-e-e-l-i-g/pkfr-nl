@@ -45,11 +45,11 @@ export const SEO_PAGES = {
     '/jams/archive': {
         nl: [
             'Archief van parkour jams & freerunning events',
-            'Bekijk bewaarde parkour jams en freerunning events uit Nederland, Europa en de American Parkour agenda, met oorspronkelijke datums en eventdetails.'
+            'Bekijk afgelopen parkour jams en freerunning events uit Nederland, Europa en de American Parkour agenda, met oorspronkelijke datums en eventdetails.'
         ],
         en: [
             'Past parkour jams & freerunning events',
-            'Browse saved past parkour jams and freerunning events from the Netherlands, Europe and the American Parkour calendar, with dates and event details.'
+            'Browse past parkour jams and freerunning events from the Netherlands, Europe and the American Parkour calendar, with dates and event details.'
         ]
     },
     '/open-gyms': {

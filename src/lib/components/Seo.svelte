@@ -12,6 +12,7 @@
     $: noindex =
         metadata.noindex ||
         $page.data.archiveUnavailable ||
+        $page.data.historyIncomplete ||
         ($page.url.pathname === '/jams/archive' && $page.url.searchParams.has('region')) ||
         ($page.url.pathname === '/open-gyms' && $page.url.searchParams.has('week'));
     $: canonical =

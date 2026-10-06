@@ -22,7 +22,10 @@ export function createJamArchive(storeProvider) {
             }
             const request = (async () => {
                 try {
-                    await storeProvider().setJSON(key, { event: snapshot });
+                    await storeProvider().setJSON(key, {
+                        event: snapshot,
+                        savedAt: new Date().toISOString()
+                    });
                     saved.set(key, fingerprint);
                     cachedList = null;
                     return true;
@@ -42,6 +45,32 @@ export function createJamArchive(storeProvider) {
                 pending.delete(key);
             }
         },
+        async saveHistory(region, events) {
+            if (!storeProvider || !events.length) return false;
+            const snapshots = events
+                .map(({ archiveStored, ...event }) => event)
+                .sort((a, b) => a.id.localeCompare(b.id));
+            const fingerprint = createHash('sha256')
+                .update(JSON.stringify(snapshots))
+                .digest('hex');
+            const key = `_history/${region}/${fingerprint}`;
+            if (saved.has(key)) return true;
+            try {
+                // Immutable batches preserve removed events without hundreds of writes
+                // or a shared mutable index. Identical history needs no new snapshot.
+                await storeProvider().setJSON(
+                    key,
+                    { events: snapshots, savedAt: new Date().toISOString() },
+                    { onlyIfNew: true }
+                );
+                saved.set(key, fingerprint);
+                cachedList = null;
+                return true;
+            } catch (err) {
+                console.error('Jam history archive write failed', { region, error: err.name });
+                return false;
+            }
+        },
         async list() {
             if (!storeProvider) return [];
             if (cachedList && cachedList.expires > Date.now()) return cachedList.events;
@@ -49,7 +78,7 @@ export function createJamArchive(storeProvider) {
             pendingList = (async () => {
                 const store = storeProvider();
                 const { blobs } = await store.list();
-                const events = [];
+                const allRecords = [];
                 // Bound concurrent reads; each event owns its own key, without a shared mutable index.
                 for (let offset = 0; offset < blobs.length; offset += 12) {
                     const records = await Promise.all(
@@ -57,12 +86,29 @@ export function createJamArchive(storeProvider) {
                             .slice(offset, offset + 12)
                             .map((blob) => store.get(blob.key, { type: 'json' }))
                     );
-                    for (const record of records) {
-                        if (record?.event?.id && record.event.start && record.event.title)
-                            events.push({ ...record.event, archiveStored: true });
+                    allRecords.push(...records.filter(Boolean));
+                }
+                const byId = new Map();
+                const versions = new Map();
+                allRecords.sort(
+                    (a, b) => (Date.parse(a.savedAt) || 0) - (Date.parse(b.savedAt) || 0)
+                );
+                for (const record of allRecords) {
+                    for (const event of record.events || (record.event ? [record.event] : [])) {
+                        if (event?.id && event.start && event.title) {
+                            versions.set(`${event.region || 'dutch'}:${event.id}`, {
+                                savedAt: Date.parse(record.savedAt) || 0,
+                                history: Boolean(record.events)
+                            });
+                            byId.set(`${event.region || 'dutch'}:${event.id}`, {
+                                ...event,
+                                archiveStored: true
+                            });
+                        }
                     }
                 }
-                cachedList = { events, expires: Date.now() + 300000 };
+                const events = [...byId.values()];
+                cachedList = { events, versions, expires: Date.now() + 300000 };
                 return events;
             })();
             try {
@@ -74,10 +120,23 @@ export function createJamArchive(storeProvider) {
         async load(region, id) {
             if (!storeProvider) return null;
             try {
+                // Individual records are read through, even when another instance
+                // has a warm overview cache. A newer history batch still takes precedence.
                 const record = await storeProvider().get(keyFor(region, id), { type: 'json' });
-                return record?.event?.id === id && (record.event.region || 'dutch') === region
-                    ? { ...record.event, archiveStored: true }
-                    : null;
+                const historical = (await this.list()).find(
+                    (event) => (event.region || 'dutch') === region && event.id === id
+                );
+                const version = cachedList?.versions.get(`${region}:${id}`);
+                const savedAt = Date.parse(record?.savedAt) || 0;
+                if (
+                    record?.event?.id === id &&
+                    (record.event.region || 'dutch') === region &&
+                    (!version ||
+                        savedAt > version.savedAt ||
+                        (savedAt === version.savedAt && !version.history))
+                )
+                    return { ...record.event, archiveStored: true };
+                return historical || null;
             } catch (err) {
                 console.error('Jam archive read failed', { region, id, error: err.name });
                 return null;
@@ -109,4 +168,9 @@ export function archivedJam(region, id) {
 
 export function archivedJams() {
     return archive.list();
+}
+
+export async function preserveJamHistory(region, events) {
+    const stored = await archive.saveHistory(region, events);
+    return events.map((event) => ({ ...event, archiveStored: stored }));
 }

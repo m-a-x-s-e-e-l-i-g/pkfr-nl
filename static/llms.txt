@@ -4,14 +4,14 @@
 
 The site is maintained by Max Seelig. Event dates, locations and descriptions come from the published calendars. Each jam has a canonical detail page with the full available information and original source links. Times in the Dutch agenda use Europe/Amsterdam; all-day dates are labeled explicitly.
 
-The live feeds below contain current and upcoming published Dutch events, with recurring events expanded up to five years ahead. Their retrievedAt timestamp is the source retrieval time, not an event edit time. Source data is cached for five minutes. They return HTTP 503 when the calendar cannot be loaded. Past event routes are retained when the site has captured them; the archive is not a complete historical calendar. European and American agendas are separate external community sources.
+The live feeds below contain current and upcoming published Dutch events, with recurring events expanded up to five years ahead. Their retrievedAt timestamp is the source retrieval time, not an event edit time. Source data is cached for five minutes. They return HTTP 503 when the calendar cannot be loaded. The past-event archive combines available calendar history with saved snapshots, retaining captured events that disappear from their source. Events removed before they were captured cannot be recovered. European and American agendas are separate external community sources.
 
 ## Dutch event calendar
 
 - [Live Dutch agenda in Markdown](https://www.pkfr.nl/jams.md): Current dates, times, locations, source-provided descriptions and canonical event links in plain text.
 - [Live Dutch agenda in JSON](https://www.pkfr.nl/api/jams): Versioned public feed with schema.org Event fields, all-day flags, a count and source retrieval timestamp. All-day endDate values are inclusive.
 - [Dutch parkour jams and freerunning events](https://www.pkfr.nl/jams): Human-readable agenda, event detail links and complete-calendar subscriptions.
-- [Past jam archive](https://www.pkfr.nl/jams/archive): Captured past events, including regional filters and pagination. Past detail pages show their original dates and link to upcoming events.
+- [Past jam archive](https://www.pkfr.nl/jams/archive): Available history from all three calendars plus saved past events, with regional filters and pagination. Past detail pages show their original dates and link to upcoming events.
 - [Submit an event or correction](https://www.pkfr.nl/jams#submit-jam): Community contribution form for missing events and updates.
 
 ## Training and community
@@ -28,5 +28,5 @@ The live feeds below contain current and upcoming published Dutch events, with r
 
 ## Discovery
 
-- [Sitemap](https://www.pkfr.nl/sitemap.xml): Main routes, upcoming jam details and captured past event routes.
+- [Sitemap](https://www.pkfr.nl/sitemap.xml): Main routes, upcoming jam details and past event routes from calendar history and saved snapshots.
 - [Home](https://www.pkfr.nl/): About the site, upcoming jams and today's and tomorrow's open gyms.

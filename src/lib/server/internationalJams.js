@@ -2,7 +2,7 @@ import { EUROPE_JAM_FEED_URL } from '../calendarFeeds.js';
 import { JAM_TIME_ZONE, lastEventDate, isPastJam } from '../jamEvents.js';
 import { normalizeJam } from './normalizeJam.js';
 import { error } from '@sveltejs/kit';
-import { archivedJam, preserveJam } from './jamArchive.js';
+import { archivedJam, preserveJam, preserveJamHistory } from './jamArchive.js';
 
 const EUROPE_SOURCE = 'https://www.matttma.de/en/parkourjamcalendar';
 const AMERICA_SOURCE = 'https://americanparkour.com/community-events/';
@@ -101,7 +101,7 @@ export function upcomingInternationalJams(items, region, now = new Date()) {
         .sort((a, b) => Date.parse(a.start) - Date.parse(b.start));
 }
 
-async function loadInternationalItems(region, fetch) {
+async function loadInternationalItems(region, fetch, includePast = false) {
     let items;
     if (region === 'europe') {
         if (!cachedEurope || cachedEurope.expires <= Date.now()) {
@@ -122,9 +122,12 @@ async function loadInternationalItems(region, fetch) {
         }
         items = cachedEurope.items;
     } else {
-        const response = await fetch('/api/jams/american?includePast=true', {
-            signal: AbortSignal.timeout(15000)
-        });
+        const response = await fetch(
+            `/api/jams/american${includePast ? '?includePast=true' : ''}`,
+            {
+                signal: AbortSignal.timeout(includePast ? 50000 : 15000)
+            }
+        );
         if (!response.ok) throw new Error('American calendar unavailable');
         const data = await response.json();
         if (!Array.isArray(data.events)) throw new Error('Invalid American calendar');
@@ -141,7 +144,7 @@ export async function loadInternationalJams(region, fetch) {
 export async function loadInternationalJam(region, id, fetch) {
     let items;
     try {
-        items = await loadInternationalItems(region, fetch);
+        items = await loadInternationalItems(region, fetch, true);
     } catch {
         const archived = await archivedJam(region, id);
         if (archived && isPastJam(archived)) return archived;
@@ -156,4 +159,26 @@ export async function loadInternationalJam(region, id, fetch) {
         error(404, 'Event not found');
     }
     return preserveJam(event);
+}
+
+const cachedHistory = new Map();
+const pendingHistory = new Map();
+export async function loadPastInternationalJams(region, fetch) {
+    const cached = cachedHistory.get(region);
+    if (cached && cached.expires > Date.now()) return cached.events;
+    if (pendingHistory.has(region)) return pendingHistory.get(region);
+    const request = (async () => {
+        const events = (await loadInternationalItems(region, fetch, true))
+            .map((item) => normalizeInternationalJam(item, region))
+            .filter((event) => event && isPastJam(event));
+        const preserved = await preserveJamHistory(region, events);
+        cachedHistory.set(region, { events: preserved, expires: Date.now() + 300000 });
+        return preserved;
+    })();
+    pendingHistory.set(region, request);
+    try {
+        return await request;
+    } finally {
+        pendingHistory.delete(region);
+    }
 }

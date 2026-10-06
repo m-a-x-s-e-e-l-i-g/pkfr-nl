@@ -66,3 +66,49 @@ test('snapshots survive a fresh archive instance, isolate feeds and only rewrite
     assert.equal((await archive.list())[0].title, 'Updated title');
     assert.ok([...records.keys()].every((key) => key.length < 600));
 });
+
+test('immutable history batches survive removals, merge with individual snapshots and preserve detail lookup', async () => {
+    const records = new Map();
+    const store = () => ({
+        async setJSON(key, value, options) {
+            if (options?.onlyIfNew && records.has(key)) return { modified: false };
+            records.set(key, structuredClone(value));
+        },
+        async get(key) {
+            return records.get(key) || null;
+        },
+        async list() {
+            return { blobs: [...records.keys()].map((key) => ({ key })) };
+        }
+    });
+    const archive = createJamArchive(store);
+    const old = { id: 'old', title: 'Original jam', start: '2000-01-01', allDay: true };
+    const removed = { ...old, id: 'removed', title: 'Removed from source' };
+    assert.equal(await archive.saveHistory('dutch', [old, removed]), true);
+    assert.equal(records.size, 1);
+    assert.equal(await archive.saveHistory('dutch', [removed, old]), true);
+    assert.equal(records.size, 1);
+    const reloaded = createJamArchive(store);
+    assert.equal((await reloaded.load('dutch', 'old')).title, old.title);
+    assert.equal(await reloaded.load('europe', 'old'), null);
+    await archive.saveHistory('dutch', [{ ...old, title: 'Updated jam' }]);
+    const history = await archive.list();
+    assert.equal(history.length, 2);
+    assert.equal(history.find((event) => event.id === 'old').title, 'Updated jam');
+    assert.equal(history.find((event) => event.id === 'removed').title, removed.title);
+    await archive.save({ ...old, title: 'Latest individual details' });
+    assert.equal((await archive.load('dutch', 'old')).title, 'Latest individual details');
+    assert.equal(
+        (await archive.list()).find((event) => event.id === 'old').title,
+        'Latest individual details'
+    );
+    await archive.saveHistory('dutch', [{ ...old, title: 'Newest history details' }]);
+    assert.equal((await archive.load('dutch', 'old')).title, 'Newest history details');
+    const list = archive.list.bind(archive);
+    archive.list = async () => {
+        const events = await list();
+        await archive.save({ ...old, id: 'concurrent', title: 'Concurrent save' });
+        return events;
+    };
+    assert.equal((await archive.load('dutch', 'removed')).title, removed.title);
+});
