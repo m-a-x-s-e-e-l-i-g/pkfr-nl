@@ -17,7 +17,9 @@ test('calendar loading recovers from outages, follows every result page, and ser
     });
     const originalFetch = globalThis.fetch;
     try {
-        const { loadJams, loadJam } = await server.ssrLoadModule('/src/lib/server/jamEvents.js');
+        const { loadJams, loadJam, loadJamAgenda } = await server.ssrLoadModule(
+            '/src/lib/server/jamEvents.js'
+        );
         globalThis.fetch = async () => new Response('', { status: 503 });
         await assert.rejects(loadJams, { status: 503 });
 
@@ -46,6 +48,10 @@ test('calendar loading recovers from outages, follows every result page, and ser
         assert.equal(events, concurrentEvents);
         assert.deepEqual(requestedPages, [null, 'next']);
         assert.equal(await loadJams(), events);
+        const agenda = await loadJamAgenda();
+        assert.equal(agenda.events, events);
+        assert.ok(Number.isFinite(Date.parse(agenda.retrievedAt)));
+        assert.equal((await loadJamAgenda()).retrievedAt, agenda.retrievedAt);
         assert.equal(requestedPages.length, 2);
 
         globalThis.fetch = async (url) => {

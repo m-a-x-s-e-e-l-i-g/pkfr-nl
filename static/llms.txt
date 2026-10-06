@@ -1,0 +1,32 @@
+# pkfr.nl — Parkour & freerunning in the Netherlands
+
+> Community-maintained resource for Dutch parkour jams, freerunning events, open gyms and training locations. The Dutch event agenda is curated by pkfr.nl with contributions from the community.
+
+The site is maintained by Max Seelig. Event dates, locations and descriptions come from the published calendars. Each jam has a canonical detail page with the full available information and original source links. Times in the Dutch agenda use Europe/Amsterdam; all-day dates are labeled explicitly.
+
+The live feeds below contain current and upcoming published Dutch events, with recurring events expanded up to five years ahead. Their retrievedAt timestamp is the source retrieval time, not an event edit time. Source data is cached for five minutes. They return HTTP 503 when the calendar cannot be loaded. Past event routes are retained when the site has captured them; the archive is not a complete historical calendar. European and American agendas are separate external community sources.
+
+## Dutch event calendar
+
+- [Live Dutch agenda in Markdown](https://www.pkfr.nl/jams.md): Current dates, times, locations, source-provided descriptions and canonical event links in plain text.
+- [Live Dutch agenda in JSON](https://www.pkfr.nl/api/jams): Versioned public feed with schema.org Event fields, all-day flags, a count and source retrieval timestamp. All-day endDate values are inclusive.
+- [Dutch parkour jams and freerunning events](https://www.pkfr.nl/jams): Human-readable agenda, event detail links and complete-calendar subscriptions.
+- [Past jam archive](https://www.pkfr.nl/jams/archive): Captured past events, including regional filters and pagination. Past detail pages show their original dates and link to upcoming events.
+- [Submit an event or correction](https://www.pkfr.nl/jams#submit-jam): Community contribution form for missing events and updates.
+
+## Training and community
+
+- [Open gyms in the Netherlands](https://www.pkfr.nl/open-gyms): Server-rendered seven-day schedule with previous/next navigation and source links; registration may be required.
+- [Indoor freerun Gym Finder](https://www.pkfr.nl/tools/gym-finder): Gym locations, photos and websites.
+- [Parkour training spots](https://www.pkfr.nl/spots): Community spot maps and training resources.
+- [Community links](https://www.pkfr.nl/links): Clubs, brands and community resources.
+
+## International calendars
+
+- [European parkour jams](https://www.pkfr.nl/jams/europe): Calendar sourced from MATTTMA, with individual detail routes and original source links.
+- [American Parkour events](https://www.pkfr.nl/jams/america): Calendar sourced from American Parkour Community Events, with individual detail routes and original source links.
+
+## Discovery
+
+- [Sitemap](https://www.pkfr.nl/sitemap.xml): Main routes, upcoming jam details and captured past event routes.
+- [Home](https://www.pkfr.nl/): About the site, upcoming jams and today's and tomorrow's open gyms.

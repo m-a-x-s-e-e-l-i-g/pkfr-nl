@@ -63,6 +63,14 @@ Notes
 - The jam pages use the existing `VITE_GOOGLE_API_KEY` and `VITE_JAM_CALENDAR_ID`. The server follows all result pages, expands recurring events within the next five years, and caches the overview for five minutes. Times are displayed in Europe/Amsterdam; all-day end dates remain exclusive when adding an event to your calendar.
 - To update a jam or open gym, edit the event in the corresponding Google Calendar or open an issue/PR if you need help.
 
+## Search and AI retrieval
+
+- Public HTML includes schema.org WebSite/publisher metadata. Jam overview/archive pages describe their visible events with ItemList markup, and each detail route describes the actual Event (also for past events). No ticket prices, organizers, addresses or event edit dates are inferred. All-day schema end dates are inclusive; calendar-subscription end dates remain exclusive.
+- `/api/jams` is a public versioned JSON snapshot of the Dutch agenda with Event fields, canonical detail URLs, all-day flags and `retrievedAt`. `/jams.md` exposes the same source snapshot as Markdown. Both use the same five-minute source cache as `/jams`; retrieval time is preserved on cache hits, and is not an event modification time. CDN copies may also be cached for five minutes. Calendar outages return 503 with `no-store`, not a misleading empty success response. Recurring events are expanded up to five years ahead.
+- The HTML head links to the alternate JSON/Markdown representations. `/llms.txt` is a small, stable navigation index for tools that support the llms.txt proposal; it links to the live data rather than embedding a stale list of dates. It is optional discovery material, not an OpenAI requirement or ranking signal guaranteed by OpenAI.
+- `robots.txt` explicitly permits `OAI-SearchBot` (ChatGPT Search) and `ChatGPT-User` (user-initiated retrieval), retaining the existing wildcard policy. GPTBot's separate training policy is unchanged. A successful request using these User-Agent strings checks public access, not real crawler IP reachability or search indexing. If site protection is introduced, check OpenAI's published crawler IP ranges as well: https://developers.openai.com/api/docs/bots.
+- Search indexing and ChatGPT citation selection are outside this site's control. Keep the source calendar accurate, preserve canonical detail routes, and submit the sitemap to search engines. The visible source section identifies the community curator and contribution process.
+
 ## Build & deploy 🚀
 
 - Build the site:

@@ -58,12 +58,8 @@ export function jamDateRange(event, language = 'nl') {
     return start === end ? start : `${start} – ${end}`;
 }
 
-export function isPastJam(event, now = new Date()) {
-    if (event.allDay || (event.region && event.timeZone === 'UTC' && !event.sourceTimeZone)) {
-        const today = new Intl.DateTimeFormat('en-CA', { timeZone: JAM_TIME_ZONE }).format(now);
-        return lastEventDate(event).slice(0, 10) < today;
-    }
-    let end = Date.parse(event.end || event.start);
+export function jamInstant(event, value) {
+    let end = Date.parse(value);
     if (event.region && event.timeZone === 'UTC' && event.sourceTimeZone) {
         // Source-local times are stored with a Z marker for wall-clock display.
         const target = end;
@@ -86,7 +82,15 @@ export function isPastJam(event, now = new Date()) {
                 Date.parse(`${p.year}-${p.month}-${p.day}T${p.hour}:${p.minute}:${p.second}Z`);
         }
     }
-    return end <= new Date(now).valueOf();
+    return end;
+}
+
+export function isPastJam(event, now = new Date()) {
+    if (event.allDay || (event.region && event.timeZone === 'UTC' && !event.sourceTimeZone)) {
+        const today = new Intl.DateTimeFormat('en-CA', { timeZone: JAM_TIME_ZONE }).format(now);
+        return lastEventDate(event).slice(0, 10) < today;
+    }
+    return jamInstant(event, event.end || event.start) <= new Date(now).valueOf();
 }
 
 export function jamTime(event, language = 'nl') {

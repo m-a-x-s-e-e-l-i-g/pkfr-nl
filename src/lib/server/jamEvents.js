@@ -46,8 +46,9 @@ export async function loadJams() {
             events.push(...(data.items || []).map(normalizeJam).filter(Boolean));
             pageToken = data.nextPageToken;
         } while (pageToken);
+        const retrievedAt = new Date().toISOString();
         const preserved = await Promise.all(events.map(preserveJam));
-        cachedList = { events: preserved, expires: Date.now() + CACHE_TTL };
+        cachedList = { events: preserved, retrievedAt, expires: Date.now() + CACHE_TTL };
         return preserved;
     })();
     try {
@@ -55,6 +56,12 @@ export async function loadJams() {
     } finally {
         pendingList = null;
     }
+}
+
+// HTML and public data representations share one source snapshot and retrieval time.
+export async function loadJamAgenda() {
+    const events = await loadJams();
+    return { events, retrievedAt: cachedList.retrievedAt };
 }
 
 export async function loadJam(id) {

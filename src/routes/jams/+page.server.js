@@ -1,11 +1,12 @@
-import { loadJams } from '$lib/server/jamEvents';
+import { loadJamAgenda } from '$lib/server/jamEvents';
 
 export const prerender = false;
 
 export async function load() {
     try {
-        return { events: await loadJams(), calendarUnavailable: false };
+        const { events, retrievedAt } = await loadJamAgenda();
+        return { events, calendarFetchedAt: retrievedAt, calendarUnavailable: false };
     } catch {
-        return { events: [], calendarUnavailable: true };
+        return { events: [], calendarFetchedAt: null, calendarUnavailable: true };
     }
 }

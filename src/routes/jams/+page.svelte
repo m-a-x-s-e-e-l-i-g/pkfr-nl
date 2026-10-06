@@ -5,12 +5,18 @@
 	import CalendarAddSVG from '$lib/components/svg/CalendarAddSVG.svelte';
 	import DownloadSVG from '$lib/components/svg/DownloadSVG.svelte';
 	import ExternalLinkSVG from '$lib/components/svg/ExternalLinkSVG.svelte';
-	import { t } from 'svelte-i18n';
+	import { t, locale } from 'svelte-i18n';
 
 	const heroPhoto = '/images/gyms/rush-world/rush-world-rotterdam-west-2.jpg';
 	export let data;
+	$: fetchedDate = data.calendarFetchedAt
+		? new Intl.DateTimeFormat($locale === 'en' ? 'en-GB' : 'nl-NL', {
+				timeZone: 'Europe/Amsterdam',
+				dateStyle: 'long',
+				timeStyle: 'short'
+			}).format(new Date(data.calendarFetchedAt))
+		: null;
 </script>
-
 
 <section class="page-hero" style={`--hero-photo: url("${heroPhoto}")`}>
 	<div class="hero-content">
@@ -35,7 +41,8 @@
 					href="https://calendar.google.com/calendar/?cid=MmY0OWI4ZDM0Njk2ZTI3YWE1MDhhNGM2NjllNDUzM2M3NGMxMWFlNGU1ZmZjOWRjNDhjZDVjMDZkMGEwM2NiM0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
 					rel="noreferrer"
 					target="_blank"
-					class="button-secondary action-btn">
+					class="button-secondary action-btn"
+				>
 					<CalendarAddSVG />
 					<span class="btn-text">{$t('jams.addToCalendar')}</span>
 				</a>
@@ -44,7 +51,8 @@
 					href="https://calendar.google.com/calendar/ical/2f49b8d34696e27aa508a4c669e4533c74c11ae4e5ffc9dc48cd5c06d0a03cb3%40group.calendar.google.com/public/basic.ics"
 					rel="noreferrer"
 					target="_blank"
-					class="button-secondary action-btn">
+					class="button-secondary action-btn"
+				>
 					<DownloadSVG />
 					<span class="btn-text">{$t('jams.downloadICal')}</span>
 				</a>
@@ -53,7 +61,8 @@
 					href="https://calendar.google.com/calendar/embed?src=2f49b8d34696e27aa508a4c669e4533c74c11ae4e5ffc9dc48cd5c06d0a03cb3%40group.calendar.google.com&ctz=Europe%2FAmsterdam"
 					rel="noreferrer"
 					target="_blank"
-					class="button-secondary action-btn">
+					class="button-secondary action-btn"
+				>
 					<ExternalLinkSVG />
 					<span class="btn-text">{$t('jams.openCalendar')}</span>
 				</a>
@@ -62,11 +71,32 @@
 	</div>
 </section>
 
+<section class="content-section" aria-labelledby="calendar-source-title">
+	<div class="section-card calendar-source">
+		<h2 id="calendar-source-title">{$t('jams.sourceTitle')}</h2>
+		<p>{$t('jams.sourceDescription')}</p>
+		<p>{$t('jams.sourceNote')}</p>
+		{#if fetchedDate}
+			<p class="retrieval-time">
+				<time datetime={data.calendarFetchedAt}
+					>{$t('jams.sourceFetched', { values: { date: fetchedDate } })}</time
+				>
+			</p>
+		{/if}
+		<p><a href="#submit-jam">{$t('jams.sourceCorrection')} →</a></p>
+		<div class="data-links">
+			<span>{$t('jams.dataLabel')}</span>
+			<a href="/jams.md" type="text/markdown">{$t('jams.dataText')}</a>
+			<a href="/api/jams" type="application/json">{$t('jams.dataJson')}</a>
+		</div>
+	</div>
+</section>
+
 <section class="content-section" id="submit-jam">
 	<div class="section-card">
 		<h2>{$t('jams.submitTitle')}</h2>
 		<p>{$t('jams.submitDescription')}</p>
-		<InputCollector pagePath={$page.url.pathname}/>
+		<InputCollector pagePath={$page.url.pathname} />
 	</div>
 </section>
 
@@ -90,9 +120,7 @@
 			<span class="card-icon">🌍</span>
 			<h2>{$t('jams.europeTitle')}</h2>
 			<p>{@html $t('jams.europeDescription')}</p>
-			<a
-				href="/jams/europe"
-				class="button">{$t('jams.europeButton')}</a>
+			<a href="/jams/europe" class="button">{$t('jams.europeButton')}</a>
 		</div>
 
 		<div class="section-card">
@@ -239,6 +267,26 @@
 		margin-bottom: 1.5rem;
 	}
 
+	.calendar-source p {
+		max-width: 75ch;
+		margin-bottom: 1rem;
+	}
+
+	.calendar-source .retrieval-time {
+		font-size: 0.875rem;
+	}
+
+	.data-links {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: 0.5rem 1rem;
+		border-top: 1px solid var(--color-border);
+		padding-top: 1rem;
+		font-size: 0.875rem;
+		color: var(--color-muted-foreground);
+	}
+
 	.card-icon {
 		display: block;
 		font-size: 2rem;
@@ -326,5 +374,4 @@
 			justify-content: center;
 		}
 	}
-
 </style>
