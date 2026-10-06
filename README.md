@@ -51,6 +51,7 @@ Notes
 ## Managing data (Jams / Open Gyms) 🗂️
 
 - Events (Jams) and Open Gyms are managed in Google Calendar. The site reads calendar events via the configured calendar IDs.
+- Home shows the first upcoming jam and the open gym sessions for today and tomorrow, using Dutch calendar-day boundaries. Both are loaded on the server with a five-minute cache; the open gym schedule refreshes when the Dutch date changes.
 - `/jams` renders upcoming events on the server in chronological month groups. Each item has a shareable `/jams/{title}--{google-event-id}` detail page; title changes do not break existing links. Detail pages also remain available for past events.
 - The jam pages use the existing `VITE_GOOGLE_API_KEY` and `VITE_JAM_CALENDAR_ID`. The server follows all result pages, expands recurring events within the next five years, and caches the overview for five minutes. Times are displayed in Europe/Amsterdam; all-day end dates remain exclusive when adding an event to your calendar.
 - To update a jam or open gym, edit the event in the corresponding Google Calendar or open an issue/PR if you need help.

@@ -21,7 +21,7 @@
             "openGymsDescription": "Train binnen",
             "toolsDescription": "Handige hulpmiddelen"
         },
-        "upcomingOpenGyms": "Aankomenende Open Gyms",
+        "upcomingOpenGyms": "Open gyms vandaag & morgen",
         "viewAllOpenGyms": "Bekijk alle open gyms",
         "whatsappCommunity": "WhatsApp Community",
         "whatsappDescription": "De Nederlandse parkour en freerunning community is vooral actief op WhatsApp. <a href=\"https://chat.whatsapp.com/GamwcVgPYnq3UbKog2H9M8\" rel=\"noreferrer\" target=\"_blank\">Join de community</a>, zo kun je makkelijk mensen vinden om mee te seshen.",
@@ -34,6 +34,16 @@
         "fromTo": "Van {startTime} tot {endTime}.",
         "addToCalendar": "Plaats in mijn agenda",
         "viewAllEvents": "Bekijk alle events"
+    },
+    "openGymSchedule": {
+        "today": "Vandaag",
+        "tomorrow": "Morgen",
+        "sessions": "{count, plural, one {# sessie} other {# sessies}}",
+        "emptyDay": "Geen open gyms gepland voor deze dag.",
+        "unavailable": "Het open-gymoverzicht is tijdelijk niet beschikbaar.",
+        "viewCalendar": "Bekijk de volledige open-gymagenda",
+        "eventDetails": "Bekijk sessie in Google Agenda",
+        "note": "Tijden in Nederland. Klik op een sessie voor de details; soms is vooraf aanmelden nodig."
     },
     "calendarSubscriptions": {
         "label": "Opties om je op de kalender te abonneren",
