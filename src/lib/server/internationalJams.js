@@ -1,7 +1,8 @@
 import { EUROPE_JAM_FEED_URL } from '../calendarFeeds.js';
-import { JAM_TIME_ZONE, lastEventDate } from '../jamEvents.js';
+import { JAM_TIME_ZONE, lastEventDate, isPastJam } from '../jamEvents.js';
 import { normalizeJam } from './normalizeJam.js';
 import { error } from '@sveltejs/kit';
+import { archivedJam, preserveJam } from './jamArchive.js';
 
 const EUROPE_SOURCE = 'https://www.matttma.de/en/parkourjamcalendar';
 const AMERICA_SOURCE = 'https://americanparkour.com/community-events/';
@@ -133,7 +134,8 @@ async function loadInternationalItems(region, fetch) {
 }
 
 export async function loadInternationalJams(region, fetch) {
-    return upcomingInternationalJams(await loadInternationalItems(region, fetch), region);
+    const events = upcomingInternationalJams(await loadInternationalItems(region, fetch), region);
+    return Promise.all(events.map(preserveJam));
 }
 
 export async function loadInternationalJam(region, id, fetch) {
@@ -141,11 +143,17 @@ export async function loadInternationalJam(region, id, fetch) {
     try {
         items = await loadInternationalItems(region, fetch);
     } catch {
+        const archived = await archivedJam(region, id);
+        if (archived && isPastJam(archived)) return archived;
         error(503, 'Jam calendar is temporarily unavailable');
     }
     const event = items
         .map((item) => normalizeInternationalJam(item, region))
         .find((event) => event?.id === id);
-    if (!event) error(404, 'Event not found');
-    return event;
+    if (!event) {
+        const archived = await archivedJam(region, id);
+        if (archived && isPastJam(archived)) return archived;
+        error(404, 'Event not found');
+    }
+    return preserveJam(event);
 }

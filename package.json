@@ -59,6 +59,7 @@
         "yaml": "1.10.3"
     },
     "dependencies": {
+        "@netlify/blobs": "^11.1.3",
         "@tailwindcss/postcss": "^4.3.2",
         "@unpic/svelte": "^1.0.1",
         "embla-carousel-autoplay": "^8.6.0",

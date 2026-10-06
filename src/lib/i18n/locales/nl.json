@@ -255,6 +255,10 @@
     },
     "jamAgenda": {
         "next": "Eerstvolgende",
+        "pastTitle": "Deze jam is afgelopen",
+        "pastLabel": "Afgelopen jam",
+        "pastDescription": "Deze pagina blijft bewaard als archief. Op zoek naar je volgende jam?",
+        "upcomingAction": "Bekijk aankomende jams",
         "allDay": "Hele dag",
         "locationPending": "Locatie volgt",
         "viewEvent": "Bekijk event",

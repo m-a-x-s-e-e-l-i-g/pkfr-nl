@@ -1,6 +1,7 @@
 import { error } from '@sveltejs/kit';
 import { normalizeJam } from './normalizeJam.js';
-import { JAM_TIME_ZONE } from '$lib/jamEvents';
+import { JAM_TIME_ZONE, isPastJam } from '$lib/jamEvents';
+import { archivedJam, preserveJam } from './jamArchive.js';
 
 const CACHE_TTL = 5 * 60 * 1000;
 let cachedList;
@@ -45,8 +46,9 @@ export async function loadJams() {
             events.push(...(data.items || []).map(normalizeJam).filter(Boolean));
             pageToken = data.nextPageToken;
         } while (pageToken);
-        cachedList = { events, expires: Date.now() + CACHE_TTL };
-        return events;
+        const preserved = await Promise.all(events.map(preserveJam));
+        cachedList = { events: preserved, expires: Date.now() + CACHE_TTL };
+        return preserved;
     })();
     try {
         return await pendingList;
@@ -60,7 +62,15 @@ export async function loadJam(id) {
         const cachedEvent = cachedList.events.find((event) => event.id === id);
         if (cachedEvent) return cachedEvent;
     }
-    const event = normalizeJam(await requestEvents(`/${encodeURIComponent(id)}`));
+    let item;
+    try {
+        item = await requestEvents(`/${encodeURIComponent(id)}`);
+    } catch (err) {
+        const archived = await archivedJam('dutch', id);
+        if (archived && isPastJam(archived)) return archived;
+        throw err;
+    }
+    const event = normalizeJam(item);
     if (!event) error(404, 'Event not found');
-    return event;
+    return preserveJam(event);
 }

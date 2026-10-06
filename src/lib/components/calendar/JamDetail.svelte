@@ -14,9 +14,12 @@
         jamAgendaPath,
         jamPath,
         jamTime,
+        isPastJam,
         mapsUrl
     } from '$lib/jamEvents';
     export let event;
+    export let now = Date.now();
+    $: past = isPastJam(event, new Date(now));
     $: agendaKey =
         event.region === 'europe'
             ? 'jamsEurope'
@@ -27,7 +30,7 @@
 </script>
 
 <svelte:head>
-    <title>{event.title} {titlePostfix}</title>
+    <title>{event.title}{past ? ` · ${$t('jamAgenda.pastLabel')}` : ''} {titlePostfix}</title>
     <meta
         name="description"
         content={event.excerpt.slice(0, 160) ||
@@ -49,6 +52,17 @@
 >
 
 <article class="jam-detail">
+    {#if past}
+        <section class="past-event" aria-labelledby="past-event-title">
+            <div>
+                <h2 id="past-event-title">{$t('jamAgenda.pastTitle')}</h2>
+                <p>{$t('jamAgenda.pastDescription')}</p>
+            </div>
+            <a href={jamAgendaPath(event)}
+                >{$t('jamAgenda.upcomingAction')} <ArrowUpRight size={18} aria-hidden="true" /></a
+            >
+        </section>
+    {/if}
     <header class="event-heading">
         <time class="date-poster" datetime={event.start} aria-label={jamDateRange(event, $locale)}>
             <span>{jamDate(event, $locale, { weekday: 'long' })}</span>
@@ -105,7 +119,7 @@
                     {/if}
                 </div>
             </dl>
-            {#if !event.region || event.timeZone !== 'UTC' || event.sourceTimeZone}
+            {#if !past && (!event.region || event.timeZone !== 'UTC' || event.sourceTimeZone)}
                 <a
                     class="calendar-button"
                     href={googleEventUrl(event)}
@@ -129,6 +143,38 @@
 </article>
 
 <style>
+    .past-event {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem 2rem;
+        padding: 1.25rem 1.5rem;
+        margin-bottom: 2rem;
+        border: 1px solid var(--color-border);
+        border-radius: 0.75rem;
+        background: var(--color-muted);
+    }
+    .past-event h2 {
+        margin: 0 0 0.375rem;
+        font-size: 1.125rem !important;
+        color: var(--color-foreground);
+    }
+    .past-event p {
+        margin: 0;
+        font-size: 0.875rem;
+        color: var(--color-muted-foreground);
+    }
+    .past-event a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        min-height: 2.75rem;
+        color: var(--color-primary);
+        font-size: 0.875rem;
+        font-weight: 700;
+        text-decoration: none;
+    }
     .back-link {
         display: inline-flex;
         align-items: center;

@@ -255,6 +255,10 @@
     },
     "jamAgenda": {
         "next": "Up next",
+        "pastTitle": "This jam has finished",
+        "pastLabel": "Past jam",
+        "pastDescription": "This page is kept as an archive. Looking for your next jam?",
+        "upcomingAction": "Explore upcoming jams",
         "allDay": "All day",
         "locationPending": "Location to be announced",
         "viewEvent": "View event",

@@ -3,4 +3,4 @@
     export let data;
 </script>
 
-<JamDetail event={data.event} />
+<JamDetail event={data.event} now={data.now} />

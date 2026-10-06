@@ -4,8 +4,10 @@ import { loadInternationalJam } from '$lib/server/internationalJams';
 
 export const prerender = false;
 
-export async function load({ params, fetch }) {
+export async function load({ params, fetch, setHeaders }) {
     const id = eventIdFromSlug(params.slug, 'europe');
     if (!id) error(404, 'Event not found');
-    return { event: await loadInternationalJam('europe', id, fetch) };
+    const event = await loadInternationalJam('europe', id, fetch);
+    setHeaders({ 'x-pkfr-event-archive': event.archiveStored ? 'stored' : 'not-stored' });
+    return { event, now: Date.now() };
 }

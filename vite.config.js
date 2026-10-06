@@ -4,6 +4,9 @@ import tailwindcss from '@tailwindcss/vite';
 /** @type {import('vite').UserConfig} */
 const config = {
     plugins: [tailwindcss(), sveltekit()],
+    define: {
+        __NETLIFY_DEPLOY_CONTEXT__: JSON.stringify(process.env.CONTEXT || 'local')
+    },
     resolve: {
         dedupe: ['@fullcalendar/common']
     },
