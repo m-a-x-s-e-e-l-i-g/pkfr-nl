@@ -1,5 +1,4 @@
 <script>
-	import { titlePostfix } from '$lib/config';
 	import JamsList from '$lib/components/calendar/JamsList.svelte';
 	import CalendarSubscribeActions from '$lib/components/calendar/CalendarSubscribeActions.svelte';
 	import { t } from 'svelte-i18n';
@@ -8,10 +7,6 @@
 	const sourceUrl = 'https://americanparkour.com/community-events/';
 	export let data;
 </script>
-
-<svelte:head>
-	<title>{$t('jamsAmerica.pageTitle')} {titlePostfix}</title>
-</svelte:head>
 
 <section class="page-hero" style={`--hero-photo: url("${heroPhoto}")`}>
 	<div class="hero-content">
@@ -33,6 +28,7 @@
 			{sourceUrl}
 			sourceLabel="jamsAmerica.sourceButton"
 		/>
+		<p class="section-subtitle"><a href="/jams/archive">{$t('jamArchive.link')} →</a></p>
 		<CalendarSubscribeActions feedPath="/api/jams/american/calendar.ics" />
 	</div>
 </section>

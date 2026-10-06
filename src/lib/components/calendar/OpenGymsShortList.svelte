@@ -7,6 +7,7 @@
 
     export let days = [];
     export let unavailable = false;
+    export let relativeDays = true;
 </script>
 
 {#if unavailable}
@@ -15,13 +16,17 @@
         <a href="/open-gyms">{$t('openGymSchedule.viewCalendar')} →</a>
     </div>
 {:else}
-    <div class="gym-schedule">
+    <div class="gym-schedule" class:full-week={days.length > 2}>
         {#each days as day, index (day.date)}
             <section class="schedule-day" aria-labelledby={`gym-day-${day.date}`}>
                 <header class="day-header">
                     <div>
                         <h3 id={`gym-day-${day.date}`}>
-                            {$t(index === 0 ? 'openGymSchedule.today' : 'openGymSchedule.tomorrow')}
+                            {#if relativeDays && index < 2}
+                                {$t(index === 0 ? 'openGymSchedule.today' : 'openGymSchedule.tomorrow')}
+                            {:else}
+                                {jamDate({ start: day.date, allDay: true }, $locale, { weekday: 'long' })}
+                            {/if}
                         </h3>
                         <time datetime={day.date}
                             >{jamDate({ start: day.date, allDay: true }, $locale, {
@@ -104,6 +109,7 @@
         overflow: hidden;
         margin: 0;
     }
+    .gym-schedule.full-week { grid-template-columns: 1fr; }
     .day-header {
         display: flex;
         justify-content: space-between;

@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { titlePostfix } from '$lib/config';
 	import { getGyms } from '$lib/assets/js/gyms.js';
 	import Autoplay from "embla-carousel-autoplay";
 	import * as Carousel from "$lib/components/ui/carousel/index.js";
@@ -286,10 +285,6 @@
 	}
 </style>
 
-
-<svelte:head>
-	<title>{$t('tools.gymFinder.pageTitle')} {titlePostfix}</title>
-</svelte:head>
 
 <section class="page-hero" style={`--hero-photo: url(\"${heroPhoto}\")`}>
 	<div class="hero-content">

@@ -5,6 +5,7 @@
 	import '../app.pcss';
 	import '$lib/assets/scss/global.scss';
 	import Header from '$lib/components/Header.svelte';
+	import Seo from '$lib/components/Seo.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import { currentPage, isMenuOpen } from '$lib/assets/js/store';
 	import { theme } from '$lib/stores/settings.js';
@@ -37,6 +38,8 @@
 	The below markup is used on every page in the site. The <slot> is where the page's
 	actual contents will show up.
 -->
+<Seo />
+
 {#if !$isLoading}
 <div class="page-wrapper" class:open={$isMenuOpen}>
 	<Header></Header>

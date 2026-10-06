@@ -31,20 +31,18 @@ function midnight(date) {
     return new Date(instant).toISOString();
 }
 
-export function openGymDays(now = new Date()) {
+export function openGymDays(now = new Date(), count = 2, offset = 0) {
     const p = parts(now);
     const today = Date.parse(`${p.year}-${p.month}-${p.day}T00:00:00Z`);
-    const dates = [0, 1, 2].map((offset) =>
-        new Date(today + offset * 86400000).toISOString().slice(0, 10)
+    const dates = Array.from({ length: count + 1 }, (_, index) =>
+        new Date(today + (index + offset) * 86400000).toISOString().slice(0, 10)
     );
-    return dates
-        .slice(0, 2)
-        .map((date, index) => ({
-            date,
-            start: midnight(date),
-            end: midnight(dates[index + 1]),
-            events: []
-        }));
+    return dates.slice(0, count).map((date, index) => ({
+        date,
+        start: midnight(date),
+        end: midnight(dates[index + 1]),
+        events: []
+    }));
 }
 
 export function groupOpenGyms(items, days) {

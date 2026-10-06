@@ -2,16 +2,11 @@
 	import OpenGymsShortList from '$lib/components/calendar/OpenGymsShortList.svelte';
 	import JamsList from '$lib/components/calendar/JamsList.svelte';
 	import ToolCard from '$lib/components/ToolCard.svelte';
-	import { siteTitle, titlePostfix } from '$lib/config';
 	import { t } from 'svelte-i18n';
 
 	const heroPhoto = '/images/hero-images/4c603e86-2375-4d4a-b1b6-5724029da98f_rw_1920.webp';
 	export let data;
 </script>
-
-<svelte:head>
-	<title>{siteTitle} {titlePostfix}</title>
-</svelte:head>
 
 <!-- Hero Section -->
 <section class="home-hero mb-12" style={`--hero-photo: url("${heroPhoto}")`}>

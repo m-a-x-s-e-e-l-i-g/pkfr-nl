@@ -43,7 +43,11 @@
         "unavailable": "Het open-gymoverzicht is tijdelijk niet beschikbaar.",
         "viewCalendar": "Bekijk de volledige open-gymagenda",
         "eventDetails": "Bekijk sessie in Google Agenda",
-        "note": "Tijden in Nederland. Klik op een sessie voor de details; soms is vooraf aanmelden nodig."
+        "note": "Tijden in Nederland. Klik op een sessie voor de details; soms is vooraf aanmelden nodig.",
+        "weekTitle": "Open-gymagenda",
+        "navigation": "Blader door de open-gymagenda",
+        "previousWeek": "Vorige zeven dagen",
+        "nextWeek": "Volgende zeven dagen"
     },
     "calendarSubscriptions": {
         "label": "Opties om je op de kalender te abonneren",
@@ -281,5 +285,24 @@
         "unavailableTitle": "De agenda is even niet beschikbaar",
         "unavailableDescription": "Probeer het opnieuw of open de Google Agenda via de link hieronder.",
         "retry": "Opnieuw proberen"
+    },
+    "jamArchive": {
+        "badge": "Jamarchief",
+        "title": "Afgelopen jams & events",
+        "description": "Bewaarde jams uit de Nederlandse, Europese en American Parkour agenda. Deze events zijn afgelopen; de details blijven beschikbaar. Het archief groeit zodra events worden vastgelegd.",
+        "link": "Bekijk afgelopen jams",
+        "filterLabel": "Filter het jamarchief",
+        "regions": {
+            "all": "Alle agenda’s",
+            "dutch": "Nederland",
+            "europe": "Europa",
+            "america": "American Parkour"
+        },
+        "empty": "Er zijn nog geen afgelopen jams bewaard voor deze agenda.",
+        "unavailable": "Het jamarchief is tijdelijk niet beschikbaar. Probeer het later opnieuw.",
+        "pagination": "Pagina’s van het jamarchief",
+        "previous": "Vorige",
+        "next": "Volgende",
+        "page": "Pagina {page} van {pages}"
     }
 }

@@ -40,6 +40,9 @@ test('snapshots survive a fresh archive instance, isolate feeds and only rewrite
         },
         async get(key) {
             return records.get(key) || null;
+        },
+        async list() {
+            return { blobs: [...records.keys()].map((key) => ({ key })) };
         }
     });
     const archive = createJamArchive(store);
@@ -55,9 +58,11 @@ test('snapshots survive a fresh archive instance, isolate feeds and only rewrite
     assert.equal(writes, 1);
     const reloaded = createJamArchive(store);
     assert.deepEqual(await reloaded.load('america', event.id), { ...event, archiveStored: true });
+    assert.equal((await reloaded.list()).length, 1);
     assert.equal(await reloaded.load('europe', event.id), null);
     await archive.save({ ...event, title: 'Updated title' });
     assert.equal(writes, 2);
     assert.equal((await reloaded.load('america', event.id)).title, 'Updated title');
+    assert.equal((await archive.list())[0].title, 'Updated title');
     assert.ok([...records.keys()].every((key) => key.length < 600));
 });

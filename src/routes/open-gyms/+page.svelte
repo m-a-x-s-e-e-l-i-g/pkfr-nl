@@ -1,8 +1,9 @@
 <script>
-	import { titlePostfix } from '$lib/config';
 	import InputCollector from '$lib/components/InputCollector.svelte';
 	import { page } from '$app/stores';
-	import OpenGymsList from '$lib/components/calendar/OpenGymsList.svelte';
+	import OpenGymsShortList from '$lib/components/calendar/OpenGymsShortList.svelte';
+	import { jamDate } from '$lib/jamEvents';
+	import { locale } from 'svelte-i18n';
 	import ToolCard from '$lib/components/ToolCard.svelte';
 	import CalendarAddSVG from '$lib/components/svg/CalendarAddSVG.svelte';
 	import DownloadSVG from '$lib/components/svg/DownloadSVG.svelte';
@@ -10,12 +11,9 @@
 	import { t } from 'svelte-i18n';
 
 	const heroPhoto = '/images/gyms/progression-academy/progression-academy-purmerend-3.jpg';
+	export let data;
 </script>
 
-
-<svelte:head>
-	<title>{$t('openGyms.pageTitle')} {titlePostfix}</title>
-</svelte:head>
 
 <section class="page-hero" style={`--hero-photo: url("${heroPhoto}")`}>
 	<div class="hero-content">
@@ -36,7 +34,17 @@
 		/>
 
 		<div class="section-card">
-			<OpenGymsList />
+			<h2>{$t('openGymSchedule.weekTitle')}</h2>
+			<p class="schedule-range">
+				{jamDate({ start: data.openGymDays[0].date, allDay: true }, $locale, { day: 'numeric', month: 'long' })}
+				– {jamDate({ start: data.openGymDays.at(-1).date, allDay: true }, $locale, { day: 'numeric', month: 'long', year: 'numeric' })}
+			</p>
+			<nav class="week-navigation" aria-label={$t('openGymSchedule.navigation')}>
+				{#if data.week > -52}<a class="button-secondary" href={`?week=${data.week - 1}`}>← {$t('openGymSchedule.previousWeek')}</a>{/if}
+				{#if data.week !== 0}<a class="button-secondary" href="/open-gyms">{$t('openGymSchedule.today')}</a>{/if}
+				{#if data.week < 52}<a class="button-secondary" href={`?week=${data.week + 1}`}>{$t('openGymSchedule.nextWeek')} →</a>{/if}
+			</nav>
+			<OpenGymsShortList days={data.openGymDays} unavailable={data.openGymUnavailable} relativeDays={data.week === 0} />
 
 			<div class="calendar-actions">
 				<a
@@ -81,6 +89,8 @@
 </section>
 
 <style>
+	.week-navigation { display: flex; flex-wrap: wrap; gap: .75rem; margin: 1rem 0 1.5rem; }
+	.schedule-range { color: var(--color-muted-foreground); }
 	.page-hero {
 		position: relative;
 		overflow: hidden;

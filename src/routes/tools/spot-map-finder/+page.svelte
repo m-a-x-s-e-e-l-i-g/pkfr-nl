@@ -1,16 +1,11 @@
 <script>
   import PlacelistFilter from '$lib/components/PlacelistFilter.svelte';
-  import { titlePostfix } from '$lib/config';
   import InputCollector from '$lib/components/InputCollector.svelte';
   import { page } from '$app/stores';
   import { t } from 'svelte-i18n';
 
   const heroPhoto = '/images/hero-images/bd927f92-c9c2-4b92-9a82-27be84699571_rw_1920.webp';
 </script>
-
-<svelte:head>
-  <title>{$t('tools.spotMapFinder.pageTitle')} {titlePostfix}</title>
-</svelte:head>
 
 <section class="page-hero" style={`--hero-photo: url("${heroPhoto}")`}>
   <div class="hero-content">

@@ -57,6 +57,17 @@ test('open gym loading recovers, follows pages, shares requests and refreshes at
         const nextDay = await loadOpenGyms(new Date('2026-10-07T22:01:00Z'));
         assert.equal(nextDay[0].date, '2026-10-08');
         assert.equal(requests, 3);
+        globalThis.fetch = async (url) => {
+            requests++;
+            assert.equal(url.searchParams.get('timeMin'), '2026-10-05T22:00:00.000Z');
+            assert.equal(url.searchParams.get('timeMax'), '2026-10-12T22:00:00.000Z');
+            return Response.json({ items: [] });
+        };
+        const week = await loadOpenGyms(now, 7);
+        assert.equal(week.length, 7);
+        assert.equal(requests, 4);
+        assert.equal(await loadOpenGyms(now), days);
+        assert.equal(requests, 4);
     } finally {
         globalThis.fetch = originalFetch;
         await server.close();

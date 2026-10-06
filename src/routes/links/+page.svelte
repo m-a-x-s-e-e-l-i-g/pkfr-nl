@@ -1,5 +1,4 @@
 <script>
-	import { titlePostfix } from '$lib/config';
 	import Icon from 'svelte-awesome';
 	import whatsapp from 'svelte-awesome/icons/whatsapp';
 	import { t } from 'svelte-i18n';
@@ -7,10 +6,6 @@
 	const heroPhoto = '/images/gyms/vrog/vrog-amsterdam-4.jpg';
 
 </script>
-
-<svelte:head>
-	<title>{$t('links.pageTitle')} {titlePostfix}</title>
-</svelte:head>
 
 <section class="page-hero" style={`--hero-photo: url("${heroPhoto}")`}>
 	<div class="hero-content">

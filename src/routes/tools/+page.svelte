@@ -1,5 +1,4 @@
 <script>
-    import { titlePostfix } from '$lib/config';
     import ToolCard from '$lib/components/ToolCard.svelte';
     import { t } from 'svelte-i18n';
 
@@ -53,10 +52,6 @@
         }
     ];
 </script>
-
-<svelte:head>
-    <title>{$t('tools.pageTitle')} {titlePostfix}</title>
-</svelte:head>
 
 <section class="page-hero" style={`--hero-photo: url("${heroPhoto}")`}>
     <div class="hero-content">

@@ -1,14 +1,9 @@
 <script>
-	import { titlePostfix } from '$lib/config';
 	import PlacelistFilter from '$lib/components/PlacelistFilter.svelte';
 	import { t } from 'svelte-i18n';
 
 	const heroPhoto = '/images/hero-images/363de2f1-1c2d-4d56-8f11-06194e91d351_rw_1920.webp';
 </script>
-
-<svelte:head>
-	<title>{$t('spots.title')} {titlePostfix}</title>
-</svelte:head>
 
 <section class="page-hero" style={`--hero-photo: url("${heroPhoto}")`}>
 	<div class="hero-content">

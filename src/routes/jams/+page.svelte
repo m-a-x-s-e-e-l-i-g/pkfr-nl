@@ -1,5 +1,4 @@
 <script>
-	import { titlePostfix } from '$lib/config';
 	import InputCollector from '$lib/components/InputCollector.svelte';
 	import { page } from '$app/stores';
 	import JamsList from '$lib/components/calendar/JamsList.svelte';
@@ -12,10 +11,6 @@
 	export let data;
 </script>
 
-
-<svelte:head>
-	<title>{$t('jams.pageTitle')} {titlePostfix}</title>
-</svelte:head>
 
 <section class="page-hero" style={`--hero-photo: url("${heroPhoto}")`}>
 	<div class="hero-content">
@@ -30,6 +25,7 @@
 		<h2>{$t('jams.upcomingTitle')}</h2>
 		<p class="section-subtitle">{$t('jams.upcomingSubtitle')}</p>
 		<JamsList events={data.events} calendarUnavailable={data.calendarUnavailable} />
+		<p class="section-subtitle"><a href="/jams/archive">{$t('jamArchive.link')} →</a></p>
 
 		<section class="calendar-subscription" aria-labelledby="full-calendar-title">
 			<h3 id="full-calendar-title">{$t('jams.fullCalendarTitle')}</h3>

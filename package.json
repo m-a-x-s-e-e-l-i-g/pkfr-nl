@@ -4,7 +4,6 @@
     "scripts": {
         "dev": "vite dev",
         "build": "vite build",
-        "postbuild": "npx svelte-sitemap --domain https://www.pkfr.nl/ --additional index.html --additional jams --additional jams/europe --additional jams/america",
         "preview": "vite preview",
         "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
         "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
@@ -30,7 +29,6 @@
         "eslint-config-prettier": "^10.1.8",
         "eslint-plugin-svelte": "^3.20.0",
         "mdsvex": "^0.12.7",
-        "netlify-plugin-submit-sitemap": "^0.4.0",
         "postcss": "^8.5.23",
         "postcss-load-config": "^6.0.1",
         "prettier": "^3.9.4",
@@ -42,7 +40,6 @@
         "svelte": "^5.56.4",
         "svelte-confetti": "^2.3.2",
         "svelte-fullcalendar": "^3.0.0",
-        "svelte-sitemap": "^4.0.4",
         "tailwind-merge": "^3.6.0",
         "tailwind-variants": "^3.2.2",
         "tailwindcss": "^4.3.2",

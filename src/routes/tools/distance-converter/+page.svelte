@@ -1,5 +1,4 @@
 <script>
-  import { titlePostfix } from '$lib/config';
   import { myShoeSize, friendShoeSize } from '$lib/stores/settings';
 
   const heroPhoto = '/images/hero-images/7838e054-88de-4896-8fca-f80f125a7aa5_rw_1920.webp';
@@ -44,10 +43,6 @@
         lastUpdated = 'friend';
     }
 </script>
-
-<svelte:head>
-    <title>Afstand Analyser 5000™ {titlePostfix}</title>
-</svelte:head>
 
 <section class="page-hero" style={`--hero-photo: url("${heroPhoto}")`}>
   <div class="hero-content">

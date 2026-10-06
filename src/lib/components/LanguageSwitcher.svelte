@@ -1,5 +1,6 @@
 <script>
 	import { locale, t } from 'svelte-i18n';
+	import { detectLocale } from '$lib/i18n';
 
 	function switchLanguage(lang) {
 		$locale = lang;
@@ -14,10 +15,7 @@
 	// Load saved language preference on component mount
 	import { onMount } from 'svelte';
 	onMount(() => {
-		const savedLocale = localStorage.getItem('locale');
-		if (savedLocale && savedLocale !== $locale) {
-			$locale = savedLocale;
-		}
+		$locale = detectLocale();
 	});
 </script>
 

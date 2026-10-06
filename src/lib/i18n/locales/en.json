@@ -43,7 +43,11 @@
         "unavailable": "The open gym schedule is temporarily unavailable.",
         "viewCalendar": "View the full open gym calendar",
         "eventDetails": "View session in Google Calendar",
-        "note": "Times in the Netherlands. Open a session for details; some sessions require advance registration."
+        "note": "Times in the Netherlands. Open a session for details; some sessions require advance registration.",
+        "weekTitle": "Open gym schedule",
+        "navigation": "Browse the open gym schedule",
+        "previousWeek": "Previous seven days",
+        "nextWeek": "Next seven days"
     },
     "calendarSubscriptions": {
         "label": "Calendar subscription options",
@@ -281,5 +285,24 @@
         "internationalEmptyDescription": "There are currently no upcoming jams in this calendar. Check the source for updates.",
         "internationalUnavailableDescription": "The calendar could not be loaded. Try again or visit the source at the bottom of this page.",
         "retry": "Try again"
+    },
+    "jamArchive": {
+        "badge": "Jam archive",
+        "title": "Past jams & events",
+        "description": "Saved jams from the Dutch, European and American Parkour calendars. These events have finished; their details remain available. The archive grows as events are captured.",
+        "link": "Browse past jams",
+        "filterLabel": "Filter the jam archive",
+        "regions": {
+            "all": "All calendars",
+            "dutch": "Netherlands",
+            "europe": "Europe",
+            "america": "American Parkour"
+        },
+        "empty": "No past jams have been saved for this calendar yet.",
+        "unavailable": "The jam archive is temporarily unavailable. Please try again later.",
+        "pagination": "Jam archive pages",
+        "previous": "Previous",
+        "next": "Next",
+        "page": "Page {page} of {pages}"
     }
 }

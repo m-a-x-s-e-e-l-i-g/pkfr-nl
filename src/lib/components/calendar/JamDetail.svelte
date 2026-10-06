@@ -6,13 +6,11 @@
     import Clock from '@lucide/svelte/icons/clock';
     import MapPin from '@lucide/svelte/icons/map-pin';
     import { locale, t } from 'svelte-i18n';
-    import { titlePostfix } from '$lib/config';
     import {
         googleEventUrl,
         jamDate,
         jamDateRange,
         jamAgendaPath,
-        jamPath,
         jamTime,
         isPastJam,
         mapsUrl
@@ -26,24 +24,7 @@
             : event.region === 'america'
               ? 'jamsAmerica'
               : 'jams';
-    $: canonical = `https://www.pkfr.nl${jamPath(event)}`;
 </script>
-
-<svelte:head>
-    <title>{event.title}{past ? ` · ${$t('jamAgenda.pastLabel')}` : ''} {titlePostfix}</title>
-    <meta
-        name="description"
-        content={event.excerpt.slice(0, 160) ||
-            `${event.title} · ${jamDateRange(event, $locale)}${event.location ? ` · ${event.location}` : ''}`}
-    />
-    <link rel="canonical" href={canonical} />
-    <meta property="og:title" content={event.title} />
-    <meta
-        property="og:description"
-        content={event.excerpt.slice(0, 200) || jamDateRange(event, $locale)}
-    />
-    <meta property="og:url" content={canonical} />
-</svelte:head>
 
 <a class="back-link" href={jamAgendaPath(event)}
     ><ArrowLeft size={18} aria-hidden="true" />{$t(

@@ -6,6 +6,8 @@ const keyFor = (region, id) => `${region}/${createHash('sha256').update(id).dige
 export function createJamArchive(storeProvider) {
     const saved = new Map();
     const pending = new Map();
+    let cachedList;
+    let pendingList;
     return {
         async save(event) {
             if (!storeProvider) return false;
@@ -22,6 +24,7 @@ export function createJamArchive(storeProvider) {
                 try {
                     await storeProvider().setJSON(key, { event: snapshot });
                     saved.set(key, fingerprint);
+                    cachedList = null;
                     return true;
                 } catch (err) {
                     console.error('Jam archive write failed', {
@@ -37,6 +40,35 @@ export function createJamArchive(storeProvider) {
                 return await request;
             } finally {
                 pending.delete(key);
+            }
+        },
+        async list() {
+            if (!storeProvider) return [];
+            if (cachedList && cachedList.expires > Date.now()) return cachedList.events;
+            if (pendingList) return pendingList;
+            pendingList = (async () => {
+                const store = storeProvider();
+                const { blobs } = await store.list();
+                const events = [];
+                // Bound concurrent reads; each event owns its own key, without a shared mutable index.
+                for (let offset = 0; offset < blobs.length; offset += 12) {
+                    const records = await Promise.all(
+                        blobs
+                            .slice(offset, offset + 12)
+                            .map((blob) => store.get(blob.key, { type: 'json' }))
+                    );
+                    for (const record of records) {
+                        if (record?.event?.id && record.event.start && record.event.title)
+                            events.push({ ...record.event, archiveStored: true });
+                    }
+                }
+                cachedList = { events, expires: Date.now() + 300000 };
+                return events;
+            })();
+            try {
+                return await pendingList;
+            } finally {
+                pendingList = null;
             }
         },
         async load(region, id) {
@@ -73,4 +105,8 @@ export async function preserveJam(event) {
 
 export function archivedJam(region, id) {
     return archive.load(region, id);
+}
+
+export function archivedJams() {
+    return archive.list();
 }

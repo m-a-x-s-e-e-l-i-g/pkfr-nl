@@ -2,15 +2,15 @@ import { error } from '@sveltejs/kit';
 import { JAM_TIME_ZONE } from '$lib/jamEvents';
 import { openGymDays, groupOpenGyms } from '$lib/openGymSchedule';
 
-let cached;
-let pending;
+const cached = new Map();
+const pending = new Map();
 const CACHE_TTL = 5 * 60 * 1000;
 
-export async function loadOpenGyms(now = new Date()) {
-    const days = openGymDays(now);
-    const key = days[0].date;
-    if (cached?.key === key && cached.expires > Date.now()) return cached.days;
-    if (pending?.key === key) return pending.promise;
+export async function loadOpenGyms(now = new Date(), count = 2, offset = 0) {
+    const days = openGymDays(now, count, offset);
+    const key = `${days[0].date}:${count}`;
+    if (cached.get(key)?.expires > Date.now()) return cached.get(key).days;
+    if (pending.has(key)) return pending.get(key);
     const promise = (async () => {
         const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
         const calendar = import.meta.env.VITE_OPEN_GYM_CALENDAR_ID;
@@ -27,7 +27,7 @@ export async function loadOpenGyms(now = new Date()) {
                 singleEvents: 'true',
                 orderBy: 'startTime',
                 timeMin: days[0].start,
-                timeMax: days[1].end,
+                timeMax: days.at(-1).end,
                 maxResults: '2500',
                 ...(pageToken ? { pageToken } : {})
             }).toString();
@@ -38,13 +38,14 @@ export async function loadOpenGyms(now = new Date()) {
             pageToken = data.nextPageToken;
         } while (pageToken);
         const schedule = groupOpenGyms(items, days);
-        cached = { key, days: schedule, expires: Date.now() + CACHE_TTL };
+        cached.set(key, { days: schedule, expires: Date.now() + CACHE_TTL });
+        if (cached.size > 8) cached.delete(cached.keys().next().value);
         return schedule;
     })();
-    pending = { key, promise };
+    pending.set(key, promise);
     try {
         return await promise;
     } finally {
-        if (pending?.promise === promise) pending = null;
+        if (pending.get(key) === promise) pending.delete(key);
     }
 }

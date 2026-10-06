@@ -6,6 +6,7 @@
     import { locale, t } from 'svelte-i18n';
     import { jamDate, jamDateRange, jamMonthKey, jamPath, jamTime } from '$lib/jamEvents';
     export let events = [];
+    export let archive = false;
     export let calendarUnavailable = false;
     export let international = false;
     export let agendaPath = '/jams';
@@ -59,10 +60,10 @@
                     {jamDate(group.events[0], $locale, { month: 'long', year: 'numeric' })}
                 </h3>
                 <div class="month-events">
-                    {#each group.events as event (event.id)}
+                    {#each group.events as event (jamPath(event))}
                         <a
                             class="jam-entry"
-                            class:next-jam={event.id === events[0].id}
+                            class:next-jam={!archive && event.id === events[0].id}
                             href={jamPath(event)}
                         >
                             <time
@@ -81,11 +82,12 @@
                                 >
                             </time>
                             <div class="entry-content">
-                                {#if event.id === events[0].id}<span class="next-label"
+                                {#if !archive && event.id === events[0].id}<span class="next-label"
                                         >{$t('jamAgenda.next')}</span
                                     >{/if}
                                 <h4>{event.title}</h4>
                                 <div class="event-meta">
+                                    {#if archive}<span>{$t(`jamArchive.regions.${event.region || 'dutch'}`)}</span>{/if}
                                     {#if jamDateRange(event, $locale).includes(' – ')}
                                         <span
                                             ><CalendarDays
