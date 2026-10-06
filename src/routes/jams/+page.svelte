@@ -9,6 +9,7 @@
 	import { t } from 'svelte-i18n';
 
 	const heroPhoto = '/images/gyms/rush-world/rush-world-rotterdam-west-2.jpg';
+	export let data;
 </script>
 
 
@@ -25,10 +26,10 @@
 </section>
 
 <section class="content-section">
-	<div class="section-card calendar-card">
+	<div class="calendar-card">
 		<h2>{$t('jams.upcomingTitle')}</h2>
 		<p class="section-subtitle">{$t('jams.upcomingSubtitle')}</p>
-		<JamsList/>
+		<JamsList events={data.events} calendarUnavailable={data.calendarUnavailable} />
 
 		<div class="calendar-actions">
 			<a
@@ -64,7 +65,7 @@
 	</div>
 </section>
 
-<section class="content-section">
+<section class="content-section" id="submit-jam">
 	<div class="section-card">
 		<h2>{$t('jams.submitTitle')}</h2>
 		<p>{$t('jams.submitDescription')}</p>
@@ -219,6 +220,17 @@
 		margin: 0 0 0.5rem 0;
 	}
 
+	.calendar-card h2 {
+		margin: 0 0 0.5rem;
+		font-size: 1.5rem !important;
+		color: var(--color-foreground);
+	}
+
+	.calendar-card .section-subtitle {
+		font-size: 0.95rem;
+		margin-bottom: 1.75rem;
+	}
+
 	.section-card p {
 		color: var(--color-muted-foreground);
 		line-height: 1.7;
@@ -274,7 +286,7 @@
 		}
 
 		.calendar-card {
-			padding: clamp(1rem, 5vw, 1.5rem);
+			padding: 0;
 		}
 
 		.page-hero h1 {

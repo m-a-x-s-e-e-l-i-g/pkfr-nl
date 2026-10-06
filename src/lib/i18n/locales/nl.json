@@ -243,5 +243,26 @@
         "message": "Skrrrt",
         "subtitle": "Skivakantie.",
         "backHome": "Terug naar Home"
+    },
+    "jamAgenda": {
+        "next": "Eerstvolgende",
+        "allDay": "Hele dag",
+        "locationPending": "Locatie volgt",
+        "viewEvent": "Bekijk event",
+        "back": "Alle jams & events",
+        "about": "Over dit event",
+        "practical": "Praktische info",
+        "date": "Datum",
+        "time": "Tijd",
+        "location": "Locatie",
+        "localTime": "Tijden in Nederland",
+        "openMap": "Bekijk op de kaart",
+        "calendarSource": "Open in Google Agenda",
+        "descriptionPending": "Er is nog geen beschrijving toegevoegd. Bekijk de agenda of volg de community voor updates.",
+        "emptyTitle": "Er staan nog geen nieuwe jams gepland",
+        "emptyDescription": "Organiseer jij een jam? Deel je event met de community. Via WhatsApp hoor je wanneer er nieuwe events zijn.",
+        "unavailableTitle": "De agenda is even niet beschikbaar",
+        "unavailableDescription": "Probeer het opnieuw of open de Google Agenda via de link hieronder.",
+        "retry": "Opnieuw proberen"
     }
 }
