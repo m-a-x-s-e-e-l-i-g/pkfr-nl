@@ -1,5 +1,7 @@
 import { SEO_PAGES, sitemapXml } from '$lib/seo';
 import { jamPath } from '$lib/jamEvents';
+import { gymList } from '$lib/assets/js/gyms';
+import { gymPath } from '$lib/gymDetails';
 import { loadJamHistory } from '$lib/server/jamHistory';
 import { loadJams } from '$lib/server/jamEvents';
 import { loadInternationalJams } from '$lib/server/internationalJams';
@@ -21,6 +23,7 @@ export async function GET({ fetch }) {
             return new Response('Sitemap temporarily unavailable', { status: 503 });
         const paths = [
             ...Object.keys(SEO_PAGES),
+            ...gymList.map(gymPath),
             ...sources[3].value.events.map(jamPath),
             ...sources.slice(0, 3).flatMap((source) => source.value.map(jamPath))
         ];

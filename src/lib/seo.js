@@ -1,4 +1,5 @@
 import { isPastJam, jamDateRange, jamPath } from './jamEvents.js';
+import { gymPath, gymDescription } from './gymDetails.js';
 
 export const SITE_ORIGIN = 'https://www.pkfr.nl';
 export const SEO_PAGES = {
@@ -126,7 +127,7 @@ export const SEO_PAGES = {
 
 export function pageMetadata(
     path,
-    { event, now = Date.now(), status = 200, language = 'nl' } = {}
+    { event, gym, now = Date.now(), status = 200, language = 'nl' } = {}
 ) {
     const lang = language === 'en' ? 'en' : 'nl';
     if (status >= 400)
@@ -135,6 +136,14 @@ export function pageMetadata(
             description: '',
             canonical: null,
             noindex: true
+        };
+    if (gym)
+        return {
+            title: `${gym.name} · Parkour & freerunning in ${gym.city} | pkfr.nl`,
+            description: gymDescription(gym, lang).slice(0, 160),
+            canonical: `${SITE_ORIGIN}${gymPath(gym)}`,
+            image: `${SITE_ORIGIN}/${gym.images[0]}`,
+            noindex: false
         };
     const [title, description] = (SEO_PAGES[path] || SEO_PAGES['/'])[lang];
     if (!event)

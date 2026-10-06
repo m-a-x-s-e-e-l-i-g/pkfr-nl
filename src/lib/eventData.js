@@ -1,5 +1,6 @@
 import { JAM_TIME_ZONE, jamInstant, jamPath, lastEventDate } from './jamEvents.js';
 import { SITE_ORIGIN } from './seo.js';
+import { structuredGym, gymPath } from './gymDetails.js';
 
 export const DUTCH_CALENDAR_DESCRIPTION =
     'Community-maintained calendar of parkour jams and freerunning events in the Netherlands, curated by pkfr.nl from community submissions and event information.';
@@ -32,7 +33,7 @@ export function structuredEvent(event) {
     };
 }
 
-export function structuredPage(metadata, { event, events, path, language = 'nl' } = {}) {
+export function structuredPage(metadata, { event, events, gym, gyms, path, language = 'nl' } = {}) {
     const publisher = `${SITE_ORIGIN}/#publisher`;
     const website = `${SITE_ORIGIN}/#website`;
     const graph = [
@@ -54,7 +55,10 @@ export function structuredPage(metadata, { event, events, path, language = 'nl' 
         }
     ];
     const page = {
-        '@type': Array.isArray(events) && path?.startsWith('/jams') ? 'CollectionPage' : 'WebPage',
+        '@type':
+            (Array.isArray(events) && path?.startsWith('/jams')) || Array.isArray(gyms)
+                ? 'CollectionPage'
+                : 'WebPage',
         '@id': `${metadata.canonical}#webpage`,
         url: metadata.canonical,
         name: metadata.title,
@@ -62,7 +66,38 @@ export function structuredPage(metadata, { event, events, path, language = 'nl' 
         inLanguage: language === 'en' ? 'en' : 'nl',
         isPartOf: { '@id': website }
     };
-    if (event) {
+    if (gym) {
+        const detail = structuredGym(gym, SITE_ORIGIN, language);
+        graph.push(detail, {
+            '@type': 'BreadcrumbList',
+            '@id': `${metadata.canonical}#breadcrumbs`,
+            itemListElement: [
+                {
+                    '@type': 'ListItem',
+                    position: 1,
+                    name: 'Gym Finder',
+                    item: `${SITE_ORIGIN}/tools/gym-finder`
+                },
+                { '@type': 'ListItem', position: 2, name: gym.name, item: metadata.canonical }
+            ]
+        });
+        page.mainEntity = { '@id': detail['@id'] };
+        page.breadcrumb = { '@id': `${metadata.canonical}#breadcrumbs` };
+        page.citation = gym.sources;
+    } else if (Array.isArray(gyms)) {
+        const listId = `${metadata.canonical}#gyms`;
+        graph.push({
+            '@type': 'ItemList',
+            '@id': listId,
+            numberOfItems: gyms.length,
+            itemListElement: gyms.map((item, index) => ({
+                '@type': 'ListItem',
+                position: index + 1,
+                item: { '@type': 'Place', name: item.name, url: `${SITE_ORIGIN}${gymPath(item)}` }
+            }))
+        });
+        page.mainEntity = { '@id': listId };
+    } else if (event) {
         const detail = structuredEvent(event);
         graph.push(detail);
         page.mainEntity = { '@id': detail['@id'] };

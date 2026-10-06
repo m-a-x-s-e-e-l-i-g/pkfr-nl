@@ -17,7 +17,8 @@ The live feeds below contain current and upcoming published Dutch events, with r
 ## Training and community
 
 - [Open gyms in the Netherlands](https://www.pkfr.nl/open-gyms): Server-rendered seven-day schedule with previous/next navigation and source links; registration may be required.
-- [Indoor freerun Gym Finder](https://www.pkfr.nl/tools/gym-finder): Gym locations, photos and websites.
+- [Indoor freerun Gym Finder](https://www.pkfr.nl/tools/gym-finder): All 34 listed locations link to individual /gyms/{slug} pages with photos, addresses, official sources and source review dates. Location changes or uncertain access are explicitly noted.
+- [Gym example: Munki Motion Haarlem](https://www.pkfr.nl/gyms/munki-motion-haarlem): Server-rendered gym profile with address, photos, official website, nearby gyms and sessions for the next seven days matched by venue address. A missing session does not imply a gym is closed; consult its official schedule.
 - [Parkour training spots](https://www.pkfr.nl/spots): Community spot maps and training resources.
 - [Community links](https://www.pkfr.nl/links): Clubs, brands and community resources.
 

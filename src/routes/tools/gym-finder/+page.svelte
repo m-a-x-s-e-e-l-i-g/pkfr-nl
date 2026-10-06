@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { getGyms } from '$lib/assets/js/gyms.js';
+	import { gymPath, gymDescription, gymMapUrl } from '$lib/gymDetails';
 	import Autoplay from "embla-carousel-autoplay";
 	import * as Carousel from "$lib/components/ui/carousel/index.js";
 	import * as Alert from "$lib/components/ui/alert/index.js";
@@ -8,7 +9,7 @@
 	import locationArrow from 'svelte-awesome/icons/locationArrow';
 	import { Image } from "@unpic/svelte";
 	import { slide } from 'svelte/transition';
-	import { t } from 'svelte-i18n';
+	import { t, locale } from 'svelte-i18n';
 
 
 	var latitude = $state();
@@ -16,10 +17,11 @@
 
 	onMount(() => {
 		// retrieve user location
+		if (!navigator.geolocation) return;
 		navigator.geolocation.getCurrentPosition((position) => {
 			latitude = position.coords.latitude;
 			longitude = position.coords.longitude;
-		});
+		}, () => {});
 	});
 	let gyms = $derived(getGyms(latitude, longitude));
 	const heroPhoto = '/images/gyms/jump-freerun/jump-freerun-den-haag-ninja-academy-3.jpg';
@@ -136,7 +138,7 @@
 		padding-top: 1rem;
 	}
 
-	.button-group button {
+	.button-group .button {
 		margin: 0;
 		cursor: pointer;
 		flex: 1;
@@ -147,6 +149,12 @@
 		gap: 0.5rem;
 		font-size: 0.9rem;
 	}
+	.gym-name a { color: var(--color-foreground); }
+	.gym-city { margin: -.25rem 0 .75rem; font-size: .8125rem; color: var(--color-muted-foreground); }
+	.gym-summary { margin: 0 0 .75rem; font-size: .875rem; color: var(--color-muted-foreground); line-height: 1.6; }
+	.gym-source-note { font-size: .8125rem; font-weight: 600; margin: 0 0 .75rem; }
+	.secondary-links { display: flex; flex-wrap: wrap; gap: 1rem; padding-top: 1rem; font-size: .8125rem; }
+	.button-group a:focus-visible, .gym-name a:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 4px; }
 
 	@media (max-width: 768px) {
 		.location-notice {
@@ -175,7 +183,7 @@
 			gap: 0.5rem;
 		}
 
-		.button-group button {
+		.button-group .button {
 			flex: none;
 			min-width: auto;
 			font-size: 0.85rem;
@@ -292,12 +300,12 @@
 		<h1>{$t('tools.gymFinder.heading')}</h1>
 		<p class="hero-description">{@html $t('tools.gymFinder.intro').replace('{count}', `${gyms.length}`)}</p>
 		<div class="hero-actions">
-			<button
+			<a
 				class="button"
-				onclick={() => window.open('https://maps.app.goo.gl/4n4oQeJ4FysKAkcy5?g_st=ac', '_blank')}
+				href="https://maps.app.goo.gl/4n4oQeJ4FysKAkcy5?g_st=ac" target="_blank" rel="noopener noreferrer"
 			>
 				{$t('tools.gymFinder.viewAllOnMap')}
-			</button>
+			</a>
 		</div>
 	</div>
 </section>
@@ -353,20 +361,16 @@
 				{/if}
 			</div>
 			<div class="gym-content">
-				<h2 class="gym-name">{gym.name}</h2>
+				<h2 class="gym-name"><a href={gymPath(gym)}>{gym.name}</a></h2>
+				<p class="gym-city">{gym.city}</p>
+				<p class="gym-summary">{gymDescription(gym, $locale)}</p>
+				{#if gym.note}<p class="gym-source-note">{$t('gymDetails.locationNotice')}</p>{/if}
 				<div class="button-group">
-					<button
-						class="button"
-						onclick={() => window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(gym.address)}`, '_blank')}
-					>
-						{$t('tools.gymFinder.viewLocation')}
-					</button>
-					<button
-						class="button"
-						onclick={() => window.open(gym.website, '_blank')}
-					>
-						{$t('tools.gymFinder.visitWebsite')}
-					</button>
+					<a class="button" href={gymPath(gym)}>{$t('gymDetails.viewGym')} →</a>
+				</div>
+				<div class="secondary-links">
+					{#if !gym.locationUnconfirmed}<a href={gymMapUrl(gym)} target="_blank" rel="noopener noreferrer">{$t('tools.gymFinder.viewLocation')} ↗</a>{/if}
+					<a href={gym.website} target="_blank" rel="noopener noreferrer">{$t('tools.gymFinder.visitWebsite')} ↗</a>
 				</div>
 			</div>
 		</div>

@@ -2,6 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { resolve } from 'node:path';
 import { createServer } from 'vite';
+import { gymList } from '../src/lib/assets/js/gyms.js';
+import { gymPath } from '../src/lib/gymDetails.js';
 
 test('sitemap and archive retain past details, paginate and handle unavailable sources', async () => {
     const fixtures = {
@@ -68,7 +70,8 @@ test('sitemap and archive retain past details, paginate and handle unavailable s
         assert.match(xml, /upcoming-jam--upcoming/);
         assert.ok(!xml.includes('removedFuture'));
         assert.match(xml, /old-calendar-jam--neverCaptured/);
-        assert.equal((xml.match(/<url>/g) || []).length, 49);
+        for (const gym of gymList) assert.ok(xml.includes(`https://www.pkfr.nl${gymPath(gym)}`));
+        assert.equal((xml.match(/<url>/g) || []).length, 49 + gymList.length);
         const { load } = await server.ssrLoadModule('/src/routes/jams/archive/+page.server.js');
         const archive = (query) =>
             load({ url: new URL(`https://www.pkfr.nl/jams/archive${query}`), fetch });

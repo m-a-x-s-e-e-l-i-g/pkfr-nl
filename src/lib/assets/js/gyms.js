@@ -1,4 +1,6 @@
-const gymList = [
+import { gymProfiles } from '../../gymProfiles.js';
+
+const locations = [
     {
         name: 'Munki Motion Haarlem',
         address: 'Stephensonstraat 4, 2014 KD Haarlem',
@@ -394,7 +396,9 @@ const gymList = [
     }
 ];
 
-function calculateDistance(lat1, lon1, lat2, lon2) {
+export const gymList = locations.map((gym) => ({ ...gym, ...gymProfiles[gym.name] }));
+
+export function calculateDistance(lat1, lon1, lat2, lon2) {
     const R = 6371; // Radius of the Earth in km
     const dLat = (lat2 - lat1) * (Math.PI / 180);
     const dLon = (lon2 - lon1) * (Math.PI / 180);
@@ -411,14 +415,14 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
 }
 
 export function getGyms(latitude, longitude) {
-    // loop through the gymList and calculate the distance
+    const located = Number.isFinite(latitude) && Number.isFinite(longitude);
     const filteredGyms = gymList.map((gym) => ({
         ...gym,
-        distance: calculateDistance(latitude, longitude, gym.latitude, gym.longitude)
+        distance: located ? calculateDistance(latitude, longitude, gym.latitude, gym.longitude) : null
     }));
 
     // Sort gyms by distance
-    filteredGyms.sort((a, b) => a.distance - b.distance);
+    if (located) filteredGyms.sort((a, b) => a.distance - b.distance);
 
     return filteredGyms;
 }

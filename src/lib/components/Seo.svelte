@@ -5,6 +5,7 @@
     import { structuredPage, safeJsonLd } from '$lib/eventData';
     $: metadata = pageMetadata($page.url.pathname, {
         event: $page.data.event,
+        gym: $page.data.gym,
         now: $page.data.now,
         status: $page.status,
         language: $locale
@@ -30,6 +31,8 @@
                       {
                           path: $page.url.pathname,
                           event: $page.data.event,
+                          gym: $page.data.gym,
+                          gyms: $page.data.gyms,
                           events: $page.data.calendarUnavailable ? undefined : $page.data.events,
                           language: $locale
                       }
@@ -61,7 +64,7 @@
     <meta property="og:locale" content={$locale === 'en' ? 'en_GB' : 'nl_NL'} />
     <meta
         property="og:image"
-        content={`${SITE_ORIGIN}/images/hero-images/4c603e86-2375-4d4a-b1b6-5724029da98f_rw_1920.webp`}
+        content={metadata.image || `${SITE_ORIGIN}/images/hero-images/4c603e86-2375-4d4a-b1b6-5724029da98f_rw_1920.webp`}
     />
     <meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
