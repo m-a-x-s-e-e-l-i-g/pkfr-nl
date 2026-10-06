@@ -1,11 +1,12 @@
 <script>
 	import OpenGymsShortList from '$lib/components/calendar/OpenGymsShortList.svelte';
-	import UpcommingJam from '$lib/components/calendar/UpcommingJam.svelte';
+	import JamsList from '$lib/components/calendar/JamsList.svelte';
 	import ToolCard from '$lib/components/ToolCard.svelte';
 	import { siteTitle, titlePostfix } from '$lib/config';
 	import { t } from 'svelte-i18n';
 
 	const heroPhoto = '/images/hero-images/4c603e86-2375-4d4a-b1b6-5724029da98f_rw_1920.webp';
+	export let data;
 </script>
 
 <svelte:head>
@@ -73,11 +74,7 @@
 		<h2>{$t('jams.upcomingTitle')}</h2>
 		<a href="/jams" class="text-sm font-medium text-primary hover:text-primary/80">{$t('common.viewAll')} →</a>
 	</div>
-	<div class="card">
-		<div class="p-6">
-			<UpcommingJam />
-		</div>
-	</div>
+	<JamsList events={data.events} calendarUnavailable={data.calendarUnavailable} />
 </section>
 
 <!-- Open Gyms Section -->
