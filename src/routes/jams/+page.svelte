@@ -9,6 +9,7 @@
 	import { t } from 'svelte-i18n';
 
 	const heroPhoto = '/images/gyms/rush-world/rush-world-rotterdam-west-2.jpg';
+	export let data;
 </script>
 
 
@@ -25,46 +26,47 @@
 </section>
 
 <section class="content-section">
-	<div class="section-card calendar-card">
+	<div class="calendar-card">
 		<h2>{$t('jams.upcomingTitle')}</h2>
 		<p class="section-subtitle">{$t('jams.upcomingSubtitle')}</p>
-		<JamsList/>
+		<JamsList events={data.events} calendarUnavailable={data.calendarUnavailable} />
 
-		<div class="calendar-actions">
-			<a
-				href="https://calendar.google.com/calendar/?cid=MmY0OWI4ZDM0Njk2ZTI3YWE1MDhhNGM2NjllNDUzM2M3NGMxMWFlNGU1ZmZjOWRjNDhjZDVjMDZkMGEwM2NiM0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
-				rel="noreferrer"
-				target="_blank"
-				class="button-secondary action-btn">
-				<CalendarAddSVG />
-				<span class="btn-text">{$t('jams.addToCalendar')}</span>
-				<span class="btn-text-mobile">{$t('jams.addToCalendarShort')}</span>
-			</a>
+		<section class="calendar-subscription" aria-labelledby="full-calendar-title">
+			<h3 id="full-calendar-title">{$t('jams.fullCalendarTitle')}</h3>
+			<p>{$t('jams.fullCalendarDescription')}</p>
+			<div class="calendar-actions">
+				<a
+					href="https://calendar.google.com/calendar/?cid=MmY0OWI4ZDM0Njk2ZTI3YWE1MDhhNGM2NjllNDUzM2M3NGMxMWFlNGU1ZmZjOWRjNDhjZDVjMDZkMGEwM2NiM0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
+					rel="noreferrer"
+					target="_blank"
+					class="button-secondary action-btn">
+					<CalendarAddSVG />
+					<span class="btn-text">{$t('jams.addToCalendar')}</span>
+				</a>
 
-			<a
-				href="https://calendar.google.com/calendar/ical/2f49b8d34696e27aa508a4c669e4533c74c11ae4e5ffc9dc48cd5c06d0a03cb3%40group.calendar.google.com/public/basic.ics"
-				rel="noreferrer"
-				target="_blank"
-				class="button-secondary action-btn">
-				<DownloadSVG />
-				<span class="btn-text">{$t('jams.downloadICal')}</span>
-				<span class="btn-text-mobile">{$t('jams.downloadShort')}</span>
-			</a>
+				<a
+					href="https://calendar.google.com/calendar/ical/2f49b8d34696e27aa508a4c669e4533c74c11ae4e5ffc9dc48cd5c06d0a03cb3%40group.calendar.google.com/public/basic.ics"
+					rel="noreferrer"
+					target="_blank"
+					class="button-secondary action-btn">
+					<DownloadSVG />
+					<span class="btn-text">{$t('jams.downloadICal')}</span>
+				</a>
 
-			<a
-				href="https://calendar.google.com/calendar/embed?src=2f49b8d34696e27aa508a4c669e4533c74c11ae4e5ffc9dc48cd5c06d0a03cb3%40group.calendar.google.com&ctz=Europe%2FAmsterdam"
-				rel="noreferrer"
-				target="_blank"
-				class="button-secondary action-btn">
-				<ExternalLinkSVG />
-				<span class="btn-text">{$t('jams.openCalendar')}</span>
-				<span class="btn-text-mobile">{$t('jams.openShort')}</span>
-			</a>
-		</div>
+				<a
+					href="https://calendar.google.com/calendar/embed?src=2f49b8d34696e27aa508a4c669e4533c74c11ae4e5ffc9dc48cd5c06d0a03cb3%40group.calendar.google.com&ctz=Europe%2FAmsterdam"
+					rel="noreferrer"
+					target="_blank"
+					class="button-secondary action-btn">
+					<ExternalLinkSVG />
+					<span class="btn-text">{$t('jams.openCalendar')}</span>
+				</a>
+			</div>
+		</section>
 	</div>
 </section>
 
-<section class="content-section">
+<section class="content-section" id="submit-jam">
 	<div class="section-card">
 		<h2>{$t('jams.submitTitle')}</h2>
 		<p>{$t('jams.submitDescription')}</p>
@@ -219,6 +221,17 @@
 		margin: 0 0 0.5rem 0;
 	}
 
+	.calendar-card h2 {
+		margin: 0 0 0.5rem;
+		font-size: 1.5rem !important;
+		color: var(--color-foreground);
+	}
+
+	.calendar-card .section-subtitle {
+		font-size: 0.95rem;
+		margin-bottom: 1.75rem;
+	}
+
 	.section-card p {
 		color: var(--color-muted-foreground);
 		line-height: 1.7;
@@ -248,6 +261,26 @@
 		}
 	}
 
+	.calendar-subscription {
+		margin-top: 2rem;
+		padding-top: 1.5rem;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.calendar-subscription h3 {
+		margin: 0 0 0.5rem;
+		font-size: 1.125rem;
+		font-weight: 700;
+		color: var(--color-foreground);
+	}
+
+	.calendar-subscription p {
+		margin: 0;
+		max-width: 70ch;
+		line-height: 1.6;
+		color: var(--color-muted-foreground);
+	}
+
 	.calendar-actions {
 		display: flex;
 		flex-wrap: wrap;
@@ -259,13 +292,11 @@
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
-		flex: 1;
-		min-width: fit-content;
+		flex: 1 1 15rem;
+		min-width: 0;
+		white-space: normal;
+		text-align: center;
 		justify-content: center;
-	}
-
-	.btn-text-mobile {
-		display: none;
 	}
 
 	@media (max-width: 768px) {
@@ -274,7 +305,7 @@
 		}
 
 		.calendar-card {
-			padding: clamp(1rem, 5vw, 1.5rem);
+			padding: 0;
 		}
 
 		.page-hero h1 {
@@ -287,17 +318,10 @@
 		}
 
 		.action-btn {
+			flex: auto;
 			padding: 0.75rem 1rem;
 			font-size: 0.9rem;
 			min-width: auto;
-		}
-
-		.btn-text {
-			display: none;
-		}
-
-		.btn-text-mobile {
-			display: inline;
 		}
 
 		:global(.button),
@@ -307,24 +331,4 @@
 		}
 	}
 
-	@media (max-width: 480px) {
-		.calendar-actions {
-			display: grid;
-			grid-template-columns: 1fr 1fr 1fr;
-			gap: 0.5rem;
-		}
-
-		.action-btn {
-			flex-direction: column;
-			padding: 0.75rem 0.5rem;
-			font-size: 0.8rem;
-			gap: 0.25rem;
-			text-align: center;
-		}
-
-		.btn-text-mobile {
-			font-size: 0.75rem;
-			line-height: 1.2;
-		}
-	}
 </style>
