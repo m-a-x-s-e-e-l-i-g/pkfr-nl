@@ -270,6 +270,8 @@
         "descriptionPending": "Er is nog geen beschrijving toegevoegd. Bekijk de agenda of volg de community voor updates.",
         "emptyTitle": "Er staan nog geen nieuwe jams gepland",
         "emptyDescription": "Organiseer jij een jam? Deel je event met de community. Via WhatsApp hoor je wanneer er nieuwe events zijn.",
+        "internationalEmptyDescription": "Er zijn op dit moment geen aankomende jams in deze agenda. Bekijk de bron voor updates.",
+        "internationalUnavailableDescription": "De agenda kon niet worden geladen. Probeer het opnieuw of bekijk de bron onderaan deze pagina.",
         "unavailableTitle": "De agenda is even niet beschikbaar",
         "unavailableDescription": "Probeer het opnieuw of open de Google Agenda via de link hieronder.",
         "retry": "Opnieuw proberen"

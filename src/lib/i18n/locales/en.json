@@ -272,6 +272,8 @@
         "emptyDescription": "Organising a jam? Share your event with the community. Follow WhatsApp for new events.",
         "unavailableTitle": "The calendar is temporarily unavailable",
         "unavailableDescription": "Try again or open Google Calendar using the link below.",
+        "internationalEmptyDescription": "There are currently no upcoming jams in this calendar. Check the source for updates.",
+        "internationalUnavailableDescription": "The calendar could not be loaded. Try again or visit the source at the bottom of this page.",
         "retry": "Try again"
     }
 }

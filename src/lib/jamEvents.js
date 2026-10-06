@@ -18,7 +18,7 @@ export function eventIdFromSlug(slug) {
 
 export function jamDate(event, language = 'nl', options = {}, value = event.start) {
     return new Intl.DateTimeFormat(language === 'en' ? 'en-GB' : 'nl-NL', {
-        timeZone: event.allDay ? 'UTC' : JAM_TIME_ZONE,
+        timeZone: event.allDay ? 'UTC' : event.timeZone || JAM_TIME_ZONE,
         ...options
     }).format(new Date(value));
 }

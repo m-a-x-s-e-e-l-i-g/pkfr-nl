@@ -7,6 +7,10 @@
     import { jamDate, jamDateRange, jamMonthKey, jamPath, jamTime } from '$lib/jamEvents';
     export let events = [];
     export let calendarUnavailable = false;
+    export let external = false;
+    export let agendaPath = '/jams';
+    export let sourceUrl = '';
+    export let sourceLabel = '';
     $: groups = events.reduce((months, event) => {
         const key = jamMonthKey(event);
         const last = months[months.length - 1];
@@ -19,14 +23,28 @@
 {#if calendarUnavailable}
     <div class="agenda-state" role="status">
         <h3>{$t('jamAgenda.unavailableTitle')}</h3>
-        <p>{$t('jamAgenda.unavailableDescription')}</p>
-        <a href="/jams" data-sveltekit-reload>{$t('jamAgenda.retry')} →</a>
+        <p>
+            {$t(
+                external
+                    ? 'jamAgenda.internationalUnavailableDescription'
+                    : 'jamAgenda.unavailableDescription'
+            )}
+        </p>
+        <a href={agendaPath} data-sveltekit-reload>{$t('jamAgenda.retry')} →</a>
     </div>
 {:else if !events.length}
     <div class="agenda-state">
         <h3>{$t('jamAgenda.emptyTitle')}</h3>
-        <p>{$t('jamAgenda.emptyDescription')}</p>
-        <a href="/jams#submit-jam">{$t('jams.submitTitle')} →</a>
+        <p>
+            {$t(
+                external ? 'jamAgenda.internationalEmptyDescription' : 'jamAgenda.emptyDescription'
+            )}
+        </p>
+        {#if external}
+            <a href={sourceUrl} target="_blank" rel="noopener noreferrer">{$t(sourceLabel)} →</a>
+        {:else}
+            <a href="/jams#submit-jam">{$t('jams.submitTitle')} →</a>
+        {/if}
     </div>
 {:else}
     <div class="jam-agenda">
@@ -43,7 +61,9 @@
                         <a
                             class="jam-entry"
                             class:next-jam={event.id === events[0].id}
-                            href={jamPath(event)}
+                            href={external ? event.url : jamPath(event)}
+                            target={external ? '_blank' : undefined}
+                            rel={external ? 'noopener noreferrer' : undefined}
                         >
                             <time
                                 class="date-stamp"

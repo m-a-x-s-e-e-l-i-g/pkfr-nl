@@ -1,11 +1,12 @@
 <script>
 	import { titlePostfix } from '$lib/config';
-	import EuropeJamsList from '$lib/components/calendar/EuropeJamsList.svelte';
+	import JamsList from '$lib/components/calendar/JamsList.svelte';
 	import CalendarSubscribeActions from '$lib/components/calendar/CalendarSubscribeActions.svelte';
 	import { t } from 'svelte-i18n';
 
 	const heroPhoto = '/images/gyms/rush-world/rush-world-rotterdam-west-2.jpg';
 	const sourceUrl = 'https://www.matttma.de/en/parkourjamcalendar';
+	export let data;
 </script>
 
 <svelte:head>
@@ -21,10 +22,17 @@
 </section>
 
 <section class="content-section">
-	<div class="section-card">
+	<div class="calendar-card">
 		<h2>{$t('jamsEurope.calendarTitle')}</h2>
 		<p class="section-subtitle">{$t('jamsEurope.calendarIntro')}</p>
-		<EuropeJamsList />
+		<JamsList
+			events={data.events}
+			calendarUnavailable={data.calendarUnavailable}
+			external
+			agendaPath="/jams/europe"
+			{sourceUrl}
+			sourceLabel="jamsEurope.sourceButton"
+		/>
 		<CalendarSubscribeActions feedPath="/api/jams/europe/calendar.ics" />
 	</div>
 </section>
@@ -142,6 +150,17 @@
 		font-weight: 700;
 		color: var(--color-foreground);
 		margin: 0 0 0.5rem 0;
+	}
+
+	.calendar-card h2 {
+		margin: 0 0 0.5rem;
+		font-size: 1.5rem !important;
+		color: var(--color-foreground);
+	}
+
+	.calendar-card .section-subtitle {
+		font-size: 0.95rem;
+		margin-bottom: 1.75rem;
 	}
 
 	.section-subtitle,

@@ -235,6 +235,7 @@ const loadAmericanEvents = async () => {
 
 	pendingRequest = (async () => {
 		const response = await fetch(AMERICAN_JAM_FEED_URL, {
+			signal: AbortSignal.timeout(10000),
 			headers: {
 				accept: 'text/calendar,text/plain;q=0.9,*/*;q=0.8'
 			}
