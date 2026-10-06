@@ -28,7 +28,7 @@
 		<JamsList
 			events={data.events}
 			calendarUnavailable={data.calendarUnavailable}
-			external
+			international
 			agendaPath="/jams/america"
 			{sourceUrl}
 			sourceLabel="jamsAmerica.sourceButton"

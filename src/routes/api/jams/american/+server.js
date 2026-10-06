@@ -203,6 +203,7 @@ const mapEvent = (event, index) => {
 		start,
 		end,
 		allDay,
+		timeZone: event.DTSTART?.params.TZID?.replace(/^"|"$/g, ''),
 		url: normalizeUrl(event.URL?.value),
 		extendedProps: {
 			description: event.DESCRIPTION?.value || '',
@@ -246,9 +247,6 @@ const loadAmericanEvents = async () => {
 		}
 
 		const icalText = await response.text();
-		const today = new Date();
-		today.setHours(0, 0, 0, 0);
-
 		const events = parseIcalEvents(icalText)
 			.map(mapEvent)
 			.filter((event) => event !== null)
@@ -258,8 +256,7 @@ const loadAmericanEvents = async () => {
 					return false;
 				}
 
-				const endDate = toDate(event.end) || startDate;
-				return endDate >= today;
+				return true;
 			})
 			.sort((a, b) => new Date(a.start).valueOf() - new Date(b.start).valueOf());
 
@@ -277,9 +274,12 @@ const loadAmericanEvents = async () => {
 
 export const prerender = false;
 
-export const GET = async () => {
+export const GET = async ({ url }) => {
 	try {
-		const events = await loadAmericanEvents();
+		const allEvents = await loadAmericanEvents();
+		const today = new Date();
+		today.setHours(0, 0, 0, 0);
+		const events = url.searchParams.get('includePast') === 'true' ? allEvents : allEvents.filter((event) => (toDate(event.end) || toDate(event.start)) >= today);
 		return json(
 			{ events },
 			{

@@ -267,6 +267,8 @@
         "localTime": "Tijden in Nederland",
         "openMap": "Bekijk op de kaart",
         "calendarSource": "Open in Google Agenda",
+        "eventSource": "Bekijk oorspronkelijke eventbron",
+        "sourceTime": "Tijden zoals aangeleverd door de organisator",
         "descriptionPending": "Er is nog geen beschrijving toegevoegd. Bekijk de agenda of volg de community voor updates.",
         "emptyTitle": "Er staan nog geen nieuwe jams gepland",
         "emptyDescription": "Organiseer jij een jam? Deel je event met de community. Via WhatsApp hoor je wanneer er nieuwe events zijn.",

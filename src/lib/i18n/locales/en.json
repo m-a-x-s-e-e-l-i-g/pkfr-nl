@@ -267,6 +267,8 @@
         "localTime": "Times in the Netherlands",
         "openMap": "View on the map",
         "calendarSource": "Open in Google Calendar",
+        "eventSource": "View original event source",
+        "sourceTime": "Times as supplied by the organiser",
         "descriptionPending": "No description has been added yet. Check the calendar or follow the community for updates.",
         "emptyTitle": "No upcoming jams scheduled yet",
         "emptyDescription": "Organising a jam? Share your event with the community. Follow WhatsApp for new events.",

@@ -1,6 +1,7 @@
 import { EUROPE_JAM_FEED_URL } from '../calendarFeeds.js';
 import { JAM_TIME_ZONE, lastEventDate } from '../jamEvents.js';
 import { normalizeJam } from './normalizeJam.js';
+import { error } from '@sveltejs/kit';
 
 const EUROPE_SOURCE = 'https://www.matttma.de/en/parkourjamcalendar';
 const AMERICA_SOURCE = 'https://americanparkour.com/community-events/';
@@ -76,7 +77,17 @@ export function normalizeInternationalJam(item, region) {
         event.start += 'Z';
         if (event.end && !/Z$|[+-]\d{2}:?\d{2}$/.test(event.end)) event.end += 'Z';
         event.timeZone = 'UTC';
+        const sourceTimeZone = region === 'europe' ? item.time_zone : item.timeZone;
+        if (sourceTimeZone) {
+            try {
+                new Intl.DateTimeFormat('en', { timeZone: sourceTimeZone }).format();
+                event.sourceTimeZone = sourceTimeZone;
+            } catch {
+                /* Unknown source timezone: show the original time without guessing. */
+            }
+        }
     }
+    event.region = region;
     event.url = region === 'europe' ? europeUrl(item) : safeUrl(item.url) || AMERICA_SOURCE;
     return event;
 }
@@ -89,7 +100,7 @@ export function upcomingInternationalJams(items, region, now = new Date()) {
         .sort((a, b) => Date.parse(a.start) - Date.parse(b.start));
 }
 
-export async function loadInternationalJams(region, fetch) {
+async function loadInternationalItems(region, fetch) {
     let items;
     if (region === 'europe') {
         if (!cachedEurope || cachedEurope.expires <= Date.now()) {
@@ -110,11 +121,31 @@ export async function loadInternationalJams(region, fetch) {
         }
         items = cachedEurope.items;
     } else {
-        const response = await fetch('/api/jams/american', { signal: AbortSignal.timeout(15000) });
+        const response = await fetch('/api/jams/american?includePast=true', {
+            signal: AbortSignal.timeout(15000)
+        });
         if (!response.ok) throw new Error('American calendar unavailable');
         const data = await response.json();
         if (!Array.isArray(data.events)) throw new Error('Invalid American calendar');
         items = data.events;
     }
-    return upcomingInternationalJams(items, region);
+    return items;
+}
+
+export async function loadInternationalJams(region, fetch) {
+    return upcomingInternationalJams(await loadInternationalItems(region, fetch), region);
+}
+
+export async function loadInternationalJam(region, id, fetch) {
+    let items;
+    try {
+        items = await loadInternationalItems(region, fetch);
+    } catch {
+        error(503, 'Jam calendar is temporarily unavailable');
+    }
+    const event = items
+        .map((item) => normalizeInternationalJam(item, region))
+        .find((event) => event?.id === id);
+    if (!event) error(404, 'Event not found');
+    return event;
 }

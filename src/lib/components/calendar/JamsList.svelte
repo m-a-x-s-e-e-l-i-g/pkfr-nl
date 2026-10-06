@@ -7,7 +7,7 @@
     import { jamDate, jamDateRange, jamMonthKey, jamPath, jamTime } from '$lib/jamEvents';
     export let events = [];
     export let calendarUnavailable = false;
-    export let external = false;
+    export let international = false;
     export let agendaPath = '/jams';
     export let sourceUrl = '';
     export let sourceLabel = '';
@@ -25,7 +25,7 @@
         <h3>{$t('jamAgenda.unavailableTitle')}</h3>
         <p>
             {$t(
-                external
+                international
                     ? 'jamAgenda.internationalUnavailableDescription'
                     : 'jamAgenda.unavailableDescription'
             )}
@@ -37,10 +37,12 @@
         <h3>{$t('jamAgenda.emptyTitle')}</h3>
         <p>
             {$t(
-                external ? 'jamAgenda.internationalEmptyDescription' : 'jamAgenda.emptyDescription'
+                international
+                    ? 'jamAgenda.internationalEmptyDescription'
+                    : 'jamAgenda.emptyDescription'
             )}
         </p>
-        {#if external}
+        {#if international}
             <a href={sourceUrl} target="_blank" rel="noopener noreferrer">{$t(sourceLabel)} →</a>
         {:else}
             <a href="/jams#submit-jam">{$t('jams.submitTitle')} →</a>
@@ -61,9 +63,7 @@
                         <a
                             class="jam-entry"
                             class:next-jam={event.id === events[0].id}
-                            href={external ? event.url : jamPath(event)}
-                            target={external ? '_blank' : undefined}
-                            rel={external ? 'noopener noreferrer' : undefined}
+                            href={jamPath(event)}
                         >
                             <time
                                 class="date-stamp"

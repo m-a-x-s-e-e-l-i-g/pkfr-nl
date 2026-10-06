@@ -8,11 +8,31 @@ export function jamPath(event) {
             .toLowerCase()
             .replace(/[^a-z0-9]+/g, '-')
             .replace(/^-|-$/g, '') || 'event';
-    return `/jams/${title}--${event.id}`;
+    const international = ['europe', 'america'].includes(event.region);
+    const id = international
+        ? Array.from(new TextEncoder().encode(event.id), (byte) =>
+              byte.toString(16).padStart(2, '0')
+          ).join('')
+        : event.id;
+    return `${jamAgendaPath(event)}/${title}--${id}`;
 }
 
-export function eventIdFromSlug(slug) {
+export function jamAgendaPath(event) {
+    return ['europe', 'america'].includes(event.region) ? `/jams/${event.region}` : '/jams';
+}
+
+export function eventIdFromSlug(slug, region) {
     const id = slug.slice(slug.lastIndexOf('--') + 2);
+    if (['europe', 'america'].includes(region)) {
+        if (!slug.includes('--') || !/^(?:[a-f0-9]{2})+$/.test(id) || id.length > 4096) return null;
+        try {
+            return new TextDecoder('utf-8', { fatal: true }).decode(
+                Uint8Array.from(id.match(/../g), (byte) => parseInt(byte, 16))
+            );
+        } catch {
+            return null;
+        }
+    }
     return slug.includes('--') && /^[a-zA-Z0-9_]+$/.test(id) ? id : null;
 }
 
@@ -59,10 +79,12 @@ export function googleEventUrl(event) {
     const compact = (value) =>
         event.allDay
             ? value.replaceAll('-', '')
-            : new Date(value)
-                  .toISOString()
-                  .replace(/[-:]/g, '')
-                  .replace(/\.\d{3}Z$/, 'Z');
+            : event.region && event.timeZone === 'UTC'
+              ? value.replace(/[-:]/g, '').replace(/Z$/, '')
+              : new Date(value)
+                    .toISOString()
+                    .replace(/[-:]/g, '')
+                    .replace(/\.\d{3}Z$/, 'Z');
     const end =
         event.end ||
         (event.allDay
@@ -74,7 +96,7 @@ export function googleEventUrl(event) {
         dates: `${compact(event.start)}/${compact(end)}`,
         details: `${event.descriptionText}\n\nhttps://www.pkfr.nl${jamPath(event)}`.trim(),
         location: event.location,
-        ctz: JAM_TIME_ZONE
+        ctz: event.sourceTimeZone || JAM_TIME_ZONE
     });
     return `https://calendar.google.com/calendar/render?${params}`;
 }
