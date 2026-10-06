@@ -83,11 +83,7 @@
 		<h2>{$t('home.upcomingOpenGyms')}</h2>
 		<a href="/open-gyms" class="text-sm font-medium text-primary hover:text-primary/80">{$t('common.viewAll')} →</a>
 	</div>
-	<div class="card">
-		<div class="p-6">
-			<OpenGymsShortList />
-		</div>
-	</div>
+	<OpenGymsShortList days={data.openGymDays} unavailable={data.openGymUnavailable} />
 </section>
 
 <!-- Community Section -->
