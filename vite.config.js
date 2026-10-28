@@ -46,9 +46,27 @@ const config = {
         include: ['@fullcalendar/common']
     },
     ssr: {
-        // Netlify's function runtime cannot require the sanitizer's ESM parser.
-        // Bundle the parser with the sanitizer instead of loading it at runtime.
-        noExternal: ['sanitize-html', 'htmlparser2', 'is-plain-object']
+        // Vite 8 leaves external CommonJS imports as __require calls, which
+        // Netlify's function tracer can miss. Bundle the sanitizer's dependency
+        // tree so jam pages do not depend on those untraced runtime modules.
+        noExternal: [
+            'sanitize-html',
+            'htmlparser2',
+            'is-plain-object',
+            'escape-string-regexp',
+            'parse-srcset',
+            'postcss',
+            'launder',
+            'dayjs',
+            'entities',
+            'domhandler',
+            'domelementtype',
+            'domutils',
+            'dom-serializer',
+            'nanoid',
+            'picocolors',
+            'source-map-js'
+        ]
     },
     server: {
         watch: {
