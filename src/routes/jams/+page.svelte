@@ -1,6 +1,6 @@
 <script>
 	import InputCollector from '$lib/components/InputCollector.svelte';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import JamsList from '$lib/components/calendar/JamsList.svelte';
 	import CalendarAddSVG from '$lib/components/svg/CalendarAddSVG.svelte';
 	import DownloadSVG from '$lib/components/svg/DownloadSVG.svelte';
@@ -8,14 +8,14 @@
 	import { t, locale } from 'svelte-i18n';
 
 	const heroPhoto = '/images/gyms/rush-world/rush-world-rotterdam-west-2.jpg';
-	export let data;
-	$: fetchedDate = data.calendarFetchedAt
+	let { data } = $props();
+	let fetchedDate = $derived(data.calendarFetchedAt
 		? new Intl.DateTimeFormat($locale === 'en' ? 'en-GB' : 'nl-NL', {
 				timeZone: 'Europe/Amsterdam',
 				dateStyle: 'long',
 				timeStyle: 'short'
 			}).format(new Date(data.calendarFetchedAt))
-		: null;
+		: null);
 </script>
 
 <section class="page-hero" style={`--hero-photo: url("${heroPhoto}")`}>
@@ -96,7 +96,7 @@
 	<div class="section-card">
 		<h2>{$t('jams.submitTitle')}</h2>
 		<p>{$t('jams.submitDescription')}</p>
-		<InputCollector pagePath={$page.url.pathname} />
+		<InputCollector pagePath={page.url.pathname} />
 	</div>
 </section>
 

@@ -1,7 +1,7 @@
 <script>
   import PlacelistFilter from '$lib/components/PlacelistFilter.svelte';
   import InputCollector from '$lib/components/InputCollector.svelte';
-  import { page } from '$app/stores';
+  import { page } from '$app/state';
   import { t } from 'svelte-i18n';
 
   const heroPhoto = '/images/hero-images/bd927f92-c9c2-4b92-9a82-27be84699571_rw_1920.webp';
@@ -28,7 +28,7 @@
     <div class="tool-card-content">
       <h2>{$t('tools.spotMapFinder.addMapTitle')}</h2>
       <p>{$t('tools.spotMapFinder.addMapDescription')}</p>
-      <InputCollector pagePath={$page.url.pathname} />
+      <InputCollector pagePath={page.url.pathname} />
     </div>
   </div>
 </section>

@@ -1,51 +1,51 @@
 <script>
-    import { page } from '$app/stores';
+    import { page } from '$app/state';
     import { locale } from 'svelte-i18n';
     import { pageMetadata, SITE_ORIGIN } from '$lib/seo';
     import { structuredPage, safeJsonLd } from '$lib/eventData';
-    $: metadata = pageMetadata($page.url.pathname, {
-        event: $page.data.event,
-        gym: $page.data.gym,
-        now: $page.data.now,
-        status: $page.status,
+    let metadata = $derived(pageMetadata(page.url.pathname, {
+        event: page.data.event,
+        gym: page.data.gym,
+        now: page.data.now,
+        status: page.status,
         language: $locale
-    });
-    $: noindex =
+    }));
+    let noindex = $derived(
         metadata.noindex ||
-        $page.data.archiveUnavailable ||
-        $page.data.historyIncomplete ||
-        ($page.url.pathname === '/jams/archive' && $page.url.searchParams.has('region')) ||
-        ($page.url.pathname === '/open-gyms' && $page.url.searchParams.has('week'));
-    $: canonical =
+        page.data.archiveUnavailable ||
+        page.data.historyIncomplete ||
+        (page.url.pathname === '/jams/archive' && page.url.searchParams.has('region')) ||
+        (page.url.pathname === '/open-gyms' && page.url.searchParams.has('week')));
+    let canonical = $derived(
         metadata.canonical &&
-        $page.url.pathname === '/jams/archive' &&
-        $page.data.archivePage > 1 &&
-        $page.data.region === 'all'
-            ? `${metadata.canonical}?page=${$page.data.archivePage}`
-            : metadata.canonical;
-    $: structuredData =
+        page.url.pathname === '/jams/archive' &&
+        page.data.archivePage > 1 &&
+        page.data.region === 'all'
+            ? `${metadata.canonical}?page=${page.data.archivePage}`
+            : metadata.canonical);
+    let structuredData = $derived(
         canonical && !noindex
             ? safeJsonLd(
                   structuredPage(
                       { ...metadata, canonical },
                       {
-                          path: $page.url.pathname,
-                          event: $page.data.event,
-                          gym: $page.data.gym,
-                          gyms: $page.data.gyms,
-                          events: $page.data.calendarUnavailable ? undefined : $page.data.events,
+                          path: page.url.pathname,
+                          event: page.data.event,
+                          gym: page.data.gym,
+                          gyms: page.data.gyms,
+                          events: page.data.calendarUnavailable ? undefined : page.data.events,
                           language: $locale
                       }
                   )
               )
-            : null;
+            : null);
 </script>
 
 <svelte:head>
     <title>{metadata.title}</title>
     <meta name="description" content={metadata.description} />
     <link rel="describedby" href={`${SITE_ORIGIN}/llms.txt`} type="text/plain" />
-    {#if $page.url.pathname === '/jams'}
+    {#if page.url.pathname === '/jams'}
         <link rel="alternate" href={`${SITE_ORIGIN}/jams.md`} type="text/markdown" />
         <link rel="alternate" href={`${SITE_ORIGIN}/api/jams`} type="application/json" />
     {/if}

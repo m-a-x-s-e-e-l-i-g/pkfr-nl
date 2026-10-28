@@ -1,13 +1,13 @@
 <!-- This page handles any error encountered by the site. -->
 <script>
-import { page } from '$app/stores'
+import { page } from '$app/state'
 import { t } from 'svelte-i18n'
 </script>
 
 <div class="error-container">
 	<div class="error-content">
 		<div class="error-text">
-			<h1 class="error-code">{$page.status}</h1>
+			<h1 class="error-code">{page.status}</h1>
 			<h2 class="error-message">{$t('error.message')}</h2>
 			<p class="error-subtitle">{$t('error.subtitle')}</p>
 			<a href="/" class="button">{$t('error.backHome')}</a>

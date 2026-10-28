@@ -1,6 +1,6 @@
 <script>
 	import InputCollector from '$lib/components/InputCollector.svelte';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import OpenGymsShortList from '$lib/components/calendar/OpenGymsShortList.svelte';
 	import { jamDate } from '$lib/jamEvents';
 	import { locale } from 'svelte-i18n';
@@ -11,7 +11,7 @@
 	import { t } from 'svelte-i18n';
 
 	const heroPhoto = '/images/gyms/progression-academy/progression-academy-purmerend-3.jpg';
-	export let data;
+	let { data } = $props();
 </script>
 
 
@@ -84,7 +84,7 @@
 <section class="content-section">
 	<div class="section-card">
 		<h2>{$t('openGyms.submitTitle')}</h2>
-		<InputCollector pagePath={$page.url.pathname}/>
+		<InputCollector pagePath={page.url.pathname}/>
 	</div>
 </section>
 
