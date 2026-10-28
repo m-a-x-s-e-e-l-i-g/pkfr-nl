@@ -38,7 +38,7 @@ npm run dev -- --open
 
 Notes
 
-- You need Node.js + npm installed. The site uses the commands defined in `package.json`.
+- You need Node.js 22.17 or newer and npm installed. Netlify builds use Node 22. The site uses the commands defined in `package.json`; SvelteKit, Markdown and Sass preprocessing are configured in `vite.config.js`.
 - Add credentials to a local `.env` (or `.env.local`) for any Google API keys or calendar IDs used by the app.
 
 ## Configuration & content locations 🔎
