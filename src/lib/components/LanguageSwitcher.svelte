@@ -1,5 +1,6 @@
 <script>
 	import { locale, t } from 'svelte-i18n';
+	import { detectLocale } from '$lib/i18n';
 
 	function switchLanguage(lang) {
 		$locale = lang;
@@ -14,10 +15,7 @@
 	// Load saved language preference on component mount
 	import { onMount } from 'svelte';
 	onMount(() => {
-		const savedLocale = localStorage.getItem('locale');
-		if (savedLocale && savedLocale !== $locale) {
-			$locale = savedLocale;
-		}
+		$locale = detectLocale();
 	});
 </script>
 
@@ -78,14 +76,14 @@
 	.flag-btn:hover {
 		opacity: 0.9;
 		transform: translateY(-1px);
-		background-color: hsl(var(--muted));
-		border-color: hsl(var(--border));
+		background-color: var(--color-muted);
+		border-color: var(--color-border);
 	}
 
 	.flag-btn.active {
 		opacity: 1;
-		background-color: hsl(var(--accent) / 0.08);
-		border-color: hsl(var(--accent) / 0.2);
+		background-color: color-mix(in oklch, var(--color-accent) 12%, transparent);
+		border-color: color-mix(in oklch, var(--color-accent) 35%, var(--color-border));
 	}
 
 	.flag-btn svg {
@@ -113,4 +111,3 @@
 		}
 	}
 </style>
-

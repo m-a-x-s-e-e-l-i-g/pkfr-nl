@@ -1,4 +1,9 @@
 {
+    "common": {
+        "viewAll": "View all",
+        "viewTools": "View tools",
+        "joinWhatsapp": "Join WhatsApp"
+    },
     "nav": {
         "spots": "Spots",
         "jams": "Jams & Events",
@@ -9,12 +14,20 @@
     "home": {
         "title": "The spot for the Dutch parkour / freerunning scene",
         "subtitle": "Everything you need to be part of and stay up to date with the Dutch parkour and freerunning community.",
-        "upcomingOpenGyms": "Upcoming Open Gyms",
+        "quickNavTitle": "Quick navigation",
+        "quickNav": {
+            "spotsDescription": "Find training locations",
+            "jamsDescription": "Upcoming events",
+            "openGymsDescription": "Train indoors",
+            "toolsDescription": "Helpful tools"
+        },
+        "upcomingOpenGyms": "Open gyms today & tomorrow",
         "viewAllOpenGyms": "View all open gyms",
         "whatsappCommunity": "WhatsApp Community",
         "whatsappDescription": "The Dutch parkour and freerunning community is mainly active on WhatsApp. <a href=\"https://chat.whatsapp.com/GamwcVgPYnq3UbKog2H9M8\" rel=\"noreferrer\" target=\"_blank\">Join the community</a>, so you can easily find people to session with.",
         "aboutTitle": "About pkfr.nl",
-        "aboutDescription": "The goal of pkfr.nl is to have all useful information about freerunning and parkour in one place. Here you'll find overviews of the <a href=\"/spots\">best spots</a>, <a href=\"/open-gyms\">open gyms</a> and <a href=\"/links\">community links</a>."
+        "aboutDescription": "The goal of pkfr.nl is to have all useful information about freerunning and parkour in one place. Here you'll find overviews of the <a href=\"/spots\">best spots</a>, <a href=\"/open-gyms\">open gyms</a> and <a href=\"/links\">community links</a>.",
+        "featuredToolsTitle": "Featured tools"
     },
     "events": {
         "upcomingEvent": "On {date} is the next event: <b>{title}</b>.",
@@ -22,9 +35,32 @@
         "addToCalendar": "Add to my calendar",
         "viewAllEvents": "View all events"
     },
+    "openGymSchedule": {
+        "today": "Today",
+        "tomorrow": "Tomorrow",
+        "sessions": "{count, plural, one {# session} other {# sessions}}",
+        "emptyDay": "No open gyms scheduled for this day.",
+        "unavailable": "The open gym schedule is temporarily unavailable.",
+        "viewCalendar": "View the full open gym calendar",
+        "eventDetails": "View session in Google Calendar",
+        "note": "Times in the Netherlands. Open a session for details; some sessions require advance registration.",
+        "weekTitle": "Open gym schedule",
+        "navigation": "Browse the open gym schedule",
+        "previousWeek": "Previous seven days",
+        "nextWeek": "Next seven days"
+    },
+    "calendarSubscriptions": {
+        "label": "Calendar subscription options",
+        "description": "Live subscription: new and changed events appear automatically. Refresh timing is controlled by your calendar app.",
+        "google": "Subscribe in Google Calendar",
+        "ical": "Subscribe in calendar app"
+    },
     "spots": {
         "title": "Spots",
         "description": "Finding parkour spots can take time, unless you already know where they are! Here you'll find apps, maps and lists that are great for spots in the Netherlands. Looking for something indoors? Try the <a href=\"/tools/gym-finder\">Gym Finder</a>.",
+        "parkourSpotTitle": "Parkour.Spot",
+        "parkourSpotDescription": "Parkour.Spot is the ultimate community-powered spot collection — 28,000+ locations synced with public maps, and recovered from legacy sources. Spots can be categorized and rated. Open-source, constantly growing, and built by Ward Weistra — absolute fucking legend.",
+        "parkourSpotButton": "Explore Parkour.Spot",
         "spotMapsTitle": "Spot maps from freerunners",
         "spotMapsDescription": "Excellent parkour spot maps from Dutch freerunners. These maps help you quickly find local spots and are ideal for anyone looking for new training locations. Do you have a spot map of your region? Feel free to share it using the button below!",
         "shareSpotList": "Share your spot list here!",
@@ -37,16 +73,23 @@
     },
     "jams": {
         "pageTitle": "Jams & Events",
-        "heading": "Jams & events",
-        "intro": "Jams are an important part of the freerun community. They are where you meet new people, train together and learn from each other. Below you'll find an overview of upcoming jams and events in the Netherlands.",
+        "heading": "Dutch parkour & freerunning calendar",
+        "intro": "Find parkour jams and freerunning events in the Netherlands in the pkfr.nl community calendar. Discover where and when to train together, meet new people and learn from each other.",
         "upcomingTitle": "Upcoming jams & events",
         "upcomingSubtitle": "Jams & Events from the Dutch Freerun Community",
-        "addToCalendar": "Add to calendar",
-        "addToCalendarShort": "Add",
-        "downloadICal": "Download iCal",
-        "downloadShort": "Download",
-        "openCalendar": "Open calendar",
-        "openShort": "Open",
+        "fullCalendarTitle": "Complete jam calendar",
+        "fullCalendarDescription": "Sync all events with Google Calendar for automatic updates. Prefer a one-time download of the complete calendar? Choose the iCal file (.ics).",
+        "addToCalendar": "Sync complete calendar",
+        "downloadICal": "Download complete calendar",
+        "openCalendar": "Open complete calendar",
+        "sourceTitle": "About this calendar",
+        "sourceDescription": "pkfr.nl brings together parkour jams and freerunning events in the Netherlands. Max Seelig maintains the calendar with contributions from the Dutch freerunning community. Dates, locations and descriptions come from the published community calendar.",
+        "sourceNote": "Open an event page for the available information and source links. Check with the organizer for registration requirements and any changes.",
+        "sourceFetched": "Calendar retrieved on {date} (Netherlands time).",
+        "sourceCorrection": "Missing an event or spotted an error? Submit an event or correction",
+        "dataLabel": "Calendar for websites and apps:",
+        "dataText": "Text version",
+        "dataJson": "JSON feed",
         "submitTitle": "Submit a jam or event",
         "submitDescription": "Are you organizing a jam? Or is an event missing from the calendar? Share it with the rest of the community!",
         "notificationsTitle": "Receive notifications",
@@ -54,13 +97,38 @@
         "followWhatsapp": "Follow the WhatsApp channel",
         "europeTitle": "Jams in Europe",
         "europeDescription": "Nice that you want to be involved with the international community! Check this calendar maintained by MATTTMA, with jams across Europe.",
-        "europeButton": "Freerun jams in Europe"
+        "europeButton": "Freerun jams in Europe",
+        "americaTitle": "Jams in America",
+        "americaDescription": "Check this community calendar from American Parkour with jams and events across North America and beyond.",
+        "americaButton": "Freerun jams in America"
+    },
+    "jamsEurope": {
+        "pageTitle": "Jams in Europe",
+        "heading": "Freerun jams in Europe",
+        "intro": "Here you can find the international calendar with jams across Europe.",
+        "calendarTitle": "European jam calendar",
+        "calendarIntro": "An overview of European jams shared by the international community.",
+        "sourceTitle": "Source & credits",
+        "sourceDescription": "This calendar is sourced from MATTTMA. Big thanks for maintaining this community overview.",
+        "sourceButton": "View source on matttma.de",
+        "backButton": "Back to Dutch jams"
+    },
+    "jamsAmerica": {
+        "pageTitle": "Jams in America",
+        "heading": "Freerun jams in America",
+        "intro": "Here you can find the community calendar from American Parkour with jams and events across America.",
+        "calendarTitle": "American jam calendar",
+        "calendarIntro": "An overview of community events from American Parkour.",
+        "sourceTitle": "Source & credits",
+        "sourceDescription": "This calendar is sourced from American Parkour Community Events.",
+        "sourceButton": "View source on americanparkour.com",
+        "backButton": "Back to Dutch jams"
     },
     "openGyms": {
         "pageTitle": "Open Gyms",
         "heading": "Open Gyms",
         "intro": "At an open gym you can train at your favorite indoor freerun gym without a membership. There are locations across the country, but note: you sometimes need to register.",
-        "finder": "Curious how a gym looks or which ones are near you? Check the <a href=\"/tools/gym-finder\">Gym Finder</a>.",
+        "finder": "Curious how a gym looks or which ones are near you? Check the Gym Finder.",
         "submitTitle": "Submit a change",
         "addToCalendar": "Add to calendar",
         "addToCalendarShort": "Add",
@@ -114,7 +182,8 @@
     "site": {
         "title": "pkfr.nl",
         "titlePostfix": "- Parkour & Freerunning Community Netherlands",
-        "description": "The spot for the Dutch parkour & freerunning community."
+        "description": "The spot for the Dutch parkour & freerunning community.",
+        "tagline": "The Dutch Parkour & Freerunning Community"
     },
     "language": {
         "switch": "Change language",
@@ -124,20 +193,27 @@
     "links": {
         "pageTitle": "Community Links",
         "heading": "Community Links",
+        "heroDescription": "Useful links for the Dutch parkour community.",
         "whatsappCommunity": "WhatsApp Community NL",
         "whatsappTraining": "WhatsApp Training Group NL",
-        "instagram": "Instagram (Parkourculture)",
-        "spotifyPlaylist": "Spotify playlist",
+        "parkourSpot": "parkour.spot",
+        "jumpflixTv": "jumpflix.tv",
         "parkourcultureWebsite": "Parkourculture website (for classes, workshops and kids parties in and around Utrecht)",
+        "weaveMuseumTitle": "Weave PK: Digital Parkour & Freerun Museum",
         "nlParkourPulse": "NL Parkour Pulse: Fresh videos",
         "mustWatch": "Must Watch: The Ultimate Playlist"
     },
     "tools": {
         "pageTitle": "Tools",
         "heading": "Tools",
+        "heroDescription": "Useful tools for the Dutch parkour community.",
         "jumpflix": {
             "name": "JUMPFLIX",
             "description": "Discover parkour movies, documentaries and playlists."
+        },
+        "parkourSpot": {
+            "name": "parkour.spot",
+            "description": "Discover and share parkour spots worldwide through the community map."
         },
         "distanceConverter": {
             "name": "Distance Analyzer 5000™",
@@ -157,12 +233,57 @@
             "description": "Quickly find the nearest indoor freerun gym in your area.",
             "pageTitle": "Gym Finder",
             "heading": "Gym Finder",
-            "intro": "Here you'll find <b>{count}</b> indoor freerun <b>gyms</b> in the Netherlands! You can view all gyms on a map or browse them individually below.",
+            "intro": "Discover <b>{count}</b> freerun locations in the Netherlands. Explore each gym’s photos, location and training, or find one on the map.",
             "viewAllOnMap": "View all gyms on map",
             "permissionTitle": "Allow pkfr.nl to access your location.",
             "permissionDescription": "Share your location so the list can be sorted by distance.",
             "viewLocation": "View Location",
             "visitWebsite": "Visit Website"
+        },
+        "sessionGoals": {
+            "name": "Session Goals",
+            "description": "Track your parkour progress and set goals for your training sessions."
+        }
+    },
+    "gymDetails": {
+        "breadcrumb": "Gym navigation",
+        "eyebrow": "Parkour & freerunning",
+        "officialWebsite": "Official website",
+        "directions": "Directions to the gym",
+        "photos": "Gym photos",
+        "photo": "photo",
+        "showPhoto": "Show photo",
+        "locationNotice": "About this location",
+        "facilities": "Activities & facilities",
+        "sessions": "Upcoming open gyms",
+        "sessionRange": "The next 7 days · from the pkfr.nl community calendar",
+        "sessionDetails": "View calendar event",
+        "registration": "Registration may be required. Check access, age requirements and any changes with the gym.",
+        "noSessions": "No linked sessions are listed in our calendar for the next 7 days. The gym may offer more: check its official schedule.",
+        "unavailable": "The community calendar is temporarily unavailable. Check the official schedule for current sessions.",
+        "allSessions": "View the full open gym calendar",
+        "planVisit": "Plan your visit",
+        "addressUnconfirmed": "Previously listed address · current indoor location unconfirmed",
+        "schedulePrices": "Schedule, prices & registration",
+        "checkBeforeVisit": "Schedules, prices and entry requirements can change. Check the official website for current information.",
+        "sources": "Official sources",
+        "reviewed": "Sources reviewed on",
+        "nearby": "Nearby gyms",
+        "allGyms": "All gyms",
+        "straightLine": "in a straight line",
+        "viewGym": "View gym & training",
+        "features": {
+            "lessons": "Freerunning classes",
+            "openGym": "Free training",
+            "foamPit": "Foam pit",
+            "airbag": "Airbag",
+            "airtrack": "Airtrack",
+            "parties": "Birthday parties",
+            "workshops": "Workshops",
+            "modular": "Moveable obstacles",
+            "trampolines": "Trampolines",
+            "calisthenics": "Calisthenics",
+            "chaseTag": "Chase Tag"
         }
     },
     "distanceConverter": {
@@ -184,5 +305,55 @@
         "message": "Skrrrt",
         "subtitle": "U should've chalked your shoes.",
         "backHome": "Back to Home"
+    },
+    "jamAgenda": {
+        "next": "Up next",
+        "pastTitle": "This jam has finished",
+        "pastLabel": "Past jam",
+        "pastDescription": "This page is kept as an archive. Looking for your next jam?",
+        "upcomingAction": "Explore upcoming jams",
+        "allDay": "All day",
+        "locationPending": "Location to be announced",
+        "viewEvent": "View event",
+        "back": "All jams & events",
+        "about": "About this event",
+        "practical": "Practical info",
+        "date": "Date",
+        "time": "Time",
+        "location": "Location",
+        "localTime": "Times in the Netherlands",
+        "openMap": "View on the map",
+        "calendarSource": "Open in Google Calendar",
+        "eventSource": "View original event source",
+        "sourceTime": "Times as supplied by the organiser",
+        "descriptionPending": "No description has been added yet. Check the calendar or follow the community for updates.",
+        "emptyTitle": "No upcoming jams scheduled yet",
+        "emptyDescription": "Organising a jam? Share your event with the community. Follow WhatsApp for new events.",
+        "unavailableTitle": "The calendar is temporarily unavailable",
+        "unavailableDescription": "Try again or open Google Calendar using the link below.",
+        "internationalEmptyDescription": "There are currently no upcoming jams in this calendar. Check the source for updates.",
+        "internationalUnavailableDescription": "The calendar could not be loaded. Try again or visit the source at the bottom of this page.",
+        "retry": "Try again"
+    },
+    "jamArchive": {
+        "badge": "Jam archive",
+        "title": "Past jams & events",
+        "description": "Past jams from the Dutch, European and American Parkour calendars, including their available history and saved events. Open an event for its original dates and details.",
+        "count": "{count, plural, one {# past event} other {# past events}} in this calendar overview.",
+        "link": "Browse past jams",
+        "filterLabel": "Filter the jam archive",
+        "regions": {
+            "all": "All calendars",
+            "dutch": "Netherlands",
+            "europe": "Europe",
+            "america": "American Parkour"
+        },
+        "empty": "No past jams were found in this calendar.",
+        "partial": "Some calendar history could not be loaded. Available events are shown below; the overview may be incomplete. Please try again.",
+        "unavailable": "The jam archive is temporarily unavailable. Please try again later.",
+        "pagination": "Jam archive pages",
+        "previous": "Previous",
+        "next": "Next",
+        "page": "Page {page} of {pages}"
     }
 }

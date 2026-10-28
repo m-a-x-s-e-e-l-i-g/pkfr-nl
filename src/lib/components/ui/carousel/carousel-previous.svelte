@@ -33,10 +33,9 @@
 	)}
 	disabled={!$canScrollPrev}
 	onclick={scrollPrev}
-	on:keydown={handleKeyDown}
+	onkeydown={handleKeyDown}
 	{...rest}
 >
 	<ArrowLeft class="h-4 w-4" />
 	<span class="sr-only">Previous slide</span>
 </Button>
-

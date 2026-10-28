@@ -31,8 +31,6 @@
 	class={cn(buttonVariants({ variant, size, className }))}
 	type="button"
 	{...rest}
-	on:click
-	on:keydown
 >
 	{@render children?.()}
 </ButtonPrimitive.Root>

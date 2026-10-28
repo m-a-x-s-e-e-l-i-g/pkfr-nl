@@ -6,7 +6,7 @@ const defaultLocale = 'nl';
 register('en', () => import('./locales/en.json'));
 register('nl', () => import('./locales/nl.json'));
 
-function detectLocale() {
+export function detectLocale() {
 	if (browser) {
 		// Check localStorage first for saved preference
 		const savedLocale = localStorage.getItem('locale');
@@ -37,5 +37,9 @@ function detectLocale() {
 
 init({
 	fallbackLocale: defaultLocale,
-	initialLocale: detectLocale(),
+	// Hydrate the Dutch server HTML first; restore preferences after mounting.
+	initialLocale: defaultLocale,
 });
+
+// Keep the document language aligned with the language selected by the visitor.
+if (browser) locale.subscribe(value => { document.documentElement.lang = value || defaultLocale; });

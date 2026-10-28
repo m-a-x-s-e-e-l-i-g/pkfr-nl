@@ -4,11 +4,19 @@ import tailwindcss from '@tailwindcss/vite';
 /** @type {import('vite').UserConfig} */
 const config = {
     plugins: [tailwindcss(), sveltekit()],
+    define: {
+        __NETLIFY_DEPLOY_CONTEXT__: JSON.stringify(process.env.CONTEXT || 'local')
+    },
     resolve: {
         dedupe: ['@fullcalendar/common']
     },
     optimizeDeps: {
         include: ['@fullcalendar/common']
+    },
+    ssr: {
+        // Netlify's function runtime cannot require the sanitizer's ESM parser.
+        // Bundle the parser with the sanitizer instead of loading it at runtime.
+        noExternal: ['sanitize-html', 'htmlparser2', 'is-plain-object']
     },
     server: {
         watch: {

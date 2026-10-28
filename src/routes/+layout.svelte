@@ -5,14 +5,17 @@
 	import '../app.pcss';
 	import '$lib/assets/scss/global.scss';
 	import Header from '$lib/components/Header.svelte';
+	import Seo from '$lib/components/Seo.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import { currentPage, isMenuOpen } from '$lib/assets/js/store';
 	import { theme } from '$lib/stores/settings.js';
 	import { navItems } from '$lib/config';
+	import { siteTitle } from '$lib/config';
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import '$lib/i18n';
 	import { isLoading } from 'svelte-i18n';
+	import { outboundLinks } from '$lib/outboundLinks';
 	let { data, children } = $props();
 
 	const transitionIn = { delay: 150, duration: 150 };
@@ -36,16 +39,23 @@
 	The below markup is used on every page in the site. The <slot> is where the page's
 	actual contents will show up.
 -->
+<Seo />
+
 {#if !$isLoading}
-<div class="layout" class:open={$isMenuOpen}>
+<div class="page-wrapper" class:open={$isMenuOpen} use:outboundLinks>
 	<Header></Header>
 	{#key data.path}
-		<main id="main" tabindex="-1" in:fade|global={transitionIn} out:fade|global={transitionOut}>
+		<main id="main" tabindex="-1" class="main-content" in:fade|global={transitionIn} out:fade|global={transitionOut}>
 			{@render children?.()}
 		</main>
 	{/key}
 	<Footer></Footer>
 </div>
 {:else}
-<div class="loading">Loading...</div>
+<div class="min-h-screen flex items-center justify-center bg-background">
+	<div class="flex flex-col items-center gap-4">
+		<div class="font-black text-xl text-foreground lowercase">{siteTitle}</div>
+		<span class="text-muted-foreground">Loading...</span>
+	</div>
+</div>
 {/if}
