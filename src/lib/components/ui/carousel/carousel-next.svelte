@@ -32,8 +32,8 @@
 		className
 	)}
 	disabled={!$canScrollNext}
-	on:click={scrollNext}
-	on:keydown={handleKeyDown}
+	onclick={scrollNext}
+	onkeydown={handleKeyDown}
 	{...rest}
 >
 	<ArrowRight class="h-4 w-4" />
