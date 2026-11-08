@@ -45,6 +45,11 @@
 			<h2>{$t('spots.indoorSpotsTitle')}</h2>
 			<p>{@html $t('spots.indoorSpotsDescription')}</p>
 			<a href="/tools/gym-finder" class="button">{$t('spots.findGym')} →</a>
+			<p>
+				<a href="https://parkour.spot/list/TERjePbjxp849xKTsvrQ" target="_blank" rel="noopener noreferrer">
+					{$t('tools.gymFinder.parkourSpotList')} ↗
+				</a>
+			</p>
 		</div>
 	</div>
 </section>

@@ -235,6 +235,7 @@
             "heading": "Gym Finder",
             "intro": "Ontdek <b>{count}</b> freerunlocaties in Nederland. Bekijk elke gym met foto’s, locatiegegevens en trainingen, of zoek op de kaart.",
             "viewAllOnMap": "Bekijk alle gyms op kaart",
+            "parkourSpotList": "Nederlandse indoor gyms op parkour.spot",
             "permissionTitle": "Geef pkfr.nl locatierechten.",
             "permissionDescription": "Deel je locatie om de lijst te sorteren op afstand.",
             "viewLocation": "Bekijk Locatie",
