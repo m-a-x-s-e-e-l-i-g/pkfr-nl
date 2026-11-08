@@ -307,6 +307,11 @@
 				{$t('tools.gymFinder.viewAllOnMap')}
 			</a>
 		</div>
+		<p class="mt-4">
+			<a href="https://parkour.spot/list/TERjePbjxp849xKTsvrQ" target="_blank" rel="noopener noreferrer">
+				{$t('tools.gymFinder.parkourSpotList')} ↗
+			</a>
+		</p>
 	</div>
 </section>
 

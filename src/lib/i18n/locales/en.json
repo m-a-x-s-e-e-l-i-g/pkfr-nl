@@ -235,6 +235,7 @@
             "heading": "Gym Finder",
             "intro": "Discover <b>{count}</b> freerun locations in the Netherlands. Explore each gym’s photos, location and training, or find one on the map.",
             "viewAllOnMap": "View all gyms on map",
+            "parkourSpotList": "Dutch indoor gym list on parkour.spot",
             "permissionTitle": "Allow pkfr.nl to access your location.",
             "permissionDescription": "Share your location so the list can be sorted by distance.",
             "viewLocation": "View Location",
