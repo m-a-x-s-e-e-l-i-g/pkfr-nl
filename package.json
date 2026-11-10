@@ -59,7 +59,7 @@
     },
     "dependencies": {
         "@netlify/blobs": "^11.1.7",
-        "@tailwindcss/postcss": "^4.3.2",
+        "@tailwindcss/postcss": "^4.3.4",
         "@unpic/svelte": "^1.0.1",
         "embla-carousel-autoplay": "^8.6.0",
         "embla-carousel-svelte": "^8.6.0",
