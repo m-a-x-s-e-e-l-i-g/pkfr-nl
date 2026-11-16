@@ -13,11 +13,6 @@
         "test": "node --test"
     },
     "devDependencies": {
-        "@fullcalendar/common": "^5.11.5",
-        "@fullcalendar/core": "^6.1.21",
-        "@fullcalendar/daygrid": "^6.1.21",
-        "@fullcalendar/google-calendar": "^6.1.21",
-        "@fullcalendar/list": "^6.1.21",
         "@internationalized/date": "^3.12.4",
         "@lucide/svelte": "^1.22.0",
         "@sveltejs/adapter-netlify": "^7.0.1",
@@ -42,7 +37,6 @@
         "sass": "^1.101.0",
         "svelte": "^5.57.1",
         "svelte-confetti": "^2.3.2",
-        "svelte-fullcalendar": "^3.0.0",
         "tailwind-merge": "^3.6.0",
         "tailwind-variants": "^3.2.2",
         "tailwindcss": "^4.3.2",

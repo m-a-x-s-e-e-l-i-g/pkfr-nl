@@ -39,12 +39,6 @@ const config = {
     define: {
         __NETLIFY_DEPLOY_CONTEXT__: JSON.stringify(process.env.CONTEXT || 'local')
     },
-    resolve: {
-        dedupe: ['@fullcalendar/common']
-    },
-    optimizeDeps: {
-        include: ['@fullcalendar/common']
-    },
     ssr: {
         // Vite 8 leaves external CommonJS imports as __require calls, which
         // Netlify's function tracer can miss. Bundle the sanitizer's dependency
