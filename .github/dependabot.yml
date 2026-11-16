@@ -13,3 +13,7 @@ updates:
           npm-dependencies:
               patterns:
                   - '*'
+      ignore:
+          # SvelteKit 3.2 declares a TypeScript 6 peer dependency.
+          - dependency-name: 'typescript'
+            versions: ['7.x']
