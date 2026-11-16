@@ -21,7 +21,7 @@
         "@internationalized/date": "^3.12.2",
         "@lucide/svelte": "^1.22.0",
         "@sveltejs/adapter-netlify": "^7.0.1",
-        "@sveltejs/kit": "^3.0.0",
+        "@sveltejs/kit": "^3.1.1",
         "@sveltejs/vite-plugin-svelte": "^7.0.0",
         "@tailwindcss/vite": "^4.3.2",
         "@typescript-eslint/eslint-plugin": "8.72.1",
