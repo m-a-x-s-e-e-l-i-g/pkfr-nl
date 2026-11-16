@@ -14,7 +14,7 @@
     },
     "devDependencies": {
         "@fullcalendar/common": "^5.11.5",
-        "@fullcalendar/core": "^6.1.21",
+        "@fullcalendar/core": "^7.1.5",
         "@fullcalendar/daygrid": "^6.1.21",
         "@fullcalendar/google-calendar": "^6.1.21",
         "@fullcalendar/list": "^6.1.21",
